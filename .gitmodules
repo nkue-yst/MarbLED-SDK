@@ -1,6 +1,3 @@
-[submodule "thirdparty/Adafruit_ADS1X15"]
-	path = thirdparty/Adafruit_ADS1X15
-	url = https://github.com/adafruit/Adafruit_ADS1X15.git
 [submodule "thirdparty/serial"]
 	path = thirdparty/serial
 	url = https://github.com/wjwwood/serial.git
