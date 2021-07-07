@@ -8,7 +8,7 @@
 #include "PanelBase.hpp"
 
 PanelBase::PanelBase(uint16_t width, uint16_t height)
-    : GFXcanvas1(width, height)
+    : Adafruit_GFX(width, height)
 {   
     width_ = width;
     height_ = height;
@@ -18,6 +18,11 @@ PanelBase::PanelBase(uint16_t width, uint16_t height)
         color_data_.push_back(0);
 
     color_data_[10] = 1;
+}
+
+void registerMatrixInfo()
+{
+    
 }
 
 void PanelBase::update()
@@ -41,4 +46,42 @@ void PanelBase::update()
     }
     
     this->writeDisplay();
+}
+
+void PanelBase::drawPixel(int16_t x, int16_t y, uint16_t color)
+{
+    if ((y < 0) || (y >= height_))
+        return;
+    if ((x < 0) || (x >= width_))
+        return;
+
+    switch (getRotation())
+    {
+    case 1:
+        _swap_int16_t(x, y);
+        x = width_ - x - 1;
+        break;
+    case 2:
+        x = width_ - x - 1;
+        y = height_ - y - 1;
+        break;
+    case 3:
+        _swap_int16_t(x, y);
+        y = height_ - y - 1;
+        break;
+    default:
+        break;
+    }
+
+    x += (width_ - 1);
+    x %= width_;
+
+    if (color)
+    {
+        displaybuffer[y] |= 1 << x;
+    }
+    else
+    {
+        displaybuffer[y] &= ~(1 << x);
+    }
 }
