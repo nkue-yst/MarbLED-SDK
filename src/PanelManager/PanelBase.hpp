@@ -53,8 +53,7 @@ protected:
      */
     int calcY(int y) { return (y + 1) % height_; }
     
-    std::vector<int> color_data_;
-    std::vector<int> chip_data_;
+    std::vector<class PixelInfo> pixels_info_;
     uint16_t width_;
     uint16_t height_;
 };
