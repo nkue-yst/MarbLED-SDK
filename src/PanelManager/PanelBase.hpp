@@ -18,7 +18,6 @@
  */
 class PanelBase : public Adafruit_LEDBackpack, public Adafruit_GFX
 {
-public:
     PanelBase(uint16_t width, uint16_t height);
 
     /**
@@ -53,7 +52,9 @@ protected:
      */
     int calcY(int y) { return (y + 1) % height_; }
     
+    //! 各ピクセルの情報を格納する配列
     std::vector<class PixelInfo> pixels_info_;
+
     uint16_t width_;
     uint16_t height_;
 };
