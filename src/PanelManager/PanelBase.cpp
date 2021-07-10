@@ -6,7 +6,7 @@
  */
 
 #include "PanelBase.hpp"
-#include "PixelInfo.hpp"
+#include <utility>
 
 PanelBase::PanelBase(uint16_t width, uint16_t height)
     : Adafruit_GFX(width, height)
@@ -60,7 +60,7 @@ void PanelBase::drawPixel(int16_t x, int16_t y, uint16_t color)
     switch (getRotation())
     {
     case 1:
-        _swap_int16_t(x, y);
+        std::swap(x, y);
         x = width_ - x - 1;
         break;
     case 2:
@@ -68,7 +68,7 @@ void PanelBase::drawPixel(int16_t x, int16_t y, uint16_t color)
         y = height_ - y - 1;
         break;
     case 3:
-        _swap_int16_t(x, y);
+        std::swap(x, y);
         y = height_ - y - 1;
         break;
     default:

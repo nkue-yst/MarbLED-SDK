@@ -8,6 +8,7 @@
 #ifndef PANEL_BASE_HPP
 #define PANEL_BASE_HPP
 
+#include "PixelInfo.hpp"
 #include <vector>
 #include <Adafruit_GFX.h>
 #include <Adafruit_LEDBackpack.h>
@@ -18,6 +19,7 @@
  */
 class PanelBase : public Adafruit_LEDBackpack, public Adafruit_GFX
 {
+public:
     PanelBase(uint16_t width, uint16_t height);
 
     /**
@@ -36,7 +38,6 @@ class PanelBase : public Adafruit_LEDBackpack, public Adafruit_GFX
      * @fn void drawPixel(int16_t x, int16_t y, uint16_t color)
      * @brief 指定座標を指定した色で点灯する（現状1bit）
      */
-    ))
     void drawPixel(int16_t x, int16_t y, uint16_t color) override;
 
 protected:
@@ -53,7 +54,7 @@ protected:
     int calcY(int y) { return (y + 1) % height_; }
     
     //! 各ピクセルの情報を格納する配列
-    std::vector<class PixelInfo> pixels_info_;
+    std::vector<PixelInfo> pixels_info_;
 
     uint16_t width_;
     uint16_t height_;

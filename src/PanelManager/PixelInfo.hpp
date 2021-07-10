@@ -20,7 +20,7 @@ enum class EChipType : uint8_t
     LED,
     IR_LED,
     IR_RCV,
-}
+};
 
 /**
  * @struct PixelInfo
