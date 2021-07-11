@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "cdepru",
   1: "p",
   2: "p",
-  3: "cdru",
+  3: "cdpru",
   4: "p",
   5: "e"
 };

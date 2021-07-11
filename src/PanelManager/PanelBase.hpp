@@ -20,13 +20,11 @@
 class PanelBase : public Adafruit_LEDBackpack, public Adafruit_GFX
 {
 public:
-    PanelBase(uint16_t width, uint16_t height);
-
     /**
-     * @fn void registerMatrixInfo()
-     * @brief マトリクスの各ピクセルの情報を登録する
+     * @fn PanelBase(uint16_t width, uint16_t height)
+     * @brief 矩形マトリクスLED用コンストラクタ
      */
-    void registerMatrixInfo();
+    PanelBase(uint16_t width = 8, uint16_t height = 8);
 
     /**
      * @fn void update()
@@ -41,6 +39,12 @@ public:
     void drawPixel(int16_t x, int16_t y, uint16_t color) override;
 
 protected:
+    /**
+     * @fn void registerMatrixInfo()
+     * @brief マトリクスの各ピクセルの情報を登録する
+     */
+    virtual void registerMatrixInfo() = 0;
+
     /**
      * @fn int calcX(int x)
      * @brief 指定したいx座標をLEDパネル上のx座標に変換する

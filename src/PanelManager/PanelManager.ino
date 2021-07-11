@@ -5,16 +5,15 @@
  * @date 2021/07/05
  */
 
-#include "PanelBase.hpp"
+#include "Panel_8x8.hpp"
 
-PanelBase panel = PanelBase(8, 8);
+Panel_8x8 panel = Panel_8x8();
 
 void setup()
 {
     Serial.begin(115200);
     
     panel.begin(0x70);
-    panel.setRotation(3);
 }
 
 void loop()
