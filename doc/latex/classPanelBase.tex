@@ -1,0 +1,76 @@
+\hypertarget{classPanelBase}{}\section{Panel\+Base Class Reference}
+\label{classPanelBase}\index{Panel\+Base@{Panel\+Base}}
+
+
+1枚の\+L\+E\+Dパネルを表すクラス  
+
+
+
+
+{\ttfamily \#include $<$Panel\+Base.\+hpp$>$}
+
+
+
+Inheritance diagram for Panel\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classPanelBase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Panel\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{classPanelBase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPanelBase_a0f76bbbbc0085b494cd9ed3ab8e61a42}\label{classPanelBase_a0f76bbbbc0085b494cd9ed3ab8e61a42}} 
+{\bfseries Panel\+Base} (uint16\+\_\+t width, uint16\+\_\+t height)
+\item 
+\mbox{\Hypertarget{classPanelBase_a9542aee20715ce1392aa7468f6c51ad8}\label{classPanelBase_a9542aee20715ce1392aa7468f6c51ad8}} 
+void \hyperlink{classPanelBase_a9542aee20715ce1392aa7468f6c51ad8}{register\+Matrix\+Info} ()
+\begin{DoxyCompactList}\small\item\em マトリクスの各ピクセルの情報を登録する \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPanelBase_aece79bece96754da41945381d63a08fb}\label{classPanelBase_aece79bece96754da41945381d63a08fb}} 
+void \hyperlink{classPanelBase_aece79bece96754da41945381d63a08fb}{update} ()
+\begin{DoxyCompactList}\small\item\em メインループにて\+L\+E\+D全体の点灯状態を更新する \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPanelBase_a45f3a84f68861b3ae1bb34056bfd0d12}\label{classPanelBase_a45f3a84f68861b3ae1bb34056bfd0d12}} 
+void \hyperlink{classPanelBase_a45f3a84f68861b3ae1bb34056bfd0d12}{draw\+Pixel} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color) override
+\begin{DoxyCompactList}\small\item\em 指定座標を指定した色で点灯する（現状1bit） \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPanelBase_a4f9d7f1571a34a91574f078e5be49826}\label{classPanelBase_a4f9d7f1571a34a91574f078e5be49826}} 
+int \hyperlink{classPanelBase_a4f9d7f1571a34a91574f078e5be49826}{calcX} (int x)
+\begin{DoxyCompactList}\small\item\em 指定したいx座標を\+L\+E\+Dパネル上のx座標に変換する \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPanelBase_a0d128c31d63506c90d2d103a07ef5ac9}\label{classPanelBase_a0d128c31d63506c90d2d103a07ef5ac9}} 
+int \hyperlink{classPanelBase_a0d128c31d63506c90d2d103a07ef5ac9}{calcY} (int y)
+\begin{DoxyCompactList}\small\item\em 指定したいy座標を\+L\+E\+Dパネル上のy座標に変換する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPanelBase_a2bd215863e490bf3d5e53f97ae1268fd}\label{classPanelBase_a2bd215863e490bf3d5e53f97ae1268fd}} 
+std\+::vector$<$ \hyperlink{structPixelInfo}{Pixel\+Info} $>$ \hyperlink{classPanelBase_a2bd215863e490bf3d5e53f97ae1268fd}{pixels\+\_\+info\+\_\+}
+\begin{DoxyCompactList}\small\item\em 各ピクセルの情報を格納する配列 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPanelBase_a46af10a6ac5867c26b5ae13406f7c710}\label{classPanelBase_a46af10a6ac5867c26b5ae13406f7c710}} 
+uint16\+\_\+t {\bfseries width\+\_\+}
+\item 
+\mbox{\Hypertarget{classPanelBase_a11f4802767a6e7954ff6e288cf94d21d}\label{classPanelBase_a11f4802767a6e7954ff6e288cf94d21d}} 
+uint16\+\_\+t {\bfseries height\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+1枚の\+L\+E\+Dパネルを表すクラス 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Panel\+Manager/\hyperlink{PanelBase_8hpp}{Panel\+Base.\+hpp}\item 
+src/\+Panel\+Manager/\hyperlink{PanelBase_8cpp}{Panel\+Base.\+cpp}\end{DoxyCompactItemize}
