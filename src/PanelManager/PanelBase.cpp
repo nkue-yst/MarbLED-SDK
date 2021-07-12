@@ -2,7 +2,7 @@
  * @file PanelBase.cpp
  * @brief LEDパネルの基底クラスの実装
  * @author Yoshito Nakaue
- * @date 2021/07/05
+ * @date 2021/07/13
  */
 
 #include "PanelBase.hpp"
@@ -40,18 +40,20 @@ void PanelBase::drawPixel(int16_t x, int16_t y, uint16_t color)
     if ((x < 0) || (x >= width_))
         return;
 
+    int led_num = y * width_ + x;
+
     // 指定座標のチップがLEDでなければ何もしない
-    if (pixels_info_[y * width_ + x].type_ != EChipType::LED)
+    if (pixels_info_[led_num].type_ != EChipType::LED)
         return;
 
-    /* 独自パネル構成より座標を再変換する必要アリ */
-    /* ここから */
+    x = led_num % 8;
+    y = led_num / 8;
+
     std::swap(x, y);
     y = height_ - y - 1;
 
     x += (width_ - 1);
     x %= width_;
-    /* ここまで */
 
     if (color)
     {

@@ -2,7 +2,7 @@
  * @file PanelBase.hpp
  * @brief LEDパネルの基底クラス
  * @author Yoshito Nakaue
- * @date 2021/07/05
+ * @date 2021/07/13
  */
 
 #ifndef PANEL_BASE_HPP
@@ -45,6 +45,10 @@ protected:
      */
     virtual void registerMatrixInfo() = 0;
 
+    //! 各ピクセルの情報を格納する配列
+    std::vector<PixelInfo> pixels_info_;
+
+private:
     /**
      * @fn int calcX(int x)
      * @brief 指定したいx座標をLEDパネル上のx座標に変換する
@@ -56,12 +60,12 @@ protected:
      * @brief 指定したいy座標をLEDパネル上のy座標に変換する
      */
     int calcY(int y) { return (y + 1) % height_; }
-    
-    //! 各ピクセルの情報を格納する配列
-    std::vector<PixelInfo> pixels_info_;
 
-    uint16_t width_;   //! パネル全体の横幅
-    uint16_t height_;  //! パネル全体の高さ
+    //! パネル全体の横幅
+    uint16_t width_;
+    
+    //! パネル全体の高さ
+    uint16_t height_;
 };
 
 #endif

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['registermatrixinfo',['registerMatrixInfo',['../classPanelBase.html#a93b3be0e1305053c49d41e60e5bcd95c',1,'PanelBase']]]
+  ['type_5f',['type_',['../structPixelInfo.html#a3591ab17d9760da336e281c1e37682be',1,'PixelInfo']]]
 ];

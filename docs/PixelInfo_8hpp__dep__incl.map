@@ -1,6 +1,7 @@
 <map id="src/PanelManager/PixelInfo.hpp" name="src/PanelManager/PixelInfo.hpp">
 <area shape="rect" id="node2" href="$PanelBase_8hpp.html" title="LEDパネルの基底クラス " alt="" coords="86,80,305,107"/>
-<area shape="rect" id="node5" href="$PixelInfo_8cpp.html" title="各ピクセルの情報を格納する構造体の実装 " alt="" coords="329,80,536,107"/>
+<area shape="rect" id="node6" href="$PixelInfo_8cpp.html" title="各ピクセルの情報を格納する構造体の実装 " alt="" coords="329,80,536,107"/>
 <area shape="rect" id="node3" href="$Panel__8x8_8hpp.html" title="8x8サイズのLEDパネルクラス " alt="" coords="5,155,169,196"/>
-<area shape="rect" id="node4" href="$PanelBase_8cpp.html" title="LEDパネルの基底クラスの実装 " alt="" coords="194,162,413,189"/>
+<area shape="rect" id="node5" href="$PanelBase_8cpp.html" title="LEDパネルの基底クラスの実装 " alt="" coords="194,162,413,189"/>
+<area shape="rect" id="node4" href="$Panel__8x8_8cpp.html" title="8x8サイズのLEDパネルクラス " alt="" coords="5,244,169,285"/>
 </map>
