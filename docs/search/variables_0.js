@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pixels_5finfo_5f',['pixels_info_',['../classPanelBase.html#a2bd215863e490bf3d5e53f97ae1268fd',1,'PanelBase']]]
+  ['color_5f',['color_',['../structPixelInfo.html#ac211b0b05b1e918bba9fdff7c09a347a',1,'PixelInfo']]]
 ];

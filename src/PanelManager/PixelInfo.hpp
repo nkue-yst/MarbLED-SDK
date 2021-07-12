@@ -31,7 +31,10 @@ struct PixelInfo
 public:
     PixelInfo(EChipType type, int color);
 
+    //! パネル上に実装されている種類
     EChipType type_;
+
+    //! LEDが実装されている場合の色(点灯状態)
     int color_;
 };
 

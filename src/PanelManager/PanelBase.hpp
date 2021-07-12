@@ -60,8 +60,8 @@ protected:
     //! 各ピクセルの情報を格納する配列
     std::vector<PixelInfo> pixels_info_;
 
-    uint16_t width_;
-    uint16_t height_;
+    uint16_t width_;   //! パネル全体の横幅
+    uint16_t height_;  //! パネル全体の高さ
 };
 
 #endif
