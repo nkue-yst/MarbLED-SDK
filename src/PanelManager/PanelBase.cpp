@@ -15,7 +15,7 @@ PanelBase::PanelBase(uint16_t width, uint16_t height)
 }
 
 void PanelBase::update()
-{
+{   
     this->clear();
     
     for (int y = 0; y < height_; y++)
@@ -28,7 +28,7 @@ void PanelBase::update()
             }
         }
     }
-    
+
     this->writeDisplay();
 }
 
@@ -39,14 +39,16 @@ void PanelBase::drawPixel(int16_t x, int16_t y, uint16_t color)
     if ((x < 0) || (x >= width_))
         return;
 
-    int led_num = y * width_ + x;
+    int chip_num = y * width_ + x;
 
     // 指定座標のチップがLEDでなければ何もしない
-    if (pixels_info_[led_num].type_ != EChipType::LED)
+    if (pixels_info_[chip_num].type_ != EChipType::LED)
         return;
 
-    x = led_num % 8;
-    y = led_num / 8;
+    int led_id = pixels_info_[chip_num].led_ID_;
+
+    x = led_id % 8;
+    y = led_id / 8;
 
     std::swap(x, y);
     y = height_ - y - 1;

@@ -7,8 +7,9 @@
 
 #include "PixelInfo.hpp"
 
-PixelInfo::PixelInfo(EChipType type, int color)
+PixelInfo::PixelInfo(EChipType type, int color, int led_ID)
 {
-    type_ = type;
-    color_ = color;
+    type_   = type;
+    color_  = color;
+    led_ID_ = led_ID;
 }

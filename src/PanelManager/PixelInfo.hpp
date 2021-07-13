@@ -27,13 +27,16 @@ enum class EChipType : uint8_t
 struct PixelInfo
 {
 public:
-    PixelInfo(EChipType type, int color);
+    PixelInfo(EChipType type, int color = 0, int led_ID = -1);
 
     //! パネル上に実装されている種類
     EChipType type_;
 
     //! LEDが実装されている場合の色(点灯状態)
     int color_;
+
+    //! LEDの通し番号
+    int led_ID_;
 };
 
 #endif

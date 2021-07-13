@@ -6,6 +6,7 @@
  */
 
 #include "Panel_8x8.hpp"
+#include <chrono>
 
 Panel_8x8 panel = Panel_8x8();
 
@@ -18,6 +19,13 @@ void setup()
 
 void loop()
 {
+    // unsigned long start = micros();
+    
     panel.update();
+
+    /* 処理時間出力 */
+    // Serial.print(micros() - start);
+    // Serial.println(" μs");
+    
     delay(500);
 }

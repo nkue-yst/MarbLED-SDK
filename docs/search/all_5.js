@@ -1,4 +1,13 @@
 var searchData=
 [
-  ['registermatrixinfo',['registerMatrixInfo',['../classPanel__8x8.html#aa6caffa9c49e6b5817b48cb19f6a74e2',1,'Panel_8x8::registerMatrixInfo()'],['../classPanelBase.html#a9d6b4236ebe7df8e106ad196ff503d19',1,'PanelBase::registerMatrixInfo()']]]
+  ['panel_5f8x8',['Panel_8x8',['../classPanel__8x8.html',1,'Panel_8x8'],['../classPanel__8x8.html#af52db8ce00f41e085ef8c45371fcb6db',1,'Panel_8x8::Panel_8x8()']]],
+  ['panel_5f8x8_2ecpp',['Panel_8x8.cpp',['../Panel__8x8_8cpp.html',1,'']]],
+  ['panel_5f8x8_2ehpp',['Panel_8x8.hpp',['../Panel__8x8_8hpp.html',1,'']]],
+  ['panelbase',['PanelBase',['../classPanelBase.html',1,'PanelBase'],['../classPanelBase.html#ae67aa479a006ead3f7ab01c6ce41e26b',1,'PanelBase::PanelBase()']]],
+  ['panelbase_2ecpp',['PanelBase.cpp',['../PanelBase_8cpp.html',1,'']]],
+  ['panelbase_2ehpp',['PanelBase.hpp',['../PanelBase_8hpp.html',1,'']]],
+  ['pixelinfo',['PixelInfo',['../structPixelInfo.html',1,'']]],
+  ['pixelinfo_2ecpp',['PixelInfo.cpp',['../PixelInfo_8cpp.html',1,'']]],
+  ['pixelinfo_2ehpp',['PixelInfo.hpp',['../PixelInfo_8hpp.html',1,'']]],
+  ['pixels_5finfo_5f',['pixels_info_',['../classPanelBase.html#a2bd215863e490bf3d5e53f97ae1268fd',1,'PanelBase']]]
 ];

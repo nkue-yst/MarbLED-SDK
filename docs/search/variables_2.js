@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pixels_5finfo_5f',['pixels_info_',['../classPanelBase.html#a2bd215863e490bf3d5e53f97ae1268fd',1,'PanelBase']]]
+  ['led_5fid_5f',['led_ID_',['../structPixelInfo.html#abadbd532084ac9679797d645a4d9f9b6',1,'PixelInfo']]]
 ];

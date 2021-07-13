@@ -17,12 +17,18 @@ void Panel_8x8::registerMatrixInfo()
 {
     for (int i = 0; i < 64; i++)
     {
-        PixelInfo pixel_info = PixelInfo(EChipType::LED, 0);
+        PixelInfo pixel_info = PixelInfo(EChipType::LED, 0, i);
         pixels_info_.push_back(pixel_info);
     }
 
-    /* テスト点灯用処理
+    /* テスト点灯用処理 - 01
     pixels_info_[3].color_  = 1;
     pixels_info_[12].color_ = 1;
+    */
+
+    /* テスト点灯用処理 - 02
+    pixels_info_[0].color_ = pixels_info_[9].color_ = pixels_info_[18].color_
+        = pixels_info_[27].color_ = pixels_info_[36].color_ = pixels_info_[45].color_
+        = pixels_info_[54].color_ = pixels_info_[63].color_ = 1;
     */
 }
