@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['panel_5f8x8',['Panel_8x8',['../classPanel__8x8.html#af52db8ce00f41e085ef8c45371fcb6db',1,'Panel_8x8']]],
-  ['panelbase',['PanelBase',['../classPanelBase.html#ae67aa479a006ead3f7ab01c6ce41e26b',1,'PanelBase']]]
+  ['registermatrixinfo',['registerMatrixInfo',['../classPanel__8x8.html#aa6caffa9c49e6b5817b48cb19f6a74e2',1,'Panel_8x8::registerMatrixInfo()'],['../classPanelBase.html#a9d6b4236ebe7df8e106ad196ff503d19',1,'PanelBase::registerMatrixInfo()']]]
 ];

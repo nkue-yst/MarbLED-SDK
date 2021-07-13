@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['drawpixel',['drawPixel',['../classPanelBase.html#ab2a74d69491b8d7ed0c8576413b60b69',1,'PanelBase']]]
+  ['panel_5f8x8',['Panel_8x8',['../classPanel__8x8.html#af52db8ce00f41e085ef8c45371fcb6db',1,'Panel_8x8']]],
+  ['panelbase',['PanelBase',['../classPanelBase.html#ae67aa479a006ead3f7ab01c6ce41e26b',1,'PanelBase']]]
 ];

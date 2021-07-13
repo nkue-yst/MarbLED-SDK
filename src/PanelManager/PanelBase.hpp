@@ -2,7 +2,7 @@
  * @file PanelBase.hpp
  * @brief LEDパネルの基底クラス
  * @author Yoshito Nakaue
- * @date 2021/07/13
+ * @date 2021/07/14
  */
 
 #ifndef PANEL_BASE_HPP
@@ -10,12 +10,11 @@
 
 #include "PixelInfo.hpp"
 #include <vector>
-#include <Adafruit_LEDBackpack.h>
 
 /**
  * @brief  1枚のLEDパネルを表すクラス
  */
-class PanelBase : public Adafruit_LEDBackpack
+class PanelBase
 {
 public:
     /**
@@ -24,7 +23,7 @@ public:
     PanelBase(uint16_t width = 8, uint16_t height = 8);
 
     /**
-     * @brief  メインループにてLED全体の点灯状態を更新する
+     * @brief  LED全体の点灯状態を更新する
      */
     void update();
 
@@ -39,21 +38,14 @@ protected:
 
 private:
     /**
-     * @brief  指定座標を指定した色で点灯する（現状1bit）
-     * @param  x  Pixel column (horizontal)
-     * @param  y  Pixel row (vertical)
-     */
-    void drawPixel(int16_t x, int16_t y, uint16_t color);
-
-    /**
      * @brief  指定したいx座標をLEDパネル上のx座標に変換する
-     * @param  x  x座標を修正
+     * @param  x  修正前のx座標
      */
     int calcX(int x) { return x; }
 
     /**
      * @brief  指定したいy座標をLEDパネル上のy座標に変換する
-     * @param  y  y座標を修正
+     * @param  y  修正前のy座標
      */
     int calcY(int y) { return (y + 1) % height_; }
 
