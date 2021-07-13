@@ -9,7 +9,6 @@
 #include <utility>
 
 PanelBase::PanelBase(uint16_t width, uint16_t height)
-    : Adafruit_GFX(width, height)
 {   
     width_ = width;
     height_ = height;

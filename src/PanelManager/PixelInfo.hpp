@@ -11,8 +11,7 @@
 #include <vector>
 
 /**
- * @enum EChipType
- * @brief LED、赤外線センサ等の列挙型
+ * @brief  LED、赤外線センサ等の列挙型
  */
 enum class EChipType : uint8_t
 {
@@ -23,8 +22,7 @@ enum class EChipType : uint8_t
 };
 
 /**
- * @struct PixelInfo
- * @brief 各ピクセル情報を格納する構造体
+ * @brief  各ピクセル情報を格納する構造体
  */
 struct PixelInfo
 {
