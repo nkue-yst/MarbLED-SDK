@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_5f',['height_',['../classPanelBase.html#a11f4802767a6e7954ff6e288cf94d21d',1,'PanelBase']]]
+  ['echiptype',['EChipType',['../PixelInfo_8hpp.html#a045ad070577d6987c818af7bc910ae1a',1,'PixelInfo.hpp']]]
 ];
