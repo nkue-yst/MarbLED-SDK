@@ -12,6 +12,8 @@ Panel_8x8 panel = Panel_8x8();
 void setup()
 {
     Serial.begin(115200);
+
+    panel.init();
 }
 
 void loop()
@@ -24,5 +26,5 @@ void loop()
     // Serial.print(micros() - start);
     // Serial.println(" μs");
     
-    delay(500);
+    delay(1000);
 }

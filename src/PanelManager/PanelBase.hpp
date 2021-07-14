@@ -27,6 +27,8 @@ public:
      */
     void update();
 
+    void init();
+
 protected:
     /**
      * @brief  マトリクスの各ピクセルの情報を登録する
@@ -48,6 +50,12 @@ private:
      * @param  y  修正前のy座標
      */
     int calcY(int y) { return (y + 1) % height_; }
+
+    //! 8x8(1)用描画用バッファ
+    uint16_t disp_buff1[8] = {};
+
+    //! 8x8(2)用描画用バッファ
+    uint16_t disp_buff2[8] = {};
 
     //! パネル全体の横幅
     uint16_t width_;

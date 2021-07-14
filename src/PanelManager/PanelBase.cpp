@@ -12,13 +12,11 @@ PanelBase::PanelBase(uint16_t width, uint16_t height)
 {   
     width_ = width;
     height_ = height;
+}
 
+void PanelBase::init()
+{
     Wire.begin();
-    Wire.setClock(400000L);
-
-    Wire.beginTransmission(0x70);
-    Wire.write(0xE0 | 15);
-    Wire.endTransmission();
 
     Wire.beginTransmission(0x70);
     Wire.write(0x80 | 0x01 | (0 << 1));
@@ -36,40 +34,29 @@ PanelBase::PanelBase(uint16_t width, uint16_t height)
 }
 
 void PanelBase::update()
-{
-    uint8_t colors[8] = {
-        0b00000000,
-        0b00000000,
-        0b00000000,
-        0b00000000,
-        0b00000000,
-        0b00000000,
-        0b00000000,
-        0b00000000
-    };
-    
+{   
     for (int i = 0; i < height_ * width_; i++)
     {
         if (pixels_info_[i].type_ == EChipType::LED)
         {
             if (pixels_info_[i].color_)
             {
-                colors[i / width_] |= 1 << i % width_;
+                disp_buff1[pixels_info_[i].led_ID_ / width_] |= 1 << (pixels_info_[i].led_ID_ % width_);
             }
             else
             {
-                colors[i / width_] &= ~(1 << i % width_);
+                disp_buff1[pixels_info_[i].led_ID_ / width_] &= ~(1 << (pixels_info_[i].led_ID_ % width_));
             }
         }
     }
-    
+        
     Wire.beginTransmission(0x70);
-    Wire.write((uint8_t)0x00);
+    Wire.write(0x00);
     
     for (int i = 0; i < 8; i++)
     {
-        Wire.write(colors[i] & 0xFF);
-        Wire.write(colors[i] >> 8);
+        Wire.write(disp_buff1[i]);
+        Wire.write(disp_buff2[i]);
     }
     Wire.endTransmission();
 }

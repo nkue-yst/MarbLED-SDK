@@ -15,13 +15,13 @@ Panel_8x8::Panel_8x8()
 
 void Panel_8x8::registerMatrixInfo()
 {
-    for (int i = 0; i < 64; i++)
+    /*for (int i = 0; i < 64; i++)
     {
         PixelInfo pixel_info = PixelInfo(EChipType::LED, 0, i);
         pixels_info_.push_back(pixel_info);
-    }
+    }*/
 
-    /*int led_id = 0;
+    int led_id = 0;
     for (int i = 0; i < 64; i++)
     {
         if (i == 9 || i == 18 || i == 35 || i == 60)
@@ -46,7 +46,7 @@ void Panel_8x8::registerMatrixInfo()
             led_id++;
             pixels_info_.push_back(pixel_info);
         }
-    }*/
+    }
 
     /* テスト点灯用処理 - 01
     pixels_info_[3].color_  = 1;
