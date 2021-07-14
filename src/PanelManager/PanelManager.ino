@@ -24,5 +24,5 @@ void loop()
     // Serial.print(micros() - start);
     // Serial.println(" μs");
     
-    delay(10000);
+    delay(500);
 }

@@ -7,7 +7,6 @@
 
 #include "PanelBase.hpp"
 #include <Wire.h>
-#include <utility>
 
 PanelBase::PanelBase(uint16_t width, uint16_t height)
 {   
@@ -16,6 +15,14 @@ PanelBase::PanelBase(uint16_t width, uint16_t height)
 
     Wire.begin();
     Wire.setClock(400000L);
+
+    Wire.beginTransmission(0x70);
+    Wire.write(0xE0 | 15);
+    Wire.endTransmission();
+
+    Wire.beginTransmission(0x70);
+    Wire.write(0x80 | 0x01 | (0 << 1));
+    Wire.endTransmission();
 
     /* 8x16のLEDを初期化 */
     Wire.beginTransmission(0x70);
