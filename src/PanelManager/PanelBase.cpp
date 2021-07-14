@@ -18,13 +18,19 @@ void PanelBase::init()
 {
     Wire.begin();
 
+    /* I2C に使うピンの設定 */
+    Wire.beginTransmission(0x70);
+    Wire.write(0x21);
+    Wire.endTransmission();
+
+    /* blink rate の設定 */
     Wire.beginTransmission(0x70);
     Wire.write(0x80 | 0x01 | (0 << 1));
     Wire.endTransmission();
 
     /* 8x16のLEDを初期化 */
     Wire.beginTransmission(0x70);
-    Wire.write(0x00);
+    Wire.write(0b00000000);
     for (int i = 0; i < 8; i++)
     {
         Wire.write(0b00000000);
@@ -51,7 +57,7 @@ void PanelBase::update()
     }
         
     Wire.beginTransmission(0x70);
-    Wire.write(0x00);
+    Wire.write(0b00000000);
     
     for (int i = 0; i < 8; i++)
     {

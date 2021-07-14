@@ -18,13 +18,14 @@ void setup()
 
 void loop()
 {
-    // unsigned long start = micros();
+    /* 処理時間計測開始 */
+    unsigned long start = micros();
     
     panel.update();
 
     /* 処理時間出力 */
-    // Serial.print(micros() - start);
-    // Serial.println(" μs");
+    Serial.print(micros() - start);
+    Serial.println(" μs");
     
-    delay(1000);
+    delay(500);
 }
