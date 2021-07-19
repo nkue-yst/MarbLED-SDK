@@ -21,12 +21,7 @@ void Panel_8x8::registerMatrixInfo()
         pixels_info_.push_back(pixel_info);
     }
 
-    /* テスト点灯用処理 - 01
-    pixels_info_[3].color_  = 1;
-    pixels_info_[12].color_ = 1;
-    */
-
-    /* テスト点灯用処理 - 02
+    /* テスト点灯用処理
     pixels_info_[0].color_ = pixels_info_[9].color_ = pixels_info_[18].color_
         = pixels_info_[27].color_ = pixels_info_[36].color_ = pixels_info_[45].color_
         = pixels_info_[54].color_ = pixels_info_[63].color_ = 1;

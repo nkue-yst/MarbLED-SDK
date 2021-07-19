@@ -30,6 +30,11 @@ void PanelBase::init(uint8_t addr)
     Wire.write(0x80 | 0x01 | (0 << 1));
     Wire.endTransmission();
 
+    /* 明るさの設定 */
+    Wire.beginTransmission(addr_);
+    Wire.write(0xE0 | 5);
+    Wire.endTransmission();
+
     /* 8x16のLEDを初期化 */
     Wire.beginTransmission(addr_);
     Wire.write(0b00000000);
@@ -48,13 +53,9 @@ void PanelBase::update()
         PixelInfo target_pixel = pixels_info_[i];
         
         if (target_pixel.type_ == EChipType::LED && target_pixel.color_ == 1)
-        {
-            disp_buff1[i / width_] |= 1 << (i % width_);
-        }
+            ((i < 64) ? disp_buff1[i / width_] : disp_buff2[(i - 64) / width_]) |= 1 << (i % width_);
         else
-        {
-            disp_buff1[i / width_] &= ~(1 << (i % width_));
-        }
+            ((i < 64) ? disp_buff1[i / width_] : disp_buff2[(i - 64) / width_]) &= ~(1 << (i % width_));
     }
         
     Wire.beginTransmission(addr_);
