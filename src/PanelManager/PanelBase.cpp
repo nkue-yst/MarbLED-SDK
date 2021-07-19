@@ -14,22 +14,24 @@ PanelBase::PanelBase(uint16_t width, uint16_t height)
     height_ = height;
 }
 
-void PanelBase::init()
+void PanelBase::init(uint8_t addr)
 {
+    addr_ = addr;
+  
     Wire.begin();
 
     /* I2C に使うピンの設定 */
-    Wire.beginTransmission(0x70);
+    Wire.beginTransmission(addr_);
     Wire.write(0x21);
     Wire.endTransmission();
 
     /* blink rate の設定 */
-    Wire.beginTransmission(0x70);
+    Wire.beginTransmission(addr_);
     Wire.write(0x80 | 0x01 | (0 << 1));
     Wire.endTransmission();
 
     /* 8x16のLEDを初期化 */
-    Wire.beginTransmission(0x70);
+    Wire.beginTransmission(addr_);
     Wire.write(0b00000000);
     for (int i = 0; i < 8; i++)
     {
@@ -43,20 +45,19 @@ void PanelBase::update()
 {   
     for (int i = 0; i < height_ * width_; i++)
     {
-        if (pixels_info_[i].type_ == EChipType::LED)
+        PixelInfo target_pixel = pixels_info_[i];
+        
+        if (target_pixel.type_ == EChipType::LED && target_pixel.color_ == 1)
         {
-            if (pixels_info_[i].color_)
-            {
-                disp_buff1[pixels_info_[i].led_ID_ / width_] |= 1 << (pixels_info_[i].led_ID_ % width_);
-            }
-            else
-            {
-                disp_buff1[pixels_info_[i].led_ID_ / width_] &= ~(1 << (pixels_info_[i].led_ID_ % width_));
-            }
+            disp_buff1[i / width_] |= 1 << (i % width_);
+        }
+        else
+        {
+            disp_buff1[i / width_] &= ~(1 << (i % width_));
         }
     }
         
-    Wire.beginTransmission(0x70);
+    Wire.beginTransmission(addr_);
     Wire.write(0b00000000);
     
     for (int i = 0; i < 8; i++)

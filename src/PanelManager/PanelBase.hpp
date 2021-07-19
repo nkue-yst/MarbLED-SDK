@@ -27,7 +27,11 @@ public:
      */
     void update();
 
-    void init();
+    /**
+     * @fn init()
+     * @brief LED制御モジュールを扱うアドレスを指定して初期化
+     */
+    void init(uint8_t addr = 0x70);
 
 protected:
     /**
@@ -39,18 +43,6 @@ protected:
     std::vector<PixelInfo> pixels_info_;
 
 private:
-    /**
-     * @brief  指定したいx座標をLEDパネル上のx座標に変換する
-     * @param  x  修正前のx座標
-     */
-    int calcX(int x) { return x; }
-
-    /**
-     * @brief  指定したいy座標をLEDパネル上のy座標に変換する
-     * @param  y  修正前のy座標
-     */
-    int calcY(int y) { return (y + 1) % height_; }
-
     //! 8x8(1)用描画用バッファ
     uint16_t disp_buff1[8] = {};
 
@@ -62,6 +54,9 @@ private:
     
     //! パネル全体の高さ
     uint16_t height_;
+
+    //! I2C通信用アドレス
+    uint8_t addr_;
 };
 
 #endif
