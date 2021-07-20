@@ -62,7 +62,6 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classPanelBase-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -79,7 +78,8 @@ Inheritance diagram for PanelBase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPanelBase__inherit__graph.png" border="0" usemap="#PanelBase_inherit__map" alt="Inheritance graph"/></div>
 <map name="PanelBase_inherit__map" id="PanelBase_inherit__map">
-<area shape="rect" id="node2" href="classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="7,80,89,107"/>
+<area shape="rect" id="node2" href="classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="120,80,203,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -93,9 +93,10 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aece79bece96754da41945381d63a08fb">update</a> ()</td></tr>
 <tr class="memdesc:aece79bece96754da41945381d63a08fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED全体の点灯状態を更新する <br /></td></tr>
 <tr class="separator:aece79bece96754da41945381d63a08fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7193162129c0f9d388a9567287e89e81"><td class="memItemLeft" align="right" valign="top"><a id="a7193162129c0f9d388a9567287e89e81"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
-<tr class="separator:a7193162129c0f9d388a9567287e89e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6eed9105e682212a825ae4297be02f"><td class="memItemLeft" align="right" valign="top"><a id="aeb6eed9105e682212a825ae4297be02f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aeb6eed9105e682212a825ae4297be02f">init</a> (uint8_t addr=0x70)</td></tr>
+<tr class="memdesc:aeb6eed9105e682212a825ae4297be02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED制御モジュールを扱うアドレスを指定して初期化 <br /></td></tr>
+<tr class="separator:aeb6eed9105e682212a825ae4297be02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -110,15 +111,6 @@ Protected Attributes</h2></td></tr>
 std::vector&lt; <a class="el" href="structPixelInfo.html">PixelInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a2bd215863e490bf3d5e53f97ae1268fd">pixels_info_</a></td></tr>
 <tr class="memdesc:a2bd215863e490bf3d5e53f97ae1268fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">各ピクセルの情報を格納する配列 <br /></td></tr>
 <tr class="separator:a2bd215863e490bf3d5e53f97ae1268fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a4f9d7f1571a34a91574f078e5be49826"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a4f9d7f1571a34a91574f078e5be49826">calcX</a> (int x)</td></tr>
-<tr class="memdesc:a4f9d7f1571a34a91574f078e5be49826"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したいx座標をLEDパネル上のx座標に変換する  <a href="#a4f9d7f1571a34a91574f078e5be49826">More...</a><br /></td></tr>
-<tr class="separator:a4f9d7f1571a34a91574f078e5be49826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d128c31d63506c90d2d103a07ef5ac9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a0d128c31d63506c90d2d103a07ef5ac9">calcY</a> (int y)</td></tr>
-<tr class="memdesc:a0d128c31d63506c90d2d103a07ef5ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したいy座標をLEDパネル上のy座標に変換する  <a href="#a0d128c31d63506c90d2d103a07ef5ac9">More...</a><br /></td></tr>
-<tr class="separator:a0d128c31d63506c90d2d103a07ef5ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -138,79 +130,14 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a11f4802767a6e7954ff6e288cf94d21d">height_</a></td></tr>
 <tr class="memdesc:a11f4802767a6e7954ff6e288cf94d21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">パネル全体の高さ <br /></td></tr>
 <tr class="separator:a11f4802767a6e7954ff6e288cf94d21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809f0ec70e1b4de813db18c6831e718b"><td class="memItemLeft" align="right" valign="top"><a id="a809f0ec70e1b4de813db18c6831e718b"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a809f0ec70e1b4de813db18c6831e718b">addr_</a></td></tr>
+<tr class="memdesc:a809f0ec70e1b4de813db18c6831e718b"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C通信用アドレス <br /></td></tr>
+<tr class="separator:a809f0ec70e1b4de813db18c6831e718b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>1枚のLEDパネルを表すクラス </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4f9d7f1571a34a91574f078e5be49826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f9d7f1571a34a91574f078e5be49826">&#9670;&nbsp;</a></span>calcX()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int PanelBase::calcX </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>指定したいx座標をLEDパネル上のx座標に変換する </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>修正前のx座標 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0d128c31d63506c90d2d103a07ef5ac9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d128c31d63506c90d2d103a07ef5ac9">&#9670;&nbsp;</a></span>calcY()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int PanelBase::calcY </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>指定したいy座標をLEDパネル上のy座標に変換する </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>修正前のy座標 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/PanelManager/<a class="el" href="PanelBase_8hpp_source.html">PanelBase.hpp</a></li>
 <li>src/PanelManager/<a class="el" href="PanelBase_8cpp.html">PanelBase.cpp</a></li>
 </ul>

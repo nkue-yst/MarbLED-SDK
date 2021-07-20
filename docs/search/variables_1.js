@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['disp_5fbuff1',['disp_buff1',['../classPanelBase.html#a04ca643245cb808b45991505cb4a1ae5',1,'PanelBase']]],
-  ['disp_5fbuff2',['disp_buff2',['../classPanelBase.html#aea83d63f9b7fec17c286685f52c1fe9c',1,'PanelBase']]]
+  ['color_5f',['color_',['../structPixelInfo.html#ac211b0b05b1e918bba9fdff7c09a347a',1,'PixelInfo']]]
 ];
