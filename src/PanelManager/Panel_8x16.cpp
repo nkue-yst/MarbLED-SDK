@@ -17,7 +17,7 @@ void Panel_8x16::registerMatrixInfo()
 {
     for (int i = 0; i < 128; i++)
     {
-        PixelInfo pixel_info = PixelInfo(EChipType::LED, 1);
+        PixelInfo pixel_info = PixelInfo(EChipType::LED, 0);
         pixels_info_.push_back(pixel_info);
     }
 }

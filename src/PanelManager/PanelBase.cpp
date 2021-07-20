@@ -6,6 +6,7 @@
  */
 
 #include "PanelBase.hpp"
+#include <Arduino.h>
 #include <Wire.h>
 
 PanelBase::PanelBase(uint16_t width, uint16_t height)
@@ -47,7 +48,27 @@ void PanelBase::init(uint8_t addr)
 }
 
 void PanelBase::update()
-{   
+{
+    char x;
+    char y;
+    char c;
+  
+    // シリアル通信（受信待ち）
+    if (Serial.available())
+    {
+        x = Serial.read();
+        y = Serial.read();
+        c = Serial.read();
+        Serial.print("x: ");     Serial.println(x);
+        Serial.print("y: ");     Serial.println(y);
+        Serial.print("color: "); Serial.println(c);
+
+        pixels_info_[y * width_ + x].color_ = c;
+    }
+
+    /* 処理時間計測開始 */
+    //unsigned long start = micros();
+    
     for (int i = 0; i < height_ * width_; i++)
     {
         PixelInfo target_pixel = pixels_info_[i];
@@ -67,4 +88,8 @@ void PanelBase::update()
         Wire.write(disp_buff2[i]);
     }
     Wire.endTransmission();
+
+    /* 処理時間出力 */
+    //Serial.print(micros() - start);
+    //Serial.println(" μs");
 }
