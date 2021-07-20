@@ -59,9 +59,9 @@ void PanelBase::update()
         x = Serial.read();
         y = Serial.read();
         c = Serial.read();
-        Serial.print("x: ");     Serial.println(x);
-        Serial.print("y: ");     Serial.println(y);
-        Serial.print("color: "); Serial.println(c);
+        Serial.println(x);
+        Serial.println(y);
+        Serial.println(c);
 
         pixels_info_[y * width_ + x].color_ = c;
     }
