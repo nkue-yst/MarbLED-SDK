@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_5f',['height_',['../classPanelBase.html#a11f4802767a6e7954ff6e288cf94d21d',1,'PanelBase']]]
+  ['getpanelmanager',['getPanelManager',['../classtll_1_1PanelManager.html#a8c0eb8cc70fba9f1b99b97c4bd4cfdcc',1,'tll::PanelManager']]]
 ];

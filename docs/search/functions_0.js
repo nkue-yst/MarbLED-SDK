@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init',['init',['../classPanelBase.html#aeb6eed9105e682212a825ae4297be02f',1,'PanelBase']]]
+  ['create',['create',['../classtll_1_1PanelManager.html#a325d975809346bc8bb078995d271cb53',1,'tll::PanelManager']]]
 ];

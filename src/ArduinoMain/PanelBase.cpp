@@ -54,7 +54,7 @@ void PanelBase::update()
     char c;
   
     // シリアル通信（受信待ち）
-    if (Serial.available())
+    if (Serial.available() >= 3)
     {
         x = Serial.read();
         y = Serial.read();

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update',['update',['../classPanelBase.html#aece79bece96754da41945381d63a08fb',1,'PanelBase']]]
+  ['init',['init',['../classPanelBase.html#aeb6eed9105e682212a825ae4297be02f',1,'PanelBase']]]
 ];
