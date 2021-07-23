@@ -1,25 +1,47 @@
 /**
- * @file  TLLmain.cpp
- * @brief  公開APIの実装
+ * @file    TLLmain.cpp
+ * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @data  2021/07/23
+ * @date    2021/07/23
  */
 
 #include "TLL.h"
 #include "PanelManager.hpp"
+#include "Simulator.hpp"
 
 namespace tll
 {
 
-void init(uint16_t width, uint16_t height)
-{
-    PanelManager::create();
-    PanelManager::getPanelManager()->init(width, height);
-}
+    void init(uint16_t width, uint16_t height)
+    {
+        PanelManager::create();
+        PanelManager::getInstance()->init(width, height);
 
-void quit()
-{
-    PanelManager::getPanelManager()->destroy();
-}
+        Simulator::create();
+    }
+
+    void quit()
+    {
+        PanelManager::getInstance()->destroy();
+        Simulator::getInstance()->destroy();
+    }
+
+    namespace Simulation
+    {
+        void start()
+        {
+            Simulator::getInstance()->start();
+        }
+
+        void update()
+        {
+            Simulator::getInstance()->update();
+        }
+
+        void quit()
+        {
+            Simulator::getInstance()->quit();
+        }
+    }
 
 }

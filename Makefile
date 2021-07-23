@@ -1,7 +1,8 @@
 CXX = g++
 CXXFLAGS = -Wall
+SDL_FLAGS = $(shell sdl2-config --cflags --libs)
 INCLUDE_DIR = -I./include/
-OBJECTS     = TLLmain.o PanelManager.o
+OBJECTS     = TLLmain.o PanelManager.o Simulator.o
 
 all : build example
 
@@ -10,11 +11,11 @@ build: $(OBJECTS)
 	ar rcs libTLL.a $(OBJECTS)
 
 example: build
-	$(CXX) $(CXXFLAGS) $(INCLUDE_DIR) example/example01.cpp build/libTLL.a -o example/example01
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/example01.cpp build/libTLL.a -o example/example01
 
 %.o : ./src/%.cpp
 	@mkdir -p build
-	$(CXX) $(CXXFLAGS) $< $(INCLUDE_DIR) -c -o ./build/$@
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $< $(INCLUDE_DIR) -c -o ./build/$@
 
 doc:
 	doxygen

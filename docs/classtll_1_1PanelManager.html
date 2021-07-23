@@ -93,9 +93,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8c0eb8cc70fba9f1b99b97c4bd4cfdcc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a8c0eb8cc70fba9f1b99b97c4bd4cfdcc">getPanelManager</a> ()</td></tr>
-<tr class="memdesc:a8c0eb8cc70fba9f1b99b97c4bd4cfdcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">シングルトンのインスタンスを取得  <a href="#a8c0eb8cc70fba9f1b99b97c4bd4cfdcc">More...</a><br /></td></tr>
-<tr class="separator:a8c0eb8cc70fba9f1b99b97c4bd4cfdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff65764b175bee28884ce7a723d523db"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#aff65764b175bee28884ce7a723d523db">getInstance</a> ()</td></tr>
+<tr class="memdesc:aff65764b175bee28884ce7a723d523db"><td class="mdescLeft">&#160;</td><td class="mdescRight">シングルトンのインスタンスを取得  <a href="#aff65764b175bee28884ce7a723d523db">More...</a><br /></td></tr>
+<tr class="separator:aff65764b175bee28884ce7a723d523db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a325d975809346bc8bb078995d271cb53"><td class="memItemLeft" align="right" valign="top"><a id="a325d975809346bc8bb078995d271cb53"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a325d975809346bc8bb078995d271cb53">create</a> ()</td></tr>
 <tr class="memdesc:a325d975809346bc8bb078995d271cb53"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを作成 <br /></td></tr>
@@ -107,10 +107,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a8429c10083381136fb5c1ceb96f93f7d"><td class="memItemLeft" align="right" valign="top"><a id="a8429c10083381136fb5c1ceb96f93f7d"></a>
-static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a8429c10083381136fb5c1ceb96f93f7d">p_panel_manager_</a> = nullptr</td></tr>
-<tr class="memdesc:a8429c10083381136fb5c1ceb96f93f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">シングルトン用インスタンス <br /></td></tr>
-<tr class="separator:a8429c10083381136fb5c1ceb96f93f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74fad94d3173e8b0b93bc0da6f5f3e0c"><td class="memItemLeft" align="right" valign="top"><a id="a74fad94d3173e8b0b93bc0da6f5f3e0c"></a>
+static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a74fad94d3173e8b0b93bc0da6f5f3e0c">pInstance_</a> = nullptr</td></tr>
+<tr class="memdesc:a74fad94d3173e8b0b93bc0da6f5f3e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">シングルトン用インスタンス <br /></td></tr>
+<tr class="separator:a74fad94d3173e8b0b93bc0da6f5f3e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -130,8 +130,8 @@ std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>LEDパネルの状態を管理するクラス </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8c0eb8cc70fba9f1b99b97c4bd4cfdcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c0eb8cc70fba9f1b99b97c4bd4cfdcc">&#9670;&nbsp;</a></span>getPanelManager()</h2>
+<a id="aff65764b175bee28884ce7a723d523db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff65764b175bee28884ce7a723d523db">&#9670;&nbsp;</a></span>getInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,7 +140,7 @@ std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom">
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> * tll::PanelManager::getPanelManager </td>
+          <td class="memname">static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> * tll::PanelManager::getInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

@@ -1,4 +1,5 @@
 <map id="include/PanelManager.hpp" name="include/PanelManager.hpp">
 <area shape="rect" id="node2" href="$PanelManager_8cpp.html" title="パネル情報管理クラスの実装 " alt="" coords="5,80,157,107"/>
-<area shape="rect" id="node3" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="182,80,301,107"/>
+<area shape="rect" id="node3" href="$Simulator_8cpp.html" title="シミュレータークラスの実装 " alt="" coords="182,80,306,107"/>
+<area shape="rect" id="node4" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="330,80,449,107"/>
 </map>

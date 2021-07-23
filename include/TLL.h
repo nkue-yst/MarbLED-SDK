@@ -1,8 +1,8 @@
 /**
- * @file  TLL.h
- * @brief  API公開用ヘッダファイル
+ * @file    TLL.h
+ * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date  2021/07/23
+ * @date    2021/07/23
  */
 
 #ifndef _TLL_H_
@@ -29,6 +29,31 @@ namespace tll
      * @brief  システム全体を終了
      */
     void quit();
+
+    /**
+     * @namespace  Simulation
+     * @brief      シミュレーター用名前空間
+     */
+    namespace Simulation
+    {
+        /**
+         * @fn     void start()
+         * @brief  シミュレーションを開始
+         */
+        void start();
+
+        /**
+         * @fn     void update()
+         * @brief  シミュレーションを更新
+         */
+        void update();
+
+        /**
+         * @fn     void quit()
+         * @brief  シミュレーションを終了
+         */
+        void quit();
+    }
 }
 
 #endif

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['p_5fpanel_5fmanager_5f',['p_panel_manager_',['../classtll_1_1PanelManager.html#a8429c10083381136fb5c1ceb96f93f7d',1,'tll::PanelManager']]],
   ['panel_5f8x16',['Panel_8x16',['../classPanel__8x16.html',1,'Panel_8x16'],['../classPanel__8x16.html#a764f2b4bb8238e427f840b3aa6f6a479',1,'Panel_8x16::Panel_8x16()']]],
   ['panel_5f8x16_2ecpp',['Panel_8x16.cpp',['../Panel__8x16_8cpp.html',1,'']]],
   ['panel_5f8x16_2ehpp',['Panel_8x16.hpp',['../Panel__8x16_8hpp.html',1,'']]],
@@ -13,6 +12,7 @@ var searchData=
   ['panelmanager',['PanelManager',['../classtll_1_1PanelManager.html',1,'tll']]],
   ['panelmanager_2ecpp',['PanelManager.cpp',['../PanelManager_8cpp.html',1,'']]],
   ['panelmanager_2ehpp',['PanelManager.hpp',['../PanelManager_8hpp.html',1,'']]],
+  ['pinstance_5f',['pInstance_',['../classtll_1_1PanelManager.html#a74fad94d3173e8b0b93bc0da6f5f3e0c',1,'tll::PanelManager::pInstance_()'],['../classtll_1_1Simulator.html#aefc679198f7c02d53c18b62191f69abb',1,'tll::Simulator::pInstance_()']]],
   ['pixelinfo',['PixelInfo',['../structPixelInfo.html',1,'']]],
   ['pixelinfo_2ecpp',['PixelInfo.cpp',['../PixelInfo_8cpp.html',1,'']]],
   ['pixelinfo_2ehpp',['PixelInfo.hpp',['../PixelInfo_8hpp.html',1,'']]],
