@@ -1,13 +1,16 @@
 CXX = g++
-CXXFLAGS = -Wall $(shell sdl2-config --cflags)
+CXXFLAGS = -Wall
 INCLUDE_DIR = -I./include/
-OBJECTS = PanelManager.o
+OBJECTS     = TLLmain.o PanelManager.o
 
-all : build
+all : build example
 
 build: $(OBJECTS)
 	cd build && \
 	ar rcs libTLL.a $(OBJECTS)
+
+example: build
+	$(CXX) $(CXXFLAGS) $(INCLUDE_DIR) example/example01.cpp build/libTLL.a -o example/example01
 
 %.o : ./src/%.cpp
 	@mkdir -p build
@@ -25,3 +28,4 @@ doc-clean:
 clean:
 	rm -f *.o
 	rm -rf build/
+	rm -f example/example01

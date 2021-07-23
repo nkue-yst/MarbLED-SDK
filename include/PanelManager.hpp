@@ -8,6 +8,9 @@
 #ifndef PANEL_MANAGER_HPP
 #define PANEL_MANAGER_HPP
 
+#include <cstdint>
+#include <vector>
+
 namespace tll
 {
 
@@ -28,22 +31,40 @@ public:
     }
 
     /**
-     * @fn static void create()
-     * @brief インスタンスを作成
+     * @fn  static void create()
+     * @brief  インスタンスを作成
      */
     static void create();
 
     /**
-     * @fn static void destroy()
-     * @brief インスタンスを破棄
+     * @fn  static void destroy()
+     * @brief  インスタンスを破棄
      */
     static void destroy();
 
+    /**
+     * @fn  void init(uint16_t width, uint16_t height)
+     * @brief  パネル情報を初期化
+     * @param  width  パネルの横幅
+     * @param  height  パネルの高さ
+     */
+    void init(uint16_t width, uint16_t height);
+
 protected:
-    PanelManager();
+    PanelManager() {}
 
     ///  シングルトン用インスタンス
     static PanelManager* p_panel_manager_;
+
+private:
+    /// パネル全体の横幅
+    uint16_t width_;
+    
+    /// パネル全体の高さ
+    uint16_t height_;
+
+    /// 各ピクセルの色情報
+    std::vector<uint8_t> color_;
 };
 
 

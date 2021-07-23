@@ -63,8 +63,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtll_1_1PanelManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">tll::PanelManager Class Reference</div>  </div>
@@ -83,6 +85,12 @@ Collaboration diagram for tll::PanelManager:</div>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6e62071865e20ade820ddb2b925ce482"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a6e62071865e20ade820ddb2b925ce482">init</a> (uint16_t width, uint16_t height)</td></tr>
+<tr class="memdesc:a6e62071865e20ade820ddb2b925ce482"><td class="mdescLeft">&#160;</td><td class="mdescRight">パネル情報を初期化  <a href="#a6e62071865e20ade820ddb2b925ce482">More...</a><br /></td></tr>
+<tr class="separator:a6e62071865e20ade820ddb2b925ce482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c0eb8cc70fba9f1b99b97c4bd4cfdcc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a8c0eb8cc70fba9f1b99b97c4bd4cfdcc">getPanelManager</a> ()</td></tr>
@@ -103,6 +111,21 @@ Static Protected Attributes</h2></td></tr>
 static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a8429c10083381136fb5c1ceb96f93f7d">p_panel_manager_</a> = nullptr</td></tr>
 <tr class="memdesc:a8429c10083381136fb5c1ceb96f93f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">シングルトン用インスタンス <br /></td></tr>
 <tr class="separator:a8429c10083381136fb5c1ceb96f93f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a54955472427a4fd1fb5aa9a7feb0a593"><td class="memItemLeft" align="right" valign="top"><a id="a54955472427a4fd1fb5aa9a7feb0a593"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a54955472427a4fd1fb5aa9a7feb0a593">width_</a></td></tr>
+<tr class="memdesc:a54955472427a4fd1fb5aa9a7feb0a593"><td class="mdescLeft">&#160;</td><td class="mdescRight">パネル全体の横幅 <br /></td></tr>
+<tr class="separator:a54955472427a4fd1fb5aa9a7feb0a593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a959bb7d0e9dff937816100902185ef97"><td class="memItemLeft" align="right" valign="top"><a id="a959bb7d0e9dff937816100902185ef97"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a959bb7d0e9dff937816100902185ef97">height_</a></td></tr>
+<tr class="memdesc:a959bb7d0e9dff937816100902185ef97"><td class="mdescLeft">&#160;</td><td class="mdescRight">パネル全体の高さ <br /></td></tr>
+<tr class="separator:a959bb7d0e9dff937816100902185ef97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ec145878eb22a190d1dc4df3a9dd00"><td class="memItemLeft" align="right" valign="top"><a id="aa0ec145878eb22a190d1dc4df3a9dd00"></a>
+std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#aa0ec145878eb22a190d1dc4df3a9dd00">color_</a></td></tr>
+<tr class="memdesc:aa0ec145878eb22a190d1dc4df3a9dd00"><td class="mdescLeft">&#160;</td><td class="mdescRight">各ピクセルの色情報 <br /></td></tr>
+<tr class="separator:aa0ec145878eb22a190d1dc4df3a9dd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>LEDパネルの状態を管理するクラス </p>
@@ -132,6 +155,43 @@ static <a class="el" href="classtll_1_1PanelManager.html">PanelManager</a> *&#16
 
 <p>シングルトンのインスタンスを取得 </p>
 <dl class="section return"><dt>Returns</dt><dd>Panel Managerのインスタンス </dd></dl>
+
+</div>
+</div>
+<a id="a6e62071865e20ade820ddb2b925ce482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e62071865e20ade820ddb2b925ce482">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tll::PanelManager::init </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>パネル情報を初期化 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>パネルの横幅 </td></tr>
+    <tr><td class="paramname">height</td><td>パネルの高さ </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
