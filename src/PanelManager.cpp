@@ -2,7 +2,7 @@
  * @file    PanelManager.cpp
  * @brief   パネル情報管理クラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/07/23
+ * @date    2021/07/27
  */
 
 #include "PanelManager.hpp"
@@ -30,6 +30,11 @@ namespace tll
     {
         width_ = width;
         height_ = height;
+
+        for (int i = 0; i < width_ * height_; i++)
+        {
+            color_.push_back(0);
+        }
     }
 
 }

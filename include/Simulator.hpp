@@ -2,7 +2,7 @@
  * @file    Simulator.hpp
  * @brief   シミュレータークラス
  * @author  Yoshito Nakaue
- * @date    2021/07/24
+ * @date    2021/07/27
  */
 
 #ifndef SIMULATOR_HPP
@@ -12,7 +12,6 @@
 
 namespace tll
 {
-
     /**
      * @brief  シミュレータークラス
      */
@@ -71,6 +70,11 @@ namespace tll
 
         /// シミュレーション用レンダラー
         SDL_Renderer* renderer_;
+
+        /// 各ピクセルのサイズ
+        int pixel_size;
+
+        int blank_size;
     };
 
 }
