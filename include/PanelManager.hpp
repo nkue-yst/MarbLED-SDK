@@ -2,7 +2,7 @@
  * @file    PanelManager.hpp
  * @brief   パネル情報管理クラス
  * @author  Yoshito Nakaue
- * @date    2021/07/27
+ * @date    2021/08/03
  */
 
 #ifndef PANEL_MANAGER_HPP
@@ -96,13 +96,13 @@ namespace tll
         static PanelManager* pInstance_;
 
     private:
-        /// パネル全体の横幅
+        /// Width of LED panel
         uint16_t width_;
         
-        /// パネル全体の高さ
+        /// Height of LED panel
         uint16_t height_;
 
-        /// 各ピクセルの色情報
+        /// Color infomation for each pixel
         std::vector<uint8_t> color_;
     };
 

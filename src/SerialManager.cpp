@@ -2,7 +2,7 @@
  * @file    SerialManager.cpp
  * @brief   Implementing a class to manage serial communication.
  * @author  Yoshito Nakaue
- * @date    2021/07/27
+ * @date    2021/08/03
  */
 
 #include "SerialManager.hpp"
@@ -48,12 +48,7 @@ namespace tll
         {
             for (int x = 0; x < width; x++)
             {
-                if (PanelManager::getInstance()->getColor(x, y) == 1)
-                {
-                    serialPutchar(fd, x);
-                    serialPutchar(fd, y);
-                    serialPutchar(fd, 1);
-                }
+                serialPutchar(fd, PanelManager::getInstance()->getColor(x, y));
             }
         }
     }
