@@ -7,6 +7,7 @@
 
 #include "TLL.h"
 #include "PanelManager.hpp"
+#include "SerialManager.hpp"
 #include "Simulator.hpp"
 
 namespace tll
@@ -17,18 +18,24 @@ namespace tll
         PanelManager::create();
         PanelManager::getInstance()->init(width, height);
 
+        SerialManager::create();
+        SerialManager::getInstance()->init();
+
         Simulator::create();
+        
     }
 
     void quit()
     {
-        PanelManager::getInstance()->destroy();
         Simulator::getInstance()->destroy();
+        SerialManager::getInstance()->destroy();
+        PanelManager::getInstance()->destroy();
     }
 
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
     {
         PanelManager::getInstance()->drawRect(x, y, w, h, c);
+        SerialManager::getInstance()->sendColorData();
     }
 
     namespace Simulation

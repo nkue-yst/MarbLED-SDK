@@ -13,7 +13,9 @@ digraph "src/TLLmain.cpp"
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node0 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="Simulator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Simulator_8hpp.html",tooltip="シミュレータークラス "];
-  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="SDL.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 [label="SerialManager.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$SerialManager_8hpp.html",tooltip="Class to manage serial communication. "];
+  Node0 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Simulator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Simulator_8hpp.html",tooltip="シミュレータークラス "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="SDL.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
 }

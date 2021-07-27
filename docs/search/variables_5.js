@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['renderer_5f',['renderer_',['../classtll_1_1Simulator.html#a2211ee5b2e8fca02d16b4ab9fa26a947',1,'tll::Simulator']]]
+  ['off',['OFF',['../namespacetll.html#a712dc6d796c0280eaa072e387abd852a',1,'tll']]],
+  ['on',['ON',['../namespacetll.html#a9a4090e97d894b99ee8eed55efd39ef4',1,'tll']]]
 ];

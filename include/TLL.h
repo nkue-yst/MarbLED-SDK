@@ -16,6 +16,12 @@
  */
 namespace tll
 {
+    /// Monochrome LED is lit.
+    constexpr int ON = 1;
+
+    /// Monochrome LED is unlit.
+    constexpr int OFF = 0;
+
     /**
      * @fn  void init(uint16_t width, uint16_t height)
      * @brief  システム全体の初期化

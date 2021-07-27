@@ -3,5 +3,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="tll::Simulator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classtll_1_1Simulator.html",tooltip="シミュレータークラス "];
+  Node0 [label="tll::SerialManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classtll_1_1SerialManager.html",tooltip="Class to manage serial communication. "];
 }

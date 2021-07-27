@@ -87,7 +87,7 @@ namespace tll
          * @brief   Get color of the specified coordinates.
          * @return  Color of the specified coordinates
          */
-        uint8_t getColor(int x, int y) { return color_[y * width_ + x]; }
+        uint8_t getColor(int x, int y) { return color_.at(y * width_ + x); }
 
     protected:
         PanelManager() {}

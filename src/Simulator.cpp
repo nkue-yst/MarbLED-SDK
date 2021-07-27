@@ -78,7 +78,7 @@ namespace tll
 
                 if (PanelManager::getInstance()->getColor(x, y) == 1)
                 {
-                    SDL_SetRenderDrawColor(renderer_, 255, 255, 255, 255);
+                    SDL_SetRenderDrawColor(renderer_, 255, 0, 0, 255);
                 }
                 else
                 {

@@ -6,6 +6,7 @@
  */
 
 #include "TLL.h"
+#include "SerialManager.hpp"
 #include <iostream>
 
 int main()
@@ -13,7 +14,7 @@ int main()
     tll::init(8, 16);
     tll::Simulation::start();
 
-    tll::drawRect(2, 3, 4, 5, 1);
+    tll::drawRect(2, 3, 4, 5, tll::ON);
     tll::Simulation::update();
 
     std::cin.get();

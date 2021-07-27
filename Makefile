@@ -1,8 +1,8 @@
 CXX = g++
-CXXFLAGS = -Wall
+CXXFLAGS = -Wall -lwiringPi
 SDL_FLAGS = $(shell sdl2-config --cflags --libs)
 INCLUDE_DIR = -I./include/
-OBJECTS     = TLLmain.o PanelManager.o Simulator.o
+OBJECTS     = TLLmain.o PanelManager.o SerialManager.o Simulator.o
 
 all : build example
 

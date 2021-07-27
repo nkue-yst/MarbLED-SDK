@@ -6,7 +6,9 @@ digraph "include/PanelManager.hpp"
   Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="src/PanelManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PanelManager_8cpp.html",tooltip="パネル情報管理クラスの実装 "];
   Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="src/Simulator.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Simulator_8cpp.html",tooltip="シミュレータークラスの実装 "];
+  Node5 [label="src/SerialManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$SerialManager_8cpp.html",tooltip="Implementing a class to manage serial communication. "];
   Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="src/TLLmain.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$TLLmain_8cpp.html",tooltip="公開APIの実装 "];
+  Node6 [label="src/Simulator.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Simulator_8cpp.html",tooltip="シミュレータークラスの実装 "];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="src/TLLmain.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$TLLmain_8cpp.html",tooltip="公開APIの実装 "];
 }
