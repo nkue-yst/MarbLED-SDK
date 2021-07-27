@@ -37,4 +37,15 @@ namespace tll
         }
     }
 
+    void PanelManager::drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
+    {
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                color_[(y + i) * width_ + (x + j)] = c;
+            }
+        }
+    }
+
 }

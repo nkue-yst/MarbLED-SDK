@@ -50,6 +50,18 @@ namespace tll
         void init(uint16_t width, uint16_t height);
 
         /**
+         * 
+        * @fn     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
+        * @brief  Draw rectangle.
+        * @param  x  The x location of the rectangle's upper left corner
+        * @param  y  The y location of the rectangle's upper left corner
+        * @param  w  The width of the rectangle
+        * @param  h  The height of the rectangl
+        * @param  c  The color of the rectangle
+        */
+        void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+
+        /**
          * @fn      uint16_t getWidth()
          * @brief   Get width of LED panel.
          * @return  Width of LED panel

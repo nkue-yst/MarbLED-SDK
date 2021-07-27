@@ -6,15 +6,17 @@
  */
 
 #include "TLL.h"
-#include <chrono>
-#include <thread>
+#include <iostream>
 
 int main()
 {
     tll::init(8, 16);
     tll::Simulation::start();
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+    tll::drawRect(2, 3, 4, 5, 1);
+    tll::Simulation::update();
+
+    std::cin.get();
 
     tll::Simulation::quit();
     tll::quit();

@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/07/23
+ * @date    2021/07/27
  */
 
 #ifndef _TLL_H_
@@ -29,6 +29,17 @@ namespace tll
      * @brief  システム全体を終了
      */
     void quit();
+
+    /**
+     * @fn     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
+     * @brief  Draw rectangle.
+     * @param  x  The x location of the rectangle's upper left corner
+     * @param  y  The y location of the rectangle's upper left corner
+     * @param  w  The width of the rectangle
+     * @param  h  The height of the rectangle
+     * @param  c  The color of the rectangle
+     */
+    void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
 
     /**
      * @namespace  Simulation
