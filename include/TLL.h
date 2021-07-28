@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/08/04
+ * @date    2021/08/05
  */
 
 #ifndef _TLL_H_
@@ -47,6 +47,12 @@ namespace tll
      * @param  c  The color of the rectangle
      */
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+
+    /**
+     * @fn     void clear()
+     * @brief  Clear panel with black.
+     */
+    void clear();
 
     /**
      * @namespace  Palette

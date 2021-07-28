@@ -53,4 +53,15 @@ namespace tll
         }
     }
 
+    void PanelManager::clear()
+    {
+        for (int y = 0; y < height_; y++)
+        {
+            for (int x = 0; x < width_; x++)
+            {
+                color_[y * width_ + x] = 0;
+            }
+        }
+    }
+
 }

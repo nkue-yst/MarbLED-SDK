@@ -13,6 +13,7 @@ build: $(OBJECTS)
 example: build
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/Rectangles_8x16.cpp build/libTLL.a -o example/Rectangles_8x16
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/FillSingleColor_8x16.cpp build/libTLL.a -o example/FillSingleColor_8x16
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/MovingRect_8x16.cpp build/libTLL.a -o example/MovingRect_8x16
 
 %.o : ./src/%.cpp
 	@mkdir -p build

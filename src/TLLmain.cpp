@@ -2,7 +2,7 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/04
+ * @date    2021/08/05
  */
 
 #include "TLL.h"
@@ -77,6 +77,12 @@ namespace tll
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
     {
         PanelManager::getInstance()->drawRect(x, y, w, h, c);
+        SerialManager::getInstance()->sendColorData();
+    }
+
+    void clear()
+    {
+        PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
     }
 

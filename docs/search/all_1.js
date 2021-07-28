@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['clear',['clear',['../classtll_1_1PanelManager.html#a58b392a918e0e69bbe9ac3606fb1d21f',1,'tll::PanelManager::clear()'],['../namespacetll.html#af38c922c1a0d296c65784c5e0b558278',1,'tll::clear()']]],
   ['color',['Color',['../classtll_1_1Color.html',1,'tll']]],
   ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
   ['color_2ehpp',['Color.hpp',['../Color_8hpp.html',1,'']]],
