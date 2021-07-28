@@ -1,12 +1,11 @@
 /**
- * @file    example01.cpp
- * @brief   サンプルプログラム-01
+ * @file    Rectangles_8x16.cpp
+ * @brief   Drawing colorful rectangles. 
  * @author  Yoshito Nakaue
  * @date    2021/08/05
  */
 
 #include "TLL.h"
-#include "SerialManager.hpp"
 #include <iostream>
 
 int main()
@@ -18,7 +17,6 @@ int main()
     tll::drawRect(2, 3, 3, 4, tll::Palette::color("DeepSkyBlue"));
     tll::drawRect(4, 6, 3, 4, tll::Palette::color("Aqua"));
     tll::drawRect(6, 9, 3, 4, tll::Palette::color("ForestGreen"));
-
 
     tll::Simulation::update();
 

@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -lwiringPi
+CXXFLAGS  = -Wall -lwiringPi
 SDL_FLAGS = $(shell sdl2-config --cflags --libs)
 INCLUDE_DIR = -I./include/
 OBJECTS     = TLLmain.o PanelManager.o SerialManager.o Simulator.o Color.o
@@ -11,7 +11,8 @@ build: $(OBJECTS)
 	ar rcs libTLL.a $(OBJECTS)
 
 example: build
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/example01.cpp build/libTLL.a -o example/example01
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/Rectangles_8x16.cpp build/libTLL.a -o example/Rectangles_8x16
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(INCLUDE_DIR) example/FillSingleColor_8x16.cpp build/libTLL.a -o example/FillSingleColor_8x16
 
 %.o : ./src/%.cpp
 	@mkdir -p build
@@ -29,4 +30,4 @@ doc-clean:
 clean:
 	rm -f *.o
 	rm -rf build/
-	rm -f example/example01
+	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16
