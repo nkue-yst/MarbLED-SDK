@@ -2,7 +2,7 @@
  * @file    SerialManager.cpp
  * @brief   Implementing a class to manage serial communication.
  * @author  Yoshito Nakaue
- * @date    2021/08/03
+ * @date    2021/08/05
  */
 
 #include "SerialManager.hpp"
@@ -32,6 +32,10 @@ namespace tll
     void SerialManager::init()
     {
         fd = serialOpen("/dev/ttyUSB0", 115200);
+        if (fd < 0)
+        {
+            std::cout << "Start with simulation mode." << std::endl;
+        }
     }
 
     void SerialManager::quit()

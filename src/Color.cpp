@@ -2,10 +2,11 @@
  * @file    Color.cpp
  * @brief   Color information class
  * @author  Yoshito Nakaue
- * @date    2021/08/04
+ * @date    2021/08/05
  */
 
 #include "Color.hpp"
+#include <iostream>
 
 namespace tll
 {
@@ -29,6 +30,10 @@ namespace tll
     void ColorPalette::addColor(Color color)
     {
         palette_data_.push_back(color);
+        std::cout << color.color_name_ << std::endl;
+        std::cout << "  "   << "R:"   << color.r_
+                            << ", G:" << color.g_
+                            << ", B:" << color.b_ << std::endl;
     }
 
     uint8_t ColorPalette::getIDFromName(std::string color_name)
