@@ -2,10 +2,11 @@
  * @file    PanelManager.cpp
  * @brief   パネル情報管理クラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/07/27
+ * @date    2021/08/05
  */
 
 #include "PanelManager.hpp"
+#include <iostream>
 
 namespace tll
 {
@@ -31,6 +32,7 @@ namespace tll
         width_ = width;
         height_ = height;
 
+        // Initialize color info with 0 (Black)
         for (int i = 0; i < width_ * height_; i++)
         {
             color_.push_back(0);
@@ -43,7 +45,10 @@ namespace tll
         {
             for (int j = 0; j < w; j++)
             {
-                color_[(y + i) * width_ + (x + j)] = c;
+                if ((x + j) < width_ && (y + i) < height_)
+                {
+                    color_[(y + i) * width_ + (x + j)] = c;
+                }
             }
         }
     }
