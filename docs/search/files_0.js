@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['example01_2ecpp',['example01.cpp',['../example01_8cpp.html',1,'']]]
+  ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
+  ['color_2ehpp',['Color.hpp',['../Color_8hpp.html',1,'']]]
 ];

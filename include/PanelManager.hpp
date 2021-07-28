@@ -2,7 +2,7 @@
  * @file    PanelManager.hpp
  * @brief   パネル情報管理クラス
  * @author  Yoshito Nakaue
- * @date    2021/08/03
+ * @date    2021/08/04
  */
 
 #ifndef PANEL_MANAGER_HPP
@@ -105,7 +105,6 @@ namespace tll
         /// Color infomation for each pixel
         std::vector<uint8_t> color_;
     };
-
 
 }
 

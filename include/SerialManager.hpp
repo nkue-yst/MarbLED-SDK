@@ -64,6 +64,14 @@ namespace tll
         static SerialManager* pInstance_;
 
     private:
+        /**
+         * @fn
+         * @brief
+         * @param
+         * @return
+         */
+        
+
         /// File descriptor
         int fd;
     };

@@ -2,11 +2,12 @@
  * @file    Simulator.cpp
  * @brief   シミュレータークラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/07/27
+ * @date    2021/08/04
  */
 
 #include "Simulator.hpp"
 #include "PanelManager.hpp"
+#include "Color.hpp"
 
 #include <algorithm>
 
@@ -76,13 +77,28 @@ namespace tll
                 pixel.x = (pixel_size * x) + ((x + 1) * blank_size);
                 pixel.y = (pixel_size * y) + ((y + 1) * blank_size);
 
-                if (PanelManager::getInstance()->getColor(x, y) == 1)
+                uint8_t color_id = PanelManager::getInstance()->getColor(x, y);
+                Color pixel_color = ColorPalette::getInstance()->getColorFromID(color_id);
+
+                if (pixel_color.r_ == 0 && pixel_color.g_ == 0 && pixel_color.b_ == 0)
                 {
-                    SDL_SetRenderDrawColor(renderer_, 255, 0, 0, 255);
+                    SDL_SetRenderDrawColor(
+                        renderer_,
+                        20,
+                        20,
+                        20,
+                        255
+                    );
                 }
                 else
                 {
-                    SDL_SetRenderDrawColor(renderer_, 20, 20, 20, 255);
+                    SDL_SetRenderDrawColor(
+                        renderer_,
+                        pixel_color.r_,
+                        pixel_color.g_,
+                        pixel_color.b_,
+                        255    
+                    );
                 }
 
                 SDL_RenderFillRect(renderer_, &pixel);

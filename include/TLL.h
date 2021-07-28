@@ -2,13 +2,14 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/07/27
+ * @date    2021/08/04
  */
 
 #ifndef _TLL_H_
 #define _TLL_H_
 
 #include <cstdint>
+#include <string>
 
 /**
  * @namespace  tll
@@ -46,6 +47,15 @@ namespace tll
      * @param  c  The color of the rectangle
      */
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+
+    /**
+     * @namespace  Palette
+     * @brief      Color palette
+     */
+    namespace Palette
+    {
+        uint8_t color(std::string color_name);
+    }
 
     /**
      * @namespace  Simulation

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['quit',['quit',['../classtll_1_1SerialManager.html#aec65d0620c4e2cbd113ca957d93b0a40',1,'tll::SerialManager::quit()'],['../classtll_1_1Simulator.html#aed85c77b5883fdb10b3730b44a8df992',1,'tll::Simulator::quit()'],['../namespacetll.html#aed9b2f6aca7442c8851d452f67aa9969',1,'tll::quit()'],['../TLL_8h.html#aa385e3f0a11851e9b6430c887e5d94f2',1,'tll::Simulation::quit()']]]
+  ['panel_5f8x16',['Panel_8x16',['../classPanel__8x16.html#a764f2b4bb8238e427f840b3aa6f6a479',1,'Panel_8x16']]],
+  ['panel_5f8x8',['Panel_8x8',['../classPanel__8x8.html#af52db8ce00f41e085ef8c45371fcb6db',1,'Panel_8x8']]],
+  ['panelbase',['PanelBase',['../classPanelBase.html#ae67aa479a006ead3f7ab01c6ce41e26b',1,'PanelBase']]]
 ];

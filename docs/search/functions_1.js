@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['destroy',['destroy',['../classtll_1_1PanelManager.html#a10d865e00b69b8c9e4d4885bf9bd6f7a',1,'tll::PanelManager::destroy()'],['../classtll_1_1SerialManager.html#aaa7c826cdec08a14bd2d2ac53138a6ae',1,'tll::SerialManager::destroy()'],['../classtll_1_1Simulator.html#a632a175bbf4f3e798f937e50442111f3',1,'tll::Simulator::destroy()']]],
-  ['drawrect',['drawRect',['../classtll_1_1PanelManager.html#afa10dc5eee18d23079be4f8700768a59',1,'tll::PanelManager']]]
+  ['create',['create',['../classtll_1_1ColorPalette.html#ae84a3c0bfa26a9f3f6cafe20288e88f8',1,'tll::ColorPalette::create()'],['../classtll_1_1PanelManager.html#a325d975809346bc8bb078995d271cb53',1,'tll::PanelManager::create()'],['../classtll_1_1SerialManager.html#affdccdf5b1b0e68bdfe2e6f7f13a34a9',1,'tll::SerialManager::create()'],['../classtll_1_1Simulator.html#ac8113243944ddfe0f44c12a3dfdca9ea',1,'tll::Simulator::create()']]]
 ];
