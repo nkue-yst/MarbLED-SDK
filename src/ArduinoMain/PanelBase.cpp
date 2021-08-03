@@ -2,7 +2,7 @@
  * @file PanelBase.cpp
  * @brief LEDパネルの基底クラスの実装
  * @author Yoshito Nakaue
- * @date 2021/07/14
+ * @date 2021/08/04
  */
 
 #include "PanelBase.hpp"
@@ -48,27 +48,19 @@ void PanelBase::init(uint8_t addr)
 }
 
 void PanelBase::update()
-{
-    char x;
-    char y;
-    char c;
-  
-    // シリアル通信（受信待ち）
-    if (Serial.available() >= 3)
+{  
+    int rcv_num = 0;
+    while (rcv_num != width_ * height_)
     {
-        x = Serial.read();
-        y = Serial.read();
-        c = Serial.read();
-        Serial.println(x);
-        Serial.println(y);
-        Serial.println(c);
-
-        pixels_info_[y * width_ + x].color_ = c;
+        if (Serial.available())
+        {
+            char c = Serial.read();
+    
+            pixels_info_[rcv_num].color_ = c;
+            rcv_num++;
+        }
     }
 
-    /* 処理時間計測開始 */
-    //unsigned long start = micros();
-    
     for (int i = 0; i < height_ * width_; i++)
     {
         PixelInfo target_pixel = pixels_info_[i];
@@ -88,8 +80,4 @@ void PanelBase::update()
         Wire.write(disp_buff2[i]);
     }
     Wire.endTransmission();
-
-    /* 処理時間出力 */
-    //Serial.print(micros() - start);
-    //Serial.println(" μs");
 }
