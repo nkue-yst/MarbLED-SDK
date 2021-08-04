@@ -65,7 +65,7 @@ void PanelBase::update()
     {
         PixelInfo target_pixel = pixels_info_[i];
         
-        if (target_pixel.type_ == EChipType::LED && target_pixel.color_ == 1)
+        if (target_pixel.type_ == EChipType::LED && target_pixel.color_ != 0)
             ((i < 64) ? disp_buff1[i / width_] : disp_buff2[(i - 64) / width_]) |= 1 << (i % width_);
         else
             ((i < 64) ? disp_buff1[i / width_] : disp_buff2[(i - 64) / width_]) &= ~(1 << (i % width_));
