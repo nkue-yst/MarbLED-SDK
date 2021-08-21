@@ -31,4 +31,4 @@ doc-clean:
 clean:
 	rm -f *.o
 	rm -rf build/
-	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16
+	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16
