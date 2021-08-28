@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_5f',['type_',['../structPixelInfo.html#a3591ab17d9760da336e281c1e37682be',1,'PixelInfo']]]
+  ['quit_5fflag_5f',['quit_flag_',['../classtll_1_1Event.html#a43bd4d30fdb72d06dba6618d713d9714',1,'tll::Event']]]
 ];

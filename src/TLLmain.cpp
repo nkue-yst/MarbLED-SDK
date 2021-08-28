@@ -2,11 +2,12 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/05
+ * @date    2021/08/28
  */
 
 #include "TLL.h"
 #include "Color.hpp"
+#include "Event.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
 #include "Simulator.hpp"
@@ -63,12 +64,23 @@ namespace tll
         SerialManager::create();
         SerialManager::getInstance()->init();
 
+        Event::create();
+
         Simulator::create();
+    }
+
+    bool loop()
+    {
+        /* ここでセンシング・タッチ検出処理を実装予定 */
+        /////////////////////////////////////////
+
+        return Event::getInstance()->getQuitFlag();
     }
 
     void quit()
     {
         Simulator::getInstance()->destroy();
+        Event::getInstance()->destroy();
         SerialManager::getInstance()->destroy();
         PanelManager::getInstance()->destroy();
         ColorPalette::getInstance()->destroy();

@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['sendcolordata',['sendColorData',['../classtll_1_1SerialManager.html#a7c8bffd81a31999c83c3dd1da63c3f68',1,'tll::SerialManager']]],
-  ['serialmanager',['SerialManager',['../classtll_1_1SerialManager.html',1,'tll']]],
-  ['serialmanager_2ecpp',['SerialManager.cpp',['../SerialManager_8cpp.html',1,'']]],
-  ['serialmanager_2ehpp',['SerialManager.hpp',['../SerialManager_8hpp.html',1,'']]],
-  ['simulation',['Simulation',['../namespaceSimulation.html',1,'']]],
-  ['simulator',['Simulator',['../classtll_1_1Simulator.html',1,'tll']]],
-  ['simulator_2ecpp',['Simulator.cpp',['../Simulator_8cpp.html',1,'']]],
-  ['simulator_2ehpp',['Simulator.hpp',['../Simulator_8hpp.html',1,'']]],
-  ['start',['start',['../classtll_1_1Simulator.html#a8f0ea5cd4d4be3ac390b800aa15d2c72',1,'tll::Simulator::start()'],['../TLL_8h.html#a56f482b2c453ee5ccdebfee76a048ca2',1,'tll::Simulation::start()']]]
+  ['readme',['README',['../md_README.html',1,'']]],
+  ['rectangles_5f8x16_2ecpp',['Rectangles_8x16.cpp',['../Rectangles__8x16_8cpp.html',1,'']]],
+  ['registermatrixinfo',['registerMatrixInfo',['../classPanel__8x16.html#a9d5b26962593bde2ae98db51c5ec7eca',1,'Panel_8x16::registerMatrixInfo()'],['../classPanel__8x8.html#aa6caffa9c49e6b5817b48cb19f6a74e2',1,'Panel_8x8::registerMatrixInfo()'],['../classPanelBase.html#a9d6b4236ebe7df8e106ad196ff503d19',1,'PanelBase::registerMatrixInfo()']]],
+  ['removetouchedpoint',['removeTouchedPoint',['../classtll_1_1Event.html#a1f4cb131bbea9f6fb143ea5bd217b75c',1,'tll::Event']]],
+  ['renderer_5f',['renderer_',['../classtll_1_1Simulator.html#a2211ee5b2e8fca02d16b4ab9fa26a947',1,'tll::Simulator']]]
 ];

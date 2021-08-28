@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/08/05
+ * @date    2021/08/28
  */
 
 #ifndef _TLL_H_
@@ -30,6 +30,12 @@ namespace tll
      * @param  height  パネルの高さ
      */
     void init(uint16_t width, uint16_t height);
+
+    /**
+     * @fn     bool loop()
+     * @brief  Main loop on the framework
+     */
+    bool loop();
 
     /**
      * @fn  void quit()
