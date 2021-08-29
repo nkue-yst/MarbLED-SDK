@@ -9,6 +9,7 @@
 #define _TLL_H_
 
 #include <cstdint>
+#include <functional>
 #include <string>
 
 /**
@@ -60,6 +61,7 @@ namespace tll
      */
     void clear();
 
+
     /**
      * @namespace  Palette
      * @brief      Color palette
@@ -68,6 +70,27 @@ namespace tll
     {
         uint8_t color(std::string color_name);
     }
+
+
+    /**
+     * @namespace  Event
+     * @brief      For handling event
+     */
+    namespace Event
+    {
+        enum Type : uint8_t
+        {
+            TouchDown,
+            TouchMove,
+            TouchUp,
+        };
+
+        uint32_t getTouchedX();
+        uint32_t getTouchedY();
+
+        void addFunction(Type event_type, std::function<void(void)>);
+    }
+
 
     /**
      * @namespace  Simulation

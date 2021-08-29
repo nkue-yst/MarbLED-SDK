@@ -1,6 +1,7 @@
 <map id="include/TLL.h" name="include/TLL.h">
 <area shape="rect" id="node2" href="$FillSingleColor__8x16_8cpp.html" title="Fill panel with single color. " alt="" coords="5,80,164,121"/>
-<area shape="rect" id="node3" href="$MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="188,80,333,121"/>
-<area shape="rect" id="node4" href="$Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="358,80,499,121"/>
-<area shape="rect" id="node5" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="524,87,643,114"/>
+<area shape="rect" id="node3" href="$Intaractive__8x16_8cpp.html" title="Draw rectangle when mouse clicked. " alt="" coords="189,80,325,121"/>
+<area shape="rect" id="node4" href="$MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="349,80,495,121"/>
+<area shape="rect" id="node5" href="$Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="519,80,661,121"/>
+<area shape="rect" id="node6" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="685,87,804,114"/>
 </map>

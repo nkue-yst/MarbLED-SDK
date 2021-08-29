@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['touched_5fpoints_5f',['touched_points_',['../classtll_1_1Event.html#af8c177405b3a7b38e4f66eff839eaf12',1,'tll::Event']]],
-  ['type_5f',['type_',['../structPixelInfo.html#a3591ab17d9760da336e281c1e37682be',1,'PixelInfo']]]
+  ['renderer_5f',['renderer_',['../classtll_1_1Simulator.html#a2211ee5b2e8fca02d16b4ab9fa26a947',1,'tll::Simulator']]]
 ];

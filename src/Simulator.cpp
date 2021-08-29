@@ -2,7 +2,7 @@
  * @file    Simulator.cpp
  * @brief   シミュレータークラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/04
+ * @date    2021/08/29
  */
 
 #include "Simulator.hpp"
@@ -32,8 +32,6 @@ namespace tll
 
     void Simulator::start()
     {
-        SDL_Init(SDL_INIT_VIDEO);
-
         /* ディスプレイのサイズを取得 */
         SDL_Rect disp_info;
         SDL_GetDisplayUsableBounds(0, &disp_info);
@@ -112,7 +110,6 @@ namespace tll
     {
         SDL_DestroyRenderer(renderer_);
         SDL_DestroyWindow(window_);
-        SDL_Quit();
     }
     
 }

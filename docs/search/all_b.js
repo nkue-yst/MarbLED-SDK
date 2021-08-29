@@ -14,7 +14,7 @@ var searchData=
   ['panelmanager',['PanelManager',['../classtll_1_1PanelManager.html',1,'tll']]],
   ['panelmanager_2ecpp',['PanelManager.cpp',['../PanelManager_8cpp.html',1,'']]],
   ['panelmanager_2ehpp',['PanelManager.hpp',['../PanelManager_8hpp.html',1,'']]],
-  ['pinstance_5f',['pInstance_',['../classtll_1_1ColorPalette.html#a9401f86d7eef237c6bf06b722579836c',1,'tll::ColorPalette::pInstance_()'],['../classtll_1_1Event.html#a6e0a6d58dc89c4d2356b22d21c7eeb9d',1,'tll::Event::pInstance_()'],['../classtll_1_1PanelManager.html#a74fad94d3173e8b0b93bc0da6f5f3e0c',1,'tll::PanelManager::pInstance_()'],['../classtll_1_1SerialManager.html#a2b501d16369732c70397780076dd2233',1,'tll::SerialManager::pInstance_()'],['../classtll_1_1Simulator.html#aefc679198f7c02d53c18b62191f69abb',1,'tll::Simulator::pInstance_()']]],
+  ['pinstance_5f',['pInstance_',['../classtll_1_1ColorPalette.html#a9401f86d7eef237c6bf06b722579836c',1,'tll::ColorPalette::pInstance_()'],['../classtll_1_1EventHandler.html#ad0135d295757621dde9deda7994df09b',1,'tll::EventHandler::pInstance_()'],['../classtll_1_1PanelManager.html#a74fad94d3173e8b0b93bc0da6f5f3e0c',1,'tll::PanelManager::pInstance_()'],['../classtll_1_1SerialManager.html#a2b501d16369732c70397780076dd2233',1,'tll::SerialManager::pInstance_()'],['../classtll_1_1Simulator.html#aefc679198f7c02d53c18b62191f69abb',1,'tll::Simulator::pInstance_()']]],
   ['pixel_5fsize',['pixel_size',['../classtll_1_1Simulator.html#ada6c42a4cc706bb8c0d1fe1f02f5aa6f',1,'tll::Simulator']]],
   ['pixelinfo',['PixelInfo',['../structPixelInfo.html',1,'']]],
   ['pixelinfo_2ecpp',['PixelInfo.cpp',['../PixelInfo_8cpp.html',1,'']]],

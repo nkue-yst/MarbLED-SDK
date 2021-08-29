@@ -64,23 +64,27 @@ namespace tll
         SerialManager::create();
         SerialManager::getInstance()->init();
 
-        Event::create();
+        EventHandler::create();
 
+        SDL_Init(SDL_INIT_VIDEO);
         Simulator::create();
     }
 
     bool loop()
     {
-        /* ここでセンシング・タッチ検出処理を実装予定 */
-        /////////////////////////////////////////
+        EventHandler::getInstance()->updateState();
 
-        return Event::getInstance()->getQuitFlag();
+        return !EventHandler::getInstance()->getQuitFlag();
     }
 
     void quit()
     {
+        PanelManager::getInstance()->clear();
+        SerialManager::getInstance()->sendColorData();
+
         Simulator::getInstance()->destroy();
-        Event::getInstance()->destroy();
+        SDL_Quit();
+        EventHandler::getInstance()->destroy();
         SerialManager::getInstance()->destroy();
         PanelManager::getInstance()->destroy();
         ColorPalette::getInstance()->destroy();
@@ -104,6 +108,25 @@ namespace tll
         uint8_t color(std::string color_name)
         {
             return ColorPalette::getInstance()->getIDFromName(color_name);
+        }
+    }
+
+
+    namespace Event
+    {
+        uint32_t getTouchedX()
+        {
+            return EventHandler::getInstance()->getEventX();
+        }
+
+        uint32_t getTouchedY()
+        {
+            return EventHandler::getInstance()->getEventY();
+        }
+
+        void addFunction(Type event_type, std::function<void(void)> function)
+        {
+            EventHandler::getInstance()->addFunction(event_type, function);
         }
     }
 
