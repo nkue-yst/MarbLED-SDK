@@ -2,7 +2,7 @@
  * @file    Simulator.cpp
  * @brief   シミュレータークラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/29
+ * @date    2021/08/30
  */
 
 #include "Simulator.hpp"
@@ -59,6 +59,9 @@ namespace tll
 
     void Simulator::update()
     {
+        if (!renderer_)
+            return;
+
         /* Clear the screen with black */
         SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 255);
         SDL_RenderClear(renderer_);

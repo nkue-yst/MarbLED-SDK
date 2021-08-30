@@ -2,10 +2,11 @@
  * @file    PanelManager.cpp
  * @brief   パネル情報管理クラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/05
+ * @date    2021/08/30
  */
 
 #include "PanelManager.hpp"
+
 #include <iostream>
 
 namespace tll

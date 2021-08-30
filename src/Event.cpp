@@ -6,6 +6,8 @@
  */
 
 #include "Event.hpp"
+#include "PanelManager.hpp"
+#include "Simulator.hpp"
 
 #include "SDL.h"
 #include <iostream>
@@ -36,9 +38,40 @@ namespace tll
 
         // For test using mouse button
         SDL_PumpEvents();
-        if (!is_down_left_button && SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(1))
+        int32_t pos_x;
+        int32_t pos_y;
+
+        if (!is_down_left_button && SDL_GetMouseState(&pos_x, &pos_y) & SDL_BUTTON(1))
         {
-            addTouchedPoint(Point(3, 3, 0));
+            int32_t p_size = Simulator::getInstance()->getPixelSize();
+            int32_t b_size = Simulator::getInstance()->getBlankSize();
+
+            int32_t pre_x = b_size;
+            int32_t pre_y = b_size;
+            int32_t current_x, current_y;
+
+            for (int32_t x = 0; x < PanelManager::getInstance()->getWidth(); x++)
+            {
+                current_x = pre_x + p_size;
+
+                if (pre_x <= pos_x && pos_x <= current_x)
+                    pos_x = x;
+
+                pre_x = current_x + b_size;
+            }
+
+            for (int y = 0; y < PanelManager::getInstance()->getHeight(); y++)
+            {
+                current_y = pre_y + p_size;
+
+                if (pre_y <= pos_y && pos_y <= current_y)
+                    pos_y = y;
+
+                pre_y = current_y + b_size;
+            }
+
+            addTouchedPoint(Point(pos_x, pos_y, 0));
+
             is_down_left_button = true;
         }
         else if (is_down_left_button && !(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(1)))
@@ -47,6 +80,7 @@ namespace tll
             is_down_left_button = false;
         }
         
+        // Mouse right click to quit
         if (!is_down_right_button && SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(3))
         {
             is_down_right_button = true;

@@ -94,12 +94,14 @@ namespace tll
     {
         PanelManager::getInstance()->drawRect(x, y, w, h, c);
         SerialManager::getInstance()->sendColorData();
+        Simulator::getInstance()->update();
     }
 
     void clear()
     {
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
+        Simulator::getInstance()->update();
     }
 
 

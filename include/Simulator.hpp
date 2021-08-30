@@ -58,6 +58,9 @@ namespace tll
          */
         void quit();
 
+        int getPixelSize() { return pixel_size; }
+        int getBlankSize() { return blank_size; }
+
     protected:
         Simulator() {};
 
