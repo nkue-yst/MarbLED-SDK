@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
@@ -77,6 +78,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TLL.h:</div>
 <div class="dyncontent">
@@ -93,12 +95,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" id="node3" href="Intaractive__8x16_8cpp.html" title="Draw rectangle when mouse clicked. " alt="" coords="189,80,325,121"/>
 <area shape="rect" id="node4" href="MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="349,80,495,121"/>
 <area shape="rect" id="node5" href="Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="519,80,661,121"/>
-<area shape="rect" id="node6" href="TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="685,87,804,114"/>
+<area shape="rect" id="node6" href="Event_8hpp.html" title="Event handling. " alt="" coords="685,87,812,114"/>
+<area shape="rect" id="node8" href="TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="791,169,909,196"/>
+<area shape="rect" id="node7" href="Event_8cpp.html" title="Event handling. " alt="" coords="664,169,767,196"/>
 </map>
 </div>
 </div>
 <p><a href="TLL_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtll_1_1Point.html">tll::Point</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct of touched point.  <a href="structtll_1_1Point.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetll"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html">tll</a></td></tr>
@@ -145,6 +155,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:a63995ef3117108c058dc5beb8d92e677"><td class="memItemLeft" align="right" valign="top"><a id="a63995ef3117108c058dc5beb8d92e677"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>tll::Palette::color</b> (std::string color_name)</td></tr>
 <tr class="separator:a63995ef3117108c058dc5beb8d92e677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac43cfe55c7accdb7c657a25eaeaef06b"><td class="memItemLeft" align="right" valign="top"><a id="ac43cfe55c7accdb7c657a25eaeaef06b"></a>
+std::vector&lt; struct <a class="el" href="structtll_1_1Point.html">tll::Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#ac43cfe55c7accdb7c657a25eaeaef06b">tll::Event::getTouchedPoints</a> ()</td></tr>
+<tr class="memdesc:ac43cfe55c7accdb7c657a25eaeaef06b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all touched points. <br /></td></tr>
+<tr class="separator:ac43cfe55c7accdb7c657a25eaeaef06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab3262de9d621d2fa3ac5fa0c66b28c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#a5ab3262de9d621d2fa3ac5fa0c66b28c">tll::Event::isTouched</a> ()</td></tr>
+<tr class="memdesc:a5ab3262de9d621d2fa3ac5fa0c66b28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return is touched.  <a href="TLL_8h.html#a5ab3262de9d621d2fa3ac5fa0c66b28c">More...</a><br /></td></tr>
+<tr class="separator:a5ab3262de9d621d2fa3ac5fa0c66b28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2489167ee9039a020e7a4943ba4ffc89"><td class="memItemLeft" align="right" valign="top"><a id="a2489167ee9039a020e7a4943ba4ffc89"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>tll::Event::getTouchedX</b> ()</td></tr>
 <tr class="separator:a2489167ee9039a020e7a4943ba4ffc89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,8 +198,29 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>API公開用ヘッダファイル </p>
 <dl class="section author"><dt>Author</dt><dd>Yoshito Nakaue </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021/08/28 </dd></dl>
-</div></div><!-- contents -->
+<dl class="section date"><dt>Date</dt><dd>2021/09/07 </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="file_a5ab3262de9d621d2fa3ac5fa0c66b28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a5ab3262de9d621d2fa3ac5fa0c66b28c">&#9670;&nbsp;</a></span>isTouched()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tll::Event::isTouched </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return is touched. </p>
+<dl class="section return"><dt>Returns</dt><dd>Is touched at least one point </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

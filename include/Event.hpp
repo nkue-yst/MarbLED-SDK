@@ -8,36 +8,14 @@
 #ifndef EVENT_HPP
 #define EVENT_HPP
 
+#include "TLL.h"
+
 #include <cstdint>
 #include <functional>
 #include <vector>
 
 namespace tll
 {
-    /**
-     * @brief  Struct of touched point
-     */
-    struct Point
-    {
-    public:
-        Point(uint32_t x = 0, uint32_t y = 0, uint32_t id = 0)
-        {
-            x_  = x;
-            y_  = y;
-            id_ = id;
-        }
-
-        /// Point ID
-        uint32_t id_;
-
-        /// x-coordinate
-        uint32_t x_;
-
-        /// y-coordinate
-        uint32_t y_;
-    };
-
-
     /**
      * @brief  Event handling class
      */
@@ -124,6 +102,17 @@ namespace tll
          * @brief  Get y-coordinate of touched point
          */
         uint32_t getEventY() { return event_y_; }
+
+        /**
+         * @fn     bool isTouched()
+         * @brief  Get is touched
+         */
+        bool isTouched() { return !touched_points_.empty(); }
+
+        std::vector<Point> getTouchedPoints()
+        {
+            return touched_points_;
+        }
 
     private:
         /// List of touching event

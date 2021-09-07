@@ -2,7 +2,7 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/28
+ * @date    2021/09/07
  */
 
 #include "TLL.h"
@@ -116,6 +116,16 @@ namespace tll
 
     namespace Event
     {
+        std::vector<tll::Point> getTouchedPoints()
+        {
+            return EventHandler::getInstance()->getTouchedPoints();
+        }
+
+        bool isTouched()
+        {
+            return EventHandler::getInstance()->isTouched();
+        }
+
         uint32_t getTouchedX()
         {
             return EventHandler::getInstance()->getEventX();

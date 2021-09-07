@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/08/28
+ * @date    2021/09/07
  */
 
 #ifndef _TLL_H_
@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <functional>
 #include <string>
+#include <vector>
 
 /**
  * @namespace  tll
@@ -73,6 +74,30 @@ namespace tll
 
 
     /**
+     * @brief  Struct of touched point
+     */
+    struct Point
+    {
+    public:
+        Point(uint32_t x = 0, uint32_t y = 0, uint32_t id = 0)
+        {
+            x_  = x;
+            y_  = y;
+            id_ = id;
+        }
+
+        /// Point ID
+        uint32_t id_;
+
+        /// x-coordinate
+        uint32_t x_;
+
+        /// y-coordinate
+        uint32_t y_;
+    };
+    
+
+    /**
      * @namespace  Event
      * @brief      For handling event
      */
@@ -84,6 +109,19 @@ namespace tll
             TouchMove,
             TouchUp,
         };
+
+        /**
+         * @fn     std::vector<tll::Event::Point> getTouchedPoints()
+         * @brief  Get all touched points
+         */
+        std::vector<struct tll::Point> getTouchedPoints();
+
+        /**
+         * @fn      bool isTouched()
+         * @brief   Return is touched
+         * @return  Is touched at least one point
+         */
+        bool isTouched();
 
         uint32_t getTouchedX();
         uint32_t getTouchedY();

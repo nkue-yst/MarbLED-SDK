@@ -3,5 +3,7 @@
 <area shape="rect" id="node3" href="$Intaractive__8x16_8cpp.html" title="Draw rectangle when mouse clicked. " alt="" coords="189,80,325,121"/>
 <area shape="rect" id="node4" href="$MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="349,80,495,121"/>
 <area shape="rect" id="node5" href="$Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="519,80,661,121"/>
-<area shape="rect" id="node6" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="685,87,804,114"/>
+<area shape="rect" id="node6" href="$Event_8hpp.html" title="Event handling. " alt="" coords="685,87,812,114"/>
+<area shape="rect" id="node8" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="791,169,909,196"/>
+<area shape="rect" id="node7" href="$Event_8cpp.html" title="Event handling. " alt="" coords="664,169,767,196"/>
 </map>

@@ -2,10 +2,10 @@
  * @file    Image.hpp
  * @brief   Image class
  * @author  Yoshito Nakaue
- * @date    2021/08/28
+ * @date    2021/09/07
  */
 
-#include <SDL.h>
+#include <opencv2/opencv.hpp>
 
 namespace tll
 {
@@ -19,10 +19,10 @@ namespace tll
 
         /**
          * @fn     void loadImage(const char* file)
-         * @brief  Load bmp file
-         * @param  file  BMP file path
+         * @brief  Load image file
+         * @param  file  Image file path
          */
-        void loadBMP(const char* file);
+        void loadImage(const char* file);
 
         /**
          * @fn     void draw()
@@ -30,8 +30,14 @@ namespace tll
          */
         void draw();
 
+        /**
+         * @fn     void resize(uint32_t height, uint32_t width)
+         * @brief  Resize image size
+         */
+        void resize(uint32_t height, uint32_t width);
+
     private:
         /// Image data
-        SDL_Surface* img_surface_;
+        cv::Mat img;
     };
 }
