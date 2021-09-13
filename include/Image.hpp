@@ -16,13 +16,7 @@ namespace tll
     {
     public:
         Image();
-
-        /**
-         * @fn     void loadImage(const char* file)
-         * @brief  Load image file
-         * @param  file  Image file path
-         */
-        void loadImage(const char* file);
+        Image(cv::Mat img_data);
 
         /**
          * @fn     void draw()
@@ -38,6 +32,6 @@ namespace tll
 
     private:
         /// Image data
-        cv::Mat img;
+        cv::Mat img_data_;
     };
 }

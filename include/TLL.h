@@ -8,6 +8,8 @@
 #ifndef _TLL_H_
 #define _TLL_H_
 
+#include "Image.hpp"
+
 #include <cstdint>
 #include <functional>
 #include <string>
@@ -62,6 +64,14 @@ namespace tll
      */
     void clear();
 
+    /**
+     * @fn      tll::Image loadImage(const char* file)
+     * @brief   Load image file
+     * @param   file  Image file path
+     * @return  Image class data
+     */
+    tll::Image loadImage(const char* file);
+
 
     /**
      * @namespace  Palette
@@ -95,7 +105,7 @@ namespace tll
         /// y-coordinate
         uint32_t y_;
     };
-    
+
 
     /**
      * @namespace  Event

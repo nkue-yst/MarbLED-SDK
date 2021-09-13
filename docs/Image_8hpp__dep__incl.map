@@ -1,3 +1,12 @@
 <map id="include/Image.hpp" name="include/Image.hpp">
-<area shape="rect" id="node2" href="$Image_8cpp.html" title="Image class. " alt="" coords="17,80,122,107"/>
+<area shape="rect" id="node2" href="$TLL_8h.html" title="API公開用ヘッダファイル " alt="" coords="567,80,667,107"/>
+<area shape="rect" id="node11" href="$Image_8cpp.html" title="Image class. " alt="" coords="691,80,796,107"/>
+<area shape="rect" id="node3" href="$FillSingleColor__8x16_8cpp.html" title="Fill panel with single color. " alt="" coords="5,155,164,196"/>
+<area shape="rect" id="node4" href="$Image__8x16_8cpp.html" title="Test draw from image file. " alt="" coords="189,162,359,189"/>
+<area shape="rect" id="node5" href="$Intaractive__8x16_8cpp.html" title="Draw rectangle when mouse clicked. " alt="" coords="383,155,519,196"/>
+<area shape="rect" id="node6" href="$MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="544,155,689,196"/>
+<area shape="rect" id="node7" href="$Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="714,155,855,196"/>
+<area shape="rect" id="node8" href="$Event_8hpp.html" title="Event handling. " alt="" coords="880,162,1007,189"/>
+<area shape="rect" id="node10" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="985,244,1104,271"/>
+<area shape="rect" id="node9" href="$Event_8cpp.html" title="Event handling. " alt="" coords="859,244,961,271"/>
 </map>

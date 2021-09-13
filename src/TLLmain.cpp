@@ -12,6 +12,8 @@
 #include "SerialManager.hpp"
 #include "Simulator.hpp"
 
+#include <opencv2/opencv.hpp>
+
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -102,6 +104,15 @@ namespace tll
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
         Simulator::getInstance()->update();
+    }
+
+    tll::Image loadImage(const char* file)
+    {
+        cv::Mat img = cv::imread(file);
+        if (img.empty())
+            std::cout << file << " is not found." << std::endl;
+
+        return tll::Image(img);
     }
 
 
