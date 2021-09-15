@@ -13,6 +13,7 @@ build: $(OBJECTS)
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
 
 example: build
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp build/libTLL.a -o example/Intaractive_24x16
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_8x16.cpp build/libTLL.a -o example/Image_8x16
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Rectangles_8x16.cpp build/libTLL.a -o example/Rectangles_8x16
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/FillSingleColor_8x16.cpp build/libTLL.a -o example/FillSingleColor_8x16
@@ -36,4 +37,4 @@ doc-clean:
 clean:
 	rm -f *.o
 	rm -rf build/
-	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_8x16
+	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_8x16 example/Intaractive_24x16
