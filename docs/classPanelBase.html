@@ -78,25 +78,26 @@ Inheritance diagram for PanelBase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPanelBase__inherit__graph.png" border="0" usemap="#PanelBase_inherit__map" alt="Inheritance graph"/></div>
 <map name="PanelBase_inherit__map" id="PanelBase_inherit__map">
-<area shape="rect" id="node2" href="classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" href="classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="120,80,203,107"/>
+<area shape="rect" id="node2" href="classPanel__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="127,80,218,107"/>
+<area shape="rect" id="node4" href="classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="242,80,325,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae67aa479a006ead3f7ab01c6ce41e26b"><td class="memItemLeft" align="right" valign="top"><a id="ae67aa479a006ead3f7ab01c6ce41e26b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#ae67aa479a006ead3f7ab01c6ce41e26b">PanelBase</a> (uint16_t width=8, uint16_t height=8)</td></tr>
-<tr class="memdesc:ae67aa479a006ead3f7ab01c6ce41e26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形マトリクスLED用コンストラクタ <br /></td></tr>
-<tr class="separator:ae67aa479a006ead3f7ab01c6ce41e26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de9987b992dfc829b86695cc05857bd"><td class="memItemLeft" align="right" valign="top"><a id="a8de9987b992dfc829b86695cc05857bd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a8de9987b992dfc829b86695cc05857bd">PanelBase</a> (uint16_t width=8, uint16_t height=8, uint16_t num_driver=1)</td></tr>
+<tr class="memdesc:a8de9987b992dfc829b86695cc05857bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形マトリクスLED用コンストラクタ <br /></td></tr>
+<tr class="separator:a8de9987b992dfc829b86695cc05857bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece79bece96754da41945381d63a08fb"><td class="memItemLeft" align="right" valign="top"><a id="aece79bece96754da41945381d63a08fb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aece79bece96754da41945381d63a08fb">update</a> ()</td></tr>
 <tr class="memdesc:aece79bece96754da41945381d63a08fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED全体の点灯状態を更新する <br /></td></tr>
 <tr class="separator:aece79bece96754da41945381d63a08fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb6eed9105e682212a825ae4297be02f"><td class="memItemLeft" align="right" valign="top"><a id="aeb6eed9105e682212a825ae4297be02f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aeb6eed9105e682212a825ae4297be02f">init</a> (uint8_t addr=0x70)</td></tr>
-<tr class="memdesc:aeb6eed9105e682212a825ae4297be02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED制御モジュールを扱うアドレスを指定して初期化 <br /></td></tr>
-<tr class="separator:aeb6eed9105e682212a825ae4297be02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eca2088b32b8d8be887b9312225b109"><td class="memItemLeft" align="right" valign="top"><a id="a8eca2088b32b8d8be887b9312225b109"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a8eca2088b32b8d8be887b9312225b109">init</a> (uint16_t addr=0x70)</td></tr>
+<tr class="memdesc:a8eca2088b32b8d8be887b9312225b109"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED制御モジュールを扱うアドレスを指定して初期化 <br /></td></tr>
+<tr class="separator:a8eca2088b32b8d8be887b9312225b109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -130,10 +131,14 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a11f4802767a6e7954ff6e288cf94d21d">height_</a></td></tr>
 <tr class="memdesc:a11f4802767a6e7954ff6e288cf94d21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">パネル全体の高さ <br /></td></tr>
 <tr class="separator:a11f4802767a6e7954ff6e288cf94d21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a809f0ec70e1b4de813db18c6831e718b"><td class="memItemLeft" align="right" valign="top"><a id="a809f0ec70e1b4de813db18c6831e718b"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a809f0ec70e1b4de813db18c6831e718b">addr_</a></td></tr>
-<tr class="memdesc:a809f0ec70e1b4de813db18c6831e718b"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C通信用アドレス <br /></td></tr>
-<tr class="separator:a809f0ec70e1b4de813db18c6831e718b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3261c7fbb72f8768134ad1b99b487cb"><td class="memItemLeft" align="right" valign="top"><a id="aa3261c7fbb72f8768134ad1b99b487cb"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aa3261c7fbb72f8768134ad1b99b487cb">addr_</a></td></tr>
+<tr class="memdesc:aa3261c7fbb72f8768134ad1b99b487cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C通信用アドレス <br /></td></tr>
+<tr class="separator:aa3261c7fbb72f8768134ad1b99b487cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f85347fe1356e2fccb3bb2c6b78eec0"><td class="memItemLeft" align="right" valign="top"><a id="a9f85347fe1356e2fccb3bb2c6b78eec0"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a9f85347fe1356e2fccb3bb2c6b78eec0">num_driver_</a></td></tr>
+<tr class="memdesc:a9f85347fe1356e2fccb3bb2c6b78eec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of LED driver. <br /></td></tr>
+<tr class="separator:a9f85347fe1356e2fccb3bb2c6b78eec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>1枚のLEDパネルを表すクラス </p>

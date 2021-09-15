@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['width_5f',['width_',['../classtll_1_1PanelManager.html#a54955472427a4fd1fb5aa9a7feb0a593',1,'tll::PanelManager::width_()'],['../classPanelBase.html#a46af10a6ac5867c26b5ae13406f7c710',1,'PanelBase::width_()']]],
-  ['window_5f',['window_',['../classtll_1_1Simulator.html#a4d8c36da7197bdaec5abd0fdd220c1b8',1,'tll::Simulator']]]
+  ['update',['update',['../classtll_1_1Simulator.html#a650f466fe533dd46d804836e57d67468',1,'tll::Simulator::update()'],['../classPanelBase.html#aece79bece96754da41945381d63a08fb',1,'PanelBase::update()'],['../TLL_8h.html#a405a41bc62626669a3fd9abd6a717961',1,'tll::Simulation::update()']]],
+  ['updatestate',['updateState',['../classtll_1_1EventHandler.html#a1b1691e22429d038d1cc08422a46b655',1,'tll::EventHandler']]]
 ];

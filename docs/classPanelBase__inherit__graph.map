@@ -1,4 +1,5 @@
 <map id="PanelBase" name="PanelBase">
-<area shape="rect" id="node2" href="$classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" href="$classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="120,80,203,107"/>
+<area shape="rect" id="node2" href="$classPanel__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node3" href="$classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="127,80,218,107"/>
+<area shape="rect" id="node4" href="$classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="242,80,325,107"/>
 </map>

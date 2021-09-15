@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['panel_5f24x16_2ecpp',['Panel_24x16.cpp',['../Panel__24x16_8cpp.html',1,'']]],
+  ['panel_5f24x16_2ehpp',['Panel_24x16.hpp',['../Panel__24x16_8hpp.html',1,'']]],
   ['panel_5f8x16_2ecpp',['Panel_8x16.cpp',['../Panel__8x16_8cpp.html',1,'']]],
   ['panel_5f8x16_2ehpp',['Panel_8x16.hpp',['../Panel__8x16_8hpp.html',1,'']]],
   ['panel_5f8x8_2ecpp',['Panel_8x8.cpp',['../Panel__8x8_8cpp.html',1,'']]],
