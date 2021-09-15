@@ -2,7 +2,7 @@
  * @file    Image.hpp
  * @brief   Image class
  * @author  Yoshito Nakaue
- * @date    2021/09/07
+ * @date    2021/09/28
  */
 
 #include <opencv2/opencv.hpp>
@@ -19,10 +19,10 @@ namespace tll
         Image(cv::Mat img_data);
 
         /**
-         * @fn     void draw()
+         * @fn     void draw(uint32_t x, uint32_t y)
          * @brief  Resize and draw image
          */
-        void draw();
+        void draw(uint32_t x, uint32_t y);
 
         /**
          * @fn     void resize(uint32_t height, uint32_t width)

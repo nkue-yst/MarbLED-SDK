@@ -2,7 +2,7 @@
  * @file    Color.hpp
  * @brief   Color information class
  * @author  Yoshito Nakaue
- * @date    2021/08/04
+ * @date    2021/09/28
  */
 
 #ifndef COLOR_HPP
@@ -25,6 +25,14 @@ namespace tll
         Color(std::string color_name, uint16_t r, uint16_t g, uint16_t b)
         {
             color_name_ = color_name;
+            r_ = r;
+            g_ = g;
+            b_ = b;
+        }
+
+        Color(uint16_t r, uint16_t g, uint16_t b)
+        {
+            color_name_ = "";
             r_ = r;
             g_ = g;
             b_ = b;
@@ -86,6 +94,11 @@ namespace tll
          * @return  Target color data
          */
         Color getColorFromID(uint8_t color_id);
+
+        /**
+         * 
+         */
+        uint8_t getIDFromRGB(uint16_t r, uint16_t g, uint16_t b);
 
     protected:
         ColorPalette() {}

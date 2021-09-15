@@ -2,7 +2,7 @@
  * @file    PanelManager.hpp
  * @brief   パネル情報管理クラス
  * @author  Yoshito Nakaue
- * @date    2021/08/05
+ * @date    2021/09/28
  */
 
 #ifndef PANEL_MANAGER_HPP
@@ -60,6 +60,17 @@ namespace tll
         * @param  c  The color of the rectangle
         */
         void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+
+        /**
+         * 
+         */
+        void drawPixel(uint16_t x, uint16_t y, uint8_t color)
+        {
+            if (x >= width_ || y >= height_)
+                return;
+
+            color_[y * width_ + x] = color;
+        }
 
         /**
         * @fn     void clear()
