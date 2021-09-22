@@ -2,13 +2,13 @@
  * @file Panel_8x8.cpp
  * @brief 8x8サイズのLEDパネルクラス
  * @author Yoshito Nakaue
- * @date 2021/07/14
+ * @date 2021/09/21
  */
 
 #include "Panel_8x8.hpp"
 
 Panel_8x8::Panel_8x8()
-    : PanelBase(8, 8)
+    : PanelBase(8, 8, 1)
 {
     registerMatrixInfo();
 }

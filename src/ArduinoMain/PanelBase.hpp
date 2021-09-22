@@ -1,8 +1,8 @@
 /**
  * @file PanelBase.hpp
- * @brief LEDパネルの基底クラス
+ * @brief Base class of LED panel
  * @author Yoshito Nakaue
- * @date 2021/07/14
+ * @date 2021/09/21
  */
 
 #ifndef PANEL_BASE_HPP
@@ -20,7 +20,7 @@ public:
     /**
      * @brief  矩形マトリクスLED用コンストラクタ
      */
-    PanelBase(uint16_t width = 8, uint16_t height = 8);
+    PanelBase(uint16_t width = 8, uint16_t height = 8, uint16_t num_driver = 1);
 
     /**
      * @brief  LED全体の点灯状態を更新する
@@ -31,7 +31,7 @@ public:
      * @fn init()
      * @brief LED制御モジュールを扱うアドレスを指定して初期化
      */
-    void init(uint8_t addr = 0x70);
+    void init(uint16_t addr = 0x70);
 
 protected:
     /**
@@ -56,7 +56,10 @@ private:
     uint16_t height_;
 
     //! I2C通信用アドレス
-    uint8_t addr_;
+    uint16_t addr_;
+
+    //! Number of LED driver
+    uint16_t num_driver_;
 };
 
 #endif
