@@ -93,6 +93,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afa10dc5eee18d23079be4f8700768a59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#afa10dc5eee18d23079be4f8700768a59">drawRect</a> (uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)</td></tr>
 <tr class="memdesc:afa10dc5eee18d23079be4f8700768a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw rectangle.  <a href="#afa10dc5eee18d23079be4f8700768a59">More...</a><br /></td></tr>
 <tr class="separator:afa10dc5eee18d23079be4f8700768a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ac8926bb703cbc649641bc1bc7dd39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#aa4ac8926bb703cbc649641bc1bc7dd39">drawLine</a> (uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)</td></tr>
+<tr class="memdesc:aa4ac8926bb703cbc649641bc1bc7dd39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw line.  <a href="#aa4ac8926bb703cbc649641bc1bc7dd39">More...</a><br /></td></tr>
+<tr class="separator:aa4ac8926bb703cbc649641bc1bc7dd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f9ced55f385c46a9e5fba95e97a741"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtll_1_1PanelManager.html#a06f9ced55f385c46a9e5fba95e97a741">drawCircle</a> (uint16_t x, uint16_t y, uint16_t rad, uint8_t c)</td></tr>
+<tr class="memdesc:a06f9ced55f385c46a9e5fba95e97a741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw circle.  <a href="#a06f9ced55f385c46a9e5fba95e97a741">More...</a><br /></td></tr>
+<tr class="separator:a06f9ced55f385c46a9e5fba95e97a741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655f5d720dcd871fe34830c222654d0b"><td class="memItemLeft" align="right" valign="top"><a id="a655f5d720dcd871fe34830c222654d0b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawPixel</b> (uint16_t x, uint16_t y, uint8_t color)</td></tr>
 <tr class="separator:a655f5d720dcd871fe34830c222654d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +158,115 @@ std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>LEDパネルの状態を管理するクラス </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a06f9ced55f385c46a9e5fba95e97a741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f9ced55f385c46a9e5fba95e97a741">&#9670;&nbsp;</a></span>drawCircle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tll::PanelManager::drawCircle </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>rad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw circle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x location of the center </td></tr>
+    <tr><td class="paramname">y</td><td>The y location of the center </td></tr>
+    <tr><td class="paramname">rad</td><td>The radian of the circle </td></tr>
+    <tr><td class="paramname">c</td><td>The color of the circle </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa4ac8926bb703cbc649641bc1bc7dd39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ac8926bb703cbc649641bc1bc7dd39">&#9670;&nbsp;</a></span>drawLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tll::PanelManager::drawLine </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1</td><td>The x location of the starting line </td></tr>
+    <tr><td class="paramname">y1</td><td>The y location of the starting line </td></tr>
+    <tr><td class="paramname">x2</td><td>The x location of the ending line </td></tr>
+    <tr><td class="paramname">y2</td><td>The y location of the ending line </td></tr>
+    <tr><td class="paramname">c</td><td>The color of the line </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="afa10dc5eee18d23079be4f8700768a59"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa10dc5eee18d23079be4f8700768a59">&#9670;&nbsp;</a></span>drawRect()</h2>
 

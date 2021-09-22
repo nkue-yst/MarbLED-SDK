@@ -4,5 +4,7 @@ var searchData=
   ['disp_5fbuff1',['disp_buff1',['../classPanelBase.html#a04ca643245cb808b45991505cb4a1ae5',1,'PanelBase']]],
   ['disp_5fbuff2',['disp_buff2',['../classPanelBase.html#aea83d63f9b7fec17c286685f52c1fe9c',1,'PanelBase']]],
   ['draw',['draw',['../classtll_1_1Image.html#ae6aba89559479afb1d270fcb3ea4fc3f',1,'tll::Image']]],
+  ['drawcircle',['drawCircle',['../classtll_1_1PanelManager.html#a06f9ced55f385c46a9e5fba95e97a741',1,'tll::PanelManager']]],
+  ['drawline',['drawLine',['../classtll_1_1PanelManager.html#aa4ac8926bb703cbc649641bc1bc7dd39',1,'tll::PanelManager::drawLine()'],['../namespacetll.html#a2ca366e2ae9d77b3a87e9f7ba50361d5',1,'tll::drawLine()']]],
   ['drawrect',['drawRect',['../classtll_1_1PanelManager.html#afa10dc5eee18d23079be4f8700768a59',1,'tll::PanelManager']]]
 ];

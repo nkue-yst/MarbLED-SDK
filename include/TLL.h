@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/09/07
+ * @date    2021/10/05
  */
 
 #ifndef _TLL_H_
@@ -57,6 +57,27 @@ namespace tll
      * @param  c  The color of the rectangle
      */
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+
+    /**
+     * @fn     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+     * @brief  Draw line
+     * @param  x1  The x location of the starting line
+     * @param  y1  The y location of the starting line
+     * @param  x2  The x location of the ending line
+     * @param  y2  The y location of the ending line
+     * @param  c   The color of the line
+     */
+    void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c);
+
+    /**
+     * @fn     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint16_t c)
+     * @brief  Draw circle
+     * @param  x    The x location of the center
+     * @param  y    The y location of the center
+     * @param  rad  The radian of the circle
+     * @param  c    The color of the circle
+     */
+    void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c);
 
     /**
      * @fn     void clear()

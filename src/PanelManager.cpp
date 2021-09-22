@@ -8,6 +8,7 @@
 #include "PanelManager.hpp"
 
 #include <iostream>
+#include <cstdlib>
 
 namespace tll
 {
@@ -52,6 +53,93 @@ namespace tll
                 }
             }
         }
+    }
+
+    void PanelManager::drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+    {
+        bool steep = std::abs(y2 - y1) > std::abs(x2 - x1);
+        if (steep)
+        {
+            std::swap(x1, y1);
+            std::swap(x2, y2);
+        }
+        
+        if (x1 > x2)
+        {
+            std::swap(x1, x2);
+            std::swap(y1, y2);
+        }
+
+        int32_t deltaX = x2 - x1;
+        int32_t deltaY = std::abs(y2 - y1);
+        int32_t error  = deltaX / 2;
+        int32_t stepY;
+        int32_t y = y1;
+
+        if (y1 < y2)
+        {
+            stepY = 1;
+        }
+        else
+        {
+            stepY = -1;
+        }
+
+        for (int32_t x = x1; x <= x2; x++)
+        {
+            if (steep)
+            {
+                PanelManager::getInstance()->drawPixel(y, x, c);
+            }
+            else
+            {
+                PanelManager::getInstance()->drawPixel(x, y, c);
+            }
+
+            error = error - deltaY;
+            if (error < 0)
+            {
+                y = y + stepY;
+                error = error + deltaX;
+            }
+        }
+    }
+
+    void PanelManager::drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
+    {
+        auto draw = [](int32_t pos_x, int32_t pos_y, int32_t xC, int32_t yC, uint8_t c)
+        {
+            PanelManager::getInstance()->drawPixel(xC + pos_x, yC + pos_y, c);
+            PanelManager::getInstance()->drawPixel(xC + pos_x, yC - pos_y, c);
+            PanelManager::getInstance()->drawPixel(xC - pos_x, yC + pos_y, c);
+            PanelManager::getInstance()->drawPixel(xC - pos_x, yC - pos_y, c);
+            PanelManager::getInstance()->drawPixel(xC + pos_y, yC + pos_x, c);
+            PanelManager::getInstance()->drawPixel(xC - pos_y, yC + pos_x, c);
+            PanelManager::getInstance()->drawPixel(xC + pos_y, yC - pos_x, c);
+            PanelManager::getInstance()->drawPixel(xC - pos_y, yC - pos_x, c);
+        };
+
+        int p = 1 - rad;
+        int drawX = 0;
+        int drawY = rad;
+
+        draw(drawX, drawY, x, y, c);
+
+        while (drawX <= drawY)
+        {
+            drawX++;
+            if (p < 0)
+            {
+                p += 2 * drawX + 1;
+            }
+            else
+            {
+                p += 2 * (drawX - drawY) + 1;
+                drawY--;
+            }
+            draw(drawX, drawY, x, y, c);
+        }
+
     }
 
     void PanelManager::clear()

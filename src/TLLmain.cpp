@@ -2,7 +2,7 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/09/07
+ * @date    2021/10/05
  */
 
 #include "TLL.h"
@@ -95,6 +95,20 @@ namespace tll
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
     {
         PanelManager::getInstance()->drawRect(x, y, w, h, c);
+        SerialManager::getInstance()->sendColorData();
+        Simulator::getInstance()->update();
+    }
+
+    void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+    {
+        PanelManager::getInstance()->drawLine(x1, y1, x2, y2, c);
+        SerialManager::getInstance()->sendColorData();
+        Simulator::getInstance()->update();
+    }
+
+    void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
+    {
+        PanelManager::getInstance()->drawCircle(x, y, rad, c);
         SerialManager::getInstance()->sendColorData();
         Simulator::getInstance()->update();
     }
