@@ -67,7 +67,7 @@ namespace tll
         img_dest.resize(height / 10, width / 10);
         img_dest.draw(0, 0);
 
-        cv::imwrite("PrintedText.png", img);
+        //cv::imwrite("PrintedText.png", img);
     }
 
     void TextRenderer::loadFont(const char* font_file_path)
