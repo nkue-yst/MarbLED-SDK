@@ -8,7 +8,9 @@
 <area shape="rect" id="node8" href="$MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="1039,80,1184,121"/>
 <area shape="rect" id="node9" href="$PrintText__24x16_8cpp.html" title="Print text example. " alt="" coords="1209,87,1403,114"/>
 <area shape="rect" id="node10" href="$Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="1427,80,1569,121"/>
-<area shape="rect" id="node11" href="$Event_8hpp.html" title="Event handling. " alt="" coords="1593,87,1720,114"/>
-<area shape="rect" id="node13" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="1699,169,1817,196"/>
-<area shape="rect" id="node12" href="$Event_8cpp.html" title="Event handling. " alt="" coords="1572,169,1675,196"/>
+<area shape="rect" id="node11" href="$Video__24x16_8cpp.html" title="Playing video from file. " alt="" coords="1593,87,1768,114"/>
+<area shape="rect" id="node12" href="$Event_8hpp.html" title="Event handling. " alt="" coords="1792,87,1919,114"/>
+<area shape="rect" id="node14" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="1897,169,2016,196"/>
+<area shape="rect" id="node15" href="$Video_8cpp.html" title="Video class. " alt="" coords="1995,87,2097,114"/>
+<area shape="rect" id="node13" href="$Event_8cpp.html" title="Event handling. " alt="" coords="1771,169,1873,196"/>
 </map>

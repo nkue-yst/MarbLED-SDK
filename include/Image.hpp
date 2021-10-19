@@ -2,8 +2,11 @@
  * @file    Image.hpp
  * @brief   Image class
  * @author  Yoshito Nakaue
- * @date    2021/09/28
+ * @date    2021/10/19
  */
+
+#ifndef IMAGE_HPP
+#define IMAGE_HPP
 
 #include <opencv2/opencv.hpp>
 
@@ -35,3 +38,5 @@ namespace tll
         cv::Mat img_data_;
     };
 }
+
+#endif

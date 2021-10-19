@@ -2,13 +2,14 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/10/18
+ * @date    2021/10/19
  */
 
 #ifndef _TLL_H_
 #define _TLL_H_
 
 #include "Image.hpp"
+#include "Video.hpp"
 
 #include <cstdint>
 #include <functional>
@@ -99,6 +100,14 @@ namespace tll
      * @return  Image class data
      */
     tll::Image loadImage(const char* file);
+
+    /**
+     * @fn      tll::Video loadVideo(const char* file)
+     * @brief   Load video file
+     * @param   file  Video file path
+     * @return  Video class data
+     */
+    tll::Video loadVideo(const char* file);
 
 
     /**

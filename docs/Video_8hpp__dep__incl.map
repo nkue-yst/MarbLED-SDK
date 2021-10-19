@@ -1,0 +1,17 @@
+<map id="include/Video.hpp" name="include/Video.hpp">
+<area shape="rect" id="node2" href="$TLL_8h.html" title="API公開用ヘッダファイル " alt="" coords="1159,80,1259,107"/>
+<area shape="rect" id="node16" href="$Video_8cpp.html" title="Video class. " alt="" coords="1995,162,2097,189"/>
+<area shape="rect" id="node3" href="$FillSingleColor__8x16_8cpp.html" title="Fill panel with single color. " alt="" coords="5,155,164,196"/>
+<area shape="rect" id="node4" href="$Image__24x16_8cpp.html" title="Drawing image from file. " alt="" coords="189,162,367,189"/>
+<area shape="rect" id="node5" href="$Intaractive__24x16_8cpp.html" title="Draw rectangle when mouse clocked. " alt="" coords="391,155,527,196"/>
+<area shape="rect" id="node6" href="$Intaractive__8x16_8cpp.html" title="Draw rectangle when mouse clicked. " alt="" coords="551,155,687,196"/>
+<area shape="rect" id="node7" href="$LineCircle__24x16_8cpp.html" title="Drawing line and circle. " alt="" coords="711,155,845,196"/>
+<area shape="rect" id="node8" href="$MovingRect__24x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="869,155,1015,196"/>
+<area shape="rect" id="node9" href="$MovingRect__8x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="1039,155,1184,196"/>
+<area shape="rect" id="node10" href="$PrintText__24x16_8cpp.html" title="Print text example. " alt="" coords="1209,162,1403,189"/>
+<area shape="rect" id="node11" href="$Rectangles__8x16_8cpp.html" title="Drawing colorful rectangles. " alt="" coords="1427,155,1569,196"/>
+<area shape="rect" id="node12" href="$Video__24x16_8cpp.html" title="Playing video from file. " alt="" coords="1593,162,1768,189"/>
+<area shape="rect" id="node13" href="$Event_8hpp.html" title="Event handling. " alt="" coords="1792,162,1919,189"/>
+<area shape="rect" id="node15" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="1897,244,2016,271"/>
+<area shape="rect" id="node14" href="$Event_8cpp.html" title="Event handling. " alt="" coords="1771,244,1873,271"/>
+</map>

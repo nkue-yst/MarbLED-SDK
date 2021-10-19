@@ -2,7 +2,7 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/10/18
+ * @date    2021/10/19
  */
 
 #include "TLL.h"
@@ -140,6 +140,16 @@ namespace tll
             std::cout << file << " is not found." << std::endl;
 
         return tll::Image(img);
+    }
+
+    tll::Video loadVideo(const char* file)
+    {
+        cv::VideoCapture video;
+        video.open(file);
+        if (video.isOpened() == false)
+            std::cerr << "[ERROR] Failed to load video file" << std::endl;
+        
+        return tll::Video(video);
     }
 
 
