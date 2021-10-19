@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/10/05
+ * @date    2021/10/18
  */
 
 #ifndef _TLL_H_
@@ -78,6 +78,13 @@ namespace tll
      * @param  c    The color of the circle
      */
     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c);
+
+    /**
+     * @fn     void print(const char* str)
+     * @brief  Print text
+     * @param  const char* str  String to print
+     */
+    void print(const char* str);
 
     /**
      * @fn     void clear()

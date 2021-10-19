@@ -2,12 +2,13 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/10/05
+ * @date    2021/10/18
  */
 
 #include "TLL.h"
 #include "Color.hpp"
 #include "Event.hpp"
+#include "TextRenderer.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
 #include "Simulator.hpp"
@@ -60,6 +61,9 @@ namespace tll
         std::cout << "Finish loading." << std::endl;
 
         /* Initialize singleton classes */
+        TextRenderer::create();
+        TextRenderer::getInstance()->init();
+
         PanelManager::create();
         PanelManager::getInstance()->init(width, height);
 
@@ -84,11 +88,14 @@ namespace tll
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
 
+        TextRenderer::getInstance()->quit();
+
         Simulator::getInstance()->destroy();
         SDL_Quit();
         EventHandler::getInstance()->destroy();
         SerialManager::getInstance()->destroy();
         PanelManager::getInstance()->destroy();
+        TextRenderer::getInstance()->destroy();
         ColorPalette::getInstance()->destroy();
     }
 
@@ -110,6 +117,12 @@ namespace tll
     {
         PanelManager::getInstance()->drawCircle(x, y, rad, c);
         SerialManager::getInstance()->sendColorData();
+        Simulator::getInstance()->update();
+    }
+
+    void print(const char* str)
+    {
+        TextRenderer::getInstance()->drawText(str, 0, 0);
         Simulator::getInstance()->update();
     }
 

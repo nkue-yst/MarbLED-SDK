@@ -1,9 +1,9 @@
 CXX = g++
 CXXFLAGS     = -Wall -lwiringPi
 SDL_FLAGS    = $(shell sdl2-config --cflags --libs)
-OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc
+OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_freetype
 INCLUDE_DIR  = -I./include/
-OBJECTS      = Image.o Color.o Event.o PanelManager.o SerialManager.o Simulator.o TLLmain.o
+OBJECTS      = TextRenderer.o Image.o Color.o Event.o PanelManager.o SerialManager.o Simulator.o TLLmain.o
 
 all : build example
 
@@ -13,14 +13,15 @@ build: $(OBJECTS)
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
 
 example: build
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/LineCircle_24x16.cpp -Lbuild -lTLL -o example/LineCircle_24x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_24x16.cpp -Lbuild -lTLL -o example/Image_24x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Rectangles_8x16.cpp -Lbuild -lTLL -o example/Rectangles_8x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/FillSingleColor_8x16.cpp -Lbuild -lTLL -o example/FillSingleColor_8x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/MovingRect_8x16.cpp -Lbuild -lTLL -o example/MovingRect_8x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/MovingRect_24x16.cpp -Lbuild -lTLL -o example/MovingRect_24x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Intaractive_8x16.cpp -Lbuild -lTLL -o example/Intaractive_8x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp -Lbuild -lTLL -o example/Intaractive_24x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp -Lbuild -lTLL -o example/PrintText_24x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/LineCircle_24x16.cpp -Lbuild -lTLL -o example/LineCircle_24x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_24x16.cpp -Lbuild -lTLL -o example/Image_24x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Rectangles_8x16.cpp -Lbuild -lTLL -o example/Rectangles_8x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/FillSingleColor_8x16.cpp -Lbuild -lTLL -o example/FillSingleColor_8x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/MovingRect_8x16.cpp -Lbuild -lTLL -o example/MovingRect_8x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/MovingRect_24x16.cpp -Lbuild -lTLL -o example/MovingRect_24x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Intaractive_8x16.cpp -Lbuild -lTLL -o example/Intaractive_8x16
+	#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp -Lbuild -lTLL -o example/Intaractive_24x16
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : ./src/%.cpp
@@ -39,4 +40,4 @@ doc-clean:
 clean:
 	rm -f *.o
 	rm -rf build/
-	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_24x16 example/Intaractive_24x16 example/MovingRect_24x16 example/LineCircle_24x16
+	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_24x16 example/Intaractive_24x16 example/MovingRect_24x16 example/LineCircle_24x16 example/PrintText_24x16

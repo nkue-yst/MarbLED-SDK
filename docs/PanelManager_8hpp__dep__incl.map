@@ -4,5 +4,6 @@
 <area shape="rect" id="node4" href="$PanelManager_8cpp.html" title="パネル情報管理クラスの実装 " alt="" coords="262,80,414,107"/>
 <area shape="rect" id="node5" href="$SerialManager_8cpp.html" title="Implementing a class to manage serial communication. " alt="" coords="438,80,590,107"/>
 <area shape="rect" id="node6" href="$Simulator_8cpp.html" title="シミュレータークラスの実装 " alt="" coords="615,80,739,107"/>
-<area shape="rect" id="node7" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="763,80,881,107"/>
+<area shape="rect" id="node7" href="$TextRenderer_8cpp.html" title="TextRenderer class. " alt="" coords="763,80,911,107"/>
+<area shape="rect" id="node8" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="935,80,1053,107"/>
 </map>
