@@ -83,10 +83,10 @@ namespace tll
     /**
      * @fn     void print(const char* str)
      * @brief  Print text
-     * @param  const char* str  String to print
+     * @param  std::string str  String to print
      * @param  c  Color to print string
      */
-    void print(const char* str, uint8_t c);
+    void print(std::string str, uint8_t c);
 
     /**
      * @fn     void clear()
@@ -109,6 +109,13 @@ namespace tll
      * @return  Video class data
      */
     tll::Video loadVideo(const char* file);
+
+    /**
+     * @fn      std::string timeToString()
+     * @brief   Get current time (Hours and minutes)
+     * @return  Current time (String)
+     */
+    std::string timeToString();
 
 
     /**

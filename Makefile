@@ -14,7 +14,8 @@ build: $(OBJECTS)
 
 example: build
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Video_24x16.cpp -Lbuild -lTLL -o example/Video_24x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp -Lbuild -lTLL -o example/PrintText_24x16
+	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp -Lbuild -lTLL -o example/PrintText_24x16
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp -Lbuild -lTLL -o example/PrintTime_24x16
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/LineCircle_24x16.cpp -Lbuild -lTLL -o example/LineCircle_24x16
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_24x16.cpp -Lbuild -lTLL -o example/Image_24x16
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Rectangles_8x16.cpp -Lbuild -lTLL -o example/Rectangles_8x16
@@ -41,4 +42,4 @@ doc-clean:
 clean:
 	rm -f *.o
 	rm -rf build/
-	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_24x16 example/Intaractive_24x16 example/MovingRect_24x16 example/LineCircle_24x16 example/PrintText_24x16 example/Video_24x16
+	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_24x16 example/Intaractive_24x16 example/MovingRect_24x16 example/LineCircle_24x16 example/PrintText_24x16 example/Video_24x16 example/PrintTime_24x16

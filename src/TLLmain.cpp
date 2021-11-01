@@ -15,6 +15,8 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <ctime>
+
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -120,9 +122,10 @@ namespace tll
         Simulator::getInstance()->update();
     }
 
-    void print(const char* str, uint8_t c)
+    void print(std::string str, uint8_t c)
     {
         TextRenderer::getInstance()->drawText(str, c, 0, 0);
+        SerialManager::getInstance()->sendColorData();
         Simulator::getInstance()->update();
     }
 
@@ -150,6 +153,17 @@ namespace tll
             std::cerr << "[ERROR] Failed to load video file" << std::endl;
         
         return tll::Video(video);
+    }
+
+    std::string timeToString()
+    {
+        time_t now = std::time(NULL);
+        struct tm *pnow = std::localtime(&now);
+
+        std::string h = std::to_string(pnow->tm_hour);
+        std::string m = std::to_string(pnow->tm_min);
+
+        return h + ":" + m;
     }
 
 

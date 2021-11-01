@@ -55,10 +55,10 @@ namespace tll
         void quit();
 
         /**
-         * @fn     void drawText(const char* str, uint32_t x, uint32_t y)
+         * @fn     void drawText(std::string str, uint32_t x, uint32_t y)
          * @brief  Drawing text
          */
-        void drawText(const char* str, uint8_t c, uint32_t x, uint32_t y);
+        void drawText(std::string str, uint8_t c, uint32_t x, uint32_t y);
 
     protected:
         TextRenderer()

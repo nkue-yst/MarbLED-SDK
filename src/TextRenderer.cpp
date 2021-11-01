@@ -44,7 +44,7 @@ namespace tll
 
     }
 
-    void TextRenderer::drawText(const char* str, uint8_t c, uint32_t x, uint32_t y)
+    void TextRenderer::drawText(std::string str, uint8_t c, uint32_t x, uint32_t y)
     {
         uint32_t width = PanelManager::getInstance()->getWidth();
         uint32_t height = PanelManager::getInstance()->getHeight();

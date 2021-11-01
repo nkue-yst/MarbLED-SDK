@@ -24,5 +24,6 @@ var searchData=
   ['pixelinfo_2ehpp',['PixelInfo.hpp',['../PixelInfo_8hpp.html',1,'']]],
   ['pixels_5finfo_5f',['pixels_info_',['../classPanelBase.html#a2bd215863e490bf3d5e53f97ae1268fd',1,'PanelBase']]],
   ['point',['Point',['../structtll_1_1Point.html',1,'tll']]],
-  ['printtext_5f24x16_2ecpp',['PrintText_24x16.cpp',['../PrintText__24x16_8cpp.html',1,'']]]
+  ['printtext_5f24x16_2ecpp',['PrintText_24x16.cpp',['../PrintText__24x16_8cpp.html',1,'']]],
+  ['printtime_5f24x16_2ecpp',['PrintTime_24x16.cpp',['../PrintTime__24x16_8cpp.html',1,'']]]
 ];
