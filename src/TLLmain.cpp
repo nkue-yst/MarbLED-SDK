@@ -120,9 +120,9 @@ namespace tll
         Simulator::getInstance()->update();
     }
 
-    void print(const char* str)
+    void print(const char* str, uint8_t c)
     {
-        TextRenderer::getInstance()->drawText(str, 0, 0);
+        TextRenderer::getInstance()->drawText(str, c, 0, 0);
         Simulator::getInstance()->update();
     }
 

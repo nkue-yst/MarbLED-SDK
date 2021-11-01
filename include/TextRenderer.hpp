@@ -58,11 +58,11 @@ namespace tll
          * @fn     void drawText(const char* str, uint32_t x, uint32_t y)
          * @brief  Drawing text
          */
-        void drawText(const char* str, uint32_t x, uint32_t y);
+        void drawText(const char* str, uint8_t c, uint32_t x, uint32_t y);
 
     protected:
         TextRenderer()
-            : font_size_(40)
+            : font_size_(5)
         {
         }
 
@@ -73,7 +73,7 @@ namespace tll
         /**
          * @fn  void loadFont(const char* font_file_path)
          */
-        void loadFont(const char* font_file_path = "./font/NotoSansJP-Regular.otf");
+        void loadFont(const char* font_file_path = "./font/4x4kanafont.ttf");
 
         /// freetype object
         cv::Ptr<cv::freetype::FreeType2> ft2_;

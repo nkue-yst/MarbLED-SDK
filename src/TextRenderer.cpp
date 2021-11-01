@@ -44,10 +44,10 @@ namespace tll
 
     }
 
-    void TextRenderer::drawText(const char* str, uint32_t x, uint32_t y)
+    void TextRenderer::drawText(const char* str, uint8_t c, uint32_t x, uint32_t y)
     {
-        uint32_t width = PanelManager::getInstance()->getWidth() * 10;
-        uint32_t height = PanelManager::getInstance()->getHeight() * 10;
+        uint32_t width = PanelManager::getInstance()->getWidth();
+        uint32_t height = PanelManager::getInstance()->getHeight();
 
         cv::String text = str;
         uint32_t thickness  = -1;
@@ -63,11 +63,20 @@ namespace tll
 
         ft2_->putText(img, text, text_org, font_size_, cv::Scalar::all(255), thickness, line_style, true);
 
-        Image img_dest(img);
-        img_dest.resize(height / 10, width / 10);
-        img_dest.draw(0, 0);
+        for (int32_t y = 0; y < img.rows; y++)
+        {
+            for (int32_t x = 0; x < img.cols; x++)
+            {
+                if (img.at<cv::Vec3b>(y, x)[2] != 0
+                 && img.at<cv::Vec3b>(y, x)[1] != 0
+                 && img.at<cv::Vec3b>(y, x)[0] != 0)
+                {
+                    PanelManager::getInstance()->drawPixel(x, y, c);
+                }
+            }
+        }
 
-        //cv::imwrite("PrintedText.png", img);
+        // cv::imwrite("PrintedText.png", img);
     }
 
     void TextRenderer::loadFont(const char* font_file_path)

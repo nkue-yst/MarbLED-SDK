@@ -7,5 +7,5 @@ var searchData=
   ['drawcircle',['drawCircle',['../classtll_1_1PanelManager.html#a06f9ced55f385c46a9e5fba95e97a741',1,'tll::PanelManager']]],
   ['drawline',['drawLine',['../classtll_1_1PanelManager.html#aa4ac8926bb703cbc649641bc1bc7dd39',1,'tll::PanelManager::drawLine()'],['../namespacetll.html#a2ca366e2ae9d77b3a87e9f7ba50361d5',1,'tll::drawLine()']]],
   ['drawrect',['drawRect',['../classtll_1_1PanelManager.html#afa10dc5eee18d23079be4f8700768a59',1,'tll::PanelManager']]],
-  ['drawtext',['drawText',['../classtll_1_1TextRenderer.html#a4d64aa00bc6dca96beb3347c0b883304',1,'tll::TextRenderer']]]
+  ['drawtext',['drawText',['../classtll_1_1TextRenderer.html#a0a255b9b510dc0e035b8b31ce657ed88',1,'tll::TextRenderer']]]
 ];

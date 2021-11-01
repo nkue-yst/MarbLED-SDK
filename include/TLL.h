@@ -84,8 +84,9 @@ namespace tll
      * @fn     void print(const char* str)
      * @brief  Print text
      * @param  const char* str  String to print
+     * @param  c  Color to print string
      */
-    void print(const char* str);
+    void print(const char* str, uint8_t c);
 
     /**
      * @fn     void clear()
