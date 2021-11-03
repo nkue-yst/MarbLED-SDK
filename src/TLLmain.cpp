@@ -161,7 +161,11 @@ namespace tll
         struct tm *pnow = std::localtime(&now);
 
         std::string h = std::to_string(pnow->tm_hour);
-        std::string m = std::to_string(pnow->tm_min);
+        //std::string m = std::to_string(pnow->tm_min);
+
+        std::ostringstream m_str;
+        m_str << std::setfill('0') << std::setw(2) << pnow->tm_min;
+        std::string m = m_str.str();
 
         return h + ":" + m;
     }
