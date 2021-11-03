@@ -9,6 +9,7 @@
 #define SIMULATOR_HPP
 
 #include "SDL.h"
+#include <opencv2/opencv.hpp>
 
 namespace tll
 {
@@ -73,6 +74,9 @@ namespace tll
 
         /// シミュレーション用レンダラー
         SDL_Renderer* renderer_;
+
+        /// Renderer for appearence simulation
+        cv::Mat simulator_img_;
 
         /// 各ピクセルのサイズ
         int pixel_size;

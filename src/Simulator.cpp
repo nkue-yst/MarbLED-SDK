@@ -32,6 +32,9 @@ namespace tll
 
     void Simulator::start()
     {
+        char window_title[] = "TouchLED-Simulator";
+
+        /* Initialize the window for simulating the LED lighting state */
         /* ディスプレイのサイズを取得 */
         SDL_Rect disp_info;
         SDL_GetDisplayUsableBounds(0, &disp_info);
@@ -44,7 +47,7 @@ namespace tll
         blank_size = pixel_size / 3;
 
         window_ = SDL_CreateWindow(
-            "TouchLED-Simulator",
+            window_title,
             SDL_WINDOWPOS_UNDEFINED,
             SDL_WINDOWPOS_UNDEFINED,
             pixel_size * PanelManager::getInstance()->getWidth()  + (PanelManager::getInstance()->getWidth()  + 1) * blank_size,
@@ -107,6 +110,50 @@ namespace tll
         }
 
         SDL_RenderPresent(renderer_);
+
+        /* Update simulator for appearence simulation */
+        this->simulator_img_ = cv::Mat(
+            pixel_size * PanelManager::getInstance()->getHeight(),
+            pixel_size * PanelManager::getInstance()->getWidth(),
+            CV_8UC3,
+            cv::Scalar(255, 255, 255)
+        );
+
+        for (int32_t y = 0; y < PanelManager::getInstance()->getHeight(); y++)
+        {
+            for (int32_t x = 0; x < PanelManager::getInstance()->getWidth(); x++)
+            {
+                Color p_color = ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y));
+
+                if (!(p_color.r_ == 0 && p_color.g_ == 0 && p_color.b_ == 0))
+                {
+                    cv::circle(
+                        this->simulator_img_,
+                        cv::Point(
+                            this->pixel_size * x + this->pixel_size / 2,
+                            this->pixel_size * y + this->pixel_size / 2  
+                        ),
+                        pixel_size / 2 + pixel_size * 0.2f,
+                        cv::Scalar(
+                            ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y)).b_,
+                            ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y)).g_,
+                            ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y)).r_
+                        ),
+                        -1
+                    );
+                }
+            }
+        }
+
+        cv::GaussianBlur(
+            this->simulator_img_,
+            this->simulator_img_,
+            cv::Size(51, 51),
+            0
+        );
+
+        cv::imshow("TouchLED-Simulator", this->simulator_img_);
+        cv::waitKey(10);
     }
 
     void Simulator::quit()
