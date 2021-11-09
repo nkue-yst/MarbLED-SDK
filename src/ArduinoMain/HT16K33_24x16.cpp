@@ -1,19 +1,19 @@
 /**
- * @file Panel_24x16.cpp
+ * @file HT16K33_24x16.cpp
  * @brief 24x16サイズのLEDパネルクラス
  * @author Yoshito Nakaue
- * @date 2021/09/21
+ * @date 2021/11/09
  */
 
-#include "Panel_24x16.hpp"
+#include "HT16K33_24x16.hpp"
 
-Panel_24x16::Panel_24x16()
-    : PanelBase(24, 16, 3)
+HT16K33_24x16::HT16K33_24x16()
+    : HT16K33_Base(24, 16, 3)
 {
     registerMatrixInfo();
 }
 
-void Panel_24x16::registerMatrixInfo()
+void HT16K33_24x16::registerMatrixInfo()
 {
     for (int i = 0; i < 24 * 16; i++)
     {

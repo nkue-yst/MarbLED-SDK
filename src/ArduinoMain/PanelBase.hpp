@@ -2,7 +2,7 @@
  * @file PanelBase.hpp
  * @brief Base class of LED panel
  * @author Yoshito Nakaue
- * @date 2021/09/21
+ * @date 2021/11/09
  */
 
 #ifndef PANEL_BASE_HPP
@@ -10,6 +10,15 @@
 
 #include "PixelInfo.hpp"
 #include <vector>
+
+/**
+ * @brief  Type of LED driver
+ */
+enum EDriverName : uint16_t
+{
+    HT16K33,
+    STP16CP05
+};
 
 /**
  * @brief  1枚のLEDパネルを表すクラス
@@ -25,13 +34,13 @@ public:
     /**
      * @brief  LED全体の点灯状態を更新する
      */
-    void update();
+    virtual void update() = 0;
 
     /**
      * @fn init()
      * @brief LED制御モジュールを扱うアドレスを指定して初期化
      */
-    void init(uint16_t addr = 0x70);
+    virtual void init(uint16_t addr = 0x70) = 0;
 
 protected:
     /**
@@ -41,13 +50,6 @@ protected:
 
     //! 各ピクセルの情報を格納する配列
     std::vector<PixelInfo> pixels_info_;
-
-private:
-    //! 8x8(1)用描画用バッファ
-    uint16_t disp_buff1[8] = {};
-
-    //! 8x8(2)用描画用バッファ
-    uint16_t disp_buff2[8] = {};
 
     //! パネル全体の横幅
     uint16_t width_;

@@ -1,17 +1,13 @@
 /**
- * @file PanelManager.ino
+ * @file ArduinoMain.ino
  * @brief LEDの更新処理を行うメイン処理部
  * @author Yoshito Nakaue
- * @date 2021/09/22
+ * @date 2021/11/09
  */
 
-#include "Panel_8x8.hpp"
-#include "Panel_8x16.hpp"
-#include "Panel_24x16.hpp"
+#include "HT16K33_24x16.hpp"
 
-//Panel_8x8 panel = Panel_8x8();
-//Panel_8x16 panel = Panel_8x16();
-Panel_24x16 panel = Panel_24x16();
+HT16K33_24x16 panel = HT16K33_24x16();
 
 void setup()
 {
