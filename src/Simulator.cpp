@@ -116,7 +116,7 @@ namespace tll
             pixel_size * PanelManager::getInstance()->getHeight(),
             pixel_size * PanelManager::getInstance()->getWidth(),
             CV_8UC3,
-            cv::Scalar(255, 255, 255)
+            cv::Scalar(50, 50, 50)
         );
 
         for (int32_t y = 0; y < PanelManager::getInstance()->getHeight(); y++)

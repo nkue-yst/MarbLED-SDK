@@ -14,7 +14,7 @@ build: $(OBJECTS)
 
 example: build
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Video_24x16.cpp -Lbuild -lTLL -o example/Video_24x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp -Lbuild -lTLL -o example/PrintText_24x16
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp -Lbuild -lTLL -o example/PrintText_24x16
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp -Lbuild -lTLL -o example/PrintTime_24x16
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/LineCircle_24x16.cpp -Lbuild -lTLL -o example/LineCircle_24x16
 	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_24x16.cpp -Lbuild -lTLL -o example/Image_24x16

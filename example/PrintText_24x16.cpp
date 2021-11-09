@@ -12,7 +12,7 @@ int main()
     tll::init(24, 16);
     tll::Simulation::start();
 
-    tll::print("あかさたな", tll::Palette::color("White"));
+    tll::print("あかさたな", tll::Palette::color("Red"));
 
     while (tll::loop())
     {
