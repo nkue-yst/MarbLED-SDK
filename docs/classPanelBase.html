@@ -62,7 +62,6 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classPanelBase-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PanelBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -78,9 +77,10 @@ Inheritance diagram for PanelBase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPanelBase__inherit__graph.png" border="0" usemap="#PanelBase_inherit__map" alt="Inheritance graph"/></div>
 <map name="PanelBase_inherit__map" id="PanelBase_inherit__map">
-<area shape="rect" id="node2" href="classPanel__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,80,103,107"/>
-<area shape="rect" id="node3" href="classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="127,80,218,107"/>
-<area shape="rect" id="node4" href="classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="242,80,325,107"/>
+<area shape="rect" id="node2" href="classHT16K33__Base.html" title="Base class of HT16K33. " alt="" coords="146,80,261,107"/>
+<area shape="rect" id="node3" href="classHT16K33__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,155,124,181"/>
+<area shape="rect" id="node4" href="classHT16K33__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="147,155,259,181"/>
+<area shape="rect" id="node5" href="classHT16K33__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="283,155,388,181"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -90,14 +90,14 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a8de9987b992dfc829b86695cc05857bd">PanelBase</a> (uint16_t width=8, uint16_t height=8, uint16_t num_driver=1)</td></tr>
 <tr class="memdesc:a8de9987b992dfc829b86695cc05857bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">矩形マトリクスLED用コンストラクタ <br /></td></tr>
 <tr class="separator:a8de9987b992dfc829b86695cc05857bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aece79bece96754da41945381d63a08fb"><td class="memItemLeft" align="right" valign="top"><a id="aece79bece96754da41945381d63a08fb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aece79bece96754da41945381d63a08fb">update</a> ()</td></tr>
-<tr class="memdesc:aece79bece96754da41945381d63a08fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED全体の点灯状態を更新する <br /></td></tr>
-<tr class="separator:aece79bece96754da41945381d63a08fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eca2088b32b8d8be887b9312225b109"><td class="memItemLeft" align="right" valign="top"><a id="a8eca2088b32b8d8be887b9312225b109"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a8eca2088b32b8d8be887b9312225b109">init</a> (uint16_t addr=0x70)</td></tr>
-<tr class="memdesc:a8eca2088b32b8d8be887b9312225b109"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED制御モジュールを扱うアドレスを指定して初期化 <br /></td></tr>
-<tr class="separator:a8eca2088b32b8d8be887b9312225b109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe2f07ad725758cb4bdc0ddb0b1dd23"><td class="memItemLeft" align="right" valign="top"><a id="aabe2f07ad725758cb4bdc0ddb0b1dd23"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aabe2f07ad725758cb4bdc0ddb0b1dd23">update</a> ()=0</td></tr>
+<tr class="memdesc:aabe2f07ad725758cb4bdc0ddb0b1dd23"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED全体の点灯状態を更新する <br /></td></tr>
+<tr class="separator:aabe2f07ad725758cb4bdc0ddb0b1dd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81e74d3c38b88682e018c2c37462128"><td class="memItemLeft" align="right" valign="top"><a id="af81e74d3c38b88682e018c2c37462128"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#af81e74d3c38b88682e018c2c37462128">init</a> (uint16_t addr=0x70)=0</td></tr>
+<tr class="memdesc:af81e74d3c38b88682e018c2c37462128"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED制御モジュールを扱うアドレスを指定して初期化 <br /></td></tr>
+<tr class="separator:af81e74d3c38b88682e018c2c37462128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -112,17 +112,6 @@ Protected Attributes</h2></td></tr>
 std::vector&lt; <a class="el" href="structPixelInfo.html">PixelInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a2bd215863e490bf3d5e53f97ae1268fd">pixels_info_</a></td></tr>
 <tr class="memdesc:a2bd215863e490bf3d5e53f97ae1268fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">各ピクセルの情報を格納する配列 <br /></td></tr>
 <tr class="separator:a2bd215863e490bf3d5e53f97ae1268fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a04ca643245cb808b45991505cb4a1ae5"><td class="memItemLeft" align="right" valign="top"><a id="a04ca643245cb808b45991505cb4a1ae5"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a04ca643245cb808b45991505cb4a1ae5">disp_buff1</a> [8] = {}</td></tr>
-<tr class="memdesc:a04ca643245cb808b45991505cb4a1ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">8x8(1)用描画用バッファ <br /></td></tr>
-<tr class="separator:a04ca643245cb808b45991505cb4a1ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea83d63f9b7fec17c286685f52c1fe9c"><td class="memItemLeft" align="right" valign="top"><a id="aea83d63f9b7fec17c286685f52c1fe9c"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#aea83d63f9b7fec17c286685f52c1fe9c">disp_buff2</a> [8] = {}</td></tr>
-<tr class="memdesc:aea83d63f9b7fec17c286685f52c1fe9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">8x8(2)用描画用バッファ <br /></td></tr>
-<tr class="separator:aea83d63f9b7fec17c286685f52c1fe9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46af10a6ac5867c26b5ae13406f7c710"><td class="memItemLeft" align="right" valign="top"><a id="a46af10a6ac5867c26b5ae13406f7c710"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanelBase.html#a46af10a6ac5867c26b5ae13406f7c710">width_</a></td></tr>
 <tr class="memdesc:a46af10a6ac5867c26b5ae13406f7c710"><td class="mdescLeft">&#160;</td><td class="mdescRight">パネル全体の横幅 <br /></td></tr>

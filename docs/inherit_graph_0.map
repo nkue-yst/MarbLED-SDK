@@ -1,6 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classPanelBase.html" title="1枚のLEDパネルを表すクラス " alt="" coords="5,56,91,83"/>
-<area shape="rect" id="node2" href="$classPanel__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="139,5,236,32"/>
-<area shape="rect" id="node3" href="$classPanel__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="142,56,233,83"/>
-<area shape="rect" id="node4" href="$classPanel__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="146,107,229,133"/>
+<area shape="rect" id="node2" href="$classHT16K33__Base.html" title="Base class of HT16K33. " alt="" coords="139,56,253,83"/>
+<area shape="rect" id="node3" href="$classHT16K33__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="301,5,420,32"/>
+<area shape="rect" id="node4" href="$classHT16K33__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="305,56,417,83"/>
+<area shape="rect" id="node5" href="$classHT16K33__8x8.html" title="8x8サイズのLEDパネルクラス " alt="" coords="308,107,413,133"/>
 </map>

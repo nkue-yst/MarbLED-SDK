@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['sendcolordata',['sendColorData',['../classtll_1_1SerialManager.html#a7c8bffd81a31999c83c3dd1da63c3f68',1,'tll::SerialManager']]],
-  ['start',['start',['../classtll_1_1Simulator.html#a8f0ea5cd4d4be3ac390b800aa15d2c72',1,'tll::Simulator::start()'],['../TLL_8h.html#a56f482b2c453ee5ccdebfee76a048ca2',1,'tll::Simulation::start()']]]
+  ['registermatrixinfo',['registerMatrixInfo',['../classHT16K33__24x16.html#a33b0e7d9fc2950701841ccf32cf96d65',1,'HT16K33_24x16::registerMatrixInfo()'],['../classHT16K33__8x16.html#a41875f6f54e2ed7008b2cf0b69714c5c',1,'HT16K33_8x16::registerMatrixInfo()'],['../classHT16K33__8x8.html#ab7cc7c794b4982f4e062c6e50e137b82',1,'HT16K33_8x8::registerMatrixInfo()'],['../classPanelBase.html#a9d6b4236ebe7df8e106ad196ff503d19',1,'PanelBase::registerMatrixInfo()']]],
+  ['removetouchedpoint',['removeTouchedPoint',['../classtll_1_1EventHandler.html#abe812a062f3c55aad241cc66ec9ec435',1,'tll::EventHandler']]],
+  ['resize',['resize',['../classtll_1_1Image.html#af9d7b7caa5d1d3b4797e914dd1212b1c',1,'tll::Image']]]
 ];

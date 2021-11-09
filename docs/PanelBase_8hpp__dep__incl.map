@@ -1,9 +1,11 @@
 <map id="src/ArduinoMain/PanelBase.hpp" name="src/ArduinoMain/PanelBase.hpp">
-<area shape="rect" id="node2" href="$Panel__24x16_8hpp.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,80,159,121"/>
-<area shape="rect" id="node4" href="$Panel__8x16_8hpp.html" title="8x1サイズのLEDパネルクラス " alt="" coords="183,80,336,121"/>
-<area shape="rect" id="node6" href="$Panel__8x8_8hpp.html" title="8x8サイズのLEDパネルクラス " alt="" coords="360,80,513,121"/>
-<area shape="rect" id="node8" href="$PanelBase_8cpp.html" title="Base class of LED panel. " alt="" coords="538,87,746,114"/>
-<area shape="rect" id="node3" href="$Panel__24x16_8cpp.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,169,159,211"/>
-<area shape="rect" id="node5" href="$Panel__8x16_8cpp.html" title="8x16サイズのLEDパネルクラス " alt="" coords="183,169,336,211"/>
-<area shape="rect" id="node7" href="$Panel__8x8_8cpp.html" title="8x8サイズのLEDパネルクラス " alt="" coords="360,169,513,211"/>
+<area shape="rect" id="node2" href="$HT16K33__Base_8hpp.html" title="Base class of HT16K33. " alt="" coords="403,80,577,121"/>
+<area shape="rect" id="node9" href="$HT16K33__Base_8cpp.html" title="Base class of HT16K33. " alt="" coords="601,169,776,211"/>
+<area shape="rect" id="node10" href="$PanelBase_8cpp.html" title="Base class of LED panel. " alt="" coords="689,87,897,114"/>
+<area shape="rect" id="node3" href="$HT16K33__24x16_8hpp.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,169,180,211"/>
+<area shape="rect" id="node5" href="$HT16K33__8x16_8hpp.html" title="8x1サイズのLEDパネルクラス " alt="" coords="204,169,379,211"/>
+<area shape="rect" id="node7" href="$HT16K33__8x8_8hpp.html" title="8x8サイズのLEDパネルクラス " alt="" coords="403,169,577,211"/>
+<area shape="rect" id="node4" href="$HT16K33__24x16_8cpp.html" title="24x16サイズのLEDパネルクラス " alt="" coords="5,259,180,300"/>
+<area shape="rect" id="node6" href="$HT16K33__8x16_8cpp.html" title="8x16サイズのLEDパネルクラス " alt="" coords="204,259,379,300"/>
+<area shape="rect" id="node8" href="$HT16K33__8x8_8cpp.html" title="8x8サイズのLEDパネルクラス " alt="" coords="403,259,577,300"/>
 </map>

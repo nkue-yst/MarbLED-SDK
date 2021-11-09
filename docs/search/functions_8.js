@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['registermatrixinfo',['registerMatrixInfo',['../classPanel__24x16.html#a84c09ec76dbec295b8754841e10c64df',1,'Panel_24x16::registerMatrixInfo()'],['../classPanel__8x16.html#a9d5b26962593bde2ae98db51c5ec7eca',1,'Panel_8x16::registerMatrixInfo()'],['../classPanel__8x8.html#aa6caffa9c49e6b5817b48cb19f6a74e2',1,'Panel_8x8::registerMatrixInfo()'],['../classPanelBase.html#a9d6b4236ebe7df8e106ad196ff503d19',1,'PanelBase::registerMatrixInfo()']]],
-  ['removetouchedpoint',['removeTouchedPoint',['../classtll_1_1EventHandler.html#abe812a062f3c55aad241cc66ec9ec435',1,'tll::EventHandler']]],
-  ['resize',['resize',['../classtll_1_1Image.html#af9d7b7caa5d1d3b4797e914dd1212b1c',1,'tll::Image']]]
+  ['quit',['quit',['../classtll_1_1SerialManager.html#aec65d0620c4e2cbd113ca957d93b0a40',1,'tll::SerialManager::quit()'],['../classtll_1_1Simulator.html#aed85c77b5883fdb10b3730b44a8df992',1,'tll::Simulator::quit()'],['../classtll_1_1TextRenderer.html#a0c6a373ac12a2afa9ef7bdfca58f4c21',1,'tll::TextRenderer::quit()'],['../namespacetll.html#aed9b2f6aca7442c8851d452f67aa9969',1,'tll::quit()'],['../TLL_8h.html#aa385e3f0a11851e9b6430c887e5d94f2',1,'tll::Simulation::quit()']]]
 ];
