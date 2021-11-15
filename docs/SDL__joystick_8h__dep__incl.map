@@ -1,0 +1,18 @@
+<map id="thirdparty/TUIO20_CPP/demos/sdl/include/SDL_joystick.h" name="thirdparty/TUIO20_CPP/demos/sdl/include/SDL_joystick.h">
+<area shape="rect" id="node2" href="$SDL__events_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_events.h" alt="" coords="645,213,807,269"/>
+<area shape="rect" id="node3" href="$SDL_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL.h" alt="" coords="784,317,956,359"/>
+<area shape="rect" id="node16" href="$SDL__gamecontroller_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_gamecontroller.h" alt="" coords="696,109,857,165"/>
+<area shape="rect" id="node17" href="$SDL__haptic_8h.html" title="The SDL Haptic subsystem allows you to control haptic (force feedback) devices. " alt="" coords="933,213,1095,269"/>
+<area shape="rect" id="node4" href="$Simulator_8hpp.html" title="シミュレータークラス " alt="" coords="321,421,467,448"/>
+<area shape="rect" id="node5" href="$Event_8cpp.html" title="Event handling. " alt="" coords="5,525,108,552"/>
+<area shape="rect" id="node10" href="$SDL__test_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test.h" alt="" coords="721,615,883,671"/>
+<area shape="rect" id="node11" href="$SDL__test__common_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test_common.h" alt="" coords="545,407,707,463"/>
+<area shape="rect" id="node12" href="$SDL__test__images_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test_images.h" alt="" coords="731,407,892,463"/>
+<area shape="rect" id="node13" href="$SDL__test__compare_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test_compare.h" alt="" coords="781,511,943,567"/>
+<area shape="rect" id="node14" href="$Tuio2Demo_8h_source.html" title="thirdparty/TUIO20_CPP\l/demos/Tuio2Demo.h" alt="" coords="1019,414,1180,455"/>
+<area shape="rect" id="node15" href="$Tuio2Simulator_8h_source.html" title="thirdparty/TUIO20_CPP\l/demos/Tuio2Simulator.h" alt="" coords="1204,414,1371,455"/>
+<area shape="rect" id="node6" href="$Image_8cpp.html" title="Image class. " alt="" coords="549,525,655,552"/>
+<area shape="rect" id="node7" href="$Simulator_8cpp.html" title="シミュレータークラスの実装 " alt="" coords="132,525,256,552"/>
+<area shape="rect" id="node8" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="280,525,399,552"/>
+<area shape="rect" id="node9" href="$Video_8cpp.html" title="Video class. " alt="" coords="423,525,525,552"/>
+</map>

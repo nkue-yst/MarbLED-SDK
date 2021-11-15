@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['sendcolordata',['sendColorData',['../classtll_1_1SerialManager.html#a7c8bffd81a31999c83c3dd1da63c3f68',1,'tll::SerialManager']]],
-  ['start',['start',['../classtll_1_1Simulator.html#a8f0ea5cd4d4be3ac390b800aa15d2c72',1,'tll::Simulator::start()'],['../TLL_8h.html#a56f482b2c453ee5ccdebfee76a048ca2',1,'tll::Simulation::start()']]],
-  ['stp16cp05_5f32x32',['STP16CP05_32x32',['../classSTP16CP05__32x32.html#ad8a9d76f5b1cc07409af640169686ec0',1,'STP16CP05_32x32']]],
-  ['stp16cp05_5fbase',['STP16CP05_Base',['../classSTP16CP05__Base.html#a703286d6fb889aec1067fc2f98fcda6c',1,'STP16CP05_Base']]]
+  ['operator_21_3d',['operator!=',['../classTUIO2_1_1TuioTime.html#a0a3a35dd9f44212a40f14e65aa52daf6',1,'TUIO2::TuioTime']]],
+  ['operator_2b',['operator+',['../classTUIO2_1_1TuioTime.html#a28e2d7dc5739f629fa8e08982962f5ba',1,'TUIO2::TuioTime::operator+(long us)'],['../classTUIO2_1_1TuioTime.html#ad0903c456360dd0a8599096f710e5e9d',1,'TUIO2::TuioTime::operator+(TuioTime ttime)']]],
+  ['operator_2d',['operator-',['../classTUIO2_1_1TuioTime.html#a41ac20b34de8a24186af51834803c640',1,'TUIO2::TuioTime::operator-(long us)'],['../classTUIO2_1_1TuioTime.html#a62cd56009e28df8d506c7247020d131c',1,'TUIO2::TuioTime::operator-(TuioTime ttime)']]],
+  ['operator_3d',['operator=',['../classTUIO2_1_1TuioTime.html#a9b321a0500ced851be17194731e12491',1,'TUIO2::TuioTime']]],
+  ['operator_3d_3d',['operator==',['../classTUIO2_1_1TuioTime.html#a82fb879903d0226c672f8e54bf89ec6f',1,'TUIO2::TuioTime']]],
+  ['oscreceiver',['OscReceiver',['../classTUIO2_1_1OscReceiver.html#a01b5dcc72a855ece9a6361b951cca659',1,'TUIO2::OscReceiver']]],
+  ['oscsender',['OscSender',['../classTUIO2_1_1OscSender.html#aa41a49d2231700cae5ec09bd1bbbde2f',1,'TUIO2::OscSender']]]
 ];

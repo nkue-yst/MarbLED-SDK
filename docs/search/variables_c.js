@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['tuio_5fserver_5f',['tuio_server_',['../classtll_1_1EventHandler.html#aa247998655ecb426e0a15a0ab9006575',1,'tll::EventHandler']]],
-  ['type_5f',['type_',['../structPixelInfo.html#a3591ab17d9760da336e281c1e37682be',1,'PixelInfo']]]
+  ['name',['name',['../structSDL__RendererInfo.html#a433ecb2865c81ba9f28038e56a4ae6f3',1,'SDL_RendererInfo']]],
+  ['needed',['needed',['../structSDL__AudioCVT.html#ac600a035a48df05e14d3712fd6953ad4',1,'SDL_AudioCVT']]],
+  ['num_5fdriver_5f',['num_driver_',['../classPanelBase.html#a9f85347fe1356e2fccb3bb2c6b78eec0',1,'PanelBase']]],
+  ['num_5ftexture_5fformats',['num_texture_formats',['../structSDL__RendererInfo.html#acdec165b2053b914313f5996983ec6b8',1,'SDL_RendererInfo']]]
 ];

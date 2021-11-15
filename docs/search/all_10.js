@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['textrenderer',['TextRenderer',['../classtll_1_1TextRenderer.html',1,'tll']]],
-  ['textrenderer_2ecpp',['TextRenderer.cpp',['../TextRenderer_8cpp.html',1,'']]],
-  ['textrenderer_2ehpp',['TextRenderer.hpp',['../TextRenderer_8hpp.html',1,'']]],
-  ['timetostring',['timeToString',['../namespacetll.html#af6c84b22d06d38c17e2de2dec11fbbc3',1,'tll']]],
-  ['tll',['tll',['../namespacetll.html',1,'']]],
-  ['tll_2eh',['TLL.h',['../TLL_8h.html',1,'']]],
-  ['tllmain_2ecpp',['TLLmain.cpp',['../TLLmain_8cpp.html',1,'']]],
-  ['tuio_5fserver_5f',['tuio_server_',['../classtll_1_1EventHandler.html#aa247998655ecb426e0a15a0ab9006575',1,'tll::EventHandler']]],
-  ['type_5f',['type_',['../structPixelInfo.html#a3591ab17d9760da336e281c1e37682be',1,'PixelInfo']]]
+  ['quit',['quit',['../unionSDL__Event.html#a102a3008afe67a1c02ae7504e232dcef',1,'SDL_Event::quit()'],['../classtll_1_1SerialManager.html#aec65d0620c4e2cbd113ca957d93b0a40',1,'tll::SerialManager::quit()'],['../classtll_1_1Simulator.html#aed85c77b5883fdb10b3730b44a8df992',1,'tll::Simulator::quit()'],['../classtll_1_1TextRenderer.html#a0c6a373ac12a2afa9ef7bdfca58f4c21',1,'tll::TextRenderer::quit()'],['../namespacetll.html#aed9b2f6aca7442c8851d452f67aa9969',1,'tll::quit()'],['../TLL_8h.html#aa385e3f0a11851e9b6430c887e5d94f2',1,'tll::Simulation::quit()']]],
+  ['quit_5fflag_5f',['quit_flag_',['../classtll_1_1EventHandler.html#a3018d7870dadc93d2d11f09cf348cc0b',1,'tll::EventHandler']]]
 ];

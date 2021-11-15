@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x_5f',['x_',['../structtll_1_1Point.html#ab22e58b2a688ecfd9f84d5c5e9fcde22',1,'tll::Point']]]
+  ['quit',['quit',['../unionSDL__Event.html#a102a3008afe67a1c02ae7504e232dcef',1,'SDL_Event']]],
+  ['quit_5fflag_5f',['quit_flag_',['../classtll_1_1EventHandler.html#a3018d7870dadc93d2d11f09cf348cc0b',1,'tll::EventHandler']]]
 ];

@@ -1,8 +1,16 @@
 var searchData=
 [
-  ['readme',['README',['../md_README.html',1,'']]],
-  ['rectangles_5f8x16_2ecpp',['Rectangles_8x16.cpp',['../Rectangles__8x16_8cpp.html',1,'']]],
-  ['registermatrixinfo',['registerMatrixInfo',['../classHT16K33__24x16.html#a33b0e7d9fc2950701841ccf32cf96d65',1,'HT16K33_24x16::registerMatrixInfo()'],['../classHT16K33__8x16.html#a41875f6f54e2ed7008b2cf0b69714c5c',1,'HT16K33_8x16::registerMatrixInfo()'],['../classHT16K33__8x8.html#ab7cc7c794b4982f4e062c6e50e137b82',1,'HT16K33_8x8::registerMatrixInfo()'],['../classPanelBase.html#a9d6b4236ebe7df8e106ad196ff503d19',1,'PanelBase::registerMatrixInfo()'],['../classSTP16CP05__32x32.html#a5407fef1dee87f62bfc5259d6b262d69',1,'STP16CP05_32x32::registerMatrixInfo()']]],
-  ['renderer_5f',['renderer_',['../classtll_1_1Simulator.html#a2211ee5b2e8fca02d16b4ab9fa26a947',1,'tll::Simulator']]],
-  ['resize',['resize',['../classtll_1_1Image.html#af9d7b7caa5d1d3b4797e914dd1212b1c',1,'tll::Image']]]
+  ['off',['OFF',['../namespacetll.html#a712dc6d796c0280eaa072e387abd852a',1,'tll']]],
+  ['offset',['offset',['../structSDL__HapticPeriodic.html#abc7aa9e9c0d546cb54189a7812fbe554',1,'SDL_HapticPeriodic']]],
+  ['on',['ON',['../namespacetll.html#a9a4090e97d894b99ee8eed55efd39ef4',1,'tll']]],
+  ['operator_21_3d',['operator!=',['../classTUIO2_1_1TuioTime.html#a0a3a35dd9f44212a40f14e65aa52daf6',1,'TUIO2::TuioTime']]],
+  ['operator_2b',['operator+',['../classTUIO2_1_1TuioTime.html#a28e2d7dc5739f629fa8e08982962f5ba',1,'TUIO2::TuioTime::operator+(long us)'],['../classTUIO2_1_1TuioTime.html#ad0903c456360dd0a8599096f710e5e9d',1,'TUIO2::TuioTime::operator+(TuioTime ttime)']]],
+  ['operator_2d',['operator-',['../classTUIO2_1_1TuioTime.html#a41ac20b34de8a24186af51834803c640',1,'TUIO2::TuioTime::operator-(long us)'],['../classTUIO2_1_1TuioTime.html#a62cd56009e28df8d506c7247020d131c',1,'TUIO2::TuioTime::operator-(TuioTime ttime)']]],
+  ['operator_3d',['operator=',['../classTUIO2_1_1TuioTime.html#a9b321a0500ced851be17194731e12491',1,'TUIO2::TuioTime']]],
+  ['operator_3d_3d',['operator==',['../classTUIO2_1_1TuioTime.html#a82fb879903d0226c672f8e54bf89ec6f',1,'TUIO2::TuioTime']]],
+  ['oscpacketlistener',['OscPacketListener',['../classosc_1_1OscPacketListener.html',1,'osc']]],
+  ['oscreceiver',['OscReceiver',['../classTUIO2_1_1OscReceiver.html',1,'TUIO2::OscReceiver'],['../classTUIO2_1_1OscReceiver.html#a01b5dcc72a855ece9a6361b951cca659',1,'TUIO2::OscReceiver::OscReceiver()']]],
+  ['oscsender',['OscSender',['../classTUIO2_1_1OscSender.html',1,'TUIO2::OscSender'],['../classTUIO2_1_1OscSender.html#aa41a49d2231700cae5ec09bd1bbbde2f',1,'TUIO2::OscSender::OscSender()']]],
+  ['outboundpacketstream',['OutboundPacketStream',['../classosc_1_1OutboundPacketStream.html',1,'osc']]],
+  ['outofbuffermemoryexception',['OutOfBufferMemoryException',['../classosc_1_1OutOfBufferMemoryException.html',1,'osc']]]
 ];

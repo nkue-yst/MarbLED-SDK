@@ -1,0 +1,5 @@
+<map id="SDL_MessageBoxData" name="SDL_MessageBoxData">
+<area shape="rect" id="node2" href="$structSDL__MessageBoxButtonData.html" title="Individual button data. " alt="" coords="5,95,203,121"/>
+<area shape="rect" id="node3" href="$structSDL__MessageBoxColorScheme.html" title="A set of colors to use for message box dialogs. " alt="" coords="227,95,437,121"/>
+<area shape="rect" id="node4" href="$structSDL__MessageBoxColor.html" title="RGB value used in a message box color scheme. " alt="" coords="251,5,413,32"/>
+</map>

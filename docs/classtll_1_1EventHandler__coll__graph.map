@@ -1,2 +1,10 @@
 <map id="tll::EventHandler" name="tll::EventHandler">
+<area shape="rect" id="node2" href="$classTUIO2_1_1TuioServer.html" title="TUIO2::TuioServer" alt="" coords="653,105,785,132"/>
+<area shape="rect" id="node3" href="$classTUIO2_1_1TuioManager.html" title="TUIO2::TuioManager" alt="" coords="345,105,489,132"/>
+<area shape="rect" id="node4" href="$classTUIO2_1_1TuioDispatcher.html" title="TUIO2::TuioDispatcher" alt="" coords="5,117,163,144"/>
+<area shape="rect" id="node5" href="$classTUIO2_1_1TuioTime.html" title="TUIO2::TuioTime" alt="" coords="23,28,145,55"/>
+<area shape="rect" id="node9" href="$classTUIO2_1_1TuioSource.html" title="TUIO2::TuioSource" alt="" coords="349,55,484,81"/>
+<area shape="rect" id="node6" href="$structosc_1_1TimeTag.html" title="osc::TimeTag" alt="" coords="33,168,135,195"/>
+<area shape="rect" id="node7" href="$classosc_1_1OutboundPacketStream.html" title="osc::OutboundPacketStream" alt="" coords="321,156,512,183"/>
+<area shape="rect" id="node8" href="$classTUIO2_1_1OscSender.html" title="TUIO2::OscSender" alt="" coords="349,207,484,233"/>
 </map>

@@ -1,0 +1,9 @@
+<map id="SDL_HapticEffect" name="SDL_HapticEffect">
+<area shape="rect" id="node2" href="$structSDL__HapticConstant.html" title="A structure containing a template for a Constant effect. " alt="" coords="253,5,399,32"/>
+<area shape="rect" id="node3" href="$structSDL__HapticDirection.html" title="Structure that represents a haptic direction. " alt="" coords="5,107,151,133"/>
+<area shape="rect" id="node4" href="$structSDL__HapticRamp.html" title="A structure containing a template for a Ramp effect. " alt="" coords="262,56,390,83"/>
+<area shape="rect" id="node5" href="$structSDL__HapticCondition.html" title="A structure containing a template for a Condition effect. " alt="" coords="252,107,400,133"/>
+<area shape="rect" id="node6" href="$structSDL__HapticCustom.html" title="A structure containing a template for the SDL_HAPTIC_CUSTOM effect. " alt="" coords="257,157,395,184"/>
+<area shape="rect" id="node8" href="$structSDL__HapticPeriodic.html" title="A structure containing a template for a Periodic effect. " alt="" coords="256,208,396,235"/>
+<area shape="rect" id="node7" href="$structSDL__HapticLeftRight.html" title="A structure containing a template for a Left/Right effect. " alt="" coords="253,259,399,285"/>
+</map>

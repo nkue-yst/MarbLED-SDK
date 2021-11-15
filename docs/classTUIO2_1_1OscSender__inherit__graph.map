@@ -1,0 +1,6 @@
+<map id="TUIO2::OscSender" name="TUIO2::OscSender">
+<area shape="rect" id="node2" href="$classTUIO2_1_1FlashSender.html" title="TUIO2::FlashSender" alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node3" href="$classTUIO2_1_1TcpSender.html" title="TUIO2::TcpSender" alt="" coords="172,80,304,107"/>
+<area shape="rect" id="node5" href="$classTUIO2_1_1UdpSender.html" title="TUIO2::UdpSender" alt="" coords="328,80,463,107"/>
+<area shape="rect" id="node4" href="$classTUIO2_1_1WebSockSender.html" title="TUIO2::WebSockSender" alt="" coords="155,155,321,181"/>
+</map>
