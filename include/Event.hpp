@@ -74,6 +74,7 @@ namespace tll
          */
         void updateState();
 
+        /// Test of using tuio
         TUIO2::TuioServer tuio_server_;
 
     private:
