@@ -1,36 +1,33 @@
 CXX = g++
 CXXFLAGS     = -Wall -lwiringPi
+
+TLL_FLAGS    = libTLL.a
 SDL_FLAGS    = $(shell sdl2-config --cflags --libs)
 OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
-INCLUDE_DIR  = -I./include/
-OBJECTS      = Video.o TextRenderer.o Image.o Color.o Event.o PanelManager.o SerialManager.o Simulator.o TLLmain.o
 
-TUIO_STATIC = -L./thirdparty/TUIO20_CPP/demos/ -lTUIO2
+INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO20_CPP/TUIO2/ -I./thirdparty/TUIO20_CPP/oscpack/
+
+TLL_SRC = ./src/Video.cpp ./src/TextRenderer.cpp ./src/Image.cpp ./src/Color.cpp ./src/Event.cpp ./src/PanelManager.cpp ./src/SerialManager.cpp ./src/Simulator.cpp ./src/TLLmain.cpp
+TLL_OBJ = $(TLL_SRC:.cpp=.o)
+
+TUIO_SRC = ./thirdparty/TUIO20_CPP/TUIO2/TuioTime.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioPoint.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioObject.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioComponent.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioToken.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioPointer.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioBounds.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioSymbol.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioDispatcher.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioManager.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioServer.cpp ./thirdparty/TUIO20_CPP/TUIO2/UdpSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/TcpSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/FlashSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/WebSockSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioClient.cpp ./thirdparty/TUIO20_CPP/TUIO2/OscReceiver.cpp ./thirdparty/TUIO20_CPP/TUIO2/UdpReceiver.cpp ./thirdparty/TUIO20_CPP/TUIO2/TcpReceiver.cpp
+TUIO_OBJ = $(TUIO_SRC:.cpp=.o)
+
+OSC_SRC = ./thirdparty/TUIO20_CPP/oscpack/osc/OscTypes.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscOutboundPacketStream.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscReceivedElements.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscPrintReceivedElements.cpp ./thirdparty/TUIO20_CPP/oscpack/ip/posix/NetworkingUtils.cpp ./thirdparty/TUIO20_CPP/oscpack/ip/posix/UdpSocket.cpp
+OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
 all : build example
 
-build: $(OBJECTS)
-	cd build && \
-	ar rcs libTLL.a $(OBJECTS)
+build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
+	ar rcs libTLL.a $^
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
 
 example: build
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/Video_24x16.cpp -Lbuild -lTLL -o example/Video_24x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/PrintText_24x16.cpp -Lbuild -lTLL -o example/PrintText_24x16
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/PrintTime_24x16.cpp -Lbuild -lTLL -o example/PrintTime_24x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/LineCircle_24x16.cpp -Lbuild -lTLL -o example/LineCircle_24x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/Image_24x16.cpp -Lbuild -lTLL -o example/Image_24x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/Rectangles_8x16.cpp -Lbuild -lTLL -o example/Rectangles_8x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/FillSingleColor_8x16.cpp -Lbuild -lTLL -o example/FillSingleColor_8x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/MovingRect_8x16.cpp -Lbuild -lTLL -o example/MovingRect_8x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/MovingRect_24x16.cpp -Lbuild -lTLL -o example/MovingRect_24x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/Intaractive_8x16.cpp -Lbuild -lTLL -o example/Intaractive_8x16
-	@#$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) $(TUIO_STATIC) example/Intaractive_24x16.cpp -Lbuild -lTLL -o example/Intaractive_24x16
+	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
-%.o : ./src/%.cpp
-	@mkdir -p build
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_STATIC) $< $(INCLUDE_DIR) -c -o ./build/$@
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
 
 doc:
 	doxygen
@@ -42,6 +39,7 @@ doc-clean:
 	rm -rf docs/ doxygen/
 
 clean:
-	rm -f *.o
-	rm -rf build/
-	rm -f example/Rectangles_8x16 example/FillSingleColor_8x16 example/MovingRect_8x16 example/Intaractive_8x16 example/Image_24x16 example/Intaractive_24x16 example/MovingRect_24x16 example/LineCircle_24x16 example/PrintText_24x16 example/Video_24x16 example/PrintTime_24x16
+	rm -rf libTLL.a
+	rm -rf src/*.o
+	rm -rf ./thirdparty/TUIO20_CPP/TUIO2/*.o
+	rm -rf example/PrintText_24x16

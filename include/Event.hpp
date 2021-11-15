@@ -10,6 +10,9 @@
 
 #include "TLL.h"
 
+#include "TuioServer.h"
+#include "UdpSender.h"
+
 #include <cstdint>
 #include <functional>
 #include <vector>
@@ -59,8 +62,6 @@ namespace tll
 
     protected:
         EventHandler()
-        : event_x_(0)
-        , event_y_(0)
         {}
 
         /// Instance for singleton
@@ -73,66 +74,9 @@ namespace tll
          */
         void updateState();
 
-        /**
-         * @fn     void addTouchedPoint(Point* point)
-         * @brief  Add touched point
-         */
-        void addTouchedPoint(Point point);
-
-        /**
-         * @fn     void removeTouchedPoint(uint32_t id)
-         * @brief  Remove touched point
-         */
-        void removeTouchedPoint(uint32_t id);
-
-        /**
-         * @fn
-         * @brief
-         */
-        void addFunction(uint8_t type, std::function<void(void)> func);
-
-        /**
-         * @fn     uint32_t getTouchedX()
-         * @brief  Get x-coordinate of touched point
-         */
-        uint32_t getEventX() { return event_x_; }
-
-        /**
-         * @fn     uint32_t getTouchedY()
-         * @brief  Get y-coordinate of touched point
-         */
-        uint32_t getEventY() { return event_y_; }
-
-        /**
-         * @fn     bool isTouched()
-         * @brief  Get is touched
-         */
-        bool isTouched() { return !touched_points_.empty(); }
-
-        std::vector<Point> getTouchedPoints()
-        {
-            return touched_points_;
-        }
+        TUIO2::TuioServer tuio_server_;
 
     private:
-        /// List of touching event
-        std::vector<std::function<void(void)>> touch_down_events_;
-
-        /// List of releasing event
-        std::vector<std::function<void(void)>> touch_up_events_;
-
-        /// List of moving event
-        std::vector<std::function<void(void)>> touch_move_events_;
-
-        /// List of touched points
-        std::vector<Point> touched_points_;
-
-        /// x-coordinate for being used by user
-        uint32_t event_x_;
-
-        /// y-coordinate for being used by user
-        uint32_t event_y_;
-
         /// Quit flag
         bool quit_flag_ = false;
 

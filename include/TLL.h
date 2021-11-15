@@ -153,39 +153,6 @@ namespace tll
 
 
     /**
-     * @namespace  Event
-     * @brief      For handling event
-     */
-    namespace Event
-    {
-        enum Type : uint8_t
-        {
-            TouchDown,
-            TouchMove,
-            TouchUp,
-        };
-
-        /**
-         * @fn     std::vector<tll::Event::Point> getTouchedPoints()
-         * @brief  Get all touched points
-         */
-        std::vector<struct tll::Point> getTouchedPoints();
-
-        /**
-         * @fn      bool isTouched()
-         * @brief   Return is touched
-         * @return  Is touched at least one point
-         */
-        bool isTouched();
-
-        uint32_t getTouchedX();
-        uint32_t getTouchedY();
-
-        void addFunction(Type event_type, std::function<void(void)>);
-    }
-
-
-    /**
      * @namespace  Simulation
      * @brief      シミュレーター用名前空間
      */

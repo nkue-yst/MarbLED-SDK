@@ -14,19 +14,6 @@ int main()
     init(24, 16);
     Simulation::start();
 
-    // Add touching event by lambda
-    auto touched_event = []()
-    {
-        drawRect(Event::getTouchedX(), Event::getTouchedY(), 3, 3, Palette::color("Red"));
-    };
-    Event::addFunction(Event::TouchDown, touched_event);
-
-    auto reset = []()
-    {
-        clear();
-    };
-    Event::addFunction(Event::TouchUp, reset);
-
     while (loop())
     {
     }

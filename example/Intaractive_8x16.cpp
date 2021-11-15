@@ -20,16 +20,6 @@ int main()
     init(8, 16);
     Simulation::start();
 
-    // Add touching event by lambda
-    auto touched_event = []()
-        {
-            drawRect(Event::getTouchedX(), Event::getTouchedY(), 2, 2, Palette::color("Red"));
-        };
-    Event::addFunction(Event::TouchDown, touched_event);
-
-    // Add releasing event by function pointer
-    Event::addFunction(Event::TouchUp, *reset);
-
     while (loop())
     {
     }

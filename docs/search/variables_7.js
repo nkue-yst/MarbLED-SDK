@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['num_5fdriver_5f',['num_driver_',['../classPanelBase.html#a9f85347fe1356e2fccb3bb2c6b78eec0',1,'PanelBase']]]
+  ['off',['OFF',['../namespacetll.html#a712dc6d796c0280eaa072e387abd852a',1,'tll']]],
+  ['on',['ON',['../namespacetll.html#a9a4090e97d894b99ee8eed55efd39ef4',1,'tll']]]
 ];

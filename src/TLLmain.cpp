@@ -180,35 +180,6 @@ namespace tll
     }
 
 
-    namespace Event
-    {
-        std::vector<tll::Point> getTouchedPoints()
-        {
-            return EventHandler::getInstance()->getTouchedPoints();
-        }
-
-        bool isTouched()
-        {
-            return EventHandler::getInstance()->isTouched();
-        }
-
-        uint32_t getTouchedX()
-        {
-            return EventHandler::getInstance()->getEventX();
-        }
-
-        uint32_t getTouchedY()
-        {
-            return EventHandler::getInstance()->getEventY();
-        }
-
-        void addFunction(Type event_type, std::function<void(void)> function)
-        {
-            EventHandler::getInstance()->addFunction(event_type, function);
-        }
-    }
-
-
     namespace Simulation
     {
         void start()

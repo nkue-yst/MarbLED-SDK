@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simulator_5fimg_5f',['simulator_img_',['../classtll_1_1Simulator.html#af951ebeb7092af525d1e4437bbde492e',1,'tll::Simulator']]]
+  ['type_5f',['type_',['../structPixelInfo.html#a3591ab17d9760da336e281c1e37682be',1,'PixelInfo']]]
 ];
