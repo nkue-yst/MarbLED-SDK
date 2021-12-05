@@ -58,22 +58,21 @@ namespace tll
         void sendColorData();
 
     protected:
-        SerialManager() {};
+        SerialManager()
+        : system_mode(0)
+        {};
 
         /// SerialManagerクラスインスタンス
         static SerialManager* pInstance_;
 
     private:
-        /**
-         * @fn
-         * @brief
-         * @param
-         * @return
-         */
-        
+        /// System mode (0:LED and Simulation, 1:Only Simulation)
+        int system_mode;
 
+        #ifdef __linux__
         /// File descriptor
         int fd;
+        #endif
     };
 
 }
