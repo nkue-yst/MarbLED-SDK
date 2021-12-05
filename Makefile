@@ -1,9 +1,18 @@
 CXX = g++
-CXXFLAGS     = -Wall -lwiringPi
+CXXFLAGS     = -Wall -std=c++11
 
 TLL_FLAGS    = libTLL.a
 SDL_FLAGS    = $(shell sdl2-config --cflags --libs)
+
+ifeq ($(shell uname),Linux)
+CXXFLAGS	+= -lwiringPi
+
 OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
+endif
+
+ifeq ($(shell uname), Darwin)
+OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.3_3/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
+endif
 
 INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO20_CPP/TUIO2/ -I./thirdparty/TUIO20_CPP/oscpack/
 
