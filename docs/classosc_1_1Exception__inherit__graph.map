@@ -1,0 +1,12 @@
+<map id="osc::Exception" name="osc::Exception">
+<area shape="rect" id="node3" href="$classosc_1_1BundleNotInProgressException.html" title="osc::BundleNotInProgress\lException" alt="" coords="343,5,518,47"/>
+<area shape="rect" id="node4" href="$classosc_1_1ExcessArgumentException.html" title="osc::ExcessArgumentException" alt="" coords="326,71,535,98"/>
+<area shape="rect" id="node5" href="$classosc_1_1MalformedBundleException.html" title="osc::MalformedBundleException" alt="" coords="325,122,536,149"/>
+<area shape="rect" id="node6" href="$classosc_1_1MalformedMessageException.html" title="osc::MalformedMessageException" alt="" coords="319,173,542,199"/>
+<area shape="rect" id="node7" href="$classosc_1_1MalformedPacketException.html" title="osc::MalformedPacketException" alt="" coords="325,223,536,250"/>
+<area shape="rect" id="node8" href="$classosc_1_1MessageInProgressException.html" title="osc::MessageInProgressException" alt="" coords="318,274,543,301"/>
+<area shape="rect" id="node9" href="$classosc_1_1MessageNotInProgressException.html" title="osc::MessageNotInProgress\lException" alt="" coords="337,325,525,367"/>
+<area shape="rect" id="node10" href="$classosc_1_1MissingArgumentException.html" title="osc::MissingArgumentException" alt="" coords="325,391,536,418"/>
+<area shape="rect" id="node11" href="$classosc_1_1OutOfBufferMemoryException.html" title="osc::OutOfBufferMemoryException" alt="" coords="317,442,544,469"/>
+<area shape="rect" id="node12" href="$classosc_1_1WrongArgumentTypeException.html" title="osc::WrongArgumentTypeException" alt="" coords="315,493,547,519"/>
+</map>

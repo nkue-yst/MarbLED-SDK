@@ -1,0 +1,10 @@
+<map id="TUIO2::TuioObject" name="TUIO2::TuioObject">
+<area shape="rect" id="node3" href="$classTUIO2_1_1TuioComponent.html" title="TUIO2::TuioComponent" alt="" coords="793,264,955,291"/>
+<area shape="rect" id="node2" href="$classTUIO2_1_1TuioPointer.html" title="TUIO2::TuioPointer" alt="" coords="1006,224,1141,251"/>
+<area shape="rect" id="node6" href="$classTUIO2_1_1TuioSymbol.html" title="TUIO2::TuioSymbol" alt="" coords="1004,73,1143,100"/>
+<area shape="rect" id="node7" href="$classTUIO2_1_1TuioBounds.html" title="TUIO2::TuioBounds" alt="" coords="1004,316,1143,343"/>
+<area shape="rect" id="node9" href="$classTUIO2_1_1TuioToken.html" title="TUIO2::TuioToken" alt="" coords="1008,153,1139,180"/>
+<area shape="rect" id="node4" href="$classTUIO2_1_1TuioPoint.html" title="TUIO2::TuioPoint" alt="" coords="408,323,532,349"/>
+<area shape="rect" id="node5" href="$classTUIO2_1_1TuioTime.html" title="TUIO2::TuioTime" alt="" coords="5,203,128,229"/>
+<area shape="rect" id="node8" href="$classTUIO2_1_1TuioSource.html" title="TUIO2::TuioSource" alt="" coords="249,237,384,264"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="thirdparty/TUIO20_CPP/demos/sdl/include/SDL_timer.h" name="thirdparty/TUIO20_CPP/demos/sdl/include/SDL_timer.h">
+<area shape="rect" id="node2" href="$SDL_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL.h" alt="" coords="817,109,989,151"/>
+<area shape="rect" id="node3" href="$Simulator_8hpp.html" title="シミュレータークラス " alt="" coords="323,213,470,240"/>
+<area shape="rect" id="node4" href="$Event_8cpp.html" title="Event handling. " alt="" coords="5,317,108,344"/>
+<area shape="rect" id="node9" href="$SDL__test_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test.h" alt="" coords="760,407,921,463"/>
+<area shape="rect" id="node10" href="$SDL__test__common_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test_common.h" alt="" coords="731,199,892,255"/>
+<area shape="rect" id="node11" href="$SDL__test__images_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test_images.h" alt="" coords="916,199,1077,255"/>
+<area shape="rect" id="node12" href="$SDL__test__compare_8h.html" title="thirdparty/TUIO20_CPP\l/demos/sdl/include/SDL\l_test_compare.h" alt="" coords="916,303,1077,359"/>
+<area shape="rect" id="node13" href="$Tuio2Demo_8h_source.html" title="thirdparty/TUIO20_CPP\l/demos/Tuio2Demo.h" alt="" coords="1153,206,1315,247"/>
+<area shape="rect" id="node14" href="$Tuio2Simulator_8h_source.html" title="thirdparty/TUIO20_CPP\l/demos/Tuio2Simulator.h" alt="" coords="1339,206,1505,247"/>
+<area shape="rect" id="node5" href="$Image_8cpp.html" title="Image class. " alt="" coords="132,317,237,344"/>
+<area shape="rect" id="node6" href="$Simulator_8cpp.html" title="シミュレータークラスの実装 " alt="" coords="261,317,385,344"/>
+<area shape="rect" id="node7" href="$TLLmain_8cpp.html" title="公開APIの実装 " alt="" coords="409,317,528,344"/>
+<area shape="rect" id="node8" href="$Video_8cpp.html" title="Video class. " alt="" coords="552,317,655,344"/>
+</map>

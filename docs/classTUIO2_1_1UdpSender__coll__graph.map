@@ -1,0 +1,7 @@
+<map id="TUIO2::UdpSender" name="TUIO2::UdpSender">
+<area shape="rect" id="node2" href="$classTUIO2_1_1OscSender.html" title="TUIO2::OscSender" alt="" coords="5,260,140,287"/>
+<area shape="rect" id="node3" href="$classUdpTransmitSocket.html" title="UdpTransmitSocket" alt="" coords="165,260,303,287"/>
+<area shape="rect" id="node4" href="$classUdpSocket.html" title="UdpSocket" alt="" coords="191,184,277,211"/>
+<area shape="rect" id="node5" href="$classUdpSocket_1_1Implementation.html" title="UdpSocket::Implementation" alt="" coords="142,95,326,121"/>
+<area shape="rect" id="node6" href="$classNetworkInitializer.html" title="NetworkInitializer" alt="" coords="173,5,295,32"/>
+</map>

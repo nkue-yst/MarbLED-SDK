@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['ht16k33_5f24x16_0',['HT16K33_24x16',['../classHT16K33__24x16.html#ab88b14be091a3e9f965baba03f242f3b',1,'HT16K33_24x16']]],
-  ['ht16k33_5f8x16_1',['HT16K33_8x16',['../classHT16K33__8x16.html#af6b87a96d54ced83497a23629786f21c',1,'HT16K33_8x16']]],
-  ['ht16k33_5f8x8_2',['HT16K33_8x8',['../classHT16K33__8x8.html#a19c24e7a1d28da79a8b9a8926203c1f4',1,'HT16K33_8x8']]],
-  ['ht16k33_5fbase_3',['HT16K33_Base',['../classHT16K33__Base.html#a63d6cf96961f59c013dcf391d31acf70',1,'HT16K33_Base']]]
+  ['init',['init',['../classtll_1_1PanelManager.html#a6e62071865e20ade820ddb2b925ce482',1,'tll::PanelManager::init()'],['../classtll_1_1SerialManager.html#aa7fc26bc4c340bb3d334aca18040e925',1,'tll::SerialManager::init()'],['../classtll_1_1TextRenderer.html#a268390de78d3f5c7b979b89c89f74b71',1,'tll::TextRenderer::init()'],['../classHT16K33__Base.html#a2eac6853833358f64124f2949cb270e5',1,'HT16K33_Base::init()'],['../classPanelBase.html#af81e74d3c38b88682e018c2c37462128',1,'PanelBase::init()'],['../classSTP16CP05__Base.html#a2e54ccbc1c140ce651e525a4efc7d45e',1,'STP16CP05_Base::init()'],['../namespacetll.html#a965d6819883d08e811bb20ce978caaa8',1,'tll::init()']]],
+  ['inittuioframe',['initTuioFrame',['../classTUIO2_1_1TuioManager.html#a2489d36df1419eaffd9ed877dbbda9ee',1,'TUIO2::TuioManager']]],
+  ['int',['int',['../structSDL__RWops.html#ab303bcbb0f6742a141ba8b2998923f47',1,'SDL_RWops']]],
+  ['isconnected',['isConnected',['../classTUIO2_1_1FlashSender.html#abaa4b7af15eee0a61dd5bce6fcc6d2e6',1,'TUIO2::FlashSender::isConnected()'],['../classTUIO2_1_1OscReceiver.html#ad056fac4ebe99b47f891f4d1dfda41a7',1,'TUIO2::OscReceiver::isConnected()'],['../classTUIO2_1_1OscSender.html#a30073109caf5011c98cdcf8f2297ba1c',1,'TUIO2::OscSender::isConnected()'],['../classTUIO2_1_1TcpSender.html#a34ca7920ad6b69cdc194540fd4426972',1,'TUIO2::TcpSender::isConnected()'],['../classTUIO2_1_1TuioClient.html#a5c382d00757a87b810f175b76ecae9e6',1,'TUIO2::TuioClient::isConnected()'],['../classTUIO2_1_1UdpSender.html#ae2a98dcfc4ce600850dbbee343bdef9b',1,'TUIO2::UdpSender::isConnected()']]],
+  ['islocal',['isLocal',['../classTUIO2_1_1OscSender.html#a6949ac80eaa97e31da22c7ab721a9ef0',1,'TUIO2::OscSender']]],
+  ['ismoving',['isMoving',['../classTUIO2_1_1TuioComponent.html#a9ff551325f643bf70b38e24e07c2d2f6',1,'TUIO2::TuioComponent::isMoving()'],['../classTUIO2_1_1TuioObject.html#af9e4993b6160d536c40cae8ba3f2aa28',1,'TUIO2::TuioObject::isMoving()']]]
 ];

@@ -1,0 +1,13 @@
+<map id="thirdparty/TUIO20_CPP/demos/sdl/include/SDL_audio.h" name="thirdparty/TUIO20_CPP/demos/sdl/include/SDL_audio.h">
+<area shape="rect" id="node2" href="$SDL__stdinc_8h.html" title="SDL_stdinc.h" alt="" coords="657,333,759,360"/>
+<area shape="rect" id="node5" href="$begin__code_8h.html" title="begin_code.h" alt="" coords="159,557,257,584"/>
+<area shape="rect" id="node6" href="$close__code_8h.html" title="close_code.h" alt="" coords="876,557,975,584"/>
+<area shape="rect" id="node9" href="$SDL__error_8h.html" title="SDL_error.h" alt="" coords="797,259,889,285"/>
+<area shape="rect" id="node10" href="$SDL__endian_8h.html" title="SDL_endian.h" alt="" coords="144,259,248,285"/>
+<area shape="rect" id="node11" href="$SDL__mutex_8h.html" title="SDL_mutex.h" alt="" coords="651,184,754,211"/>
+<area shape="rect" id="node12" href="$SDL__thread_8h.html" title="SDL_thread.h" alt="" coords="651,109,754,136"/>
+<area shape="rect" id="node14" href="$SDL__rwops_8h.html" title="SDL_rwops.h" alt="" coords="880,184,981,211"/>
+<area shape="rect" id="node3" href="$SDL__config_8h_source.html" title="SDL_config.h" alt="" coords="499,408,600,435"/>
+<area shape="rect" id="node4" href="$SDL__platform_8h.html" title="SDL_platform.h" alt="" coords="467,483,581,509"/>
+<area shape="rect" id="node13" href="$SDL__atomic_8h.html" title="SDL_atomic.h" alt="" coords="470,259,575,285"/>
+</map>
