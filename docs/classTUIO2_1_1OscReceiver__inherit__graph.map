@@ -1,5 +1,0 @@
-<map id="TUIO2::OscReceiver" name="TUIO2::OscReceiver">
-<area shape="rect" id="node3" href="$classTUIO2_1_1TcpReceiver.html" title="TUIO2::TcpReceiver" alt="" coords="5,155,148,181"/>
-<area shape="rect" id="node4" href="$classTUIO2_1_1UdpReceiver.html" title="TUIO2::UdpReceiver" alt="" coords="172,155,317,181"/>
-<area shape="rect" id="node2" href="$classPacketListener.html" title="PacketListener" alt="" coords="106,5,215,32"/>
-</map>

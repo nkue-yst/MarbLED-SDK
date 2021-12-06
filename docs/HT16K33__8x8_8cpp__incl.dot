@@ -1,0 +1,18 @@
+digraph "src/ArduinoMain/HT16K33_8x8.cpp"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/ArduinoMain/HT16K33\l_8x8.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="8x8サイズのLEDパネルクラス"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="HT16K33_8x8.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__8x8_8hpp.html",tooltip="8x8サイズのLEDパネルクラス"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="HT16K33_Base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__Base_8hpp.html",tooltip="Base class of HT16K33."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="PanelBase.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PanelBase_8hpp.html",tooltip="Base class of LED panel."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="PixelInfo.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PixelInfo_8hpp.html",tooltip="各ピクセルの情報を格納する構造体を定義"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

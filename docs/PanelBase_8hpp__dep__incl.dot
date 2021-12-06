@@ -1,0 +1,35 @@
+digraph "src/ArduinoMain/PanelBase.hpp"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/ArduinoMain/PanelBase.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Base class of LED panel."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="src/ArduinoMain/HT16K33\l_Base.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__Base_8cpp.html",tooltip="Base class of HT16K33."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/ArduinoMain/HT16K33\l_Base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__Base_8hpp.html",tooltip="Base class of HT16K33."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/ArduinoMain/HT16K33\l_24x16.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__24x16_8hpp.html",tooltip="24x16サイズのLEDパネルクラス"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/ArduinoMain/HT16K33\l_24x16.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__24x16_8cpp.html",tooltip="24x16サイズのLEDパネルクラス"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="src/ArduinoMain/HT16K33\l_8x16.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__8x16_8hpp.html",tooltip="8x1サイズのLEDパネルクラス"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="src/ArduinoMain/HT16K33\l_8x16.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__8x16_8cpp.html",tooltip="8x16サイズのLEDパネルクラス"];
+  Node3 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="src/ArduinoMain/HT16K33\l_8x8.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__8x8_8hpp.html",tooltip="8x8サイズのLEDパネルクラス"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="src/ArduinoMain/HT16K33\l_8x8.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HT16K33__8x8_8cpp.html",tooltip="8x8サイズのLEDパネルクラス"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="src/ArduinoMain/PanelBase.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PanelBase_8cpp.html",tooltip="Base class of LED panel."];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="src/ArduinoMain/STP16CP05\l_Base.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$STP16CP05__Base_8cpp.html",tooltip="Base class of STP16CP05."];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="src/ArduinoMain/STP16CP05\l_Base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$STP16CP05__Base_8hpp.html",tooltip="Base class of STP16CP05."];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="src/ArduinoMain/STP16CP05\l_32x32.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$STP16CP05__32x32_8hpp.html",tooltip="32x32サイズのLEDパネルクラス"];
+  Node13 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="src/ArduinoMain/STP16CP05\l_32x32.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$STP16CP05__32x32_8cpp.html",tooltip="32x32サイズのLEDパネルクラス"];
+  Node12 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['palette',['Palette',['../namespacePalette.html',1,'']]]
+  ['palette_0',['Palette',['../namespacePalette.html',1,'']]]
 ];

@@ -1,5 +1,0 @@
-<map id="UdpSocket" name="UdpSocket">
-<area shape="rect" id="node2" href="$classUdpListeningReceiveSocket.html" title="UdpListeningReceiveSocket" alt="" coords="5,80,192,107"/>
-<area shape="rect" id="node3" href="$classUdpReceiveSocket.html" title="UdpReceiveSocket" alt="" coords="217,80,351,107"/>
-<area shape="rect" id="node4" href="$classUdpTransmitSocket.html" title="UdpTransmitSocket" alt="" coords="376,80,515,107"/>
-</map>

@@ -33,6 +33,7 @@ build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
 
 example: build
 	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
+	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_192x192.cpp libTLL.a -o example/Image_192x192
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
@@ -51,4 +52,4 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO20_CPP/TUIO2/*.o
-	rm -rf example/PrintText_24x16
+	rm -rf example/PrintText_24x16 example/Image_192x192

@@ -1,9 +1,0 @@
-<map id="Tuio2Demo" name="Tuio2Demo">
-<area shape="rect" id="node2" href="$classTUIO2_1_1TuioListener.html" title="TUIO2::TuioListener" alt="" coords="125,184,265,211"/>
-<area shape="rect" id="node3" href="$classTUIO2_1_1TuioClient.html" title="TUIO2::TuioClient" alt="" coords="289,184,417,211"/>
-<area shape="rect" id="node4" href="$classTUIO2_1_1TuioDispatcher.html" title="TUIO2::TuioDispatcher" alt="" coords="5,95,163,121"/>
-<area shape="rect" id="node5" href="$classTUIO2_1_1TuioTime.html" title="TUIO2::TuioTime" alt="" coords="200,5,323,32"/>
-<area shape="rect" id="node8" href="$classTUIO2_1_1TuioSource.html" title="TUIO2::TuioSource" alt="" coords="302,95,437,121"/>
-<area shape="rect" id="node6" href="$classTUIO2_1_1OscReceiver.html" title="TUIO2::OscReceiver" alt="" coords="461,95,606,121"/>
-<area shape="rect" id="node7" href="$classPacketListener.html" title="PacketListener" alt="" coords="479,5,588,32"/>
-</map>

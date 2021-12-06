@@ -1,0 +1,15 @@
+digraph "thirdparty/TUIO20_CPP" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_7f51fab15f37f4c20c90b1af38889ac7 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="thirdparty" fontname="Helvetica", fontsize="10", URL="dir_7f51fab15f37f4c20c90b1af38889ac7.html"]
+  subgraph clusterdir_ade1ccc97e496a21396bd4816dbe833c {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_ade1ccc97e496a21396bd4816dbe833c.html"];
+    dir_ade1ccc97e496a21396bd4816dbe833c [shape=plaintext label="TUIO20_CPP"];
+  dir_61b41e1205c90c2d77848e74c9a6d2f4 [shape=box label="demos" fillcolor="white" style="filled" color="red" URL="dir_61b41e1205c90c2d77848e74c9a6d2f4.html"];
+  dir_7acfb8eebfedf9e2f28e89c83fde3937 [shape=box label="oscpack" fillcolor="white" style="filled" color="red" URL="dir_7acfb8eebfedf9e2f28e89c83fde3937.html"];
+  dir_1d1b7aa72a717829989f7b8d66034b88 [shape=box label="TUIO2" fillcolor="white" style="filled" URL="dir_1d1b7aa72a717829989f7b8d66034b88.html"];
+  }
+  }
+}

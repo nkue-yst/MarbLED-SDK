@@ -1,7 +1,0 @@
-<map id="TUIO2::TuioComponent" name="TUIO2::TuioComponent">
-<area shape="rect" id="node3" href="$classTUIO2_1_1TuioBounds.html" title="TUIO2::TuioBounds" alt="" coords="5,155,144,181"/>
-<area shape="rect" id="node4" href="$classTUIO2_1_1TuioPointer.html" title="TUIO2::TuioPointer" alt="" coords="169,155,303,181"/>
-<area shape="rect" id="node5" href="$classTUIO2_1_1TuioSymbol.html" title="TUIO2::TuioSymbol" alt="" coords="328,155,467,181"/>
-<area shape="rect" id="node6" href="$classTUIO2_1_1TuioToken.html" title="TUIO2::TuioToken" alt="" coords="491,155,621,181"/>
-<area shape="rect" id="node2" href="$classTUIO2_1_1TuioPoint.html" title="TUIO2::TuioPoint" alt="" coords="254,5,378,32"/>
-</map>
