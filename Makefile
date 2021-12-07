@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS     = -Wall -std=c++11
+CXXFLAGS     = -Wall -std=c++11 -pthread
 
 TLL_FLAGS    = libTLL.a
 SDL_FLAGS    = $(shell sdl2-config --cflags --libs)
@@ -25,6 +25,8 @@ TUIO_OBJ = $(TUIO_SRC:.cpp=.o)
 OSC_SRC = ./thirdparty/TUIO20_CPP/oscpack/osc/OscTypes.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscOutboundPacketStream.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscReceivedElements.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscPrintReceivedElements.cpp ./thirdparty/TUIO20_CPP/oscpack/ip/posix/NetworkingUtils.cpp ./thirdparty/TUIO20_CPP/oscpack/ip/posix/UdpSocket.cpp
 OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
+TUIO_FLAGS = $(TUIO_OBJ) $(OSC_OBJ)
+
 all : build example
 
 build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
@@ -33,7 +35,7 @@ build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
 
 example: build
 	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
-	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/Image_192x192.cpp libTLL.a -o example/Image_192x192
+	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
@@ -52,4 +54,4 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO20_CPP/TUIO2/*.o
-	rm -rf example/PrintText_24x16 example/Image_192x192
+	rm -rf example/PrintText_24x16 example/Intaractive_24x16

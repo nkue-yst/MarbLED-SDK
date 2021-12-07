@@ -50,6 +50,12 @@ namespace tll
         /**
          * @fn
          * @brief
+         */
+        void init();
+
+        /**
+         * @fn
+         * @brief
          * @return
          */
         bool getQuitFlag() { return quit_flag_; }
@@ -74,8 +80,11 @@ namespace tll
          */
         void updateState();
 
-        /// Test of using tuio
-        TUIO2::TuioServer tuio_server_;
+        /// OscSender
+        TUIO2::OscSender* sender_;
+
+        /// TuioServer
+        TUIO2::TuioServer* server_;
 
     private:
         /// Quit flag

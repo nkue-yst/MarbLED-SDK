@@ -73,6 +73,7 @@ namespace tll
         SerialManager::getInstance()->init();
 
         EventHandler::create();
+        EventHandler::getInstance()->init();
 
         SDL_Init(SDL_INIT_VIDEO);
         Simulator::create();
