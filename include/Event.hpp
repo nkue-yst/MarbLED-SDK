@@ -81,10 +81,10 @@ namespace tll
         void updateState();
 
         /// OscSender
-        TUIO2::OscSender* sender_;
+        TUIO::OscSender* sender_;
 
         /// TuioServer
-        TUIO2::TuioServer* server_;
+        TUIO::TuioServer* server_;
 
     private:
         /// Quit flag

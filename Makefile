@@ -14,15 +14,15 @@ ifeq ($(shell uname), Darwin)
 OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.3_3/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
 endif
 
-INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO20_CPP/TUIO2/ -I./thirdparty/TUIO20_CPP/oscpack/
+INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
 
 TLL_SRC = ./src/Video.cpp ./src/TextRenderer.cpp ./src/Image.cpp ./src/Color.cpp ./src/Event.cpp ./src/PanelManager.cpp ./src/SerialManager.cpp ./src/Simulator.cpp ./src/TLLmain.cpp
 TLL_OBJ = $(TLL_SRC:.cpp=.o)
 
-TUIO_SRC = ./thirdparty/TUIO20_CPP/TUIO2/TuioTime.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioPoint.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioObject.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioComponent.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioToken.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioPointer.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioBounds.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioSymbol.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioDispatcher.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioManager.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioServer.cpp ./thirdparty/TUIO20_CPP/TUIO2/UdpSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/TcpSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/FlashSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/WebSockSender.cpp ./thirdparty/TUIO20_CPP/TUIO2/TuioClient.cpp ./thirdparty/TUIO20_CPP/TUIO2/OscReceiver.cpp ./thirdparty/TUIO20_CPP/TUIO2/UdpReceiver.cpp ./thirdparty/TUIO20_CPP/TUIO2/TcpReceiver.cpp
+TUIO_SRC = ./thirdparty/TUIO11_CPP/TUIO/TuioTime.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioPoint.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioContainer.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioObject.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioCursor.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioBlob.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioDispatcher.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioManager.cpp  ./thirdparty/TUIO11_CPP/TUIO/OneEuroFilter.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioServer.cpp ./thirdparty/TUIO11_CPP/TUIO/UdpSender.cpp ./thirdparty/TUIO11_CPP/TUIO/TcpSender.cpp ./thirdparty/TUIO11_CPP/TUIO/WebSockSender.cpp ./thirdparty/TUIO11_CPP/TUIO/FlashSender.cpp ./thirdparty/TUIO11_CPP/TUIO/TuioClient.cpp ./thirdparty/TUIO11_CPP/TUIO/OscReceiver.cpp ./thirdparty/TUIO11_CPP/TUIO/UdpReceiver.cpp ./thirdparty/TUIO11_CPP/TUIO/TcpReceiver.cpp
 TUIO_OBJ = $(TUIO_SRC:.cpp=.o)
 
-OSC_SRC = ./thirdparty/TUIO20_CPP/oscpack/osc/OscTypes.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscOutboundPacketStream.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscReceivedElements.cpp ./thirdparty/TUIO20_CPP/oscpack/osc/OscPrintReceivedElements.cpp ./thirdparty/TUIO20_CPP/oscpack/ip/posix/NetworkingUtils.cpp ./thirdparty/TUIO20_CPP/oscpack/ip/posix/UdpSocket.cpp
+OSC_SRC =  ./thirdparty/TUIO11_CPP/oscpack/osc/OscTypes.cpp ./thirdparty/TUIO11_CPP/oscpack/osc/OscOutboundPacketStream.cpp ./thirdparty/TUIO11_CPP/oscpack/osc/OscReceivedElements.cpp ./thirdparty/TUIO11_CPP/oscpack/osc/OscPrintReceivedElements.cpp ./thirdparty/TUIO11_CPP/oscpack/ip/posix/NetworkingUtils.cpp ./thirdparty/TUIO11_CPP/oscpack/ip/posix/UdpSocket.cpp
 OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
 TUIO_FLAGS = $(TUIO_OBJ) $(OSC_OBJ)
@@ -53,5 +53,5 @@ doc-clean:
 clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
-	rm -rf ./thirdparty/TUIO20_CPP/TUIO2/*.o
+	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
 	rm -rf example/PrintText_24x16 example/Intaractive_24x16
