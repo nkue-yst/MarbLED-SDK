@@ -42,7 +42,7 @@ namespace tll
 
         TUIO2::TuioObject* obj = this->server_->createTuioObject();
         this->server_->addTuioPointer(obj, 2, 4, 6, 8, 10, 12);
-        //this->server_->commitTuioFrame();
+        this->server_->commitTuioFrame();
     }
 
     void EventHandler::updateState()
