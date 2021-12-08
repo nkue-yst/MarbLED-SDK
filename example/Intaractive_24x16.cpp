@@ -13,7 +13,7 @@
 #include <TuioClient.h>
 
 using namespace tll;
-using namespace TUIO2;
+using namespace TUIO;
 
 class App : public TuioListener
 {
@@ -26,10 +26,22 @@ public:
         this->client->connect();
     };
 
-    void tuioAdd(TuioObject *tobj) override {}
-    void tuioUpdate(TuioObject *tobj) override {}
-    void tuioRemove(TuioObject *tobj) override {}
-    void tuioRefresh(TuioTime ftime) override {}
+    void addTuioObject(TuioObject *tobj) override
+    {
+        std::cout << "Added TUIO object" << std::endl;
+    }
+    void updateTuioObject(TuioObject *tobj) override {}
+    void removeTuioObject(TuioObject *tobj) override {}
+
+	void addTuioCursor(TuioCursor *tcur) override {}
+	void updateTuioCursor(TuioCursor *tcur) override {}
+	void removeTuioCursor(TuioCursor *tcur) override {}
+	
+	void addTuioBlob(TuioBlob *tblb) override {}
+	void updateTuioBlob(TuioBlob *tblb) override {}
+	void removeTuioBlob(TuioBlob *tblb) override {}
+
+    void refresh(TuioTime ftime) override {}
 
     void run()
     {

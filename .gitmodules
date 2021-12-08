@@ -7,3 +7,6 @@
 [submodule "thirdparty/TouchMatrix_Analyzer"]
 	path = thirdparty/TouchMatrix_Analyzer
 	url = git@github.com:3ccd/TouchMatrix_Analyzer.git
+[submodule "thirdparty/TUIO11_CPP"]
+	path = thirdparty/TUIO11_CPP
+	url = git@github.com:mkalten/TUIO11_CPP.git

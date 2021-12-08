@@ -35,14 +35,13 @@ namespace tll
 
     void EventHandler::init()
     {
-        this->sender_ = new TUIO2::UdpSender();
-        this->server_ = new TUIO2::TuioServer(this->sender_);
+        this->sender_ = new TUIO::UdpSender();
+        this->server_ = new TUIO::TuioServer(this->sender_);
 
-        this->server_->initTuioFrame(TUIO2::TuioTime::getSystemTime());
+        this->server_->initFrame(TUIO::TuioTime::getSystemTime());
 
-        TUIO2::TuioObject* obj = this->server_->createTuioObject();
-        this->server_->addTuioPointer(obj, 2, 4, 6, 8, 10, 12);
-        this->server_->commitTuioFrame();
+        TUIO::TuioObject* obj = this->server_->addTuioObject(0, 0, 0, 0);
+        this->server_->commitFrame();
     }
 
     void EventHandler::updateState()
