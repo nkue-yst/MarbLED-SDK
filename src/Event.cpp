@@ -40,8 +40,17 @@ namespace tll
 
         this->server_->initFrame(TUIO::TuioTime::getSystemTime());
 
-        TUIO::TuioObject* obj = this->server_->addTuioObject(0, 5, 10, 0);
+        /*****
+        TUIO::TuioObject* obj1 = this->server_->addTuioObject(0, 1, 2, 0);
+        TUIO::TuioObject* obj2 = this->server_->addTuioObject(0, 3, 4, 0);
         this->server_->commitFrame();
+
+        this->server_->removeTuioObject(obj2);
+        this->server_->commitFrame();
+
+        TUIO::TuioObject* obj3 = this->server_->addTuioObject(0, 5, 6, 0);
+        this->server_->commitFrame();
+        *****/
     }
 
     void EventHandler::updateState()
@@ -84,10 +93,16 @@ namespace tll
                 pre_y = current_y + b_size;
             }
 
+            TUIO::TuioObject* tobj = this->server_->addTuioObject(0, pos_x, pos_y, 0);
+            this->server_->commitFrame();
+            this->tobj_list_.push_back(tobj);
             is_down_left_button = true;
         }
         else if (is_down_left_button && !(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(1)))
         {
+            this->server_->removeTuioObject(this->tobj_list_.back());
+            this->server_->commitFrame();
+            this->tobj_list_.pop_back();
             is_down_left_button = false;
         }
         

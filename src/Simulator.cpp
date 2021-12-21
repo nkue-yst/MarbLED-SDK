@@ -57,7 +57,7 @@ namespace tll
 
         renderer_ = SDL_CreateRenderer(window_, -1, 0);
 
-        update();
+        this->update();
     }
 
     void Simulator::update()
@@ -101,15 +101,16 @@ namespace tll
                         pixel_color.r_,
                         pixel_color.g_,
                         pixel_color.b_,
-                        255    
+                        255
                     );
                 }
 
-                SDL_RenderFillRect(renderer_, &pixel);
+                if (SDL_RenderFillRect(renderer_, &pixel) != 0)
+                    std::cout << "Failed to rendering pixel." << std::endl;
             }
         }
 
-        SDL_RenderPresent(renderer_);
+        SDL_RenderPresent(this->renderer_);
 
         /* Update simulator for appearence simulation */
         this->simulator_img_ = cv::Mat(
@@ -151,57 +152,6 @@ namespace tll
             cv::Size(51, 51),
             0
         );
-
-        /* Simulate by Tada */
-        /*
-        uint16_t height = PanelManager::getInstance()->getHeight();
-        uint16_t width  = PanelManager::getInstance()->getWidth();
-
-        this->simulator_img_ = cv::Mat(
-            height * 3 + (height + 1) * 2,
-            width * 3 + (width + 1) * 2,
-            CV_8UC3,
-            cv::Scalar(0, 0, 0)
-        );
-
-        for (int32_t y = 0; y < height; y++)
-        {
-            for (int32_t x = 0; x < width; x++)
-            {
-                Color p_color = ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y));
-
-                if (!(p_color.r_ == 0 && p_color.g_ == 0 && p_color.b_ == 0))
-                {
-                    cv::rectangle(
-                        this->simulator_img_,
-                        cv::Point(
-                            (3 * x) + ((x + 1) * 2),
-                            (3 * y) + ((y + 1) * 2)
-                        ),
-                        cv::Point(
-                            (3 * x) + ((x + 1) * 2) + 3,
-                            (3 * y) + ((y + 1) * 2) + 3
-                        ),
-                        cv::Scalar(
-                            ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y)).b_,
-                            ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y)).g_,
-                            ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y)).r_                            
-                        ),
-                        -1
-                    );
-                }
-            }
-        }
-
-        cv::resize(this->simulator_img_, this->simulator_img_, cv::Size(), 2.5, 2.5);
-
-        cv::GaussianBlur(
-            this->simulator_img_,
-            this->simulator_img_,
-            cv::Size(37, 37),
-            0
-        );
-        */
 
         cv::imshow("TouchLED-Simulator", this->simulator_img_);
         cv::waitKey(10);

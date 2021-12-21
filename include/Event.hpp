@@ -96,6 +96,9 @@ namespace tll
         /// Previous state of mouse left button (for test)
         bool is_down_left_button = false;
 
+        /// Tuio object list
+        std::vector<TUIO::TuioObject*> tobj_list_;
+
     };
 
 }

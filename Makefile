@@ -38,7 +38,7 @@ build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
 example: build
 	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
 	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
-	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp libTLL.a -o example/PrintTime_24x16.cpp_24x16
+	#$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp libTLL.a -o example/PrintTime_24x16
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
