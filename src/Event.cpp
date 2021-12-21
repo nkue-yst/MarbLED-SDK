@@ -39,26 +39,10 @@ namespace tll
         this->server_ = new TUIO::TuioServer(this->sender_);
 
         this->server_->initFrame(TUIO::TuioTime::getSystemTime());
-
-        /*****
-        TUIO::TuioObject* obj1 = this->server_->addTuioObject(0, 1, 2, 0);
-        TUIO::TuioObject* obj2 = this->server_->addTuioObject(0, 3, 4, 0);
-        this->server_->commitFrame();
-
-        this->server_->removeTuioObject(obj2);
-        this->server_->commitFrame();
-
-        TUIO::TuioObject* obj3 = this->server_->addTuioObject(0, 5, 6, 0);
-        this->server_->commitFrame();
-        *****/
     }
 
     void EventHandler::updateState()
     {
-        ///////////////////////////////////////
-        // 状態の変化を取得 addTouchedPoint()等 //
-        ///////////////////////////////////////
-
         // For test using mouse button
         SDL_PumpEvents();
         int32_t pos_x;

@@ -82,6 +82,7 @@ namespace tll
     bool loop()
     {
         EventHandler::getInstance()->updateState();
+        Simulation::update();
 
         return !EventHandler::getInstance()->getQuitFlag();
     }
@@ -106,35 +107,35 @@ namespace tll
     {
         PanelManager::getInstance()->drawRect(x, y, w, h, c);
         SerialManager::getInstance()->sendColorData();
-        Simulator::getInstance()->update();
+        //Simulator::getInstance()->update();
     }
 
     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
     {
         PanelManager::getInstance()->drawLine(x1, y1, x2, y2, c);
         SerialManager::getInstance()->sendColorData();
-        Simulator::getInstance()->update();
+        //Simulator::getInstance()->update();
     }
 
     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
     {
         PanelManager::getInstance()->drawCircle(x, y, rad, c);
         SerialManager::getInstance()->sendColorData();
-        Simulator::getInstance()->update();
+        //Simulator::getInstance()->update();
     }
 
     void print(std::string str, uint8_t c)
     {
         TextRenderer::getInstance()->drawText(str, c, 0, 0);
         SerialManager::getInstance()->sendColorData();
-        Simulator::getInstance()->update();
+        //Simulator::getInstance()->update();
     }
 
     void clear()
     {
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
-        Simulator::getInstance()->update();
+        //Simulator::getInstance()->update();
     }
 
     tll::Image loadImage(const char* file)
