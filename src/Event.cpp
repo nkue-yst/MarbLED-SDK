@@ -43,12 +43,16 @@ namespace tll
 
     void EventHandler::updateState()
     {
+        // Initialize frame for TUIO
+        this->server_->initFrame(TUIO::TuioTime::getSessionTime());
+
         // For test using mouse button
         SDL_PumpEvents();
         int32_t pos_x;
         int32_t pos_y;
 
-        if (!is_down_left_button && SDL_GetMouseState(&pos_x, &pos_y) & SDL_BUTTON(1))
+        // if (!is_down_left_button && SDL_GetMouseState(&pos_x, &pos_y) & SDL_BUTTON(1))
+        if (SDL_GetMouseState(&pos_x, &pos_y) & SDL_BUTTON(1))
         {
             int32_t p_size = Simulator::getInstance()->getPixelSize();
             int32_t b_size = Simulator::getInstance()->getBlankSize();
@@ -57,31 +61,61 @@ namespace tll
             int32_t pre_y = b_size;
             int32_t current_x, current_y;
 
+            // Calculate X coordinate
             for (int32_t x = 0; x < PanelManager::getInstance()->getWidth(); x++)
             {
                 current_x = pre_x + p_size;
 
                 if (pre_x <= pos_x && pos_x <= current_x)
+                {
                     pos_x = x;
+                    break;
+                }
+                else if (x == PanelManager::getInstance()->getWidth() - 1)
+                {
+                    pos_x = -1;
+                }
 
                 pre_x = current_x + b_size;
             }
 
+            // Calculate Y coordinate
             for (int y = 0; y < PanelManager::getInstance()->getHeight(); y++)
             {
                 current_y = pre_y + p_size;
 
                 if (pre_y <= pos_y && pos_y <= current_y)
+                {
                     pos_y = y;
+                    break;
+                }
+                else if (y == PanelManager::getInstance()->getHeight() - 1)
+                {
+                    pos_y = -1;
+                }
 
                 pre_y = current_y + b_size;
             }
 
-            TUIO::TuioObject* tobj = this->server_->addTuioObject(0, pos_x, pos_y, 0);
-            this->server_->commitFrame();
-            this->tobj_list_.push_back(tobj);
-            is_down_left_button = true;
+            if (pos_x < 0 || pos_y < 0)
+                return;
+
+            // Add point
+            if (!is_down_left_button)
+            {
+                TUIO::TuioObject* tobj = this->server_->addTuioObject(0, pos_x, pos_y, 0);
+                this->server_->commitFrame();
+                this->tobj_list_.push_back(tobj);
+                is_down_left_button = true;
+            }
+            // Update point
+            else
+            {
+                this->server_->updateTuioObject(this->tobj_list_[0], pos_x, pos_y, 0);
+                this->server_->commitFrame();
+            }
         }
+        // Remove point
         else if (is_down_left_button && !(SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(1)))
         {
             this->server_->removeTuioObject(this->tobj_list_.back());
