@@ -6,6 +6,7 @@
  */
 
 #include "HT16K33_24x16.hpp"
+#include <Arduino.h>
 
 HT16K33_24x16::HT16K33_24x16()
     : HT16K33_Base(24, 16, 3)

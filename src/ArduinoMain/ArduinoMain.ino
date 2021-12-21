@@ -6,8 +6,10 @@
  */
 
 #include "HT16K33_24x16.hpp"
+#include "HT16K33_16x32L.hpp"
 
-HT16K33_24x16 panel = HT16K33_24x16();
+//HT16K33_24x16 panel = HT16K33_24x16();
+HT16K33_16x32L panel = HT16K33_16x32L();
 
 void setup()
 {

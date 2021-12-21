@@ -62,7 +62,7 @@ void HT16K33_Base::init(uint16_t addr)
 
 void HT16K33_Base::update()
 {
-
+/*
     int rcv_num = 0;
     while (rcv_num != width_ * height_)
     {
@@ -74,7 +74,7 @@ void HT16K33_Base::update()
             rcv_num++;
         }
     }
-
+*/                                                                                                                                                                                                                                                                                                                                                                
     for (int Y = 0; Y < static_cast<int>((height_ - 1) / 16) + 1; Y++)
     {
         for (int X = 0; X < static_cast<int>((width_ - 1) / 8) + 1; X++)
