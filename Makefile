@@ -11,7 +11,7 @@ OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv
 endif
 
 ifeq ($(shell uname), Darwin)
-OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.3_3/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
+OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.4/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
 endif
 
 INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
@@ -27,6 +27,8 @@ OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
 TUIO_FLAGS = $(TUIO_OBJ) $(OSC_OBJ)
 
+TEST_EXAMPLE = Intaractive_24x16
+
 all : build example
 
 build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
@@ -34,12 +36,16 @@ build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
 
 example: build
-	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
 	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
+	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
+	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp libTLL.a -o example/PrintTime_24x16.cpp_24x16
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
+
+test: all
+	./example/$(TEST_EXAMPLE)
 
 doc:
 	doxygen
@@ -54,4 +60,4 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
-	rm -rf example/PrintText_24x16 example/Intaractive_24x16
+	rm -rf example/PrintText_24x16 example/Intaractive_24x16 example/PrintTime_24x16

@@ -28,7 +28,10 @@ public:
 
     void addTuioObject(TuioObject *tobj) override
     {
-        std::cout << "Added TUIO object" << std::endl;
+        std::cout << "Added TUIO object." << " ( ";
+        std::cout << "ID: " << tobj->getSymbolID() << ", ";
+        std::cout << "X: "  << tobj->getX() << ", ";
+        std::cout << "Y: "  << tobj->getY() << " )" << std::endl;
     }
     void updateTuioObject(TuioObject *tobj) override {}
     void removeTuioObject(TuioObject *tobj) override {}

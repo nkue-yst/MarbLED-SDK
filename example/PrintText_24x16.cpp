@@ -12,8 +12,8 @@ int main()
     tll::init(24, 16);
     tll::Simulation::start();
 
-    tll::print("あかさたな", tll::Palette::color("Red"));
-
+    //tll::print("あかさたな", tll::Palette::color("Red"));
+    tll::drawCircle(12, 8, 5, tll::Palette::color("Red"));
     while (tll::loop())
     {
     }

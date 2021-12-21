@@ -40,7 +40,7 @@ namespace tll
 
         this->server_->initFrame(TUIO::TuioTime::getSystemTime());
 
-        TUIO::TuioObject* obj = this->server_->addTuioObject(0, 0, 0, 0);
+        TUIO::TuioObject* obj = this->server_->addTuioObject(0, 5, 10, 0);
         this->server_->commitFrame();
     }
 
