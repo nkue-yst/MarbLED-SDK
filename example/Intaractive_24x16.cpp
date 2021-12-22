@@ -26,16 +26,6 @@ public:
         this->client->connect();
     };
 
-    ~App()
-    {
-        std::cout << std::endl << "Object list:" << std::endl;
-        std::list<TuioObject*> obj_list = this->client->getTuioObjects();
-        for (std::list<TuioObject*>::iterator iter = obj_list.begin(); iter != obj_list.end(); iter++)
-        {
-           std::cout << "SessionID: " << (*iter)->getSessionID() << ", SymoblID: " << (*iter)->getSymbolID() << ", X: " << (*iter)->getX() << ", Y: " << (*iter)->getY() << std::endl;
-        }
-    }
-
     void addTuioObject(TuioObject *tobj) override
     {
         std::cout << "[Added TUIO object]   " << "SessionID: " << tobj->getSessionID() << ", SymoblID: " << tobj->getSymbolID() << ", X: " << tobj->getX() << ", Y: " << tobj->getY() << std::endl;
@@ -45,6 +35,8 @@ public:
     void updateTuioObject(TuioObject *tobj) override
     {
         std::cout << "[Updated TUIO object] " << "SessionID: " << tobj->getSessionID() << ", SymoblID: " << tobj->getSymbolID() << ", X: " << tobj->getX() << ", Y: " << tobj->getY() << std::endl;
+        clear();
+        drawCircle(tobj->getX(), tobj->getY(), 1, Palette::color("White"));
     }
     
     void removeTuioObject(TuioObject *tobj) override

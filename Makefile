@@ -1,5 +1,7 @@
 CXX = g++
-CXXFLAGS     = -Wall -std=c++11 -pthread
+CXXFLAGS     = -std=c++11 -pthread
+WARNING_FRAG = -Wno-unused-command-line-argument
+CXXFLAGS    += $(WARNING_FRAG)
 
 TLL_FLAGS    = libTLL.a
 SDL_FLAGS    = $(shell sdl2-config --cflags --libs)
@@ -32,17 +34,20 @@ TEST_EXAMPLE = Intaractive_24x16
 all : build example
 
 build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
-	ar rcs libTLL.a $^
+	@ar rcs libTLL.a $^
+	@echo "---> Make library file."
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
 
 example: build
-	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
-	$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
-	#$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp libTLL.a -o example/PrintTime_24x16
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
+	@echo "---> Compile example/Intaractive_24x16.cpp"
+	@#$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
+	@#$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp libTLL.a -o example/PrintTime_24x16
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
-	$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
+	@echo "---> Compile $<"
+	@$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
 
 test: all
 	./example/$(TEST_EXAMPLE)
