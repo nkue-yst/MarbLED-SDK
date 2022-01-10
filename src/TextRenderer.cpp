@@ -76,6 +76,7 @@ namespace tll
             }
         }
 
+        // cv::resize(img, img, cv::Size(), 50, 50);
         // cv::imwrite("PrintedText.png", img);
     }
 
