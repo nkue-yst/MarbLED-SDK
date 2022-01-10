@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$FillSingleColor__8x16_8cpp.html" title="Fill panel with single color. " alt="" coords="5,80,164,121"/>
 <area shape="rect" id="node3" href="$Image__192x192_8cpp.html" title="Drawing image from file. " alt="" coords="189,87,381,114"/>
 <area shape="rect" id="node4" href="$Image__24x16_8cpp.html" title="Drawing image from file. " alt="" coords="405,87,583,114"/>
-<area shape="rect" id="node5" href="$Intaractive__24x16_8cpp.html" title="Draw rectangle when mouse clocked. " alt="" coords="607,80,743,121"/>
+<area shape="rect" id="node5" href="$Intaractive__24x16_8cpp.html" title=" " alt="" coords="607,80,743,121"/>
 <area shape="rect" id="node6" href="$Intaractive__8x16_8cpp.html" title="Draw rectangle when mouse clicked. " alt="" coords="767,80,903,121"/>
 <area shape="rect" id="node7" href="$LineCircle__24x16_8cpp.html" title="Drawing line and circle. " alt="" coords="927,80,1061,121"/>
 <area shape="rect" id="node8" href="$MovingRect__24x16_8cpp.html" title="Drawing moving rectangle. " alt="" coords="1085,80,1231,121"/>

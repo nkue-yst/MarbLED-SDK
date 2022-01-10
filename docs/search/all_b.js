@@ -1,8 +1,9 @@
 var searchData=
 [
   ['large_5fmagnitude',['large_magnitude',['../structSDL__HapticLeftRight.html#a8cd16fe2200ef10cc4f3b4209adef959',1,'SDL_HapticLeftRight']]],
-  ['left_5fcoeff',['left_coeff',['../structSDL__HapticCondition.html#a2adf52c32f60f0b6826b1e3add2eae7a',1,'SDL_HapticCondition']]],
-  ['left_5fsat',['left_sat',['../structSDL__HapticCondition.html#a953448774c40818a4f47c6efea21124d',1,'SDL_HapticCondition']]],
+  ['leddriver',['LEDDriver',['../classcontrol_1_1LEDDriver.html',1,'control']]],
+  ['left_5fcoeff',['left_coeff',['../structSDL__HapticCondition.html#ad0cb577a8aaf26d4cfcd857b7a6c44db',1,'SDL_HapticCondition']]],
+  ['left_5fsat',['left_sat',['../structSDL__HapticCondition.html#a9b7f297ab398efd2a9b9cb68eaab0834',1,'SDL_HapticCondition']]],
   ['leftright',['leftright',['../unionSDL__HapticEffect.html#a3c254b81c1ff41c7888eee0cd0076a12',1,'SDL_HapticEffect']]],
   ['len',['len',['../structSDL__AudioCVT.html#aeaeb8c5a63c3ab96471fbfdf412c78ff',1,'SDL_AudioCVT']]],
   ['len_5fcvt',['len_cvt',['../structSDL__AudioCVT.html#a5c60163f34d1947e5b166c23aba9879d',1,'SDL_AudioCVT']]],
@@ -13,9 +14,12 @@ var searchData=
   ['linecircle_5f24x16_2ecpp',['LineCircle_24x16.cpp',['../LineCircle__24x16_8cpp.html',1,'']]],
   ['loadimage',['loadImage',['../namespacetll.html#a0e788f6f7fdba90c28894fffd6894657',1,'tll']]],
   ['loadvideo',['loadVideo',['../namespacetll.html#a66628ac2f8bfb3548856ddaa1c3ca4e5',1,'tll']]],
-  ['lock_5fdata',['lock_data',['../structSDL__Surface.html#a0afacfb933b54a9af0846a307a6924fb',1,'SDL_Surface']]],
+  ['lock_5fdata',['lock_data',['../structSDL__Surface.html#a32de076726e96dafd4da1fd4f75cc2a8',1,'SDL_Surface']]],
+  ['lockbloblist',['lockBlobList',['../classTUIO_1_1TuioDispatcher.html#a62b3e698a892369f4ce9fd3082f19e06',1,'TUIO::TuioDispatcher']]],
+  ['lockcursorlist',['lockCursorList',['../classTUIO_1_1TuioDispatcher.html#af5d9daaf30c3d93d736aff59802f9f75',1,'TUIO::TuioDispatcher']]],
   ['locked',['locked',['../structSDL__Surface.html#a5022edaeea1c0a055fa5d6dccba41de2',1,'SDL_Surface']]],
-  ['lockobjectlist',['lockObjectList',['../classTUIO2_1_1TuioDispatcher.html#ad26488e6e75db745326c37f10a77c60d',1,'TUIO2::TuioDispatcher']]],
+  ['lockobjectlist',['lockObjectList',['../classTUIO_1_1TuioDispatcher.html#ad26488e6e75db745326c37f10a77c60d',1,'TUIO::TuioDispatcher::lockObjectList()'],['../classTUIO2_1_1TuioDispatcher.html#ad26488e6e75db745326c37f10a77c60d',1,'TUIO2::TuioDispatcher::lockObjectList()']]],
   ['loop',['loop',['../namespacetll.html#ae41068d16ee080544b2e45c49f114d3a',1,'tll']]],
+  ['lowpassfilter',['LowPassFilter',['../classTUIO_1_1LowPassFilter.html',1,'TUIO']]],
   ['lparam',['lParam',['../structSDL__SysWMmsg.html#a24c1e4c3cb8d9781d34e5d99df66ac36',1,'SDL_SysWMmsg']]]
 ];

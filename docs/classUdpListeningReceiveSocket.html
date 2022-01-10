@@ -83,13 +83,28 @@ Collaboration diagram for UdpListeningReceiveSocket:</div>
 <area shape="rect" id="node3" href="classUdpSocket_1_1Implementation.html" title="UdpSocket::Implementation" alt="" coords="5,102,189,129"/>
 <area shape="rect" id="node4" href="classNetworkInitializer.html" title="NetworkInitializer" alt="" coords="137,5,260,32"/>
 <area shape="rect" id="node6" href="classSocketReceiveMultiplexer_1_1Implementation.html" title="SocketReceiveMultiplexer\l::Implementation" alt="" coords="214,95,389,136"/>
-<area shape="rect" id="node5" href="classSocketReceiveMultiplexer.html" title="SocketReceiveMultiplexer" alt="" coords="207,199,382,225"/>
-<area shape="rect" id="node7" href="classPacketListener.html" title="PacketListener" alt="" coords="407,199,516,225"/>
+<area shape="rect" id="node5" href="classSocketReceiveMultiplexer.html" title="SocketReceiveMultiplexer" alt="" coords="201,199,375,225"/>
+<area shape="rect" id="node7" href="classPacketListener.html" title="PacketListener" alt="" coords="400,199,509,225"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af5af192af5613b66f8971bd3cf0738e2"><td class="memItemLeft" align="right" valign="top"><a id="af5af192af5613b66f8971bd3cf0738e2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UdpListeningReceiveSocket</b> (const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;localEndpoint, <a class="el" href="classPacketListener.html">PacketListener</a> *listener)</td></tr>
+<tr class="separator:af5af192af5613b66f8971bd3cf0738e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f7b0dd36f21164d6de793d20fd11df"><td class="memItemLeft" align="right" valign="top"><a id="a50f7b0dd36f21164d6de793d20fd11df"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> ()</td></tr>
+<tr class="separator:a50f7b0dd36f21164d6de793d20fd11df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf0b7cbdfc99425158502a997223959"><td class="memItemLeft" align="right" valign="top"><a id="a0bf0b7cbdfc99425158502a997223959"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RunUntilSigInt</b> ()</td></tr>
+<tr class="separator:a0bf0b7cbdfc99425158502a997223959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad165f78892e27603663a2226472304a8"><td class="memItemLeft" align="right" valign="top"><a id="ad165f78892e27603663a2226472304a8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Break</b> ()</td></tr>
+<tr class="separator:ad165f78892e27603663a2226472304a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b032cbb726ed87c492b9829bdca7a34"><td class="memItemLeft" align="right" valign="top"><a id="a9b032cbb726ed87c492b9829bdca7a34"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AsynchronousBreak</b> ()</td></tr>
+<tr class="separator:a9b032cbb726ed87c492b9829bdca7a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5af192af5613b66f8971bd3cf0738e2"><td class="memItemLeft" align="right" valign="top"><a id="af5af192af5613b66f8971bd3cf0738e2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>UdpListeningReceiveSocket</b> (const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;localEndpoint, <a class="el" href="classPacketListener.html">PacketListener</a> *listener)</td></tr>
 <tr class="separator:af5af192af5613b66f8971bd3cf0738e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,18 +148,45 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsBound</b> () const<
 <tr class="memitem:a6524736c1a18500a24e74b50dedec076 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="a6524736c1a18500a24e74b50dedec076"></a>
 std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ReceiveFrom</b> (<a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint, char *data, std::size_t size)</td></tr>
 <tr class="separator:a6524736c1a18500a24e74b50dedec076 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86ba2cc1ae7220b3ec7b3ed1442bab97 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="a86ba2cc1ae7220b3ec7b3ed1442bab97"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetEnableBroadcast</b> (bool enableBroadcast)</td></tr>
+<tr class="separator:a86ba2cc1ae7220b3ec7b3ed1442bab97 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a972d641f262491346de9a33bff87130b inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="a972d641f262491346de9a33bff87130b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAllowReuse</b> (bool allowReuse)</td></tr>
+<tr class="separator:a972d641f262491346de9a33bff87130b inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af34fd29cb98cd18b05cb74906080271a inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="af34fd29cb98cd18b05cb74906080271a"></a>
+<a class="el" href="classIpEndpointName.html">IpEndpointName</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LocalEndpointFor</b> (const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint) const</td></tr>
+<tr class="separator:af34fd29cb98cd18b05cb74906080271a inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1414f4e358ac79fa05d59c6ebd943e9 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="ac1414f4e358ac79fa05d59c6ebd943e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Connect</b> (const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint)</td></tr>
+<tr class="separator:ac1414f4e358ac79fa05d59c6ebd943e9 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b7af2b7ed3fe01200da111a01651f7 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="aa1b7af2b7ed3fe01200da111a01651f7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Send</b> (const char *data, std::size_t size)</td></tr>
+<tr class="separator:aa1b7af2b7ed3fe01200da111a01651f7 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782847a3459a8dc00a36939c1a100580 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="a782847a3459a8dc00a36939c1a100580"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SendTo</b> (const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint, const char *data, std::size_t size)</td></tr>
+<tr class="separator:a782847a3459a8dc00a36939c1a100580 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9979c7040f6ec8badecb645cdfe72ac8 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="a9979c7040f6ec8badecb645cdfe72ac8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> (const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;localEndpoint)</td></tr>
+<tr class="separator:a9979c7040f6ec8badecb645cdfe72ac8 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af60e6cf0f34ffa47f9028e05ff197ded inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="af60e6cf0f34ffa47f9028e05ff197ded"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsBound</b> () const</td></tr>
+<tr class="separator:af60e6cf0f34ffa47f9028e05ff197ded inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6524736c1a18500a24e74b50dedec076 inherit pub_methods_classUdpSocket"><td class="memItemLeft" align="right" valign="top"><a id="a6524736c1a18500a24e74b50dedec076"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ReceiveFrom</b> (<a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint, char *data, std::size_t size)</td></tr>
+<tr class="separator:a6524736c1a18500a24e74b50dedec076 inherit pub_methods_classUdpSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6d02a64e395571985357ff8b9606387a"><td class="memItemLeft" align="right" valign="top"><a id="a6d02a64e395571985357ff8b9606387a"></a>
 <a class="el" href="classSocketReceiveMultiplexer.html">SocketReceiveMultiplexer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mux_</b></td></tr>
 <tr class="separator:a6d02a64e395571985357ff8b9606387a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cbfde6caa1de6e53b7f3f9edbf627d4"><td class="memItemLeft" align="right" valign="top"><a id="a5cbfde6caa1de6e53b7f3f9edbf627d4"></a>
+<tr class="memitem:a02f69b583640caf0cb1c64ce6ee789e2"><td class="memItemLeft" align="right" valign="top"><a id="a02f69b583640caf0cb1c64ce6ee789e2"></a>
 <a class="el" href="classPacketListener.html">PacketListener</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>listener_</b></td></tr>
-<tr class="separator:a5cbfde6caa1de6e53b7f3f9edbf627d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a02f69b583640caf0cb1c64ce6ee789e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>thirdparty/TUIO20_CPP/oscpack/ip/<a class="el" href="UdpSocket_8h_source.html">UdpSocket.h</a></li>
+<li>thirdparty/TUIO11_CPP/oscpack/ip/<a class="el" href="TUIO11__CPP_2oscpack_2ip_2UdpSocket_8h_source.html">UdpSocket.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

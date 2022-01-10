@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['begin_5fcode_2eh',['begin_code.h',['../begin__code_8h.html',1,'']]]
+  ['color_2ecpp',['Color.cpp',['../Color_8cpp.html',1,'']]],
+  ['color_2ehpp',['Color.hpp',['../Color_8hpp.html',1,'']]]
 ];

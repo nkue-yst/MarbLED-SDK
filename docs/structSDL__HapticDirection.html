@@ -69,22 +69,22 @@ $(function() {
 <p>Structure that represents a haptic direction.  
  <a href="structSDL__HapticDirection.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="SDL__haptic_8h_source.html">SDL_haptic.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="TUIO11__CPP_2windows_2sdl_2include_2SDL__haptic_8h_source.html">SDL_haptic.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:acd6830ad68c4ba2af16057fa418087cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="SDL__stdinc_8h.html#a2944638813a090aa23e62f4da842c3e2">Uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a></td></tr>
+<tr class="memitem:acd6830ad68c4ba2af16057fa418087cc"><td class="memItemLeft" align="right" valign="top">Uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a></td></tr>
 <tr class="separator:acd6830ad68c4ba2af16057fa418087cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cebd8118a3e61e36bd0c503ae020362"><td class="memItemLeft" align="right" valign="top"><a class="el" href="SDL__stdinc_8h.html#a7a90b941db9d4582e9ad7abb9940ff7e">Sint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__HapticDirection.html#a6cebd8118a3e61e36bd0c503ae020362">dir</a> [3]</td></tr>
-<tr class="separator:a6cebd8118a3e61e36bd0c503ae020362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b1083eefcfe8db7d9bbfd660e0373a9"><td class="memItemLeft" align="right" valign="top">Sint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__HapticDirection.html#a6b1083eefcfe8db7d9bbfd660e0373a9">dir</a> [3]</td></tr>
+<tr class="separator:a6b1083eefcfe8db7d9bbfd660e0373a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure that represents a haptic direction. </p>
 <p>This is the direction where the force comes from, instead of the direction in which the force is exerted.</p>
 <p>Directions can be specified by:</p><ul>
-<li><a class="el" href="SDL__haptic_8h.html#acdc35e97e5525472054a67b76e518f3b" title="Uses polar coordinates for the direction. ">SDL_HAPTIC_POLAR</a> : Specified by polar coordinates.</li>
-<li><a class="el" href="SDL__haptic_8h.html#af8b2430a363a968de2a5b64c8f663d3b" title="Uses cartesian coordinates for the direction. ">SDL_HAPTIC_CARTESIAN</a> : Specified by cartesian coordinates.</li>
-<li><a class="el" href="SDL__haptic_8h.html#a1fcf7cb0eaf3c39b16ba266054e25aff" title="Uses spherical coordinates for the direction. ">SDL_HAPTIC_SPHERICAL</a> : Specified by spherical coordinates.</li>
+<li>::SDL_HAPTIC_POLAR : Specified by polar coordinates.</li>
+<li>::SDL_HAPTIC_CARTESIAN : Specified by cartesian coordinates.</li>
+<li>::SDL_HAPTIC_SPHERICAL : Specified by spherical coordinates.</li>
 </ul>
 <p>Cardinal directions of the haptic device are relative to the positioning of the device. North is considered to be away from the user.</p>
 <p>The following diagram represents the cardinal directions: </p><pre class="fragment">              .--.
@@ -110,41 +110,41 @@ Public Attributes</h2></td></tr>
                    [ USER ]
                      \|||/
                      (o o)
-               ---ooO-(_)-Ooo---</pre><p>If type is <a class="el" href="SDL__haptic_8h.html#acdc35e97e5525472054a67b76e518f3b" title="Uses polar coordinates for the direction. ">SDL_HAPTIC_POLAR</a>, direction is encoded by hundredths of a degree starting north and turning clockwise. <a class="el" href="SDL__haptic_8h.html#acdc35e97e5525472054a67b76e518f3b" title="Uses polar coordinates for the direction. ">SDL_HAPTIC_POLAR</a> only uses the first <code>dir</code> parameter. The cardinal directions would be:</p><ul>
+               ---ooO-(_)-Ooo---</pre><p>If type is ::SDL_HAPTIC_POLAR, direction is encoded by hundredths of a degree starting north and turning clockwise. ::SDL_HAPTIC_POLAR only uses the first <code>dir</code> parameter. The cardinal directions would be:</p><ul>
 <li>North: 0 (0 degrees)</li>
 <li>East: 9000 (90 degrees)</li>
 <li>South: 18000 (180 degrees)</li>
 <li>West: 27000 (270 degrees)</li>
 </ul>
-<p>If type is <a class="el" href="SDL__haptic_8h.html#af8b2430a363a968de2a5b64c8f663d3b" title="Uses cartesian coordinates for the direction. ">SDL_HAPTIC_CARTESIAN</a>, direction is encoded by three positions (X axis, Y axis and Z axis (with 3 axes)). <a class="el" href="SDL__haptic_8h.html#af8b2430a363a968de2a5b64c8f663d3b" title="Uses cartesian coordinates for the direction. ">SDL_HAPTIC_CARTESIAN</a> uses the first three <code>dir</code> parameters. The cardinal directions would be:</p><ul>
+<p>If type is ::SDL_HAPTIC_CARTESIAN, direction is encoded by three positions (X axis, Y axis and Z axis (with 3 axes)). ::SDL_HAPTIC_CARTESIAN uses the first three <code>dir</code> parameters. The cardinal directions would be:</p><ul>
 <li>North: 0,-1, 0</li>
 <li>East: 1, 0, 0</li>
 <li>South: 0, 1, 0</li>
 <li>West: -1, 0, 0</li>
 </ul>
 <p>The Z axis represents the height of the effect if supported, otherwise it's unused. In cartesian encoding (1, 2) would be the same as (2, 4), you can use any multiple you want, only the direction matters.</p>
-<p>If type is <a class="el" href="SDL__haptic_8h.html#a1fcf7cb0eaf3c39b16ba266054e25aff" title="Uses spherical coordinates for the direction. ">SDL_HAPTIC_SPHERICAL</a>, direction is encoded by two rotations. The first two <code>dir</code> parameters are used. The <code>dir</code> parameters are as follows (all values are in hundredths of degrees):</p><ul>
+<p>If type is ::SDL_HAPTIC_SPHERICAL, direction is encoded by two rotations. The first two <code>dir</code> parameters are used. The <code>dir</code> parameters are as follows (all values are in hundredths of degrees):</p><ul>
 <li>Degrees from (1, 0) rotated towards (0, 1).</li>
 <li>Degrees towards (0, 0, 1) (device needs at least 3 axes).</li>
 </ul>
-<p>Example of force coming from the south with all encodings (force coming from the south means the user will have to pull the stick to counteract): </p><div class="fragment"><div class="line"><a class="code" href="structSDL__HapticDirection.html">SDL_HapticDirection</a> direction;</div><div class="line"></div><div class="line"><span class="comment">// Cartesian directions</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a> = <a class="code" href="SDL__haptic_8h.html#af8b2430a363a968de2a5b64c8f663d3b">SDL_HAPTIC_CARTESIAN</a>; <span class="comment">// Using cartesian direction encoding.</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6cebd8118a3e61e36bd0c503ae020362">dir</a>[0] = 0; <span class="comment">// X position</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6cebd8118a3e61e36bd0c503ae020362">dir</a>[1] = 1; <span class="comment">// Y position</span></div><div class="line"><span class="comment">// Assuming the device has 2 axes, we don&#39;t need to specify third parameter.</span></div><div class="line"></div><div class="line"><span class="comment">// Polar directions</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a> = <a class="code" href="SDL__haptic_8h.html#acdc35e97e5525472054a67b76e518f3b">SDL_HAPTIC_POLAR</a>; <span class="comment">// We&#39;ll be using polar direction encoding.</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6cebd8118a3e61e36bd0c503ae020362">dir</a>[0] = 18000; <span class="comment">// Polar only uses first parameter</span></div><div class="line"></div><div class="line"><span class="comment">// Spherical coordinates</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a> = <a class="code" href="SDL__haptic_8h.html#a1fcf7cb0eaf3c39b16ba266054e25aff">SDL_HAPTIC_SPHERICAL</a>; <span class="comment">// Spherical encoding</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6cebd8118a3e61e36bd0c503ae020362">dir</a>[0] = 9000; <span class="comment">// Since we only have two axes we don&#39;t need more parameters.</span></div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="SDL__haptic_8h.html#acdc35e97e5525472054a67b76e518f3b" title="Uses polar coordinates for the direction. ">SDL_HAPTIC_POLAR</a> </dd>
+<p>Example of force coming from the south with all encodings (force coming from the south means the user will have to pull the stick to counteract): </p><div class="fragment"><div class="line"><a class="code" href="structSDL__HapticDirection.html">SDL_HapticDirection</a> direction;</div><div class="line"></div><div class="line"><span class="comment">// Cartesian directions</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a> = SDL_HAPTIC_CARTESIAN; <span class="comment">// Using cartesian direction encoding.</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6b1083eefcfe8db7d9bbfd660e0373a9">dir</a>[0] = 0; <span class="comment">// X position</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6b1083eefcfe8db7d9bbfd660e0373a9">dir</a>[1] = 1; <span class="comment">// Y position</span></div><div class="line"><span class="comment">// Assuming the device has 2 axes, we don&#39;t need to specify third parameter.</span></div><div class="line"></div><div class="line"><span class="comment">// Polar directions</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a> = SDL_HAPTIC_POLAR; <span class="comment">// We&#39;ll be using polar direction encoding.</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6b1083eefcfe8db7d9bbfd660e0373a9">dir</a>[0] = 18000; <span class="comment">// Polar only uses first parameter</span></div><div class="line"></div><div class="line"><span class="comment">// Spherical coordinates</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#acd6830ad68c4ba2af16057fa418087cc">type</a> = SDL_HAPTIC_SPHERICAL; <span class="comment">// Spherical encoding</span></div><div class="line">direction.<a class="code" href="structSDL__HapticDirection.html#a6b1083eefcfe8db7d9bbfd660e0373a9">dir</a>[0] = 9000; <span class="comment">// Since we only have two axes we don&#39;t need more parameters.</span></div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>SDL_HAPTIC_POLAR </dd>
 <dd>
-<a class="el" href="SDL__haptic_8h.html#af8b2430a363a968de2a5b64c8f663d3b" title="Uses cartesian coordinates for the direction. ">SDL_HAPTIC_CARTESIAN</a> </dd>
+SDL_HAPTIC_CARTESIAN </dd>
 <dd>
-<a class="el" href="SDL__haptic_8h.html#a1fcf7cb0eaf3c39b16ba266054e25aff" title="Uses spherical coordinates for the direction. ">SDL_HAPTIC_SPHERICAL</a> </dd>
+SDL_HAPTIC_SPHERICAL </dd>
 <dd>
 <a class="el" href="unionSDL__HapticEffect.html" title="The generic template for any haptic effect. ">SDL_HapticEffect</a> </dd>
 <dd>
-<a class="el" href="SDL__haptic_8h.html#ad6705645197f6df4eeeea32392462483" title="Gets the number of haptic axes the device has. ">SDL_HapticNumAxes</a> </dd></dl>
+SDL_HapticNumAxes </dd></dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a6cebd8118a3e61e36bd0c503ae020362"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cebd8118a3e61e36bd0c503ae020362">&#9670;&nbsp;</a></span>dir</h2>
+<a id="a6b1083eefcfe8db7d9bbfd660e0373a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1083eefcfe8db7d9bbfd660e0373a9">&#9670;&nbsp;</a></span>dir</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="SDL__stdinc_8h.html#a7a90b941db9d4582e9ad7abb9940ff7e">Sint32</a> SDL_HapticDirection::dir[3]</td>
+          <td class="memname">Sint32 SDL_HapticDirection::dir</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,7 +159,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="SDL__stdinc_8h.html#a2944638813a090aa23e62f4da842c3e2">Uint8</a> SDL_HapticDirection::type</td>
+          <td class="memname">Uint8 SDL_HapticDirection::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -168,7 +168,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>thirdparty/TUIO20_CPP/demos/sdl/include/<a class="el" href="SDL__haptic_8h_source.html">SDL_haptic.h</a></li>
+<li>thirdparty/TUIO11_CPP/windows/sdl/include/<a class="el" href="TUIO11__CPP_2windows_2sdl_2include_2SDL__haptic_8h_source.html">SDL_haptic.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

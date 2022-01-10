@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classTUIO2_1_1TuioTime.html" title="TUIO2::TuioTime" alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node1" href="$classTUIO2_1_1TuioDispatcher.html" title="TUIO2::TuioDispatcher" alt="" coords="5,31,163,57"/>
+<area shape="rect" id="node2" href="$classTUIO2_1_1TuioClient.html" title="TUIO2::TuioClient" alt="" coords="219,5,347,32"/>
+<area shape="rect" id="node3" href="$classTUIO2_1_1TuioManager.html" title="TUIO2::TuioManager" alt="" coords="211,56,355,83"/>
+<area shape="rect" id="node4" href="$classTUIO2_1_1TuioServer.html" title="TUIO2::TuioServer" alt="" coords="403,56,535,83"/>
 </map>

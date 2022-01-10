@@ -102,9 +102,18 @@ Public Types</h2></td></tr>
 <tr class="memitem:ac42699983a93c519105122fe24e25ab7"><td class="memItemLeft" align="right" valign="top"><a id="ac42699983a93c519105122fe24e25ab7"></a>
 typedef void(T::*&#160;</td><td class="memItemRight" valign="bottom"><b>function_type</b>) (const <a class="el" href="classosc_1_1ReceivedMessage.html">osc::ReceivedMessage</a> &amp;, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;)</td></tr>
 <tr class="separator:ac42699983a93c519105122fe24e25ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac42699983a93c519105122fe24e25ab7"><td class="memItemLeft" align="right" valign="top"><a id="ac42699983a93c519105122fe24e25ab7"></a>
+typedef void(T::*&#160;</td><td class="memItemRight" valign="bottom"><b>function_type</b>) (const <a class="el" href="classosc_1_1ReceivedMessage.html">osc::ReceivedMessage</a> &amp;, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;)</td></tr>
+<tr class="separator:ac42699983a93c519105122fe24e25ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:aed3ac1b4ad1e2d9882b49de1da790953"><td class="memItemLeft" align="right" valign="top"><a id="aed3ac1b4ad1e2d9882b49de1da790953"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterMessageFunction</b> (const char *addressPattern, function_type f)</td></tr>
+<tr class="separator:aed3ac1b4ad1e2d9882b49de1da790953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee3c1307d98eeec8b1d46d7c34c5bdd"><td class="memItemLeft" align="right" valign="top"><a id="a2ee3c1307d98eeec8b1d46d7c34c5bdd"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessMessage</b> (const <a class="el" href="classosc_1_1ReceivedMessage.html">osc::ReceivedMessage</a> &amp;m, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint)</td></tr>
+<tr class="separator:a2ee3c1307d98eeec8b1d46d7c34c5bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed3ac1b4ad1e2d9882b49de1da790953"><td class="memItemLeft" align="right" valign="top"><a id="aed3ac1b4ad1e2d9882b49de1da790953"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterMessageFunction</b> (const char *addressPattern, function_type f)</td></tr>
 <tr class="separator:aed3ac1b4ad1e2d9882b49de1da790953"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,9 +124,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessMessag
 <tr class="memitem:ac075dda3a826be1b3e98d4509444adc8 inherit pro_methods_classosc_1_1OscPacketListener"><td class="memItemLeft" align="right" valign="top"><a id="ac075dda3a826be1b3e98d4509444adc8"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessBundle</b> (const <a class="el" href="classosc_1_1ReceivedBundle.html">osc::ReceivedBundle</a> &amp;b, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint)</td></tr>
 <tr class="separator:ac075dda3a826be1b3e98d4509444adc8 inherit pro_methods_classosc_1_1OscPacketListener"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac075dda3a826be1b3e98d4509444adc8 inherit pro_methods_classosc_1_1OscPacketListener"><td class="memItemLeft" align="right" valign="top"><a id="ac075dda3a826be1b3e98d4509444adc8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessBundle</b> (const <a class="el" href="classosc_1_1ReceivedBundle.html">osc::ReceivedBundle</a> &amp;b, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint)</td></tr>
+<tr class="separator:ac075dda3a826be1b3e98d4509444adc8 inherit pro_methods_classosc_1_1OscPacketListener"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
+<tr class="memitem:a4cf1cda27aa7c6d14f0f9f5372d55617"><td class="memItemLeft" align="right" valign="top"><a id="a4cf1cda27aa7c6d14f0f9f5372d55617"></a>
+typedef std::map&lt; const char *, function_type, <a class="el" href="structosc_1_1MessageMappingOscPacketListener_1_1cstr__compare.html">cstr_compare</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>function_map_type</b></td></tr>
+<tr class="separator:a4cf1cda27aa7c6d14f0f9f5372d55617"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cf1cda27aa7c6d14f0f9f5372d55617"><td class="memItemLeft" align="right" valign="top"><a id="a4cf1cda27aa7c6d14f0f9f5372d55617"></a>
 typedef std::map&lt; const char *, function_type, <a class="el" href="structosc_1_1MessageMappingOscPacketListener_1_1cstr__compare.html">cstr_compare</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>function_map_type</b></td></tr>
 <tr class="separator:a4cf1cda27aa7c6d14f0f9f5372d55617"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,9 +149,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae59097d1dd4e38cc0249bf94d515e1c4 inherit pub_methods_classosc_1_1OscPacketListener"><td class="memItemLeft" align="right" valign="top"><a id="ae59097d1dd4e38cc0249bf94d515e1c4"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessPacket</b> (const char *data, int size, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint)</td></tr>
 <tr class="separator:ae59097d1dd4e38cc0249bf94d515e1c4 inherit pub_methods_classosc_1_1OscPacketListener"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59097d1dd4e38cc0249bf94d515e1c4 inherit pub_methods_classosc_1_1OscPacketListener"><td class="memItemLeft" align="right" valign="top"><a id="ae59097d1dd4e38cc0249bf94d515e1c4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessPacket</b> (const char *data, int size, const <a class="el" href="classIpEndpointName.html">IpEndpointName</a> &amp;remoteEndpoint)</td></tr>
+<tr class="separator:ae59097d1dd4e38cc0249bf94d515e1c4 inherit pub_methods_classosc_1_1OscPacketListener"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>thirdparty/TUIO20_CPP/oscpack/osc/<a class="el" href="MessageMappingOscPacketListener_8h_source.html">MessageMappingOscPacketListener.h</a></li>
+<li>thirdparty/TUIO11_CPP/oscpack/osc/<a class="el" href="TUIO11__CPP_2oscpack_2osc_2MessageMappingOscPacketListener_8h_source.html">MessageMappingOscPacketListener.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

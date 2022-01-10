@@ -78,9 +78,30 @@ Public Types</h2></td></tr>
 <tr class="memitem:a92d924e2159e12573aded48bb1af721f"><td class="memItemLeft" align="right" valign="top"><a id="a92d924e2159e12573aded48bb1af721f"></a>
 typedef <a class="el" href="classosc_1_1ReceivedBundleElementIterator.html">ReceivedBundleElementIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
 <tr class="separator:a92d924e2159e12573aded48bb1af721f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d924e2159e12573aded48bb1af721f"><td class="memItemLeft" align="right" valign="top"><a id="a92d924e2159e12573aded48bb1af721f"></a>
+typedef <a class="el" href="classosc_1_1ReceivedBundleElementIterator.html">ReceivedBundleElementIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
+<tr class="separator:a92d924e2159e12573aded48bb1af721f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa8c962985f4d813d924e670d35c0308a"><td class="memItemLeft" align="right" valign="top"><a id="aa8c962985f4d813d924e670d35c0308a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReceivedBundle</b> (const <a class="el" href="classosc_1_1ReceivedPacket.html">ReceivedPacket</a> &amp;packet)</td></tr>
+<tr class="separator:aa8c962985f4d813d924e670d35c0308a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b84c6e3b273f7d57e6913d03e9ddfba"><td class="memItemLeft" align="right" valign="top"><a id="a5b84c6e3b273f7d57e6913d03e9ddfba"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReceivedBundle</b> (const <a class="el" href="classosc_1_1ReceivedBundleElement.html">ReceivedBundleElement</a> &amp;bundleElement)</td></tr>
+<tr class="separator:a5b84c6e3b273f7d57e6913d03e9ddfba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a3f2296aa23710f5b337919d421c1f8"><td class="memItemLeft" align="right" valign="top"><a id="a3a3f2296aa23710f5b337919d421c1f8"></a>
+uint64&#160;</td><td class="memItemRight" valign="bottom"><b>TimeTag</b> () const</td></tr>
+<tr class="separator:a3a3f2296aa23710f5b337919d421c1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145a6956864f0819fe04a965fd2a7ea2"><td class="memItemLeft" align="right" valign="top"><a id="a145a6956864f0819fe04a965fd2a7ea2"></a>
+uint32&#160;</td><td class="memItemRight" valign="bottom"><b>ElementCount</b> () const</td></tr>
+<tr class="separator:a145a6956864f0819fe04a965fd2a7ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6069a27f2e105422fdab734cad33ae3"><td class="memItemLeft" align="right" valign="top"><a id="ac6069a27f2e105422fdab734cad33ae3"></a>
+<a class="el" href="classosc_1_1ReceivedBundleElementIterator.html">ReceivedBundleElementIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ElementsBegin</b> () const</td></tr>
+<tr class="separator:ac6069a27f2e105422fdab734cad33ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813f6214aefbc93492b158d72aba26af"><td class="memItemLeft" align="right" valign="top"><a id="a813f6214aefbc93492b158d72aba26af"></a>
+<a class="el" href="classosc_1_1ReceivedBundleElementIterator.html">ReceivedBundleElementIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ElementsEnd</b> () const</td></tr>
+<tr class="separator:a813f6214aefbc93492b158d72aba26af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c962985f4d813d924e670d35c0308a"><td class="memItemLeft" align="right" valign="top"><a id="aa8c962985f4d813d924e670d35c0308a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ReceivedBundle</b> (const <a class="el" href="classosc_1_1ReceivedPacket.html">ReceivedPacket</a> &amp;packet)</td></tr>
 <tr class="separator:aa8c962985f4d813d924e670d35c0308a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,22 +126,25 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a9f55866d2fc024ab2b5f61b539aae326"><td class="memItemLeft" align="right" valign="top"><a id="a9f55866d2fc024ab2b5f61b539aae326"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (const char *message, osc_bundle_element_size_t size)</td></tr>
 <tr class="separator:a9f55866d2fc024ab2b5f61b539aae326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f55866d2fc024ab2b5f61b539aae326"><td class="memItemLeft" align="right" valign="top"><a id="a9f55866d2fc024ab2b5f61b539aae326"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (const char *message, osc_bundle_element_size_t size)</td></tr>
+<tr class="separator:a9f55866d2fc024ab2b5f61b539aae326"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac3b43066ca204882b74fd8181dc471f6"><td class="memItemLeft" align="right" valign="top"><a id="ac3b43066ca204882b74fd8181dc471f6"></a>
+<tr class="memitem:a5b5ea3923b32d08c1ccadee5555734b6"><td class="memItemLeft" align="right" valign="top"><a id="a5b5ea3923b32d08c1ccadee5555734b6"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>timeTag_</b></td></tr>
-<tr class="separator:ac3b43066ca204882b74fd8181dc471f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0caa9c169f2216da6d3641da0c04340f"><td class="memItemLeft" align="right" valign="top"><a id="a0caa9c169f2216da6d3641da0c04340f"></a>
+<tr class="separator:a5b5ea3923b32d08c1ccadee5555734b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8107ca09013bc9749092f6acef82f353"><td class="memItemLeft" align="right" valign="top"><a id="a8107ca09013bc9749092f6acef82f353"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>end_</b></td></tr>
-<tr class="separator:a0caa9c169f2216da6d3641da0c04340f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a8107ca09013bc9749092f6acef82f353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae62442c3d2a5fffae35f555e3f301c72"><td class="memItemLeft" align="right" valign="top"><a id="ae62442c3d2a5fffae35f555e3f301c72"></a>
 uint32&#160;</td><td class="memItemRight" valign="bottom"><b>elementCount_</b></td></tr>
 <tr class="separator:ae62442c3d2a5fffae35f555e3f301c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>thirdparty/TUIO20_CPP/oscpack/osc/<a class="el" href="OscReceivedElements_8h_source.html">OscReceivedElements.h</a></li>
-<li>thirdparty/TUIO20_CPP/oscpack/osc/OscReceivedElements.cpp</li>
+<li>thirdparty/TUIO11_CPP/oscpack/osc/<a class="el" href="TUIO11__CPP_2oscpack_2osc_2OscReceivedElements_8h_source.html">OscReceivedElements.h</a></li>
+<li>thirdparty/TUIO11_CPP/oscpack/osc/OscReceivedElements.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

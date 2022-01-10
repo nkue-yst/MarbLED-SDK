@@ -72,15 +72,42 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aab578a5a3b24466f443885ba4894bb91"><td class="memItemLeft" align="right" valign="top"><a id="aab578a5a3b24466f443885ba4894bb91"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ADDRESS_STRING_LENGTH</b> =17
+<tr class="memitem:a59d8eecce820d7b3b1f455c49fb3c6c0"><td class="memItemLeft" align="right" valign="top"><a id="a59d8eecce820d7b3b1f455c49fb3c6c0"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ADDRESS_STRING_LENGTH</b> =17
  }</td></tr>
-<tr class="separator:aab578a5a3b24466f443885ba4894bb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1c1bf05ad382871c9d8502972c30f3d"><td class="memItemLeft" align="right" valign="top"><a id="ae1c1bf05ad382871c9d8502972c30f3d"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ADDRESS_AND_PORT_STRING_LENGTH</b> =23
+<tr class="separator:a59d8eecce820d7b3b1f455c49fb3c6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1401a52619dfff5e05726af5c0fc7bc3"><td class="memItemLeft" align="right" valign="top"><a id="a1401a52619dfff5e05726af5c0fc7bc3"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ADDRESS_AND_PORT_STRING_LENGTH</b> =23
  }</td></tr>
-<tr class="separator:ae1c1bf05ad382871c9d8502972c30f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a1401a52619dfff5e05726af5c0fc7bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2aeea25e7c3ed80d4e0841ff135390"><td class="memItemLeft" align="right" valign="top"><a id="a6b2aeea25e7c3ed80d4e0841ff135390"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ADDRESS_STRING_LENGTH</b> =17
+ }</td></tr>
+<tr class="separator:a6b2aeea25e7c3ed80d4e0841ff135390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcab2a401d2a728c929c113400d33c8"><td class="memItemLeft" align="right" valign="top"><a id="adfcab2a401d2a728c929c113400d33c8"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>ADDRESS_AND_PORT_STRING_LENGTH</b> =23
+ }</td></tr>
+<tr class="separator:adfcab2a401d2a728c929c113400d33c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a6a44e1717676450f75fb86e2694ea267"><td class="memItemLeft" align="right" valign="top"><a id="a6a44e1717676450f75fb86e2694ea267"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IpEndpointName</b> (int port_)</td></tr>
+<tr class="separator:a6a44e1717676450f75fb86e2694ea267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87eeb8c4a4dee940c47c5bf17d23dff9"><td class="memItemLeft" align="right" valign="top"><a id="a87eeb8c4a4dee940c47c5bf17d23dff9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IpEndpointName</b> (unsigned long ipAddress_, int port_)</td></tr>
+<tr class="separator:a87eeb8c4a4dee940c47c5bf17d23dff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e892c9fe40e5e7153594bf57f2eea95"><td class="memItemLeft" align="right" valign="top"><a id="a2e892c9fe40e5e7153594bf57f2eea95"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IpEndpointName</b> (const char *addressName, int port_=ANY_PORT)</td></tr>
+<tr class="separator:a2e892c9fe40e5e7153594bf57f2eea95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64829fd7c9fd2333f388ad86d0a1c5c2"><td class="memItemLeft" align="right" valign="top"><a id="a64829fd7c9fd2333f388ad86d0a1c5c2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IpEndpointName</b> (int addressA, int addressB, int addressC, int addressD, int port_=ANY_PORT)</td></tr>
+<tr class="separator:a64829fd7c9fd2333f388ad86d0a1c5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f8d7846175184f24c706f0e1131678"><td class="memItemLeft" align="right" valign="top"><a id="a66f8d7846175184f24c706f0e1131678"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsMulticastAddress</b> () const</td></tr>
+<tr class="separator:a66f8d7846175184f24c706f0e1131678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a828053093361588326261f51602b49"><td class="memItemLeft" align="right" valign="top"><a id="a9a828053093361588326261f51602b49"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddressAsString</b> (char *s) const</td></tr>
+<tr class="separator:a9a828053093361588326261f51602b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e0cbe8131d0b0101feb47c74e274af"><td class="memItemLeft" align="right" valign="top"><a id="a30e0cbe8131d0b0101feb47c74e274af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddressAndPortAsString</b> (char *s) const</td></tr>
+<tr class="separator:a30e0cbe8131d0b0101feb47c74e274af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a44e1717676450f75fb86e2694ea267"><td class="memItemLeft" align="right" valign="top"><a id="a6a44e1717676450f75fb86e2694ea267"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IpEndpointName</b> (int port_)</td></tr>
 <tr class="separator:a6a44e1717676450f75fb86e2694ea267"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,22 +141,25 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>port</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:afea73a019c63cf3aa2bae83b0e1499ab"><td class="memItemLeft" align="right" valign="top"><a id="afea73a019c63cf3aa2bae83b0e1499ab"></a>
+<tr class="memitem:a8f86107dde62ceef3d7dd4bd5be4c794"><td class="memItemLeft" align="right" valign="top"><a id="a8f86107dde62ceef3d7dd4bd5be4c794"></a>
 static const unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>ANY_ADDRESS</b> = 0xFFFFFFFF</td></tr>
-<tr class="separator:afea73a019c63cf3aa2bae83b0e1499ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3844756d4c2ce453336e8096d009d6d"><td class="memItemLeft" align="right" valign="top"><a id="af3844756d4c2ce453336e8096d009d6d"></a>
+<tr class="separator:a8f86107dde62ceef3d7dd4bd5be4c794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aaefbd24e8f727ff2f5a40bbd6d13bc"><td class="memItemLeft" align="right" valign="top"><a id="a3aaefbd24e8f727ff2f5a40bbd6d13bc"></a>
 static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ANY_PORT</b> = -1</td></tr>
-<tr class="separator:af3844756d4c2ce453336e8096d009d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a3aaefbd24e8f727ff2f5a40bbd6d13bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a5a264559fb2ad88e6f4577951deee81f"><td class="memItemLeft" align="right" valign="top"><a id="a5a264559fb2ad88e6f4577951deee81f"></a>
 static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>GetHostByName</b> (const char *s)</td></tr>
 <tr class="separator:a5a264559fb2ad88e6f4577951deee81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a146ecf433be596461d526ed35905d72e"><td class="memItemLeft" align="right" valign="top"><a id="a146ecf433be596461d526ed35905d72e"></a>
+static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>GetHostByName</b> (const char *s)</td></tr>
+<tr class="separator:a146ecf433be596461d526ed35905d72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>thirdparty/TUIO20_CPP/oscpack/ip/<a class="el" href="IpEndpointName_8h_source.html">IpEndpointName.h</a></li>
-<li>thirdparty/TUIO20_CPP/oscpack/ip/IpEndpointName.cpp</li>
+<li>thirdparty/TUIO11_CPP/oscpack/ip/<a class="el" href="TUIO11__CPP_2oscpack_2ip_2IpEndpointName_8h_source.html">IpEndpointName.h</a></li>
+<li>thirdparty/TUIO11_CPP/oscpack/ip/IpEndpointName.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
