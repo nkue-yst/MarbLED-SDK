@@ -34,7 +34,7 @@ namespace tll
      * @param  width  パネルの横幅
      * @param  height  パネルの高さ
      */
-    void init(uint16_t width, uint16_t height);
+    void init(uint16_t width, uint16_t height, bool verbose = false);
 
     /**
      * @fn     bool loop()
@@ -176,6 +176,10 @@ namespace tll
          */
         void quit();
     }
+
+
+    void startClock();
+    void endClock(std::string function_name = "Some function");
 }
 
 #endif

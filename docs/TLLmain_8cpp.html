@@ -64,7 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">TLLmain.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -110,9 +111,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a965d6819883d08e811bb20ce978caaa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#a965d6819883d08e811bb20ce978caaa8">tll::init</a> (uint16_t width, uint16_t height)</td></tr>
-<tr class="memdesc:a965d6819883d08e811bb20ce978caaa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">システム全体の初期化  <a href="namespacetll.html#a965d6819883d08e811bb20ce978caaa8">More...</a><br /></td></tr>
-<tr class="separator:a965d6819883d08e811bb20ce978caaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memItemLeft" align="right" valign="top"><a id="a85f289fbafbe6dfcdfcb54ca7162fb56"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::init</b> (uint16_t width, uint16_t height, bool verbose=false)</td></tr>
+<tr class="separator:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41068d16ee080544b2e45c49f114d3a"><td class="memItemLeft" align="right" valign="top"><a id="ae41068d16ee080544b2e45c49f114d3a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#ae41068d16ee080544b2e45c49f114d3a">tll::loop</a> ()</td></tr>
 <tr class="memdesc:ae41068d16ee080544b2e45c49f114d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop on the framework. <br /></td></tr>
@@ -161,6 +162,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#aa385e3f0a11851e9b6430c887e5d94f2">tll::Simulation::quit</a> ()</td></tr>
 <tr class="memdesc:aa385e3f0a11851e9b6430c887e5d94f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションを終了 <br /></td></tr>
 <tr class="separator:aa385e3f0a11851e9b6430c887e5d94f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728382bbca0b9aa1069d2ee5e01313d4"><td class="memItemLeft" align="right" valign="top"><a id="a728382bbca0b9aa1069d2ee5e01313d4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::startClock</b> ()</td></tr>
+<tr class="separator:a728382bbca0b9aa1069d2ee5e01313d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75da66d47267d06d324df439e7c90562"><td class="memItemLeft" align="right" valign="top"><a id="a75da66d47267d06d324df439e7c90562"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::endClock</b> (std::string function_name=&quot;Some function&quot;)</td></tr>
+<tr class="separator:a75da66d47267d06d324df439e7c90562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a56ff60becf904407b9157c59daef2a04"><td class="memItemLeft" align="right" valign="top"><a id="a56ff60becf904407b9157c59daef2a04"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>tll::verbose_flag</b> = false</td></tr>
+<tr class="separator:a56ff60becf904407b9157c59daef2a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memItemLeft" align="right" valign="top"><a id="af5ecc1ae56b0dde4623745d091bd97a4"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>tll::clock</b> = 0.0</td></tr>
+<tr class="separator:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>公開APIの実装 </p>

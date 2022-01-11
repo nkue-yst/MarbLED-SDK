@@ -105,9 +105,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a965d6819883d08e811bb20ce978caaa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#a965d6819883d08e811bb20ce978caaa8">init</a> (uint16_t width, uint16_t height)</td></tr>
-<tr class="memdesc:a965d6819883d08e811bb20ce978caaa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">システム全体の初期化  <a href="#a965d6819883d08e811bb20ce978caaa8">More...</a><br /></td></tr>
-<tr class="separator:a965d6819883d08e811bb20ce978caaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memItemLeft" align="right" valign="top"><a id="a85f289fbafbe6dfcdfcb54ca7162fb56"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (uint16_t width, uint16_t height, bool verbose=false)</td></tr>
+<tr class="separator:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41068d16ee080544b2e45c49f114d3a"><td class="memItemLeft" align="right" valign="top"><a id="ae41068d16ee080544b2e45c49f114d3a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#ae41068d16ee080544b2e45c49f114d3a">loop</a> ()</td></tr>
 <tr class="memdesc:ae41068d16ee080544b2e45c49f114d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop on the framework. <br /></td></tr>
@@ -141,6 +141,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:af6c84b22d06d38c17e2de2dec11fbbc3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#af6c84b22d06d38c17e2de2dec11fbbc3">timeToString</a> ()</td></tr>
 <tr class="memdesc:af6c84b22d06d38c17e2de2dec11fbbc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current time (Hours and minutes)  <a href="#af6c84b22d06d38c17e2de2dec11fbbc3">More...</a><br /></td></tr>
 <tr class="separator:af6c84b22d06d38c17e2de2dec11fbbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728382bbca0b9aa1069d2ee5e01313d4"><td class="memItemLeft" align="right" valign="top"><a id="a728382bbca0b9aa1069d2ee5e01313d4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>startClock</b> ()</td></tr>
+<tr class="separator:a728382bbca0b9aa1069d2ee5e01313d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75da66d47267d06d324df439e7c90562"><td class="memItemLeft" align="right" valign="top"><a id="a75da66d47267d06d324df439e7c90562"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>endClock</b> (std::string function_name=&quot;Some function&quot;)</td></tr>
+<tr class="separator:a75da66d47267d06d324df439e7c90562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bba43e38cec08c684bf10d6c63208fa"><td class="memItemLeft" align="right" valign="top"><a id="a1bba43e38cec08c684bf10d6c63208fa"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>calcDiff</b> (<a class="el" href="classtll_1_1Color.html">Color</a> c1, <a class="el" href="classtll_1_1Color.html">Color</a> c2)</td></tr>
 <tr class="separator:a1bba43e38cec08c684bf10d6c63208fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,6 +161,12 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#a712dc6d796c0280eaa072e387abd852a">OFF</a> = 0</td></tr>
 <tr class="memdesc:a712dc6d796c0280eaa072e387abd852a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monochrome LED is unlit. <br /></td></tr>
 <tr class="separator:a712dc6d796c0280eaa072e387abd852a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ff60becf904407b9157c59daef2a04"><td class="memItemLeft" align="right" valign="top"><a id="a56ff60becf904407b9157c59daef2a04"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>verbose_flag</b> = false</td></tr>
+<tr class="separator:a56ff60becf904407b9157c59daef2a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memItemLeft" align="right" valign="top"><a id="af5ecc1ae56b0dde4623745d091bd97a4"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>clock</b> = 0.0</td></tr>
+<tr class="separator:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>TouchLED-Libraryの名前空間 </p>
@@ -211,43 +223,6 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
     <tr><td class="paramname">x2</td><td>The x location of the ending line </td></tr>
     <tr><td class="paramname">y2</td><td>The y location of the ending line </td></tr>
     <tr><td class="paramname">c</td><td>The color of the line </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a965d6819883d08e811bb20ce978caaa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a965d6819883d08e811bb20ce978caaa8">&#9670;&nbsp;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tll::init </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>システム全体の初期化 </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">width</td><td>パネルの横幅 </td></tr>
-    <tr><td class="paramname">height</td><td>パネルの高さ </td></tr>
   </table>
   </dd>
 </dl>

@@ -24,9 +24,14 @@
 
 namespace tll
 {
+    bool verbose_flag = false;
 
-    void init(uint16_t width, uint16_t height)
+    void init(uint16_t width, uint16_t height, bool verbose)
     {
+        verbose_flag = verbose;
+        if (verbose_flag)
+            startClock();
+
         ColorPalette::create();
 
         // Load color palette information from csv.
@@ -77,6 +82,9 @@ namespace tll
 
         SDL_Init(SDL_INIT_VIDEO);
         Simulator::create();
+
+        if (verbose_flag)
+            endClock("tll::init()");
     }
 
     bool loop()
@@ -89,6 +97,8 @@ namespace tll
 
     void quit()
     {
+        startClock();
+
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
 
@@ -101,54 +111,84 @@ namespace tll
         PanelManager::getInstance()->destroy();
         TextRenderer::getInstance()->destroy();
         ColorPalette::getInstance()->destroy();
+
+        endClock("tll::quit()");
     }
 
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
     {
+        startClock();
+
         PanelManager::getInstance()->drawRect(x, y, w, h, c);
         SerialManager::getInstance()->sendColorData();
+
+        endClock("tll::drawRect()");
     }
 
     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
     {
+        startClock();
+
         PanelManager::getInstance()->drawLine(x1, y1, x2, y2, c);
         SerialManager::getInstance()->sendColorData();
+
+        endClock("tll::drawLine()");
     }
 
     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
     {
+        startClock();
+
         PanelManager::getInstance()->drawCircle(x, y, rad, c);
         SerialManager::getInstance()->sendColorData();
+
+        endClock("tll::drawCircle()");
     }
 
     void print(std::string str, uint8_t c)
     {
+        startClock();
+
         TextRenderer::getInstance()->drawText(str, c, 0, 0);
         SerialManager::getInstance()->sendColorData();
+
+        endClock("tll::print()");
     }
 
     void clear()
     {
+        startClock();
+
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
+
+        endClock("tll::clear()");
     }
 
     tll::Image loadImage(const char* file)
     {
+        startClock();
+
         cv::Mat img = cv::imread(file);
         if (img.empty())
             std::cout << file << " is not found." << std::endl;
+
+        endClock("tll::loadImage()");
 
         return tll::Image(img);
     }
 
     tll::Video loadVideo(const char* file)
     {
+        startClock();
+
         cv::VideoCapture video;
         video.open(file);
         if (video.isOpened() == false)
             std::cerr << "[ERROR] Failed to load video file" << std::endl;
         
+        endClock("tll::loadVideo()");
+
         return tll::Video(video);
     }
 
@@ -181,18 +221,46 @@ namespace tll
     {
         void start()
         {
+            startClock();
             Simulator::getInstance()->start();
+            endClock("tll::Simulation::start()");
         }
 
         void update()
         {
+            startClock();
             Simulator::getInstance()->update();
+            endClock("tll::Simultaion::update()");
         }
 
         void quit()
         {
             Simulator::getInstance()->quit();
         }
+    }
+
+
+    static double clock = 0.0;
+
+    void startClock()
+    {
+        if (!verbose_flag)
+            return;
+
+        struct::timespec current_time;
+        clock_gettime(CLOCK_MONOTONIC, &current_time);
+        clock = (current_time.tv_sec + current_time.tv_nsec * 1e-9) * 1000;
+    }
+
+    void endClock(std::string function_name)
+    {
+        if (!verbose_flag)
+            return;
+
+        struct::timespec current_time;
+        clock_gettime(CLOCK_MONOTONIC, &current_time);
+
+        std::cout << "tll-Log: " << function_name << " - " << ((current_time.tv_sec + current_time.tv_nsec * 1e-9) * 1000) - clock << "[ms]" << std::endl;
     }
 
 }

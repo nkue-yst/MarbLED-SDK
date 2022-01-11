@@ -57,10 +57,8 @@ public:
 
     void run()
     {
-        init(24, 16);
+        init(24, 16, true);
         Simulation::start();
-
-        drawCircle(12, 8, 4, 1);
 
         while (loop())
         {
