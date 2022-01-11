@@ -24,13 +24,12 @@
 
 namespace tll
 {
-    bool verbose_flag = false;
+    bool verbose = false;
 
-    void init(uint16_t width, uint16_t height, bool verbose)
+    void init(uint16_t width, uint16_t height, bool verbose_flag)
     {
-        verbose_flag = verbose;
-        if (verbose_flag)
-            startClock();
+        verbose = verbose_flag;
+        startClock();
 
         ColorPalette::create();
 
@@ -83,8 +82,7 @@ namespace tll
         SDL_Init(SDL_INIT_VIDEO);
         Simulator::create();
 
-        if (verbose_flag)
-            endClock("tll::init()");
+        endClock("tll::init()");
     }
 
     bool loop()
@@ -244,7 +242,7 @@ namespace tll
 
     void startClock()
     {
-        if (!verbose_flag)
+        if (!verbose)
             return;
 
         struct::timespec current_time;
@@ -254,7 +252,7 @@ namespace tll
 
     void endClock(std::string function_name)
     {
-        if (!verbose_flag)
+        if (!verbose)
             return;
 
         struct::timespec current_time;

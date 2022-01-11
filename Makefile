@@ -16,6 +16,16 @@ ifeq ($(shell uname), Darwin)
 OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.4/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
 endif
 
+# Settings for rpi-rgb-led-matrix library
+ifeq ($(shell uname), Linux)
+RGB_LIB_DISTRIBUTION = thirdparty/rpi-rgb-led-matrix
+RGB_INCDIR = $(RGB_LIB_DISTRIBUTION)/include
+RGB_LIBDIR = $(RGB_LIB_DISTRIBUTION)/lib
+RGB_LIBRARY_NAME = rgbmatrix
+RGB_LIBRARY = $(RGB_LIBDIR)/lib$(RGB_LIBRARY_NAME).a
+LDFLAGS += -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
+endif
+
 INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
 
 TLL_SRC = ./src/Video.cpp ./src/TextRenderer.cpp ./src/Image.cpp ./src/Color.cpp ./src/Event.cpp ./src/PanelManager.cpp ./src/SerialManager.cpp ./src/Simulator.cpp ./src/TLLmain.cpp
@@ -33,13 +43,17 @@ TEST_EXAMPLE = Intaractive_24x16
 
 all : build example
 
-build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
+build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ) $(RGB_LIBRARY)
 	@ar rcs libTLL.a $^
 	@echo "---> Make library file."
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
 
+# build rpi-rgb-led-matrix library
+$(RGB_LIBRARY):
+	$(MAKE) -C $(RGB_LIBDIR)
+
 example: build
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
 	@echo "---> Compile example/Intaractive_24x16.cpp"
 	@#@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
 	@#@echo "---> Compile example/PrintText_24x16.cpp"
@@ -66,5 +80,6 @@ doc-clean:
 clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
+	$(MAKE) -C $(RGB_LIBDIR) clean
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
 	rm -rf example/PrintText_24x16 example/Intaractive_24x16 example/PrintTime_24x16

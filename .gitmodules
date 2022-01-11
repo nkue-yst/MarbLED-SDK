@@ -10,3 +10,6 @@
 [submodule "thirdparty/TUIO11_CPP"]
 	path = thirdparty/TUIO11_CPP
 	url = git@github.com:mkalten/TUIO11_CPP.git
+[submodule "thirdparty/rpi-rgb-led-matrix"]
+	path = thirdparty/rpi-rgb-led-matrix
+	url = git@github.com:hzeller/rpi-rgb-led-matrix.git
