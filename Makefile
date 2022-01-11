@@ -6,7 +6,7 @@ CXXFLAGS    += $(WARNING_FRAG)
 TLL_FLAGS    = libTLL.a
 SDL_FLAGS    = $(shell sdl2-config --cflags --libs)
 
-ifeq ($(shell uname),Linux)
+ifeq ($(shell uname), Linux)
 CXXFLAGS	+= -lwiringPi
 
 OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
@@ -24,6 +24,7 @@ RGB_LIBDIR = $(RGB_LIB_DISTRIBUTION)/lib
 RGB_LIBRARY_NAME = rgbmatrix
 RGB_LIBRARY = $(RGB_LIBDIR)/lib$(RGB_LIBRARY_NAME).a
 LDFLAGS += -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
+RGB_CLEAN = $(MAKE) -C $(RGB_LIBDIR) clean
 endif
 
 INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
@@ -80,6 +81,6 @@ doc-clean:
 clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
-	$(MAKE) -C $(RGB_LIBDIR) clean
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
 	rm -rf example/PrintText_24x16 example/Intaractive_24x16 example/PrintTime_24x16
+	$(RGB_CLEAN)
