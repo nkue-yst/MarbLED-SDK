@@ -57,7 +57,7 @@ public:
 
     void run()
     {
-        init(24, 16, "HT16K33", true);
+        init(32, 32, "HUB75", true);
         Simulation::start();
 
         while (loop())

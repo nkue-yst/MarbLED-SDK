@@ -26,7 +26,7 @@ namespace tll
 {
     bool verbose = false;
 
-    void init(uint16_t width, uint16_t height, bool verbose_flag)
+    void init(uint16_t width, uint16_t height, std::string LED_driver, bool verbose_flag)
     {
         verbose = verbose_flag;
         startClock();
@@ -74,7 +74,7 @@ namespace tll
         PanelManager::getInstance()->init(width, height);
 
         SerialManager::create();
-        SerialManager::getInstance()->init();
+        SerialManager::getInstance()->init(LED_driver);
 
         EventHandler::create();
         EventHandler::getInstance()->init();
@@ -184,7 +184,7 @@ namespace tll
         video.open(file);
         if (video.isOpened() == false)
             std::cerr << "[ERROR] Failed to load video file" << std::endl;
-        
+
         endClock("tll::loadVideo()");
 
         return tll::Video(video);

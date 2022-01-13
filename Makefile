@@ -28,6 +28,7 @@ RGB_CLEAN = $(MAKE) -C $(RGB_LIBDIR) clean
 endif
 
 INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
+INCLUDE_DIR += -I$(RGB_INCDIR)
 
 TLL_SRC = ./src/Video.cpp ./src/TextRenderer.cpp ./src/Image.cpp ./src/Color.cpp ./src/Event.cpp ./src/PanelManager.cpp ./src/SerialManager.cpp ./src/Simulator.cpp ./src/TLLmain.cpp
 TLL_OBJ = $(TLL_SRC:.cpp=.o)
@@ -40,11 +41,11 @@ OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
 TUIO_FLAGS = $(TUIO_OBJ) $(OSC_OBJ)
 
-TEST_EXAMPLE = Intaractive_24x16
+TEST_EXAMPLE = Intaractive_32x32
 
 all : build example
 
-build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ) $(RGB_LIBRARY)
+build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
 	@ar rcs libTLL.a $^
 	@echo "---> Make library file."
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
@@ -53,18 +54,14 @@ build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ) $(RGB_LIBRARY)
 $(RGB_LIBRARY):
 	$(MAKE) -C $(RGB_LIBDIR)
 
-example: build
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/Intaractive_24x16.cpp libTLL.a -o example/Intaractive_24x16
-	@echo "---> Compile example/Intaractive_24x16.cpp"
-	@#@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintText_24x16.cpp libTLL.a -o example/PrintText_24x16
-	@#@echo "---> Compile example/PrintText_24x16.cpp"
-	@#@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(INCLUDE_DIR) example/PrintTime_24x16.cpp libTLL.a -o example/PrintTime_24x16
-	@#@echo "---> Compile example/PrintTime_24x16.cpp"
+example: build $(RGB_LIBRARY)
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/Intaractive_32x32.cpp libTLL.a -o example/Intaractive_32x32 $(RGB_LIBRARY)
+	@echo "---> Compile example/Intaractive_32x32.cpp"
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
 	@echo "---> Compile $<"
-	@$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
+	@$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(LDFLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
 
 test: all
 	./example/$(TEST_EXAMPLE)
@@ -82,5 +79,5 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
-	rm -rf example/PrintText_24x16 example/Intaractive_24x16 example/PrintTime_24x16
+	rm -rf example/Intaractive_32x32
 	$(RGB_CLEAN)
