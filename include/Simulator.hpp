@@ -13,6 +13,11 @@
 
 namespace tll
 {
+    const uint8_t NONE   = 0b00000000;
+    const uint8_t CHIP   = 0b00000001;
+    const uint8_t MARBLE = 0b00000010;
+    const uint8_t ALL    = 0b11111111;
+
     /**
      * @brief  シミュレータークラス
      */
@@ -45,7 +50,7 @@ namespace tll
          * @fn     void start()
          * @brief  シミュレーションを開始する
          */
-        void start();
+        void start(uint8_t simulate_mode);
 
         /**
          * @fn     void update()
@@ -82,6 +87,9 @@ namespace tll
         int pixel_size;
 
         int blank_size;
+
+        /// Simulation mode
+        uint8_t mode_;
     };
 
 }

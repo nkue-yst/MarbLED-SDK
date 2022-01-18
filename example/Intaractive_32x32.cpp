@@ -29,14 +29,14 @@ public:
     void addTuioObject(TuioObject *tobj) override
     {
         std::cout << "[Added TUIO object]   " << "SessionID: " << tobj->getSessionID() << ", SymoblID: " << tobj->getSymbolID() << ", X: " << tobj->getX() << ", Y: " << tobj->getY() << std::endl;
-        drawCircle(tobj->getX(), tobj->getY(), 1, Palette::color("White"));
+        drawCircle(tobj->getX(), tobj->getY(), 1, Palette::color("Aqua"));
     }
     
     void updateTuioObject(TuioObject *tobj) override
     {
         std::cout << "[Updated TUIO object] " << "SessionID: " << tobj->getSessionID() << ", SymoblID: " << tobj->getSymbolID() << ", X: " << tobj->getX() << ", Y: " << tobj->getY() << std::endl;
         clear();
-        drawCircle(tobj->getX(), tobj->getY(), 1, Palette::color("White"));
+        drawCircle(tobj->getX(), tobj->getY(), 1, Palette::color("Aqua"));
     }
     
     void removeTuioObject(TuioObject *tobj) override
@@ -58,7 +58,26 @@ public:
     void run()
     {
         init(32, 32, "HUB75", true);
-        Simulation::start();
+        Simulation::start(CHIP);
+
+/*
+        drawLine(0, 0, 0, 31, Palette::color("Navy"));
+        drawLine(3, 0, 3, 31, Palette::color("Lime"));
+        drawLine(6, 0, 6, 31, Palette::color("Turquoise"));
+        drawLine(9, 0, 9, 31, Palette::color("Yellow"));
+        drawLine(12, 0, 12, 31, Palette::color("BlueViolet"));
+        drawLine(15, 0, 15, 31, Palette::color("Brown"));
+        drawLine(18, 0, 18, 31, Palette::color("Silver"));
+        drawLine(21, 0, 21, 31, Palette::color("Crimson"));
+        drawLine(24, 0, 24, 31, Palette::color("Aqua"));
+        drawLine(27, 0, 27, 31, Palette::color("DeepPink"));
+        drawLine(30, 0, 30, 31, Palette::color("White"));
+*/
+/*
+        Image img = loadImage("./example/image/Arrow2.png");
+        img.resize(32, 32);
+        img.draw(0, 0);
+*/
 
         while (loop())
         {

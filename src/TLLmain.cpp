@@ -11,7 +11,6 @@
 #include "TextRenderer.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
-#include "Simulator.hpp"
 
 #include <opencv2/opencv.hpp>
 
@@ -217,10 +216,10 @@ namespace tll
 
     namespace Simulation
     {
-        void start()
+        void start(uint8_t simulate_mode)
         {
             startClock();
-            Simulator::getInstance()->start();
+            Simulator::getInstance()->start(simulate_mode);
             endClock("tll::Simulation::start()");
         }
 

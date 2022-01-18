@@ -10,6 +10,7 @@
 
 #include "Image.hpp"
 #include "Video.hpp"
+#include "Simulator.hpp"
 
 #include <cstdint>
 #include <functional>
@@ -162,7 +163,7 @@ namespace tll
          * @fn     void start()
          * @brief  シミュレーションを開始
          */
-        void start();
+        void start(uint8_t simulate_mode = tll::ALL);
 
         /**
          * @fn     void update()
