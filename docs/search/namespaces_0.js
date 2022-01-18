@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['palette',['Palette',['../namespacePalette.html',1,'']]]
+  ['font_5fexample',['font_example',['../namespacefont__example.html',1,'']]]
 ];

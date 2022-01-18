@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['value',['value',['../structSDL__JoyAxisEvent.html#a53ee73e7c367934dd6edb69963be5556',1,'SDL_JoyAxisEvent::value()'],['../structSDL__JoyHatEvent.html#a52b179a34407449941b61d988ca72ef4',1,'SDL_JoyHatEvent::value()'],['../structSDL__ControllerAxisEvent.html#a1ed7f14255ed01b982d40a38791d475a',1,'SDL_ControllerAxisEvent::value()']]],
-  ['video_5fdata_5f',['video_data_',['../classtll_1_1Video.html#a4356e41b407993686daa2fcd9f28074f',1,'tll::Video']]]
+  ['user',['user',['../unionSDL__Event.html#ab7c394e3ce7bf1e4f8d68bc0e9f1b042',1,'SDL_Event']]],
+  ['user_5fid',['user_id',['../classTUIO2_1_1TuioPointer.html#ad8d3141023520b9ed4f714cea306a099',1,'TUIO2::TuioPointer::user_id()'],['../classTUIO2_1_1TuioSymbol.html#a90559fb3bfd2e5c3a382a94daeb8ad52',1,'TUIO2::TuioSymbol::user_id()'],['../classTUIO2_1_1TuioToken.html#a123e94d67179c5833640268b67c3dff7',1,'TUIO2::TuioToken::user_id()']]],
+  ['userdata',['userdata',['../structSDL__AudioSpec.html#ae3fdaf1ab3c3eb6878979d670dbcc774',1,'SDL_AudioSpec::userdata()'],['../structSDL__Surface.html#a2716a62d5f26e233e2835e002491821b',1,'SDL_Surface::userdata()']]]
 ];

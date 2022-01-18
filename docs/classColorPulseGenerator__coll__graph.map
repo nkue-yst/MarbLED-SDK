@@ -1,0 +1,17 @@
+<map id="ColorPulseGenerator" name="ColorPulseGenerator">
+<area shape="rect" id="node2" href="$classDemoRunner.html" title="DemoRunner" alt="" coords="987,485,1085,512"/>
+<area shape="rect" id="node3" href="$classrgb__matrix_1_1Canvas.html" title="rgb_matrix::Canvas" alt="" coords="552,337,688,364"/>
+<area shape="rect" id="node4" href="$classrgb__matrix_1_1RGBMatrix.html" title="rgb_matrix::RGBMatrix" alt="" coords="1608,223,1764,249"/>
+<area shape="rect" id="node7" href="$classrgb__matrix_1_1FrameCanvas.html" title="rgb_matrix::FrameCanvas" alt="" coords="789,337,963,364"/>
+<area shape="rect" id="node5" href="$classrgb__matrix_1_1RGBMatrix_1_1Impl.html" title="rgb_matrix::RGBMatrix\l::Impl" alt="" coords="1368,215,1524,257"/>
+<area shape="rect" id="node6" href="$classrgb__matrix_1_1Mutex.html" title="rgb_matrix::Mutex" alt="" coords="813,244,939,271"/>
+<area shape="rect" id="node13" href="$classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread.html" title="rgb_matrix::RGBMatrix\l::Impl::UpdateThread" alt="" coords="1109,181,1265,222"/>
+<area shape="rect" id="node8" href="$classrgb__matrix_1_1internal_1_1Framebuffer.html" title="rgb_matrix::internal\l::Framebuffer" alt="" coords="553,75,687,117"/>
+<area shape="rect" id="node9" href="$structHardwareMapping.html" title="HardwareMapping" alt="" coords="246,152,373,179"/>
+<area shape="rect" id="node10" href="$classrgb__matrix_1_1internal_1_1RowAddressSetter.html" title="rgb_matrix::internal\l::RowAddressSetter" alt="" coords="239,86,379,127"/>
+<area shape="rect" id="node11" href="$classrgb__matrix_1_1internal_1_1PixelDesignatorMap.html" title="rgb_matrix::internal\l::PixelDesignatorMap" alt="" coords="236,14,383,55"/>
+<area shape="rect" id="node12" href="$structrgb__matrix_1_1internal_1_1PixelDesignator.html" title="rgb_matrix::internal\l::PixelDesignator" alt="" coords="5,14,139,55"/>
+<area shape="rect" id="node14" href="$classrgb__matrix_1_1Thread.html" title="rgb_matrix::Thread" alt="" coords="811,176,941,203"/>
+<area shape="rect" id="node15" href="$classrgb__matrix_1_1GPIO.html" title="rgb_matrix::GPIO" alt="" coords="814,125,938,152"/>
+<area shape="rect" id="node16" href="$structrgb__matrix_1_1RGBMatrix_1_1Options.html" title="rgb_matrix::RGBMatrix\l::Options" alt="" coords="1109,310,1265,351"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="rgb_matrix::RGBMatrix::Impl" name="rgb_matrix::RGBMatrix::Impl">
+<area shape="rect" id="node2" href="$classrgb__matrix_1_1Mutex.html" title="rgb_matrix::Mutex" alt="" coords="805,117,931,144"/>
+<area shape="rect" id="node10" href="$classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread.html" title="rgb_matrix::RGBMatrix\l::Impl::UpdateThread" alt="" coords="1096,170,1252,211"/>
+<area shape="rect" id="node3" href="$classrgb__matrix_1_1FrameCanvas.html" title="rgb_matrix::FrameCanvas" alt="" coords="781,59,955,85"/>
+<area shape="rect" id="node4" href="$classrgb__matrix_1_1Canvas.html" title="rgb_matrix::Canvas" alt="" coords="552,117,688,144"/>
+<area shape="rect" id="node5" href="$classrgb__matrix_1_1internal_1_1Framebuffer.html" title="rgb_matrix::internal\l::Framebuffer" alt="" coords="553,51,687,93"/>
+<area shape="rect" id="node6" href="$structHardwareMapping.html" title="HardwareMapping" alt="" coords="246,29,373,56"/>
+<area shape="rect" id="node7" href="$classrgb__matrix_1_1internal_1_1RowAddressSetter.html" title="rgb_matrix::internal\l::RowAddressSetter" alt="" coords="239,81,379,122"/>
+<area shape="rect" id="node8" href="$classrgb__matrix_1_1internal_1_1PixelDesignatorMap.html" title="rgb_matrix::internal\l::PixelDesignatorMap" alt="" coords="236,223,383,265"/>
+<area shape="rect" id="node9" href="$structrgb__matrix_1_1internal_1_1PixelDesignator.html" title="rgb_matrix::internal\l::PixelDesignator" alt="" coords="5,223,139,265"/>
+<area shape="rect" id="node11" href="$classrgb__matrix_1_1Thread.html" title="rgb_matrix::Thread" alt="" coords="803,177,933,204"/>
+<area shape="rect" id="node12" href="$classrgb__matrix_1_1GPIO.html" title="rgb_matrix::GPIO" alt="" coords="806,241,930,268"/>
+<area shape="rect" id="node13" href="$structrgb__matrix_1_1RGBMatrix_1_1Options.html" title="rgb_matrix::RGBMatrix\l::Options" alt="" coords="1096,359,1252,401"/>
+</map>

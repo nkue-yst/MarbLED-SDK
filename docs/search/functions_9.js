@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newclient',['newClient',['../classTUIO_1_1TcpSender.html#abd1b61cce4e4b363f883f3e0eb8dd711',1,'TUIO::TcpSender::newClient()'],['../classTUIO_1_1WebSockSender.html#a03674ab8d0dce85b56011e347d8b8825',1,'TUIO::WebSockSender::newClient()'],['../classTUIO2_1_1TcpSender.html#abd1b61cce4e4b363f883f3e0eb8dd711',1,'TUIO2::TcpSender::newClient()'],['../classTUIO2_1_1WebSockSender.html#a03674ab8d0dce85b56011e347d8b8825',1,'TUIO2::WebSockSender::newClient()']]]
+  ['mate',['mate',['../classGeneticColors.html#a419ae26419d9f04d72e76630400ea20a',1,'GeneticColors']]]
 ];

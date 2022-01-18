@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['jaxis',['jaxis',['../unionSDL__Event.html#ac4611acd0e9c675e67dc20919f0accb4',1,'SDL_Event']]],
-  ['jball',['jball',['../unionSDL__Event.html#ae433f511e3383d17f8fe02df745ee8f8',1,'SDL_Event']]],
-  ['jbutton',['jbutton',['../unionSDL__Event.html#a591104d64903ae1cf70874fb5d3124ff',1,'SDL_Event']]],
-  ['jdevice',['jdevice',['../unionSDL__Event.html#a17514dc19a846ea1b5fbe44123700c4c',1,'SDL_Event']]],
-  ['jhat',['jhat',['../unionSDL__Event.html#a421b40e0f8e01f181c8d5548cff1dd1d',1,'SDL_Event']]]
+  ['id_5f',['id_',['../structtll_1_1Point.html#a4db9a38317edc53b808e0864894e1192',1,'tll::Point']]],
+  ['img_5fdata_5f',['img_data_',['../classtll_1_1Image.html#a6d5b8fec2497a981dbbe3bab2b506976',1,'tll::Image']]],
+  ['interval',['interval',['../structSDL__HapticConstant.html#ab1f7f0df856f4cf1fdf937cb886226b4',1,'SDL_HapticConstant::interval()'],['../structSDL__HapticPeriodic.html#a076d266e917098d89b2385b631629162',1,'SDL_HapticPeriodic::interval()'],['../structSDL__HapticCondition.html#aafc182abea1078bed7e9cf5d0e713ea2',1,'SDL_HapticCondition::interval()'],['../structSDL__HapticRamp.html#a4b89d108cfa7e96ea58b58771334c33d',1,'SDL_HapticRamp::interval()'],['../structSDL__HapticCustom.html#afdeb26b1709254545e00a59a0a6c360c',1,'SDL_HapticCustom::interval()']]],
+  ['is_5fdown_5fleft_5fbutton',['is_down_left_button',['../classtll_1_1EventHandler.html#a5bb385d1419ebf6a8ce56a066e23546c',1,'tll::EventHandler']]],
+  ['is_5fdown_5fright_5fbutton',['is_down_right_button',['../classtll_1_1EventHandler.html#a08265c99e6e1b19a06f142ba05189b35',1,'tll::EventHandler']]],
+  ['iscapture',['iscapture',['../structSDL__AudioDeviceEvent.html#a1482dcd50b47046ef8e9bfa7cc7457d9',1,'SDL_AudioDeviceEvent']]]
 ];

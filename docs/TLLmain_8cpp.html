@@ -79,7 +79,6 @@ $(function() {
 <code>#include &quot;<a class="el" href="TextRenderer_8hpp_source.html">TextRenderer.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="PanelManager_8hpp_source.html">PanelManager.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SerialManager_8hpp_source.html">SerialManager.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Simulator_8hpp_source.html">Simulator.hpp</a>&quot;</code><br />
 <code>#include &lt;opencv2/opencv.hpp&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
@@ -91,15 +90,15 @@ Include dependency graph for TLLmain.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="TLLmain_8cpp__incl.png" border="0" usemap="#src_2TLLmain_8cpp" alt=""/></div>
 <map name="src_2TLLmain_8cpp" id="src_2TLLmain_8cpp">
-<area shape="rect" id="node2" href="TLL_8h.html" title="API公開用ヘッダファイル " alt="" coords="448,155,503,181"/>
-<area shape="rect" id="node10" href="Color_8hpp.html" title="Color information class. " alt="" coords="1077,155,1156,181"/>
-<area shape="rect" id="node12" href="Event_8hpp.html" title="Event handling. " alt="" coords="536,80,617,107"/>
-<area shape="rect" id="node15" href="TextRenderer_8hpp.html" title="TextRenderer class. " alt="" coords="297,155,424,181"/>
-<area shape="rect" id="node17" href="PanelManager_8hpp.html" title="パネル情報管理クラス " alt="" coords="922,155,1053,181"/>
-<area shape="rect" id="node18" href="SerialManager_8hpp.html" title="Class to manage serial communication. " alt="" coords="743,80,874,107"/>
-<area shape="rect" id="node19" href="Simulator_8hpp.html" title="シミュレータークラス " alt="" coords="5,80,108,107"/>
-<area shape="rect" id="node3" href="Image_8hpp.html" title="Image class. " alt="" coords="434,229,517,256"/>
-<area shape="rect" id="node5" href="Video_8hpp.html" title="Video class. " alt="" coords="541,229,621,256"/>
+<area shape="rect" id="node2" href="TLL_8h.html" title="API公開用ヘッダファイル " alt="" coords="257,155,312,181"/>
+<area shape="rect" id="node12" href="Color_8hpp.html" title="Color information class. " alt="" coords="783,155,861,181"/>
+<area shape="rect" id="node14" href="Event_8hpp.html" title="Event handling. " alt="" coords="512,80,593,107"/>
+<area shape="rect" id="node17" href="TextRenderer_8hpp.html" title="TextRenderer class. " alt="" coords="1092,155,1219,181"/>
+<area shape="rect" id="node19" href="PanelManager_8hpp.html" title="パネル情報管理クラス " alt="" coords="886,155,1017,181"/>
+<area shape="rect" id="node20" href="SerialManager_8hpp.html" title="Class to manage serial communication. " alt="" coords="306,80,437,107"/>
+<area shape="rect" id="node3" href="Image_8hpp.html" title="Image class. " alt="" coords="126,229,209,256"/>
+<area shape="rect" id="node5" href="Video_8hpp.html" title="Video class. " alt="" coords="22,229,102,256"/>
+<area shape="rect" id="node6" href="Simulator_8hpp.html" title="シミュレータークラス " alt="" coords="233,229,336,256"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -111,9 +110,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memItemLeft" align="right" valign="top"><a id="a85f289fbafbe6dfcdfcb54ca7162fb56"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::init</b> (uint16_t width, uint16_t height, bool verbose=false)</td></tr>
-<tr class="separator:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb68d5307aa5702468bd940a80c6e78f"><td class="memItemLeft" align="right" valign="top"><a id="adb68d5307aa5702468bd940a80c6e78f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::init</b> (uint16_t width, uint16_t height, std::string LED_driver=&quot;HT16K33&quot;, bool verbose_flag=false)</td></tr>
+<tr class="separator:adb68d5307aa5702468bd940a80c6e78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41068d16ee080544b2e45c49f114d3a"><td class="memItemLeft" align="right" valign="top"><a id="ae41068d16ee080544b2e45c49f114d3a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#ae41068d16ee080544b2e45c49f114d3a">tll::loop</a> ()</td></tr>
 <tr class="memdesc:ae41068d16ee080544b2e45c49f114d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop on the framework. <br /></td></tr>
@@ -150,10 +149,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:a63995ef3117108c058dc5beb8d92e677"><td class="memItemLeft" align="right" valign="top"><a id="a63995ef3117108c058dc5beb8d92e677"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>tll::Palette::color</b> (std::string color_name)</td></tr>
 <tr class="separator:a63995ef3117108c058dc5beb8d92e677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f482b2c453ee5ccdebfee76a048ca2"><td class="memItemLeft" align="right" valign="top"><a id="a56f482b2c453ee5ccdebfee76a048ca2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#a56f482b2c453ee5ccdebfee76a048ca2">tll::Simulation::start</a> ()</td></tr>
-<tr class="memdesc:a56f482b2c453ee5ccdebfee76a048ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションを開始 <br /></td></tr>
-<tr class="separator:a56f482b2c453ee5ccdebfee76a048ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4303e47edae43c779e0cb589ecfbe65a"><td class="memItemLeft" align="right" valign="top"><a id="a4303e47edae43c779e0cb589ecfbe65a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::Simulation::start</b> (uint8_t simulate_mode=tll::ALL)</td></tr>
+<tr class="separator:a4303e47edae43c779e0cb589ecfbe65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a405a41bc62626669a3fd9abd6a717961"><td class="memItemLeft" align="right" valign="top"><a id="a405a41bc62626669a3fd9abd6a717961"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#a405a41bc62626669a3fd9abd6a717961">tll::Simulation::update</a> ()</td></tr>
 <tr class="memdesc:a405a41bc62626669a3fd9abd6a717961"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションを更新 <br /></td></tr>
@@ -171,9 +169,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::endClock</b> (st
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a56ff60becf904407b9157c59daef2a04"><td class="memItemLeft" align="right" valign="top"><a id="a56ff60becf904407b9157c59daef2a04"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>tll::verbose_flag</b> = false</td></tr>
-<tr class="separator:a56ff60becf904407b9157c59daef2a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17210e0638a2bf156fe0978f684e2903"><td class="memItemLeft" align="right" valign="top"><a id="a17210e0638a2bf156fe0978f684e2903"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>tll::verbose</b> = false</td></tr>
+<tr class="separator:a17210e0638a2bf156fe0978f684e2903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memItemLeft" align="right" valign="top"><a id="af5ecc1ae56b0dde4623745d091bd97a4"></a>
 static double&#160;</td><td class="memItemRight" valign="bottom"><b>tll::clock</b> = 0.0</td></tr>
 <tr class="separator:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>

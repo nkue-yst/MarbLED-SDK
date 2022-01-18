@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['magnitude',['magnitude',['../structSDL__HapticPeriodic.html#aad0ad2b00c7e6959da627663d91f7b94',1,'SDL_HapticPeriodic']]],
-  ['major',['major',['../structSDL__version.html#ad7d7674532073eed237b90f546c97cd0',1,'SDL_version']]],
-  ['map',['map',['../structSDL__Surface.html#ae6fcc0962eb9a59b4c795fe8e3bd49ad',1,'SDL_Surface']]],
-  ['max_5ftexture_5fheight',['max_texture_height',['../structSDL__RendererInfo.html#a87c6a13e8d535c2148f8913c05e13102',1,'SDL_RendererInfo']]],
-  ['max_5ftexture_5fwidth',['max_texture_width',['../structSDL__RendererInfo.html#a6e6757e3d5c1f0922adaba39380edfa6',1,'SDL_RendererInfo']]],
-  ['message',['message',['../structSDL__MessageBoxData.html#acbdbaaa13703e12193a0cd0b8373f8a4',1,'SDL_MessageBoxData']]],
-  ['mgesture',['mgesture',['../unionSDL__Event.html#ac19b3c6a6b5181a51eb4fbe2cbe726a9',1,'SDL_Event']]],
-  ['minor',['minor',['../structSDL__version.html#a6c35c7bf80245028d5970e6a504ecf57',1,'SDL_version']]],
-  ['mod',['mod',['../structSDL__Keysym.html#ab519d1b8a9939d3d035f7103f3208291',1,'SDL_Keysym']]],
-  ['mode',['mode',['../structSDL__WindowShapeMode.html#a40ebd8b9a76d982cbd87563386cc05de',1,'SDL_WindowShapeMode']]],
-  ['motion',['motion',['../unionSDL__Event.html#ac3c89e190faacbe84280cd539453bab6',1,'SDL_Event']]],
-  ['motion_5faccel',['motion_accel',['../classTUIO_1_1TuioContainer.html#adaa20f12158aee41f7502da330f2a97e',1,'TUIO::TuioContainer::motion_accel()'],['../classTUIO2_1_1TuioComponent.html#a065471410d6102ed4aabde6a10297535',1,'TUIO2::TuioComponent::motion_accel()']]],
-  ['motion_5fspeed',['motion_speed',['../classTUIO_1_1TuioContainer.html#a7810725234e427d4508f6b6a9874723b',1,'TUIO::TuioContainer::motion_speed()'],['../classTUIO2_1_1TuioComponent.html#a3a4c37ed31b2ae3d949cbfa34ddebe9f',1,'TUIO2::TuioComponent::motion_speed()']]],
-  ['msg',['msg',['../structSDL__SysWMEvent.html#a90250ea9b87c21044da19adeadb5c847',1,'SDL_SysWMEvent::msg()'],['../structSDL__SysWMmsg.html#a74894ed060d5508ab06aac584154d61e',1,'SDL_SysWMmsg::msg()']]]
+  ['large_5fmagnitude',['large_magnitude',['../structSDL__HapticLeftRight.html#a8cd16fe2200ef10cc4f3b4209adef959',1,'SDL_HapticLeftRight']]],
+  ['led_5fdriver_5f',['led_driver_',['../classtll_1_1SerialManager.html#a35e05bc79aad17f7ebc379f48283cdb7',1,'tll::SerialManager']]],
+  ['ledrgbsequence',['LedRgbSequence',['../structrpi__rgb__led__matrix__sharp_1_1RGBLedMatrixOptions.html#a50a77d3fe2d8b04df4b6c6ca9f97341e',1,'rpi_rgb_led_matrix_sharp::RGBLedMatrixOptions']]],
+  ['left_5fcoeff',['left_coeff',['../structSDL__HapticCondition.html#ad0cb577a8aaf26d4cfcd857b7a6c44db',1,'SDL_HapticCondition']]],
+  ['left_5fsat',['left_sat',['../structSDL__HapticCondition.html#a9b7f297ab398efd2a9b9cb68eaab0834',1,'SDL_HapticCondition']]],
+  ['leftright',['leftright',['../unionSDL__HapticEffect.html#a3c254b81c1ff41c7888eee0cd0076a12',1,'SDL_HapticEffect']]],
+  ['len',['len',['../structSDL__AudioCVT.html#aeaeb8c5a63c3ab96471fbfdf412c78ff',1,'SDL_AudioCVT']]],
+  ['len_5fcvt',['len_cvt',['../structSDL__AudioCVT.html#a5c60163f34d1947e5b166c23aba9879d',1,'SDL_AudioCVT']]],
+  ['len_5fmult',['len_mult',['../structSDL__AudioCVT.html#ac9662d47cf2348b82b27b151150116b0',1,'SDL_AudioCVT']]],
+  ['len_5fratio',['len_ratio',['../structSDL__AudioCVT.html#a5628ff5ccf711de9d77c0a4a9f57d2f0',1,'SDL_AudioCVT']]],
+  ['length',['length',['../structSDL__TextEditingEvent.html#adca95505c0bf212834930df58f6d1aa5',1,'SDL_TextEditingEvent::length()'],['../structSDL__HapticConstant.html#aeb994c356b1d236b060f277d157e98ec',1,'SDL_HapticConstant::length()'],['../structSDL__HapticPeriodic.html#a0ef0b17c54aaa5c99886c2a618444026',1,'SDL_HapticPeriodic::length()'],['../structSDL__HapticCondition.html#ad0efb0a6ddc20f058e87199eaaa95978',1,'SDL_HapticCondition::length()'],['../structSDL__HapticRamp.html#a57e75237507701405af2a3caf34cdb5a',1,'SDL_HapticRamp::length()'],['../structSDL__HapticLeftRight.html#a5b942fee53f1ec77d3fb91a6e89b0196',1,'SDL_HapticLeftRight::length()'],['../structSDL__HapticCustom.html#ad70e8bc2cff74b99d704a757c16b363f',1,'SDL_HapticCustom::length()']]],
+  ['level',['level',['../structSDL__HapticConstant.html#a5b095eea77464623ed57af15f29f4ca6',1,'SDL_HapticConstant']]],
+  ['limitrefreshratehz',['LimitRefreshRateHz',['../structrpi__rgb__led__matrix__sharp_1_1RGBLedMatrixOptions.html#a903f51d7feef2512d7f2d55a20584a2f',1,'rpi_rgb_led_matrix_sharp::RGBLedMatrixOptions']]],
+  ['lock_5fdata',['lock_data',['../structSDL__Surface.html#a32de076726e96dafd4da1fd4f75cc2a8',1,'SDL_Surface']]],
+  ['locked',['locked',['../structSDL__Surface.html#a5022edaeea1c0a055fa5d6dccba41de2',1,'SDL_Surface']]],
+  ['lparam',['lParam',['../structSDL__SysWMmsg.html#a24c1e4c3cb8d9781d34e5d99df66ac36',1,'SDL_SysWMmsg']]]
 ];

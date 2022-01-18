@@ -9,6 +9,8 @@ var searchData=
   ['dimension',['dimension',['../classTUIO2_1_1TuioSource.html#adeea81877d2f7d981693844301c66414',1,'TUIO2::TuioSource']]],
   ['dir',['dir',['../structSDL__HapticDirection.html#a6b1083eefcfe8db7d9bbfd660e0373a9',1,'SDL_HapticDirection']]],
   ['direction',['direction',['../structSDL__MouseWheelEvent.html#a9fc46552d116499e5b8ca89d66df932c',1,'SDL_MouseWheelEvent::direction()'],['../structSDL__HapticConstant.html#a3e871debf4e57c35960f019d2605d84f',1,'SDL_HapticConstant::direction()'],['../structSDL__HapticPeriodic.html#a2c4f27d4583187a7a994e79ad49083d3',1,'SDL_HapticPeriodic::direction()'],['../structSDL__HapticCondition.html#a728507d30d18998949313de3a25e5581',1,'SDL_HapticCondition::direction()'],['../structSDL__HapticRamp.html#a6fb6c67ccf262b8f3ec08bcdf08f9965',1,'SDL_HapticRamp::direction()'],['../structSDL__HapticCustom.html#ad7eb84f59404d9e0da07570b4b57dd43',1,'SDL_HapticCustom::direction()']]],
+  ['disable_5fhardware_5fpulsing',['disable_hardware_pulsing',['../structRGBLedMatrixOptions.html#a2a47158d3f511a4f3575f6610402cfc1',1,'RGBLedMatrixOptions']]],
+  ['disablehardwarepulsing',['DisableHardwarePulsing',['../structrpi__rgb__led__matrix__sharp_1_1RGBLedMatrixOptions.html#a6a713acb54560ef91900f41faf77c611',1,'rpi_rgb_led_matrix_sharp::RGBLedMatrixOptions']]],
   ['disp_5fbuff1',['disp_buff1',['../classHT16K33__Base.html#a7cce5141389e238b344b0d2752c10d61',1,'HT16K33_Base']]],
   ['disp_5fbuff2',['disp_buff2',['../classHT16K33__Base.html#a1340e3e95a8030552d48de3a0f1946c5',1,'HT16K33_Base']]],
   ['driverdata',['driverdata',['../structSDL__DisplayMode.html#abc8ae3922fa84e6411834c1a7877e36d',1,'SDL_DisplayMode']]],

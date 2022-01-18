@@ -105,9 +105,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memItemLeft" align="right" valign="top"><a id="a85f289fbafbe6dfcdfcb54ca7162fb56"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (uint16_t width, uint16_t height, bool verbose=false)</td></tr>
-<tr class="separator:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb68d5307aa5702468bd940a80c6e78f"><td class="memItemLeft" align="right" valign="top"><a id="adb68d5307aa5702468bd940a80c6e78f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (uint16_t width, uint16_t height, std::string LED_driver=&quot;HT16K33&quot;, bool verbose_flag=false)</td></tr>
+<tr class="separator:adb68d5307aa5702468bd940a80c6e78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41068d16ee080544b2e45c49f114d3a"><td class="memItemLeft" align="right" valign="top"><a id="ae41068d16ee080544b2e45c49f114d3a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#ae41068d16ee080544b2e45c49f114d3a">loop</a> ()</td></tr>
 <tr class="memdesc:ae41068d16ee080544b2e45c49f114d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop on the framework. <br /></td></tr>
@@ -153,6 +153,18 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>calcDiff</b> (<a 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a4116349f2fdfcf6bdaee30ef33b616b8"><td class="memItemLeft" align="right" valign="top"><a id="a4116349f2fdfcf6bdaee30ef33b616b8"></a>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>NONE</b> = 0b00000000</td></tr>
+<tr class="separator:a4116349f2fdfcf6bdaee30ef33b616b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c34124253c35b57aee2988796ba5dd2"><td class="memItemLeft" align="right" valign="top"><a id="a9c34124253c35b57aee2988796ba5dd2"></a>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>CHIP</b> = 0b00000001</td></tr>
+<tr class="separator:a9c34124253c35b57aee2988796ba5dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3822f253aac97bff948da31a79f9f85c"><td class="memItemLeft" align="right" valign="top"><a id="a3822f253aac97bff948da31a79f9f85c"></a>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>MARBLE</b> = 0b00000010</td></tr>
+<tr class="separator:a3822f253aac97bff948da31a79f9f85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5165c544113e0ad992dfddf590d1d59"><td class="memItemLeft" align="right" valign="top"><a id="ad5165c544113e0ad992dfddf590d1d59"></a>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>ALL</b> = 0b11111111</td></tr>
+<tr class="separator:ad5165c544113e0ad992dfddf590d1d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a4090e97d894b99ee8eed55efd39ef4"><td class="memItemLeft" align="right" valign="top"><a id="a9a4090e97d894b99ee8eed55efd39ef4"></a>
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#a9a4090e97d894b99ee8eed55efd39ef4">ON</a> = 1</td></tr>
 <tr class="memdesc:a9a4090e97d894b99ee8eed55efd39ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monochrome LED is lit. <br /></td></tr>
@@ -161,9 +173,9 @@ constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#a712dc6d796c0280eaa072e387abd852a">OFF</a> = 0</td></tr>
 <tr class="memdesc:a712dc6d796c0280eaa072e387abd852a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monochrome LED is unlit. <br /></td></tr>
 <tr class="separator:a712dc6d796c0280eaa072e387abd852a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56ff60becf904407b9157c59daef2a04"><td class="memItemLeft" align="right" valign="top"><a id="a56ff60becf904407b9157c59daef2a04"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>verbose_flag</b> = false</td></tr>
-<tr class="separator:a56ff60becf904407b9157c59daef2a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17210e0638a2bf156fe0978f684e2903"><td class="memItemLeft" align="right" valign="top"><a id="a17210e0638a2bf156fe0978f684e2903"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = false</td></tr>
+<tr class="separator:a17210e0638a2bf156fe0978f684e2903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memItemLeft" align="right" valign="top"><a id="af5ecc1ae56b0dde4623745d091bd97a4"></a>
 static double&#160;</td><td class="memItemRight" valign="bottom"><b>clock</b> = 0.0</td></tr>
 <tr class="separator:af5ecc1ae56b0dde4623745d091bd97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>

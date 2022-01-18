@@ -6,6 +6,8 @@ var searchData=
   ['blob',['Blob',['../structosc_1_1Blob.html',1,'osc']]],
   ['blob_5fid',['blob_id',['../classTUIO_1_1TuioBlob.html#a036c94c7fd2380410bd22d53e46b167c',1,'TUIO::TuioBlob']]],
   ['bounds',['bounds',['../classTUIO2_1_1TuioObject.html#a0344d94df5f424f996ce8b33ae456995',1,'TUIO2::TuioObject']]],
+  ['brightness',['Brightness',['../structrpi__rgb__led__matrix__sharp_1_1RGBLedMatrixOptions.html#aa64a29a0bbb34ad17546574ca7589e6b',1,'rpi_rgb_led_matrix_sharp::RGBLedMatrixOptions']]],
+  ['brightnesspulsegenerator',['BrightnessPulseGenerator',['../classBrightnessPulseGenerator.html',1,'']]],
   ['buf',['buf',['../structSDL__AudioCVT.html#af42eb88b79cf9180670a5122c2c82671',1,'SDL_AudioCVT']]],
   ['bundleinitiator',['BundleInitiator',['../structosc_1_1BundleInitiator.html',1,'osc']]],
   ['bundlenotinprogressexception',['BundleNotInProgressException',['../classosc_1_1BundleNotInProgressException.html',1,'osc']]],

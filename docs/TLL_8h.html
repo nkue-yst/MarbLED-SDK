@@ -76,6 +76,7 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="Image_8hpp_source.html">Image.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Video_8hpp_source.html">Video.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Simulator_8hpp_source.html">Simulator.hpp</a>&quot;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -87,6 +88,7 @@ Include dependency graph for TLL.h:</div>
 <map name="include_2TLL_8h" id="include_2TLL_8h">
 <area shape="rect" id="node2" href="Image_8hpp.html" title="Image class. " alt="" coords="5,80,88,107"/>
 <area shape="rect" id="node4" href="Video_8hpp.html" title="Video class. " alt="" coords="112,80,192,107"/>
+<area shape="rect" id="node5" href="Simulator_8hpp.html" title="シミュレータークラス " alt="" coords="217,80,319,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -135,9 +137,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memItemLeft" align="right" valign="top"><a id="a85f289fbafbe6dfcdfcb54ca7162fb56"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::init</b> (uint16_t width, uint16_t height, bool verbose=false)</td></tr>
-<tr class="separator:a85f289fbafbe6dfcdfcb54ca7162fb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb68d5307aa5702468bd940a80c6e78f"><td class="memItemLeft" align="right" valign="top"><a id="adb68d5307aa5702468bd940a80c6e78f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::init</b> (uint16_t width, uint16_t height, std::string LED_driver=&quot;HT16K33&quot;, bool verbose_flag=false)</td></tr>
+<tr class="separator:adb68d5307aa5702468bd940a80c6e78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41068d16ee080544b2e45c49f114d3a"><td class="memItemLeft" align="right" valign="top"><a id="ae41068d16ee080544b2e45c49f114d3a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetll.html#ae41068d16ee080544b2e45c49f114d3a">tll::loop</a> ()</td></tr>
 <tr class="memdesc:ae41068d16ee080544b2e45c49f114d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main loop on the framework. <br /></td></tr>
@@ -174,10 +176,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:a63995ef3117108c058dc5beb8d92e677"><td class="memItemLeft" align="right" valign="top"><a id="a63995ef3117108c058dc5beb8d92e677"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>tll::Palette::color</b> (std::string color_name)</td></tr>
 <tr class="separator:a63995ef3117108c058dc5beb8d92e677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f482b2c453ee5ccdebfee76a048ca2"><td class="memItemLeft" align="right" valign="top"><a id="a56f482b2c453ee5ccdebfee76a048ca2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#a56f482b2c453ee5ccdebfee76a048ca2">tll::Simulation::start</a> ()</td></tr>
-<tr class="memdesc:a56f482b2c453ee5ccdebfee76a048ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションを開始 <br /></td></tr>
-<tr class="separator:a56f482b2c453ee5ccdebfee76a048ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4303e47edae43c779e0cb589ecfbe65a"><td class="memItemLeft" align="right" valign="top"><a id="a4303e47edae43c779e0cb589ecfbe65a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tll::Simulation::start</b> (uint8_t simulate_mode=tll::ALL)</td></tr>
+<tr class="separator:a4303e47edae43c779e0cb589ecfbe65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a405a41bc62626669a3fd9abd6a717961"><td class="memItemLeft" align="right" valign="top"><a id="a405a41bc62626669a3fd9abd6a717961"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TLL_8h.html#a405a41bc62626669a3fd9abd6a717961">tll::Simulation::update</a> ()</td></tr>
 <tr class="memdesc:a405a41bc62626669a3fd9abd6a717961"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーションを更新 <br /></td></tr>

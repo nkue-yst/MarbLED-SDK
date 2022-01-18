@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calcfitness',['calcFitness',['../classGeneticColors.html#a055528d6e1a5ccfcb3dc5956896ebd51',1,'GeneticColors']]],
   ['clear',['clear',['../classtll_1_1PanelManager.html#a58b392a918e0e69bbe9ac3606fb1d21f',1,'tll::PanelManager::clear()'],['../namespacetll.html#af38c922c1a0d296c65784c5e0b558278',1,'tll::clear()']]],
   ['clearalltuiocomponents',['clearAllTuioComponents',['../classTUIO2_1_1TuioObject.html#a542a160404aa59d977b0035245a3c8cf',1,'TUIO2::TuioObject']]],
   ['cleartuiobounds',['clearTuioBounds',['../classTUIO2_1_1TuioObject.html#adfb089f77e8781af6334d64f64d420f1',1,'TUIO2::TuioObject']]],

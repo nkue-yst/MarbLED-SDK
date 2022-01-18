@@ -1,0 +1,5 @@
+<map id="rgb_matrix::ThreadedCanvasManipulator" name="rgb_matrix::ThreadedCanvasManipulator">
+<area shape="rect" id="node2" href="$classrgb__matrix_1_1Thread.html" title="rgb_matrix::Thread" alt="" coords="5,5,136,32"/>
+<area shape="rect" id="node3" href="$classrgb__matrix_1_1Mutex.html" title="rgb_matrix::Mutex" alt="" coords="161,5,287,32"/>
+<area shape="rect" id="node4" href="$classrgb__matrix_1_1Canvas.html" title="rgb_matrix::Canvas" alt="" coords="312,5,448,32"/>
+</map>

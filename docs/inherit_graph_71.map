@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structSDL__MouseButtonEvent.html" title="Mouse button event structure (event.button.*) " alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node1" href="$classrgb__matrix_1_1Thread.html" title="rgb_matrix::Thread" alt="" coords="5,46,136,73"/>
+<area shape="rect" id="node2" href="$classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread.html" title="rgb_matrix::RGBMatrix\l::Impl::UpdateThread" alt="" coords="201,5,357,47"/>
+<area shape="rect" id="node3" href="$classrgb__matrix_1_1ThreadedCanvasManipulator.html" title="rgb_matrix::ThreadedCanvas\lManipulator" alt="" coords="184,71,375,112"/>
 </map>

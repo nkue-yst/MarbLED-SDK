@@ -1,3 +1,14 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classIpEndpointName.html" title="IpEndpointName" alt="" coords="5,5,124,32"/>
+<area shape="rect" id="node1" href="$classDemoRunner.html" title="DemoRunner" alt="" coords="5,259,104,285"/>
+<area shape="rect" id="node2" href="$classAnt.html" title="Ant" alt="" coords="218,5,261,32"/>
+<area shape="rect" id="node3" href="$classBrightnessPulseGenerator.html" title="BrightnessPulseGenerator" alt="" coords="152,56,327,83"/>
+<area shape="rect" id="node4" href="$classColorPulseGenerator.html" title="ColorPulseGenerator" alt="" coords="168,107,311,133"/>
+<area shape="rect" id="node5" href="$classGameLife.html" title="GameLife" alt="" coords="200,157,279,184"/>
+<area shape="rect" id="node6" href="$classGeneticColors.html" title="GeneticColors" alt="" coords="187,208,292,235"/>
+<area shape="rect" id="node7" href="$classGrayScaleBlock.html" title="GrayScaleBlock" alt="" coords="181,259,297,285"/>
+<area shape="rect" id="node8" href="$classImageScroller.html" title="ImageScroller" alt="" coords="188,309,291,336"/>
+<area shape="rect" id="node9" href="$classRotatingBlockGenerator.html" title="RotatingBlockGenerator" alt="" coords="159,360,320,387"/>
+<area shape="rect" id="node10" href="$classSandpile.html" title="Sandpile" alt="" coords="203,411,275,437"/>
+<area shape="rect" id="node11" href="$classSimpleSquare.html" title="SimpleSquare" alt="" coords="188,461,291,488"/>
+<area shape="rect" id="node12" href="$classVolumeBars.html" title="VolumeBars" alt="" coords="193,512,286,539"/>
 </map>

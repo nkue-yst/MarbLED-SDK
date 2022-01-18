@@ -1,7 +1,20 @@
 var searchData=
 [
-  ['name',['name',['../structSDL__RendererInfo.html#a7b37ff58e8310328cc16e3218c56dc4e',1,'SDL_RendererInfo']]],
-  ['needed',['needed',['../structSDL__AudioCVT.html#ac600a035a48df05e14d3712fd6953ad4',1,'SDL_AudioCVT']]],
-  ['num_5fdriver_5f',['num_driver_',['../classPanelBase.html#a9f85347fe1356e2fccb3bb2c6b78eec0',1,'PanelBase']]],
-  ['num_5ftexture_5fformats',['num_texture_formats',['../structSDL__RendererInfo.html#acdec165b2053b914313f5996983ec6b8',1,'SDL_RendererInfo']]]
+  ['magnitude',['magnitude',['../structSDL__HapticPeriodic.html#aad0ad2b00c7e6959da627663d91f7b94',1,'SDL_HapticPeriodic']]],
+  ['major',['major',['../structSDL__version.html#ad7d7674532073eed237b90f546c97cd0',1,'SDL_version']]],
+  ['map',['map',['../structSDL__Surface.html#ae6fcc0962eb9a59b4c795fe8e3bd49ad',1,'SDL_Surface']]],
+  ['matrix_5f',['matrix_',['../classtll_1_1SerialManager.html#a1b637e681ade03e30b5c0d9e9e1c102b',1,'tll::SerialManager']]],
+  ['max_5ftexture_5fheight',['max_texture_height',['../structSDL__RendererInfo.html#a87c6a13e8d535c2148f8913c05e13102',1,'SDL_RendererInfo']]],
+  ['max_5ftexture_5fwidth',['max_texture_width',['../structSDL__RendererInfo.html#a6e6757e3d5c1f0922adaba39380edfa6',1,'SDL_RendererInfo']]],
+  ['message',['message',['../structSDL__MessageBoxData.html#acbdbaaa13703e12193a0cd0b8373f8a4',1,'SDL_MessageBoxData']]],
+  ['mgesture',['mgesture',['../unionSDL__Event.html#ac19b3c6a6b5181a51eb4fbe2cbe726a9',1,'SDL_Event']]],
+  ['minor',['minor',['../structSDL__version.html#a6c35c7bf80245028d5970e6a504ecf57',1,'SDL_version']]],
+  ['mod',['mod',['../structSDL__Keysym.html#ab519d1b8a9939d3d035f7103f3208291',1,'SDL_Keysym']]],
+  ['mode',['mode',['../structSDL__WindowShapeMode.html#a40ebd8b9a76d982cbd87563386cc05de',1,'SDL_WindowShapeMode']]],
+  ['mode_5f',['mode_',['../classtll_1_1Simulator.html#aab9b17f8dbab2b238439f30f0860d3e9',1,'tll::Simulator']]],
+  ['motion',['motion',['../unionSDL__Event.html#ac3c89e190faacbe84280cd539453bab6',1,'SDL_Event']]],
+  ['motion_5faccel',['motion_accel',['../classTUIO_1_1TuioContainer.html#adaa20f12158aee41f7502da330f2a97e',1,'TUIO::TuioContainer::motion_accel()'],['../classTUIO2_1_1TuioComponent.html#a065471410d6102ed4aabde6a10297535',1,'TUIO2::TuioComponent::motion_accel()']]],
+  ['motion_5fspeed',['motion_speed',['../classTUIO_1_1TuioContainer.html#a7810725234e427d4508f6b6a9874723b',1,'TUIO::TuioContainer::motion_speed()'],['../classTUIO2_1_1TuioComponent.html#a3a4c37ed31b2ae3d949cbfa34ddebe9f',1,'TUIO2::TuioComponent::motion_speed()']]],
+  ['msg',['msg',['../structSDL__SysWMEvent.html#a90250ea9b87c21044da19adeadb5c847',1,'SDL_SysWMEvent::msg()'],['../structSDL__SysWMmsg.html#a74894ed060d5508ab06aac584154d61e',1,'SDL_SysWMmsg::msg()']]],
+  ['multiplexing',['Multiplexing',['../structrpi__rgb__led__matrix__sharp_1_1RGBLedMatrixOptions.html#a1da517be92d6304fda60de18f0d3ded3',1,'rpi_rgb_led_matrix_sharp::RGBLedMatrixOptions']]]
 ];

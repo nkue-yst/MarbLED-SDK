@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['ht16k33_5f16x32l',['HT16K33_16x32L',['../classHT16K33__16x32L.html',1,'']]],
-  ['ht16k33_5f24x16',['HT16K33_24x16',['../classHT16K33__24x16.html',1,'']]],
-  ['ht16k33_5f8x16',['HT16K33_8x16',['../classHT16K33__8x16.html',1,'']]],
-  ['ht16k33_5fbase',['HT16K33_Base',['../classHT16K33__Base.html',1,'']]]
+  ['gamelife',['GameLife',['../classGameLife.html',1,'']]],
+  ['geneticcolors',['GeneticColors',['../classGeneticColors.html',1,'']]],
+  ['glyph',['Glyph',['../structrgb__matrix_1_1Font_1_1Glyph.html',1,'rgb_matrix::Font']]],
+  ['gpio',['GPIO',['../classrgb__matrix_1_1GPIO.html',1,'rgb_matrix']]],
+  ['graphicstest',['GraphicsTest',['../classgraphics_1_1GraphicsTest.html',1,'graphics']]],
+  ['grayscaleblock',['GrayscaleBlock',['../classpulsing-brightness_1_1GrayscaleBlock.html',1,'pulsing-brightness.GrayscaleBlock'],['../classGrayScaleBlock.html',1,'GrayScaleBlock'],['../classgrayscale-block_1_1GrayscaleBlock.html',1,'grayscale-block.GrayscaleBlock']]]
 ];
