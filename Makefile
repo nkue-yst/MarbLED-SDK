@@ -20,6 +20,7 @@ endif
 ifeq ($(shell uname), Linux)
 RGB_LIB_DISTRIBUTION = thirdparty/rpi-rgb-led-matrix
 RGB_INCDIR = $(RGB_LIB_DISTRIBUTION)/include
+INCLUDE_DIR += -I$(RGB_INCDIR)
 RGB_LIBDIR = $(RGB_LIB_DISTRIBUTION)/lib
 RGB_LIBRARY_NAME = rgbmatrix
 RGB_LIBRARY = $(RGB_LIBDIR)/lib$(RGB_LIBRARY_NAME).a
@@ -28,7 +29,6 @@ RGB_CLEAN = $(MAKE) -C $(RGB_LIBDIR) clean
 endif
 
 INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
-INCLUDE_DIR += -I$(RGB_INCDIR)
 
 TLL_SRC = ./src/Video.cpp ./src/TextRenderer.cpp ./src/Image.cpp ./src/Color.cpp ./src/Event.cpp ./src/PanelManager.cpp ./src/SerialManager.cpp ./src/Simulator.cpp ./src/TLLmain.cpp
 TLL_OBJ = $(TLL_SRC:.cpp=.o)
@@ -61,7 +61,7 @@ example: build $(RGB_LIBRARY)
 
 %.o : %.cpp
 	@echo "---> Compile $<"
-	@$(CXX) $(CXXFLAGS) $(SDL_FLAGS) $(LDFLAGS) $(OPENCV_FLAGS) $< $(INCLUDE_DIR) -c -o $@
+	@$(CXX) $(CXXFLAGS) $< $(INCLUDE_DIR) -c -o $@  $(SDL_FLAGS) $(LDFLAGS) $(OPENCV_FLAGS)
 
 test: all
 	./example/$(TEST_EXAMPLE)

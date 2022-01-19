@@ -115,7 +115,9 @@ namespace tll
                     }
                 }
 
+                #ifdef __linux__
                 this->matrix_->SwapOnVSync(this->off_canvas_);
+                #endif
             }
         }
     }

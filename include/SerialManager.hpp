@@ -81,7 +81,6 @@ namespace tll
         #ifdef __linux__
         /// File descriptor
         int fd;
-        #endif
 
         /* For HUB75 panel */
         /// Default canvas
@@ -89,6 +88,7 @@ namespace tll
 
         /// Canvas for duble buffering
         class rgb_matrix::FrameCanvas* off_canvas_;
+        #endif
     };
 
 }
