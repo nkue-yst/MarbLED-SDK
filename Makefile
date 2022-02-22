@@ -13,7 +13,7 @@ OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv
 endif
 
 ifeq ($(shell uname), Darwin)
-OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.4/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
+OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.4_4/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
 endif
 
 # Settings for rpi-rgb-led-matrix library
@@ -41,7 +41,7 @@ OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
 TUIO_FLAGS = $(TUIO_OBJ) $(OSC_OBJ)
 
-TEST_EXAMPLE = Intaractive_32x32
+TEST_EXAMPLE = int2022_demo
 
 all : build example
 
@@ -55,8 +55,10 @@ $(RGB_LIBRARY):
 	$(MAKE) -C $(RGB_LIBDIR)
 
 example: build $(RGB_LIBRARY)
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/Intaractive_32x32.cpp libTLL.a -o example/Intaractive_32x32 $(RGB_LIBRARY)
-	@echo "---> Compile example/Intaractive_32x32.cpp"
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo.cpp libTLL.a -o example/int2022_demo $(RGB_LIBRARY)
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_1.cpp libTLL.a -o example/int2022_demo_1 $(RGB_LIBRARY)
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_2.cpp libTLL.a -o example/int2022_demo_2 $(RGB_LIBRARY)
+	@echo "---> Compile example/int2022_demo.cpp"
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
@@ -79,5 +81,5 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
-	rm -rf example/Intaractive_32x32
+	rm -rf example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
 	$(RGB_CLEAN)
