@@ -12,7 +12,7 @@
 int main()
 {
     bool loop = true;
-    int32_t app_id = 1;
+    int32_t app_id;
 
     while (loop)
     {
@@ -31,6 +31,10 @@ int main()
 
         case 2:
             system("./example/int2022_demo_2");
+            break;
+
+        case 3:
+            system("./example/int2022_demo_3");
             break;
         
         default:

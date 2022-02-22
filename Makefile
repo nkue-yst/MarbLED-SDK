@@ -58,7 +58,8 @@ example: build $(RGB_LIBRARY)
 	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo.cpp libTLL.a -o example/int2022_demo $(RGB_LIBRARY)
 	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_1.cpp libTLL.a -o example/int2022_demo_1 $(RGB_LIBRARY)
 	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_2.cpp libTLL.a -o example/int2022_demo_2 $(RGB_LIBRARY)
-	@echo "---> Compile example/int2022_demo.cpp"
+	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_3.cpp libTLL.a -o example/int2022_demo_3 $(RGB_LIBRARY)
+	@echo "---> Compile int2022_demo"
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
@@ -81,5 +82,5 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
-	rm -rf example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
+	rm -rf example/int2022_demo_3 example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
 	$(RGB_CLEAN)
