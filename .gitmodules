@@ -1,6 +1,6 @@
 [submodule "thirdparty/Adafruit_ADS1X15_RasPi"]
 	path = thirdparty/Adafruit_ADS1X15_RasPi
-	url = https://github.com/nkue-yst/Adafruit_ADS1X15_RasPi.git
+	url = git@github.com:nkue-yst/Adafruit_ADS1X15_RasPi.git
 [submodule "thirdparty/TUIO20_CPP"]
 	path = thirdparty/TUIO20_CPP
 	url = git@github.com:nkue-yst/TUIO20_CPP.git
