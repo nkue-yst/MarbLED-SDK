@@ -13,3 +13,5 @@
 [submodule "thirdparty/rpi-rgb-led-matrix"]
 	path = thirdparty/rpi-rgb-led-matrix
 	url = git@github.com:hzeller/rpi-rgb-led-matrix.git
+[submodule "submod-repo"]
+	ignore = dirty
