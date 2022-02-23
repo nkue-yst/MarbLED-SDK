@@ -38,8 +38,10 @@ public:
 
     void addTuioObject(TuioObject *tobj) override
     {
-        struct Ripple r = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 1};
-        ripples.push_back(r);
+        struct Ripple r1 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 1};
+	    struct Ripple r2 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 0};
+        ripples.push_back(r1);
+        ripples.push_back(r2);
     }
 
     void updateTuioObject(TuioObject *tobj) override {}

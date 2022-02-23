@@ -13,12 +13,46 @@
 #include "TuioServer.h"
 #include "UdpSender.h"
 
+#include "osc/OscReceivedElements.h"
+#include "osc/OscPacketListener.h"
+#include "osc/OscOutboundPacketStream.h"
+#include "ip/UdpSocket.h"
+#include "ip/IpEndpointName.h"
+
 #include <cstdint>
 #include <functional>
 #include <vector>
 
 namespace tll
 {
+    class OscReceiver : public osc::OscPacketListener
+    {
+    public:
+        OscReceiver() {}
+        ~OscReceiver() {}
+
+    protected:
+        virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
+        {
+            (void)remote_end_pt;
+            try
+            {
+                if (strcmp(msg.AddressPattern(), "/test1") == 0)
+                {
+                    std::cout << "Test" << std::endl;
+                }
+                else
+                {
+                }
+            }
+            catch (osc::Exception& e)
+            {
+                std::cout << "OSC error" << std::endl;
+            }
+        }
+    };
+
+
     /**
      * @brief  Event handling class
      */
@@ -53,6 +87,8 @@ namespace tll
          */
         void init();
 
+        void quit();
+
         /**
          * @fn
          * @brief
@@ -72,6 +108,12 @@ namespace tll
 
         /// Instance for singleton
         static EventHandler* pInstance_;
+
+        /// Osc message receiver
+        OscReceiver* osc_receiver_;
+
+        /// UDP listener socket
+        UdpListeningReceiveSocket* s_;
 
     public:
         /**

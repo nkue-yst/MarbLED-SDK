@@ -62,7 +62,7 @@ public:
 
     virtual void run()
     {
-        init(32, 32, "HUB75", false);
+        init(64, 32, "HUB75", false);
         Simulation::start(CHIP);
 
         drawBoard();

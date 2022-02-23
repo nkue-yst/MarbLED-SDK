@@ -28,7 +28,7 @@ LDFLAGS += -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
 RGB_CLEAN = $(MAKE) -C $(RGB_LIBDIR) clean
 endif
 
-INCLUDE_DIR  = -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
+INCLUDE_DIR  += -I./include/ -I./thirdparty/TUIO11_CPP/TUIO/ -I./thirdparty/TUIO11_CPP/oscpack/
 
 TLL_SRC = ./src/Video.cpp ./src/TextRenderer.cpp ./src/Image.cpp ./src/Color.cpp ./src/Event.cpp ./src/PanelManager.cpp ./src/SerialManager.cpp ./src/Simulator.cpp ./src/TLLmain.cpp
 TLL_OBJ = $(TLL_SRC:.cpp=.o)
@@ -39,13 +39,13 @@ TUIO_OBJ = $(TUIO_SRC:.cpp=.o)
 OSC_SRC =  ./thirdparty/TUIO11_CPP/oscpack/osc/OscTypes.cpp ./thirdparty/TUIO11_CPP/oscpack/osc/OscOutboundPacketStream.cpp ./thirdparty/TUIO11_CPP/oscpack/osc/OscReceivedElements.cpp ./thirdparty/TUIO11_CPP/oscpack/osc/OscPrintReceivedElements.cpp ./thirdparty/TUIO11_CPP/oscpack/ip/posix/NetworkingUtils.cpp ./thirdparty/TUIO11_CPP/oscpack/ip/posix/UdpSocket.cpp
 OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
-TUIO_FLAGS = $(TUIO_OBJ) $(OSC_OBJ)
+TUIO_FLAGS = $(TUIO_OBJ) #$(OSC_OBJ)
 
 TEST_EXAMPLE = int2022_demo
 
 all : build example
 
-build: $(TLL_OBJ) $(TUIO_OBJ) $(OSC_OBJ)
+build: $(TLL_OBJ) $(TUIO_OBJ) #$(OSC_OBJ)
 	@ar rcs libTLL.a $^
 	@echo "---> Make library file."
 	@echo "\033[1;32mCompleted building the library!!\n\033[0;39m"
@@ -55,16 +55,16 @@ $(RGB_LIBRARY):
 	$(MAKE) -C $(RGB_LIBDIR)
 
 example: build $(RGB_LIBRARY)
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo.cpp libTLL.a -o example/int2022_demo $(RGB_LIBRARY)
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_1.cpp libTLL.a -o example/int2022_demo_1 $(RGB_LIBRARY)
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_2.cpp libTLL.a -o example/int2022_demo_2 $(RGB_LIBRARY)
-	@$(CXX) $(CXXFLAGS) $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(TUIO_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) example/int2022_demo_3.cpp libTLL.a -o example/int2022_demo_3 $(RGB_LIBRARY)
 	@echo "---> Compile int2022_demo"
+	@$(CXX) $(CXXFLAGS) example/int2022_demo.cpp -o example/int2022_demo
+	@$(CXX) $(CXXFLAGS) example/int2022_demo_1.cpp -o example/int2022_demo_1 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
+	@$(CXX) $(CXXFLAGS) example/int2022_demo_2.cpp -o example/int2022_demo_2 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
+	@$(CXX) $(CXXFLAGS) example/int2022_demo_3.cpp -o example/int2022_demo_3 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
 	@echo "---> Compile $<"
-	@$(CXX) $(CXXFLAGS) $< $(INCLUDE_DIR) -c -o $@  $(SDL_FLAGS) $(LDFLAGS) $(OPENCV_FLAGS)
+	@$(CXX) $(CXXFLAGS) $< $(INCLUDE_DIR) -c -o $@ $(SDL_FLAGS) $(LDFLAGS) $(OPENCV_FLAGS)
 
 test: all
 	./example/$(TEST_EXAMPLE)

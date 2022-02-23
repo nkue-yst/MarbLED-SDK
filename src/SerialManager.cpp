@@ -56,10 +56,13 @@ namespace tll
             #ifdef __linux__
             rgb_matrix::RGBMatrix::Options options;
             rgb_matrix::RuntimeOptions runtime_options;
+            options.hardware_mapping = "adafruit-hat";
             options.rows = 32;
-            options.cols = 32;
-            options.brightness = 50;
-
+            options.cols = 64;
+            //options.chain_length = 2;
+            options.brightness = 100;
+	        runtime_options.gpio_slowdown = 4;
+	
             this->matrix_ = rgb_matrix::CreateMatrixFromOptions(options, runtime_options);
             this->off_canvas_ = this->matrix_->CreateFrameCanvas();
             #else

@@ -98,7 +98,7 @@ namespace tll
 
         PanelManager::getInstance()->clear();
         SerialManager::getInstance()->sendColorData();
-
+        EventHandler::getInstance()->quit();
         TextRenderer::getInstance()->quit();
 
         Simulator::getInstance()->destroy();

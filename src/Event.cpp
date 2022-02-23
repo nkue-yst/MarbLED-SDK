@@ -14,6 +14,7 @@
 #include "TuioTime.h"
 
 #include <iostream>
+#include <thread>
 
 namespace tll
 {
@@ -39,6 +40,15 @@ namespace tll
         this->server_ = new TUIO::TuioServer(this->sender_);
 
         this->server_->initFrame(TUIO::TuioTime::getSystemTime());
+
+        this->osc_receiver_ = new OscReceiver();
+        this->s_ = new UdpListeningReceiveSocket(IpEndpointName(IpEndpointName::ANY_ADDRESS, 7000), this->osc_receiver_);
+    }
+
+    void EventHandler::quit()
+    {
+        delete this->s_;
+        delete this->osc_receiver_;
     }
 
     void EventHandler::updateState()
@@ -130,6 +140,9 @@ namespace tll
             is_down_right_button = true;
             quit_flag_ = true;
         }
+
+        /***** Receive OSC message *****/
+        //this->s_->Run();
     }
 
 }

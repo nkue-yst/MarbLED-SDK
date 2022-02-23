@@ -107,16 +107,16 @@ namespace tll
 
     void PanelManager::drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
     {
-        auto draw = [](int32_t pos_x, int32_t pos_y, int32_t xC, int32_t yC, uint8_t c)
+        auto draw = [this](int32_t pos_x, int32_t pos_y, int32_t xC, int32_t yC, uint8_t c)
         {
-            PanelManager::getInstance()->drawPixel(xC + pos_x, yC + pos_y, c);
-            PanelManager::getInstance()->drawPixel(xC + pos_x, yC - pos_y, c);
-            PanelManager::getInstance()->drawPixel(xC - pos_x, yC + pos_y, c);
-            PanelManager::getInstance()->drawPixel(xC - pos_x, yC - pos_y, c);
-            PanelManager::getInstance()->drawPixel(xC + pos_y, yC + pos_x, c);
-            PanelManager::getInstance()->drawPixel(xC - pos_y, yC + pos_x, c);
-            PanelManager::getInstance()->drawPixel(xC + pos_y, yC - pos_x, c);
-            PanelManager::getInstance()->drawPixel(xC - pos_y, yC - pos_x, c);
+            this->drawPixel(xC + pos_x, yC + pos_y, c);
+            this->drawPixel(xC + pos_x, yC - pos_y, c);
+            this->drawPixel(xC - pos_x, yC + pos_y, c);
+            this->drawPixel(xC - pos_x, yC - pos_y, c);
+            this->drawPixel(xC + pos_y, yC + pos_x, c);
+            this->drawPixel(xC - pos_y, yC + pos_x, c);
+            this->drawPixel(xC + pos_y, yC - pos_x, c);
+            this->drawPixel(xC - pos_y, yC - pos_x, c);
         };
 
         int p = 1 - rad;
