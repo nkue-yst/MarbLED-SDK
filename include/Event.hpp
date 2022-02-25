@@ -22,6 +22,8 @@
 #include <cstdint>
 #include <functional>
 #include <vector>
+#include <thread>
+#include <mutex>
 
 namespace tll
 {
@@ -34,6 +36,8 @@ namespace tll
     protected:
         virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
         {
+            this->osc_mutex_.lock();
+
             (void)remote_end_pt;
             try
             {
@@ -49,7 +53,11 @@ namespace tll
             {
                 std::cout << "OSC error" << std::endl;
             }
+
+            this->osc_mutex_.unlock();
         }
+
+        std::mutex osc_mutex_;
     };
 
 
@@ -109,11 +117,13 @@ namespace tll
         /// Instance for singleton
         static EventHandler* pInstance_;
 
+/*
         /// Osc message receiver
         OscReceiver* osc_receiver_;
 
         /// UDP listener socket
         UdpListeningReceiveSocket* s_;
+*/
 
     public:
         /**
@@ -142,6 +152,9 @@ namespace tll
         std::vector<TUIO::TuioObject*> tobj_list_;
 
     };
+
+
+    void threadListen();
 
 }
 

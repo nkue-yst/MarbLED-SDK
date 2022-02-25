@@ -88,6 +88,7 @@ namespace tll
     {
         EventHandler::getInstance()->updateState();
         Simulation::update();
+        //std::cout << "Loop" << std::endl;
 
         return !EventHandler::getInstance()->getQuitFlag();
     }

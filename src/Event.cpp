@@ -14,7 +14,6 @@
 #include "TuioTime.h"
 
 #include <iostream>
-#include <thread>
 
 namespace tll
 {
@@ -41,14 +40,12 @@ namespace tll
 
         this->server_->initFrame(TUIO::TuioTime::getSystemTime());
 
-        this->osc_receiver_ = new OscReceiver();
-        this->s_ = new UdpListeningReceiveSocket(IpEndpointName(IpEndpointName::ANY_ADDRESS, 7000), this->osc_receiver_);
+        std::thread osc_thread(threadListen);
+        osc_thread.detach();
     }
 
     void EventHandler::quit()
     {
-        delete this->s_;
-        delete this->osc_receiver_;
     }
 
     void EventHandler::updateState()
@@ -138,11 +135,17 @@ namespace tll
         if (!is_down_right_button && SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(3))
         {
             is_down_right_button = true;
-            quit_flag_ = true;
+            this->setQuitFlag(true);
         }
+    }
 
-        /***** Receive OSC message *****/
-        //this->s_->Run();
+    void threadListen()
+    {
+        OscReceiver receiver;
+        UdpListeningReceiveSocket sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 7000), &receiver);
+
+        std::cout << "Start osc listen thread." << std::endl;
+        sock.Run();
     }
 
 }
