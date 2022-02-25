@@ -136,16 +136,34 @@ namespace tll
             try
             {
                 std::cout << "Received osc message" << std::endl;
+                osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
+                osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
 
-                if (strcmp(msg.AddressPattern(), "/test1") == 0)
+                if (strcmp(msg.AddressPattern(), "touch/") == 0)
                 {
-                    EventHandler::getInstance()->server_->initFrame(TUIO::TuioTime::getSessionTime());
-                    TUIO::TuioObject* tobj = EventHandler::getInstance()->server_->addTuioObject(0, 1, 2, 0);
-                    EventHandler::getInstance()->tobj_list_.push_back(tobj);
-                    EventHandler::getInstance()->server_->commitFrame();
-                }
-                else
-                {
+                    int32_t x = (arg++)->AsInt32();
+                    int32_t y = (arg++)->AsInt32();
+                    std::cout << x << ", " << y << std::endl;
+
+                    if (x == -1 && y == -1)
+                    {
+                        EventHandler::getInstance()->server_->removeTuioObject(EventHandler::getInstance()->tobj_list_.back());
+                        EventHandler::getInstance()->server_->commitFrame();
+                        EventHandler::getInstance()->tobj_list_.pop_back();
+                    }
+                    else if (EventHandler::getInstance()->tobj_list_.empty())
+                    {
+                        EventHandler::getInstance()->server_->initFrame(TUIO::TuioTime::getSessionTime());
+                        TUIO::TuioObject* tobj = EventHandler::getInstance()->server_->addTuioObject(0, x, y, 0);
+                        EventHandler::getInstance()->tobj_list_.push_back(tobj);
+                        EventHandler::getInstance()->server_->commitFrame();
+                    }
+                    else if (!EventHandler::getInstance()->tobj_list_.empty())
+                    {
+                        EventHandler::getInstance()->server_->initFrame(TUIO::TuioTime::getSessionTime());
+                        EventHandler::getInstance()->server_->updateTuioObject(EventHandler::getInstance()->tobj_list_[0], x, y, 0);
+                        EventHandler::getInstance()->server_->commitFrame();
+                    }
                 }
             }
             catch (osc::Exception& e)
