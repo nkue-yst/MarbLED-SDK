@@ -27,39 +27,6 @@
 
 namespace tll
 {
-    class OscReceiver : public osc::OscPacketListener
-    {
-    public:
-        OscReceiver() {}
-        ~OscReceiver() {}
-
-    protected:
-        virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
-        {
-            this->osc_mutex_.lock();
-
-            (void)remote_end_pt;
-            try
-            {
-                if (strcmp(msg.AddressPattern(), "/test1") == 0)
-                {
-                    std::cout << "Test" << std::endl;
-                }
-                else
-                {
-                }
-            }
-            catch (osc::Exception& e)
-            {
-                std::cout << "OSC error" << std::endl;
-            }
-
-            this->osc_mutex_.unlock();
-        }
-
-        std::mutex osc_mutex_;
-    };
-
 
     /**
      * @brief  Event handling class
@@ -138,6 +105,9 @@ namespace tll
         /// TuioServer
         TUIO::TuioServer* server_;
 
+        /// Tuio object list
+        std::vector<TUIO::TuioObject*> tobj_list_;
+
     private:
         /// Quit flag
         bool quit_flag_ = false;
@@ -148,11 +118,46 @@ namespace tll
         /// Previous state of mouse left button (for test)
         bool is_down_left_button = false;
 
-        /// Tuio object list
-        std::vector<TUIO::TuioObject*> tobj_list_;
-
     };
 
+    
+    class OscReceiver : public osc::OscPacketListener
+    {
+    public:
+        OscReceiver() {}
+        ~OscReceiver() {}
+
+    protected:
+        virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
+        {
+            this->osc_mutex_.lock();
+
+            (void)remote_end_pt;
+            try
+            {
+                std::cout << "Received osc message" << std::endl;
+
+                if (strcmp(msg.AddressPattern(), "/test1") == 0)
+                {
+                    EventHandler::getInstance()->server_->initFrame(TUIO::TuioTime::getSessionTime());
+                    TUIO::TuioObject* tobj = EventHandler::getInstance()->server_->addTuioObject(0, 1, 2, 0);
+                    EventHandler::getInstance()->tobj_list_.push_back(tobj);
+                    EventHandler::getInstance()->server_->commitFrame();
+                }
+                else
+                {
+                }
+            }
+            catch (osc::Exception& e)
+            {
+                std::cout << "OSC error" << std::endl;
+            }
+
+            this->osc_mutex_.unlock();
+        }
+
+        std::mutex osc_mutex_;
+    };
 
     void threadListen();
 

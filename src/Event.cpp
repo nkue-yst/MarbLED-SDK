@@ -49,7 +49,7 @@ namespace tll
     }
 
     void EventHandler::updateState()
-    {
+    {        
         // Initialize frame for TUIO
         this->server_->initFrame(TUIO::TuioTime::getSessionTime());
 
