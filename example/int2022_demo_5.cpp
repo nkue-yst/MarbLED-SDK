@@ -1,5 +1,5 @@
 /**
- * @file    int2022_demo_2.cpp
+ * @file    int2022_demo_1.cpp
  * @brief   ---
  * @author  Yoshito Nakaue
  * @date    2022/02/22
@@ -8,6 +8,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <thread>
+#include <vector>
 
 #include "TLL.h"
 #include <TuioListener.h>
@@ -28,21 +29,9 @@ public:
         this->client->connect();
     };
 
-    void addTuioObject(TuioObject *tobj) override
-    {
-        drawCircle(tobj->getX(), tobj->getY(), 3, Palette::color("Red"));
-    }
-
-    void updateTuioObject(TuioObject *tobj) override
-    {
-        clear();
-        drawCircle(tobj->getX(), tobj->getY(), 3, Palette::color("Red"));
-    }
-
-    void removeTuioObject(TuioObject *tobj) override
-    {
-        clear();
-    }
+    void addTuioObject(TuioObject *tobj) override {}
+    void updateTuioObject(TuioObject *tobj) override {}
+    void removeTuioObject(TuioObject *tobj) override {}
 
     void addTuioCursor(TuioCursor *tcur) override {}
     void updateTuioCursor(TuioCursor *tcur) override {}
@@ -57,10 +46,21 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(CHIP);
+        Simulation::start(ALL);
+        
+        std::string time_pre("");
+        std::string time_now("");
 
         while (loop())
         {
+            time_pre = time_now;
+            time_now = tll::timeToString();
+
+            if (time_pre != time_now)
+            {
+                tll::clear();
+                tll::print(time_now, tll::Palette::color("White"));
+            }
         }
 
         Simulation::quit();

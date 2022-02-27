@@ -62,7 +62,7 @@ namespace tll
 
     protected:
         TextRenderer()
-            : font_size_(5)
+            : font_size_(22)
         {
         }
 
@@ -73,7 +73,8 @@ namespace tll
         /**
          * @fn  void loadFont(const char* font_file_path)
          */
-        void loadFont(const char* font_file_path = "./font/4x4kanafont.ttf");
+        void loadFont(const char* font_file_path = "./font/NotoSansJP-Regular.otf");
+        //void loadFont(const char* font_file_path = "./font/4x4kanafont.ttf");
 
         /// freetype object
         cv::Ptr<cv::freetype::FreeType2> ft2_;

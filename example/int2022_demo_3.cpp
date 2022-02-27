@@ -96,6 +96,7 @@ private:
         drawLine(21,  0, 21, 31, Palette::color("White"));
         drawLine( 0, 10, 31, 10, Palette::color("White"));
         drawLine( 0, 21, 31, 21, Palette::color("White"));
+        drawLine(31,  0, 31, 31, Palette::color("White"));
 
         for (uint32_t y = 0; y < 3; y++)
         {

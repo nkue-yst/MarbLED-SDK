@@ -26,17 +26,17 @@ namespace tll
 
     void Image::draw(uint32_t x, uint32_t y)
     {
-        for (int y = 0; y < img_data_.rows; y++)
+        for (int Y = 0; Y < img_data_.rows; Y++)
         {
-            for (int x = 0; x < img_data_.cols; x++)
+            for (int X = 0; X < img_data_.cols; X++)
             {
                 PanelManager::getInstance()->drawPixel(
-                    x,
-                    y,
+                    x + X,
+                    y + Y,
                     ColorPalette::getInstance()->getIDFromRGB(
-                        img_data_.at<cv::Vec3b>(y, x)[2],
-                        img_data_.at<cv::Vec3b>(y, x)[1],
-                        img_data_.at<cv::Vec3b>(y, x)[0]
+                        img_data_.at<cv::Vec3b>(Y, X)[2],
+                        img_data_.at<cv::Vec3b>(Y, X)[1],
+                        img_data_.at<cv::Vec3b>(Y, X)[0]
                     )
                 );
             }
