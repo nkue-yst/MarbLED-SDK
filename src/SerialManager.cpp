@@ -61,8 +61,10 @@ namespace tll
             options.cols = 64;
             //options.chain_length = 2;
             options.brightness = 100;
+            //options.limit_refresh_rate_hz = 30;
+
 	        runtime_options.gpio_slowdown = 4;
-	
+
             this->matrix_ = rgb_matrix::CreateMatrixFromOptions(options, runtime_options);
             this->off_canvas_ = this->matrix_->CreateFrameCanvas();
             #else

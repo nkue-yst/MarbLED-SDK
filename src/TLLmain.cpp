@@ -15,7 +15,8 @@
 #include <opencv2/opencv.hpp>
 
 #include <ctime>
-
+#include <chrono>
+#include <thread>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -89,6 +90,7 @@ namespace tll
         EventHandler::getInstance()->updateState();
         Simulation::update();
         //std::cout << "Loop" << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
         return !EventHandler::getInstance()->getQuitFlag();
     }

@@ -63,7 +63,7 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(CHIP);
+        //Simulation::start(CHIP);
 
         drawBoard();
 
@@ -71,7 +71,7 @@ public:
         {
         }
 
-        Simulation::quit();
+        //Simulation::quit();
         quit();
     }
 

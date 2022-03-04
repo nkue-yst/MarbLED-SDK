@@ -60,14 +60,14 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(CHIP);
+        //Simulation::start(CHIP);
 
         while (loop())
         {
             this->updateRipples();
         }
 
-        Simulation::quit();
+        //Simulation::quit();
         quit();
     }
 

@@ -139,7 +139,7 @@ namespace tll
                 osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
                 osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
 
-                if (strcmp(msg.AddressPattern(), "touch/") == 0)
+                if (strcmp(msg.AddressPattern(), "/touch") == 0)
                 {
                     int32_t x = (arg++)->AsInt32();
                     int32_t y = (arg++)->AsInt32();

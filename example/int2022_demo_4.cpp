@@ -50,7 +50,7 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(ALL);
+        //Simulation::start(ALL);
 
         drawRect(0, 0, 64, 32, Palette::color("Blue"));
 
@@ -99,7 +99,7 @@ public:
             }
         }
 
-        Simulation::quit();
+        //Simulation::quit();
         quit();
     }
 

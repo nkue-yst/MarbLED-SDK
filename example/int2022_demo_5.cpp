@@ -46,7 +46,7 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(ALL);
+        //Simulation::start(ALL);
         
         std::string time_pre("");
         std::string time_now("");
@@ -63,7 +63,7 @@ public:
             }
         }
 
-        Simulation::quit();
+        //Simulation::quit();
         quit();
     }
 
