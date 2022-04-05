@@ -49,9 +49,13 @@ public:
         init(64, 32, "HUB75", false);
         //Simulation::start(ALL);
 
-        drawRect(5, 5, 22, 22, Palette::color("Yellow"));
-        drawCircle(48, 16, 10, Palette::color("Aqua"));
-        drawCircle(48, 16, 9, Palette::color("Aqua"));
+        img = loadImage("./example/image/Arrow2.png");
+        img.resize(32, 32);
+        img.draw(0, 0);
+
+        img2 = loadImage("./example/image/img_9.png");
+        img2.resize(32, 32);
+        img2.draw(32, 0); 
 
         while (loop())
         {

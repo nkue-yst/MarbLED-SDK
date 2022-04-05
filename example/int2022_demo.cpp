@@ -44,6 +44,14 @@ int main()
         case 5:
             system("./example/int2022_demo_5");
             break;
+
+        case 6:
+            system("./example/int2022_demo_6");
+            break;
+
+        case 7:
+            system("./example/int2022_demo_7");
+            break;
         
         default:
             std::cout << "Invalid app ID" << std::endl;

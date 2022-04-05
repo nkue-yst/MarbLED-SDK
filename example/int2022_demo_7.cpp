@@ -30,7 +30,6 @@ public:
     };
 
     void addTuioObject(TuioObject *tobj) override {}
-
     void updateTuioObject(TuioObject *tobj) override {}
     void removeTuioObject(TuioObject *tobj) override {}
 
@@ -49,9 +48,9 @@ public:
         init(64, 32, "HUB75", false);
         //Simulation::start(ALL);
 
-        drawRect(5, 5, 22, 22, Palette::color("Yellow"));
-        drawCircle(48, 16, 10, Palette::color("Aqua"));
-        drawCircle(48, 16, 9, Palette::color("Aqua"));
+        img = loadImage("./example/image/Text.png");
+        img.resize(32, 64);
+        img.draw(0, 0);
 
         while (loop())
         {
