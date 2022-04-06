@@ -38,6 +38,13 @@ public:
 
     void addTuioObject(TuioObject *tobj) override
     {
+        if (this->ripples.size() >= 4)
+        {
+            this->ripples.erase(this->ripples.begin());
+            this->ripples.erase(this->ripples.begin());
+
+        }
+
         struct Ripple r1 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 1};
 	    struct Ripple r2 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 0};
         ripples.push_back(r1);
@@ -60,14 +67,14 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        //Simulation::start(CHIP);
+        Simulation::start(CHIP);
 
         while (loop())
         {
             this->updateRipples();
         }
 
-        //Simulation::quit();
+        Simulation::quit();
         quit();
     }
 
