@@ -13,7 +13,7 @@ OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv
 endif
 
 ifeq ($(shell uname), Darwin)
-OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.4_4/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
+OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.5_1/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
 endif
 
 # Settings for rpi-rgb-led-matrix library
@@ -41,7 +41,8 @@ OSC_OBJ = $(OSC_SRC:.cpp=.o)
 
 TUIO_FLAGS = $(TUIO_OBJ) #$(OSC_OBJ)
 
-TEST_EXAMPLE = int2022_demo
+#TEST_EXAMPLE = int2022_demo
+TEST_EXAMPLE = music_visualizer
 
 all : build example
 
@@ -55,6 +56,11 @@ $(RGB_LIBRARY):
 	$(MAKE) -C $(RGB_LIBDIR)
 
 example: build $(RGB_LIBRARY)
+	@echo "---> Compile example"
+	@$(CXX) $(CXXFLAGS) example/music_visualizer.cpp -o example/music_visualizer libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY) ../oscpack/build/liboscpack.a
+#	@$(CXX) $(CXXFLAGS) example/bomb.cpp -o example/bomb libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY) ../oscpack/build/liboscpack.a
+
+example-int: build $(RGB_LIBRARY)
 	@echo "---> Compile int2022_demo"
 	@$(CXX) $(CXXFLAGS) example/int2022_demo.cpp -o example/int2022_demo
 	@$(CXX) $(CXXFLAGS) example/int2022_demo_1.cpp -o example/int2022_demo_1 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
@@ -84,5 +90,6 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
+	rm -rf example/bomb rm -rf example/music_visualizer
 	rm -rf example/int2022_demo_5 example/int2022_demo_4 example/int2022_demo_3 example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
 	$(RGB_CLEAN)

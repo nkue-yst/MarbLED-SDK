@@ -52,8 +52,8 @@ namespace tll
         {
             window_ = SDL_CreateWindow(
                 window_title,
-                SDL_WINDOWPOS_UNDEFINED,
-                SDL_WINDOWPOS_UNDEFINED,
+                SDL_WINDOWPOS_CENTERED,
+                SDL_WINDOWPOS_CENTERED,
                 pixel_size * PanelManager::getInstance()->getWidth()  + (PanelManager::getInstance()->getWidth()  + 1) * blank_size,
                 pixel_size * PanelManager::getInstance()->getHeight() + (PanelManager::getInstance()->getHeight() + 1) * blank_size,
                 SDL_WINDOW_SHOWN
@@ -116,6 +116,7 @@ namespace tll
             }
 
             SDL_RenderPresent(this->renderer_);
+            SDL_Delay(100);
         }
 
         /* Update simulator for appearence simulation */
@@ -125,7 +126,7 @@ namespace tll
                 pixel_size * PanelManager::getInstance()->getHeight(),
                 pixel_size * PanelManager::getInstance()->getWidth(),
                 CV_8UC3,
-                cv::Scalar(50, 50, 50)
+                cv::Scalar(90, 90, 90)
             );
 
             for (int32_t y = 0; y < PanelManager::getInstance()->getHeight(); y++)
@@ -154,12 +155,12 @@ namespace tll
                 }
             }
 
-            cv::GaussianBlur(
+            /*cv::GaussianBlur(
                 this->simulator_img_,
                 this->simulator_img_,
                 cv::Size(51, 51),
                 0
-            );
+            );*/
 
             cv::imshow("TouchLED-Simulator", this->simulator_img_);
             cv::waitKey(10);

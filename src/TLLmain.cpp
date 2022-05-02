@@ -90,7 +90,7 @@ namespace tll
         EventHandler::getInstance()->updateState();
         Simulation::update();
         //std::cout << "Loop" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
         return !EventHandler::getInstance()->getQuitFlag();
     }
