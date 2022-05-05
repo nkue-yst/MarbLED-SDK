@@ -1,5 +1,5 @@
 /**
- * @file    int2022_demo_1.cpp
+ * @file    int2022_demo_4.cpp
  * @brief   ---
  * @author  Yoshito Nakaue
  * @date    2022/02/22
@@ -18,13 +18,6 @@
 using namespace tll;
 using namespace TUIO;
 
-struct Ripple
-{
-    int32_t x;
-    int32_t y;
-    int32_t r;
-};
-
 class App : public TuioListener
 {
 public:
@@ -36,20 +29,7 @@ public:
         this->client->connect();
     };
 
-    void addTuioObject(TuioObject *tobj) override
-    {
-        if (this->ripples.size() >= 4)
-        {
-            this->ripples.erase(this->ripples.begin());
-            this->ripples.erase(this->ripples.begin());
-
-        }
-
-        struct Ripple r1 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 1};
-	    struct Ripple r2 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 0};
-        ripples.push_back(r1);
-        ripples.push_back(r2);
-    }
+    void addTuioObject(TuioObject *tobj) override {}
 
     void updateTuioObject(TuioObject *tobj) override {}
     void removeTuioObject(TuioObject *tobj) override {}
@@ -67,38 +47,31 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(CHIP);
+        //Simulation::start(ALL);
+
+        img = loadImage("./example/image/Arrow2.png");
+        img.resize(32, 32);
+        img.draw(0, 0);
+
+        img2 = loadImage("./example/image/img_9.png");
+        img2.resize(32, 32);
+        img2.draw(32, 0); 
 
         while (loop())
         {
-            this->updateRipples();
         }
 
-        Simulation::quit();
+        //Simulation::quit();
         quit();
     }
 
 private:
-    void updateRipples()
-    {
-        clear();
-        for (auto& ripple : this->ripples)
-        {
-            drawCircle(ripple.x, ripple.y, ripple.r, Palette::color("Aqua"));
-            ripple.r++;
-            
-            if (ripple.r >= 64)
-                this->ripples.erase(this->ripples.begin());
-        }
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(13)
-        );
-    }
+    int i = 0;
+    Image img;
+    Image img2;
 
     TuioClient* client;
     OscReceiver* receiver;
-
-    std::vector<struct Ripple> ripples;
 };
 
 int main()

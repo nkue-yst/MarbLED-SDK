@@ -68,6 +68,8 @@ example-int: build $(RGB_LIBRARY)
 	@$(CXX) $(CXXFLAGS) example/int2022_demo_3.cpp -o example/int2022_demo_3 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
 	@$(CXX) $(CXXFLAGS) example/int2022_demo_4.cpp -o example/int2022_demo_4 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
 	@$(CXX) $(CXXFLAGS) example/int2022_demo_5.cpp -o example/int2022_demo_5 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
+	@$(CXX) $(CXXFLAGS) example/int2022_demo_6.cpp -o example/int2022_demo_6 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
+	@$(CXX) $(CXXFLAGS) example/int2022_demo_7.cpp -o example/int2022_demo_7 libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY)  ../oscpack/build/liboscpack.a
 	@echo "\033[1;32mCompleted building all sample programs!!\n\033[0;39m"
 
 %.o : %.cpp
@@ -90,6 +92,6 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
-	rm -rf example/bomb rm -rf example/music_visualizer
-	rm -rf example/int2022_demo_5 example/int2022_demo_4 example/int2022_demo_3 example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
+	rm -rf example/bomb example/music_visualizer
+	rm -rf example/int2022_demo_7 example/int2022_demo_6 example/int2022_demo_5 example/int2022_demo_4 example/int2022_demo_3 example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
 	$(RGB_CLEAN)
