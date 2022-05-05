@@ -42,7 +42,7 @@ OSC_OBJ = $(OSC_SRC:.cpp=.o)
 TUIO_FLAGS = $(TUIO_OBJ) #$(OSC_OBJ)
 
 #TEST_EXAMPLE = int2022_demo
-TEST_EXAMPLE = music_visualizer
+TEST_EXAMPLE = screen_saver
 
 all : build example
 
@@ -57,7 +57,8 @@ $(RGB_LIBRARY):
 
 example: build $(RGB_LIBRARY)
 	@echo "---> Compile example"
-	@$(CXX) $(CXXFLAGS) example/music_visualizer.cpp -o example/music_visualizer libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY) ../oscpack/build/liboscpack.a
+	@$(CXX) $(CXXFLAGS) example/screen_saver.cpp -o example/screen_saver libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY) ../oscpack/build/liboscpack.a
+#	@$(CXX) $(CXXFLAGS) example/music_visualizer.cpp -o example/music_visualizer libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY) ../oscpack/build/liboscpack.a
 #	@$(CXX) $(CXXFLAGS) example/bomb.cpp -o example/bomb libTLL.a $(TLL_FLAGS) $(SDL_FLAGS) $(OPENCV_FLAGS) $(LDFLAGS) $(INCLUDE_DIR) $(RGB_LIBRARY) ../oscpack/build/liboscpack.a
 
 example-int: build $(RGB_LIBRARY)
@@ -92,6 +93,6 @@ clean:
 	rm -rf libTLL.a
 	rm -rf src/*.o
 	rm -rf ./thirdparty/TUIO11_CPP/TUIO/*.o
-	rm -rf example/bomb example/music_visualizer
+	rm -rf example/bomb example/music_visualizer example/screen_saver
 	rm -rf example/int2022_demo_7 example/int2022_demo_6 example/int2022_demo_5 example/int2022_demo_4 example/int2022_demo_3 example/int2022_demo_2 example/int2022_demo_1 example/int2022_demo
 	$(RGB_CLEAN)
