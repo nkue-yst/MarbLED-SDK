@@ -47,7 +47,7 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        //Simulation::start(ALL);
+        Simulation::start(NONE);
 
         img = loadImage("./example/image/Arrow2.png");
         img.resize(32, 32);
@@ -61,7 +61,7 @@ public:
         {
         }
 
-        //Simulation::quit();
+        Simulation::quit();
         quit();
     }
 

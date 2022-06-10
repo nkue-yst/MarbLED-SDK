@@ -12,6 +12,9 @@
 #include "Simulator.hpp"
 #include "TLL.h"
 
+#include <thread>
+#include <chrono>
+#include <unistd.h>
 #include <iostream>
 
 namespace tll
@@ -40,6 +43,10 @@ namespace tll
         for (uint32_t i = 0; i < static_cast<uint32_t>(end_frame); i++)
         {
             video_data_ >> frame;
+
+            if (i % 5 != 0)
+                continue;
+
             cv::resize(frame, dst, dst.size());
 
             for (int32_t y = 0; y < dst.rows; y++)
@@ -59,6 +66,7 @@ namespace tll
             }
 
             SerialManager::getInstance()->sendColorData();
+            std::this_thread::sleep_for(std::chrono::milliseconds(16));
             Simulator::getInstance()->update();
         }
 

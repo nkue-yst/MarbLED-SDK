@@ -47,7 +47,7 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        //Simulation::start(ALL);
+        Simulation::start(NONE);
 
         drawRect(5, 5, 22, 22, Palette::color("Yellow"));
         drawCircle(48, 16, 10, Palette::color("Aqua"));
@@ -62,10 +62,6 @@ public:
     }
 
 private:
-    int i = 0;
-    Image img;
-    Image img2;
-
     TuioClient* client;
     OscReceiver* receiver;
 };

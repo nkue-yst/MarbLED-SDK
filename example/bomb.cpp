@@ -11,65 +11,31 @@
 #include <vector>
 
 #include "TLL.h"
-#include <TuioListener.h>
-#include <UdpReceiver.h>
-#include <TuioClient.h>
 
 using namespace tll;
-using namespace TUIO;
-
-class App : public TuioListener
-{
-public:
-    App()
-    {
-        this->receiver = new UdpReceiver();
-        this->client   = new TuioClient(this->receiver);
-        this->client->addTuioListener(this);
-        this->client->connect();
-    };
-
-    void addTuioObject(TuioObject *tobj) override{}
-    void updateTuioObject(TuioObject *tobj) override {}
-    void removeTuioObject(TuioObject *tobj) override {}
-
-    void addTuioCursor(TuioCursor *tcur) override {}
-    void updateTuioCursor(TuioCursor *tcur) override {}
-    void removeTuioCursor(TuioCursor *tcur) override {}
-    
-    void addTuioBlob(TuioBlob *tblb) override {}
-    void updateTuioBlob(TuioBlob *tblb) override {}
-    void removeTuioBlob(TuioBlob *tblb) override {}
-
-    void refresh(TuioTime ftime) override {}
-
-    virtual void run()
-    {
-        init(64, 32, "HUB75", false);
-        Simulation::start(MARBLE);
-
-        SDL_Delay(5000);
-
-        Video video = loadVideo("../bomb.mp4");
-        video.play(0, 0, 22);
-
-        while (loop())
-        {
-            break;
-        }
-
-        Simulation::quit();
-        quit();
-    }
-
-private:
-    TuioClient* client;
-    OscReceiver* receiver;
-};
 
 int main()
 {
-    App* app = new App();
-    app->run();
-    delete app;
+    init(64, 32, "HUB75", false);
+    Simulation::start(NONE);
+
+    Video video = loadVideo("./example/video/bomb.mp4");
+    video.play(0, 0, 22);
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+    video = loadVideo("./example/video/bomb.mp4");
+    video.play(0, 0, 24);
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+    video = loadVideo("./example/video/bomb.mp4");
+    video.play(0, 0, 18);
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+    while (loop())
+    {
+        break;
+    }
+
+    Simulation::quit();
+    quit();
 }

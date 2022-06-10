@@ -49,6 +49,9 @@ namespace tll
      */
     void quit();
 
+    void drawPixel(uint16_t x, uint16_t y, uint8_t color);
+    void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, uint8_t color);
+
     /**
      * @fn     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
      * @brief  Draw rectangle.

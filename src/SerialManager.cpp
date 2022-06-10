@@ -9,6 +9,9 @@
 #include "PanelManager.hpp"
 #include "Color.hpp"
 #include <iostream>
+#include <chrono>
+#include <thread>
+#include <unistd.h>
 
 #ifdef __linux__
 #include <wiringSerial.h>

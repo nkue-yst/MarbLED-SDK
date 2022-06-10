@@ -42,8 +42,9 @@ public:
         {
             this->ripples.erase(this->ripples.begin());
             this->ripples.erase(this->ripples.begin());
-
         }
+
+        std::cout << "Test" << std::endl;
 
         struct Ripple r1 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 1};
 	    struct Ripple r2 = {(int32_t)tobj->getX(), (int32_t)tobj->getY(), 0};
@@ -67,7 +68,7 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(CHIP);
+        Simulation::start(NONE);
 
         while (loop())
         {

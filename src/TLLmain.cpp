@@ -81,6 +81,7 @@ namespace tll
 
         SDL_Init(SDL_INIT_VIDEO);
         Simulator::create();
+        Simulation::start(NONE);
 
         endClock("tll::init()");
     }
@@ -90,7 +91,7 @@ namespace tll
         EventHandler::getInstance()->updateState();
         Simulation::update();
         //std::cout << "Loop" << std::endl;
-        //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        //std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
         return !EventHandler::getInstance()->getQuitFlag();
     }
@@ -113,6 +114,21 @@ namespace tll
         ColorPalette::getInstance()->destroy();
 
         endClock("tll::quit()");
+    }
+
+    void drawPixel(uint16_t x, uint16_t y, uint8_t color)
+    {
+        PanelManager::getInstance()->drawPixel(x, y, color);
+        SerialManager::getInstance()->sendColorData();
+    }
+
+    void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, uint8_t color)
+    {
+        for (int i = 0; i < x.size(); i++)
+        {
+            PanelManager::getInstance()->drawPixel(x.at(i), y.at(i), color);
+        }
+        SerialManager::getInstance()->sendColorData();
     }
 
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
