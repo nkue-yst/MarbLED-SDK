@@ -9,6 +9,8 @@
 #include "PanelManager.hpp"
 #include "Color.hpp"
 
+#include <zmq.hpp>
+
 #include <algorithm>
 
 namespace tll
@@ -32,6 +34,8 @@ namespace tll
 
     void Simulator::start(uint8_t simulate_mode)
     {
+        zmq::context_t ctx;
+
         this->mode_ = simulate_mode;
 
         char window_title[] = "TouchLED-Simulator";
