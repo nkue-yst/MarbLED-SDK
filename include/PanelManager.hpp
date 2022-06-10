@@ -9,6 +9,8 @@
 #define PANEL_MANAGER_HPP
 
 #include <cstdint>
+#include <iostream>
+#include <stdexcept>
 #include <vector>
 
 namespace tll
@@ -125,7 +127,19 @@ namespace tll
          * @brief   Get color of the specified coordinates.
          * @return  Color of the specified coordinates
          */
-        uint8_t getColor(int x, int y) { return color_.at(y * width_ + x); }
+        uint8_t getColor(int x, int y)
+        {
+            uint8_t color = 0;
+            try {
+                color = color_.at(y * width_ + x);
+            }
+            catch (std::out_of_range& e)
+            {
+                std::cerr << "[ERROR]: " << e.what() << std::endl;
+            }
+
+            return color;
+        }
 
     protected:
         PanelManager() {}

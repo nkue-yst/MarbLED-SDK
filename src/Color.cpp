@@ -54,7 +54,16 @@ namespace tll
 
     Color ColorPalette::getColorFromID(uint8_t color_id)
     {
-        return palette_data_.at(color_id);
+        Color color(0, 0, 0);
+        try {
+            color = palette_data_.at(color_id);
+        }
+        catch (std::out_of_range& e)
+        {
+            std::cerr << "[ERROR]: " << e.what() << std::endl;
+        }
+
+        return color;
     }
 
     inline uint32_t calcDiff(Color c1, Color c2)

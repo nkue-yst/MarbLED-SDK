@@ -38,7 +38,7 @@ namespace tll
         std::cout << "-------------------------------" << std::endl;
 
         std::string str;
-        std::ifstream ifs("./src/data/ColorPalette.csv");
+        std::ifstream ifs("ColorPalette.csv");
 
         while (getline(ifs, str))
         {

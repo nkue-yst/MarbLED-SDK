@@ -155,12 +155,12 @@ namespace tll
                 }
             }
 
-            cv::GaussianBlur(
+            /*cv::GaussianBlur(
                 this->simulator_img_,
                 this->simulator_img_,
                 cv::Size(51, 51),
                 0
-            );
+            );*/
 
             cv::imshow("TouchLED-Simulator", this->simulator_img_);
             cv::waitKey(10);

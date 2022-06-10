@@ -9,3 +9,6 @@
 	url = git@github.com:hzeller/rpi-rgb-led-matrix.git
 [submodule "submod-repo"]
 	ignore = dirty
+[submodule "thirdparty/oscpack"]
+	path = thirdparty/oscpack
+	url = git@github.com:RossBencina/oscpack.git

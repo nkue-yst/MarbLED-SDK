@@ -13,7 +13,7 @@ OPENCV_FLAGS = -I/usr/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv
 endif
 
 ifeq ($(shell uname), Darwin)
-OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.5_1/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
+OPENCV_FLAGS = -I/usr/local/Cellar/opencv/4.5.5_2/include/opencv4/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_freetype
 endif
 
 # Settings for rpi-rgb-led-matrix library

@@ -73,7 +73,7 @@ namespace tll
         /**
          * @fn  void loadFont(const char* font_file_path)
          */
-        void loadFont(const char* font_file_path = "./font/NotoSansJP-Regular.otf");
+        void loadFont(const char* font_file_path = "NotoSansJP-Regular.otf");
         //void loadFont(const char* font_file_path = "./font/4x4kanafont.ttf");
 
         /// freetype object
