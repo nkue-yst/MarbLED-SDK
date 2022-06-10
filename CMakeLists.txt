@@ -26,11 +26,15 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+### Setup wiringPi ###
+find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
+
 ### Create TouchLED-Library (main project) ###
 file(GLOB TLL_SRC src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} STATIC ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES})
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} ${WIRINGPI_LIBRARIES} RPI-RGB)
+target_link_libraries(${PROJECT} "-pthread")
 
 ### Setup demo app ###
 add_executable(int2022_demo example/int2022_demo.cpp)
@@ -43,7 +47,7 @@ if(APPLE)
 elseif(WIN32)
     message("[OS]: Win32 -> Not build rpi-rgb-led-matrix")
 elseif(UNIX)
-    file(GLOB RPI-RGB_SRC thirdparty/rpi-rgb-led-matrix/lib/*.cc thirdparty/rpi-rgb-led-matrix/lib/*.h)
+    file(GLOB RPI-RGB_SRC thirdparty/rpi-rgb-led-matrix/lib/*.cc thirdparty/rpi-rgb-led-matrix/lib/*.c thirdparty/rpi-rgb-led-matrix/lib/*.h)
     include_directories(thirdparty/rpi-rgb-led-matrix/include)
     add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
 endif(APPLE)
