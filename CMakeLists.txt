@@ -26,15 +26,20 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+### Setup ZeroMQ ###
+find_package(cppzmq)
+
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
+if(WIRINGPI_LIBRARIES)
+    target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES})
+endif()
 
 ### Create TouchLED-Library (main project) ###
 file(GLOB TLL_SRC src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} STATIC ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES})
-target_link_libraries(${PROJECT} "-pthread")
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} cppzmq)
 
 ### Setup demo app ###
 add_executable(int2022_demo example/int2022_demo.cpp)
@@ -42,16 +47,12 @@ add_executable(int2022_demo_1 example/int2022_demo_1.cpp)
 target_link_libraries(int2022_demo_1 ${PROJECT} TUIO)
 
 ### Setup rpi-rgb-led-matrix (Only on RaspberryPi) ###
-if(APPLE)
-    message("[OS]: Apple -> Not build rpi-rgb-led-matrix")
-elseif(WIN32)
-    message("[OS]: Win32 -> Not build rpi-rgb-led-matrix")
-elseif(UNIX)
+if(WIRINGPI_LIBRARIES)
     file(GLOB RPI-RGB_SRC thirdparty/rpi-rgb-led-matrix/lib/*.cc thirdparty/rpi-rgb-led-matrix/lib/*.c thirdparty/rpi-rgb-led-matrix/lib/*.h)
     include_directories(thirdparty/rpi-rgb-led-matrix/include)
     add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
-    target_link_libraries(${PROJECT} RPI-RGB ${WIRINGPI_LIBRARIES})
-endif(APPLE)
+    target_link_libraries(${PROJECT} RPI-RGB ${WIRINGPI_LIBRARIES} "-pthread")
+endif()
 
 ### Copy engine component files ###
 add_custom_command(
