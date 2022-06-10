@@ -33,7 +33,7 @@ find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 file(GLOB TLL_SRC src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} STATIC ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} ${WIRINGPI_LIBRARIES} RPI-RGB)
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES})
 target_link_libraries(${PROJECT} "-pthread")
 
 ### Setup demo app ###
@@ -50,6 +50,7 @@ elseif(UNIX)
     file(GLOB RPI-RGB_SRC thirdparty/rpi-rgb-led-matrix/lib/*.cc thirdparty/rpi-rgb-led-matrix/lib/*.c thirdparty/rpi-rgb-led-matrix/lib/*.h)
     include_directories(thirdparty/rpi-rgb-led-matrix/include)
     add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
+    target_link_libraries(${PROJECT} RPI-RGB ${WIRINGPI_LIBRARIES})
 endif(APPLE)
 
 ### Copy engine component files ###
