@@ -9,7 +9,6 @@
 #include "Color.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
-#include "Simulator.hpp"
 #include "TLL.h"
 
 #include <thread>
@@ -67,7 +66,6 @@ namespace tll
 
             SerialManager::getInstance()->sendColorData();
             std::this_thread::sleep_for(std::chrono::milliseconds(16));
-            Simulator::getInstance()->update();
         }
 
         tll::clear();

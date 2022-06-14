@@ -68,14 +68,12 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(NONE);
 
         while (loop())
         {
             this->updateRipples();
         }
 
-        Simulation::quit();
         quit();
     }
 

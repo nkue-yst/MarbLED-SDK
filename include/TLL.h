@@ -10,7 +10,6 @@
 
 #include "Image.hpp"
 #include "Video.hpp"
-#include "Simulator.hpp"
 
 #include <cstdint>
 #include <functional>
@@ -154,33 +153,6 @@ namespace tll
         /// y-coordinate
         uint32_t y_;
     };
-
-
-    /**
-     * @namespace  Simulation
-     * @brief      シミュレーター用名前空間
-     */
-    namespace Simulation
-    {
-        /**
-         * @fn     void start()
-         * @brief  シミュレーションを開始
-         */
-        void start(uint8_t simulate_mode = tll::ALL);
-
-        /**
-         * @fn     void update()
-         * @brief  シミュレーションを更新
-         */
-        void update();
-
-        /**
-         * @fn     void quit()
-         * @brief  シミュレーションを終了
-         */
-        void quit();
-    }
-
 
     void startClock();
     void endClock(std::string function_name = "Some function");

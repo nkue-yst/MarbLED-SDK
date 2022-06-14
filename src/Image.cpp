@@ -9,7 +9,6 @@
 #include "Color.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
-#include "Simulator.hpp"
 
 #include <iostream>
 
@@ -43,7 +42,6 @@ namespace tll
         }
 
         SerialManager::getInstance()->sendColorData();
-        Simulator::getInstance()->update();
     }
 
     void Image::resize(uint32_t height, uint32_t width)

@@ -79,17 +79,12 @@ namespace tll
         EventHandler::create();
         EventHandler::getInstance()->init();
 
-        SDL_Init(SDL_INIT_VIDEO);
-        Simulator::create();
-        Simulation::start(NONE);
-
         endClock("tll::init()");
     }
 
     bool loop()
     {
         EventHandler::getInstance()->updateState();
-        Simulation::update();
         //std::cout << "Loop" << std::endl;
         //std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
@@ -105,8 +100,6 @@ namespace tll
         EventHandler::getInstance()->quit();
         TextRenderer::getInstance()->quit();
 
-        Simulator::getInstance()->destroy();
-        SDL_Quit();
         EventHandler::getInstance()->destroy();
         SerialManager::getInstance()->destroy();
         PanelManager::getInstance()->destroy();
@@ -231,30 +224,6 @@ namespace tll
             return ColorPalette::getInstance()->getIDFromName(color_name);
         }
     }
-
-
-    namespace Simulation
-    {
-        void start(uint8_t simulate_mode)
-        {
-            startClock();
-            Simulator::getInstance()->start(simulate_mode);
-            endClock("tll::Simulation::start()");
-        }
-
-        void update()
-        {
-            startClock();
-            Simulator::getInstance()->update();
-            endClock("tll::Simultaion::update()");
-        }
-
-        void quit()
-        {
-            Simulator::getInstance()->quit();
-        }
-    }
-
 
     static double clock = 0.0;
 

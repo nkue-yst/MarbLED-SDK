@@ -2,7 +2,6 @@
 cmake_minimum_required(VERSION 3.10)
 set(PROJECT TLL)
 project(${PROJECT})
-CMAKE_
 
 ### Setup C++ project ###
 enable_language(CXX)
@@ -22,10 +21,6 @@ add_subdirectory(thirdparty/oscpack)
 ### Setup OpenCV ###
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
-
-### Setup SDL2 ###
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
 
 ### Setup ZeroMQ ###
 find_package(GnuTLS REQUIRED)
