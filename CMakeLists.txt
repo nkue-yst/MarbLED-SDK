@@ -2,6 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 set(PROJECT TLL)
 project(${PROJECT})
+CMAKE_
 
 ### Setup C++ project ###
 enable_language(CXX)
@@ -27,7 +28,12 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
 ### Setup ZeroMQ ###
-find_package(cppzmq)
+find_package(GnuTLS REQUIRED)
+include_directories(${GNUTLS_INCLUDE_DIR})
+add_subdirectory(thirdparty/libzmq)
+add_subdirectory(thirdparty/cppzmq)
+include_directories(thirdparty/libzmq/include)
+include_directories(thirdparty/cppzmq)
 
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)

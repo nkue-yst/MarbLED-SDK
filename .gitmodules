@@ -12,3 +12,9 @@
 [submodule "thirdparty/oscpack"]
 	path = thirdparty/oscpack
 	url = git@github.com:RossBencina/oscpack.git
+[submodule "thirdparty/libzmq"]
+	path = thirdparty/libzmq
+	url = git@github.com:zeromq/libzmq.git
+[submodule "thirdparty/cppzmq"]
+	path = thirdparty/cppzmq
+	url = git@github.com:zeromq/cppzmq.git
