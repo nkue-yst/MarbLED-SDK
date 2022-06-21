@@ -63,6 +63,8 @@ namespace tll
          */
         void sendColorData();
 
+        bool send_ready = true;
+
     protected:
         SerialManager()
         : system_mode(0)

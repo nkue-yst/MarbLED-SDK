@@ -8,6 +8,9 @@
 #include "SerialManager.hpp"
 #include "PanelManager.hpp"
 #include "Color.hpp"
+
+#include <zmq.hpp>
+
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -19,6 +22,41 @@
 
 namespace tll
 {
+
+    /* シミュレータ用の色情報送信処理 */
+    void threadSendColor()
+    {
+        auto send_data = []()
+        {
+            zmq::context_t ctx;
+            zmq::socket_t sock(ctx, zmq::socket_type::push);
+            sock.connect("tcp://127.0.0.1:44100");
+
+            while (true)
+            {
+                if (!SerialManager::getInstance()->send_ready)
+                    continue;
+
+                for (uint16_t y = 0; y < PanelManager::getInstance()->getHeight(); y++)
+                {
+                    for (uint16_t x = 0; x < PanelManager::getInstance()->getWidth(); x++)
+                    {
+                        Color color = ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y));
+                        std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + PanelManager::getInstance()->getWidth() * y), color.r_, color.g_, color.b_ };
+
+                        zmq::message_t msg(color_vec);
+                        
+                        auto res = sock.send(msg, zmq::send_flags::none);
+                    }
+                }
+
+                SerialManager::getInstance()->send_ready = false;
+            }
+        };
+
+        std::thread th_send_data(send_data);
+        th_send_data.detach();
+    }
 
     SerialManager* SerialManager::pInstance_ = nullptr;
 
@@ -75,6 +113,8 @@ namespace tll
             this->system_mode = 1;
             #endif
         }
+
+        threadSendColor();
     }
 
     void SerialManager::quit()
@@ -128,6 +168,8 @@ namespace tll
                 #endif
             }
         }
+
+        SerialManager::getInstance()->send_ready = true;
     }
 
 }

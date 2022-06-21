@@ -60,7 +60,6 @@ public:
     virtual void run()
     {
         init(64, 32, "HUB75", false);
-        Simulation::start(NONE);
 
         std::chrono::system_clock::time_point current_time = std::chrono::system_clock::now();
         std::chrono::system_clock::time_point pre_time;
@@ -158,7 +157,6 @@ public:
             }
         }
 
-        Simulation::quit();
         quit();
     }
 

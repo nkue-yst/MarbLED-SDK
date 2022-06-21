@@ -23,7 +23,7 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 ### Setup ZeroMQ ###
-find_package(GnuTLS REQUIRED)
+find_package(GnuTLS)
 include_directories(${GNUTLS_INCLUDE_DIR})
 add_subdirectory(thirdparty/libzmq)
 add_subdirectory(thirdparty/cppzmq)
@@ -45,7 +45,11 @@ target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} cppzmq)
 ### Setup demo app ###
 add_executable(int2022_demo example/int2022_demo.cpp)
 add_executable(int2022_demo_1 example/int2022_demo_1.cpp)
+add_executable(int2022_demo_5 example/int2022_demo_5.cpp)
+add_executable(example_MusicVisualizer example/music_visualizer.cpp)
 target_link_libraries(int2022_demo_1 ${PROJECT} TUIO)
+target_link_libraries(int2022_demo_5 ${PROJECT} TUIO)
+target_link_libraries(example_MusicVisualizer ${PROJECT} TUIO)
 
 ### Setup rpi-rgb-led-matrix (Only on RaspberryPi) ###
 if(WIRINGPI_LIBRARIES)

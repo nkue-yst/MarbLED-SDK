@@ -26,35 +26,35 @@ int main()
             break;
 
         case 1:
-            system("sudo ./example/int2022_demo_1");
+            system("sudo ./int2022_demo_1");
             break;
 
         case 2:
-            system("sudo ./example/int2022_demo_2");
+            system("sudo ./int2022_demo_2");
             break;
 
         case 3:
-            system("sudo ./example/int2022_demo_3");
+            system("sudo ./int2022_demo_3");
             break;
 
         case 4:
-            system("sudo ./example/int2022_demo_4");
+            system("sudo ./int2022_demo_4");
             break;
 
         case 5:
-            system("sudo ./example/int2022_demo_5");
+            system("sudo ./int2022_demo_5");
             break;
 
         case 6:
-            system("sudo ./example/int2022_demo_6");
+            system("sudo ./int2022_demo_6");
             break;
 
         case 7:
-            system("sudo ./example/int2022_demo_7");
+            system("sudo ./int2022_demo_7");
             break;
 
         case 10:
-            system("sudo ./example/music_visualizer");
+            system("sudo ./example_MusicVisualizer");
         
         default:
             std::cout << "Invalid app ID" << std::endl;
