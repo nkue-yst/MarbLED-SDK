@@ -8,6 +8,7 @@
 #include "SerialManager.hpp"
 #include "PanelManager.hpp"
 #include "Color.hpp"
+#include "Common.hpp"
 
 #include <zmq.hpp>
 
@@ -65,6 +66,8 @@ namespace tll
         if (!pInstance_)
         {
             pInstance_ = new SerialManager();
+
+            printLog("Create serial manager");
         }
     }
 
@@ -72,6 +75,8 @@ namespace tll
     {
         delete pInstance_;
         pInstance_ = nullptr;
+
+        printLog("Destroy serial manager");
     }
 
     void SerialManager::init(std::string LED_driver)
@@ -88,7 +93,7 @@ namespace tll
                 std::cout << "Start with simulation mode." << std::endl;
             }
             #else
-            std::cout << "Start with simulation mode." << std::endl;
+            //std::cout << "Start with simulation mode." << std::endl;
             this->system_mode = 1;    
             #endif
         }
@@ -109,7 +114,7 @@ namespace tll
             this->matrix_ = rgb_matrix::CreateMatrixFromOptions(options, runtime_options);
             this->off_canvas_ = this->matrix_->CreateFrameCanvas();
             #else
-            std::cout << "Start with simulation mode." << std::endl;
+            //std::cout << "Start with simulation mode." << std::endl;
             this->system_mode = 1;
             #endif
         }

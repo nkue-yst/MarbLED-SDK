@@ -6,6 +6,7 @@
  */
 
 #include "Event.hpp"
+#include "Common.hpp"
 #include "PanelManager.hpp"
 
 #include "TuioTime.h"
@@ -26,6 +27,8 @@ namespace tll
         if (!pInstance_)
         {
             pInstance_ = new EventHandler();
+
+            printLog("Create Event handler");
         }
     }
 
@@ -33,6 +36,8 @@ namespace tll
     {
         delete pInstance_;
         pInstance_ = nullptr;
+
+        printLog("Destroy Event handler");
     }
 
     void EventHandler::init()

@@ -6,6 +6,7 @@
  */
 
 #include "PanelManager.hpp"
+#include "Common.hpp"
 
 #include <iostream>
 #include <cstdlib>
@@ -20,6 +21,8 @@ namespace tll
         if (!pInstance_)
         {
             pInstance_ = new PanelManager();
+
+            printLog("Create panel manager");
         }
     }
 
@@ -27,6 +30,8 @@ namespace tll
     {
         delete pInstance_;
         pInstance_ = nullptr;
+
+        printLog("Destroy panel manager");
     }
 
     void PanelManager::init(uint16_t width, uint16_t height)

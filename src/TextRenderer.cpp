@@ -6,6 +6,7 @@
  */
 
 #include "TextRenderer.hpp"
+#include "Common.hpp"
 #include "Image.hpp"
 #include "PanelManager.hpp"
 
@@ -23,6 +24,8 @@ namespace tll
         if (!pInstance_)
         {
             pInstance_ = new TextRenderer();
+
+            printLog("Create Text renderer");
         }
     }
 
@@ -30,6 +33,8 @@ namespace tll
     {
         delete pInstance_;
         pInstance_ = nullptr;
+
+        printLog("Destroy Text renderer");
     }
 
     void TextRenderer::init()

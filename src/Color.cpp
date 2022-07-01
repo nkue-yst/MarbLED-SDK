@@ -6,6 +6,8 @@
  */
 
 #include "Color.hpp"
+#include "Common.hpp"
+
 #include <iostream>
 #include <cmath>
 
@@ -19,6 +21,8 @@ namespace tll
         if (!pInstance_)
         {
             pInstance_ = new ColorPalette();
+
+            printLog("Create Color palette");
         }
     }
 
@@ -26,17 +30,13 @@ namespace tll
     {
         delete pInstance_;
         pInstance_ = nullptr;
+
+        printLog("Destroy Color palette");
     }
 
     void ColorPalette::addColor(Color color)
     {
         palette_data_.push_back(color);
-/*
-        std::cout << color.color_name_ << std::endl;
-        std::cout << "  "   << "R:"   << color.r_
-                            << ", G:" << color.g_
-                            << ", B:" << color.b_ << std::endl;
-*/ 
     }
 
     uint8_t ColorPalette::getIDFromName(std::string color_name)

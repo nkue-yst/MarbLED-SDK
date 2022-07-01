@@ -7,6 +7,7 @@
 
 #include "TLL.h"
 #include "Color.hpp"
+#include "Common.hpp"
 #include "Event.hpp"
 #include "TextRenderer.hpp"
 #include "PanelManager.hpp"
@@ -34,9 +35,6 @@ namespace tll
         ColorPalette::create();
 
         // Load color palette information from csv.
-        std::cout << "Loading color palette data..." << std::endl;
-        std::cout << "-------------------------------" << std::endl;
-
         std::string str;
         std::ifstream ifs("ColorPalette.csv");
 
@@ -62,9 +60,7 @@ namespace tll
 
             ColorPalette::getInstance()->addColor(Color(color_name, r, g, b));
         }
-
-        std::cout << "-------------------------------" << std::endl;
-        std::cout << "Finish loading." << std::endl;
+        printLog("Load color palette data");
 
         /* Initialize singleton classes */
         TextRenderer::create();
@@ -79,11 +75,19 @@ namespace tll
         EventHandler::create();
         EventHandler::getInstance()->init();
 
+        std::cout << std::endl;
+
         endClock("tll::init()");
     }
 
     bool loop()
     {
+        auto quitSignal = [](int flag) {
+            std::cout << std::endl;
+            EventHandler::getInstance()->setQuitFlag(true);
+        };
+        signal(SIGINT, quitSignal);
+
         EventHandler::getInstance()->updateState();
         //std::cout << "Loop" << std::endl;
         //std::this_thread::sleep_for(std::chrono::milliseconds(500));
