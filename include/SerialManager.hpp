@@ -8,7 +8,7 @@
 #ifndef SERIAL_MANAGER_HPP
 #define SERIAL_MANAGER_HPP
 
-#ifdef __linux__
+#ifdef WITH_RASPI
 #include "led-matrix.h"
 #endif
 
@@ -80,7 +80,7 @@ namespace tll
         /// LED driver name
         std::string led_driver_;
 
-        #ifdef __linux__
+        #ifdef WITH_RASPI
         /// File descriptor
         int fd;
 

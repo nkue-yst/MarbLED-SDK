@@ -63,6 +63,7 @@ include_directories(thirdparty/cppzmq)
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 if(WIRINGPI_LIBRARIES)
     target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES})
+    add_definitions(WITH_RASPI)
 endif()
 
 ### Create TouchLED-Library (main project) ###

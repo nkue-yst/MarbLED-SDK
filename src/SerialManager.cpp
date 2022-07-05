@@ -17,7 +17,7 @@
 #include <thread>
 #include <unistd.h>
 
-#ifdef __linux__
+#ifdef WITH_RASPI
 #include <wiringSerial.h>
 #endif
 
@@ -85,7 +85,7 @@ namespace tll
 
         if (LED_driver == "HT16K33")
         {
-            #ifdef __linux__
+            #ifdef WITH_RASPI
             fd = serialOpen("/dev/ttyUSB0", 115200);
             if (fd < 0)
             {
@@ -99,7 +99,7 @@ namespace tll
         }
         else if (LED_driver == "HUB75")
         {
-            #ifdef __linux__
+            #ifdef WITH_RASPI
             rgb_matrix::RGBMatrix::Options options;
             rgb_matrix::RuntimeOptions runtime_options;
             options.hardware_mapping = "adafruit-hat";
@@ -126,7 +126,7 @@ namespace tll
     {
         if (this->system_mode == 0)
         {
-            #ifdef __linux__
+            #ifdef WITH_RASPI
             serialClose(fd);
             #endif
         }
@@ -142,13 +142,11 @@ namespace tll
             // If led driver is HT16K33 and use ESP32
             if (this->led_driver_ == "HT16K33")
             {
-
-
                 for (uint16_t y = 0; y < height; y++)
                 {
                     for (uint16_t x = 0; x < width; x++)
                     {
-                        #ifdef __linux__
+                        #ifdef WITH_RASPI
                         serialPutchar(fd, PanelManager::getInstance()->getColor(x, y));
                         #endif
                     }
@@ -161,14 +159,14 @@ namespace tll
                 {
                     for (uint16_t x = 0; x < width; x++)
                     {
-                        #ifdef __linux__
+                        #ifdef WITH_RASPI
                         Color color = ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y));
                         this->off_canvas_->SetPixel(x, y, color.r_, color.g_, color.b_);
                         #endif
                     }
                 }
 
-                #ifdef __linux__
+                #ifdef WITH_RASPI
                 this->matrix_->SwapOnVSync(this->off_canvas_);
                 #endif
             }
