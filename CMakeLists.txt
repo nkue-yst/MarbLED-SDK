@@ -81,6 +81,10 @@ target_link_libraries(int2022_demo_1 ${PROJECT} TUIO)
 target_link_libraries(int2022_demo_5 ${PROJECT} TUIO)
 target_link_libraries(example_MusicVisualizer ${PROJECT} TUIO)
 
+### Setup demo app using OSC ###
+add_executable(example_osc example/example_osc.cpp)
+target_link_libraries(example_osc ${PROJECT} TUIO)
+
 ### Setup rpi-rgb-led-matrix (Only on RaspberryPi) ###
 if(WIRINGPI_LIBRARIES)
     file(GLOB RPI-RGB_SRC thirdparty/rpi-rgb-led-matrix/lib/*.cc thirdparty/rpi-rgb-led-matrix/lib/*.c thirdparty/rpi-rgb-led-matrix/lib/*.h)
