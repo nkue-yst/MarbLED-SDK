@@ -53,6 +53,13 @@ protected:
     }
 };
 
+void runOscReceivingThread()
+{
+    // Initialize socket for osc
+    OscReceiverComponent osc_receiver;
+    UdpListeningReceiveSocket osc_sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 44101), &osc_receiver);
+    osc_sock.Run();
+}
 
 class App : public TuioListener
 {
@@ -63,8 +70,6 @@ public:
         this->client   = new TuioClient(this->receiver);
         this->client->addTuioListener(this);
         this->client->connect();
-
-        this->osc_receiver = new OscReceiverComponent();
     };
 
     void addTuioObject(TuioObject *tobj) override {}
@@ -85,10 +90,6 @@ public:
     {
         init(64, 32, "HUB75", false);
 
-        // Initialize socket for osc
-        UdpListeningReceiveSocket osc_sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 44101), this->osc_receiver);
-        osc_sock.Run();
-
         while (loop())
         {
         }
@@ -99,14 +100,16 @@ public:
 private:
     TuioClient* client;
     OscReceiver* receiver;
-
-    OscReceiverComponent* osc_receiver;
 };
 
 
 int main()
 {
     App* app = new App();
+
+    std::thread th_osc_recv(runOscReceivingThread);
+    th_osc_recv.detach();
+
     app->run();
     delete app;
 }
