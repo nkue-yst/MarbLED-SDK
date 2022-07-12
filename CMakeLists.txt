@@ -62,15 +62,23 @@ include_directories(thirdparty/cppzmq)
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 if(WIRINGPI_LIBRARIES)
-    target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES})
-    add_definitions(WITH_RASPI)
+    #target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES})
+    add_definitions(-DWITH_RASPI)
+endif()
+
+### Setup rpi-rgb-led-matrix (Only on RaspberryPi) ###
+if(WIRINGPI_LIBRARIES)
+    file(GLOB RPI-RGB_SRC ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.cc ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.c ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.h)
+    include_directories(${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/include)
+    add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
+    #target_link_libraries(${PROJECT} RPI-RGB ${WIRINGPI_LIBRARIES} "-pthread")
 endif()
 
 ### Create TouchLED-Library (main project) ###
-file(GLOB TLL_SRC src/*.cpp)
+file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} STATIC ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} cppzmq)
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} cppzmq ${WIRINGPI_LIBRARIES} RPI-RGB)
 
 ### Setup demo app ###
 add_executable(int2022_demo example/int2022_demo.cpp)
@@ -84,14 +92,6 @@ target_link_libraries(example_MusicVisualizer ${PROJECT} TUIO)
 ### Setup demo app using OSC ###
 add_executable(example_osc example/example_osc.cpp)
 target_link_libraries(example_osc ${PROJECT} TUIO)
-
-### Setup rpi-rgb-led-matrix (Only on RaspberryPi) ###
-if(WIRINGPI_LIBRARIES)
-    file(GLOB RPI-RGB_SRC thirdparty/rpi-rgb-led-matrix/lib/*.cc thirdparty/rpi-rgb-led-matrix/lib/*.c thirdparty/rpi-rgb-led-matrix/lib/*.h)
-    include_directories(thirdparty/rpi-rgb-led-matrix/include)
-    add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
-    target_link_libraries(${PROJECT} RPI-RGB ${WIRINGPI_LIBRARIES} "-pthread")
-endif()
 
 ### Copy engine component files ###
 add_custom_command(
