@@ -25,42 +25,6 @@
 using namespace tll;
 using namespace TUIO;
 
-class OscReceiverComponent : public osc::OscPacketListener
-{
-public:
-    OscReceiverComponent() {}
-    ~OscReceiverComponent() {}
-
-protected:
-    virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
-    {
-        (void)remote_end_pt;
-        try
-        {
-            std::cout << "Received osc message" << std::endl;
-            osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
-            osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
-
-            if (strcmp(msg.AddressPattern(), "/example/notify") == 0)
-            {
-                std::cout << "/example/notify" << std::endl;
-            }
-        }
-        catch (osc::Exception& e)
-        {
-            std::cout << "OSC error" << std::endl;
-        }
-    }
-};
-
-void runOscReceivingThread()
-{
-    // Initialize socket for osc
-    OscReceiverComponent osc_receiver;
-    UdpListeningReceiveSocket osc_sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 44101), &osc_receiver);
-    osc_sock.Run();
-}
-
 class App : public TuioListener
 {
 public:
@@ -97,17 +61,61 @@ public:
         quit();
     }
 
+    void notified()
+    {
+        std::cout << "Received notify" << std::endl;
+    }
+
 private:
     TuioClient* client;
     OscReceiver* receiver;
 };
 
+class OscReceiverComponent : public osc::OscPacketListener
+{
+public:
+    OscReceiverComponent(class App* app)
+        :app_ref(app)
+    {}
+    ~OscReceiverComponent() {}
+
+protected:
+    virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
+    {
+        (void)remote_end_pt;
+        try
+        {
+            std::cout << "Received osc message" << std::endl;
+            osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
+            osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
+
+            if (strcmp(msg.AddressPattern(), "/example/notify") == 0)
+            {
+                this->app_ref->notified();
+            }
+        }
+        catch (osc::Exception& e)
+        {
+            std::cout << "OSC error" << std::endl;
+        }
+    }
+
+    class App* app_ref;
+};
+
+void runOscReceivingThread(App* app)
+{
+    // Initialize socket for osc
+    OscReceiverComponent osc_receiver(app);
+    UdpListeningReceiveSocket osc_sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 44101), &osc_receiver);
+    osc_sock.Run();
+}
 
 int main()
 {
     App* app = new App();
 
-    std::thread th_osc_recv(runOscReceivingThread);
+    std::thread th_osc_recv(runOscReceivingThread, app);
     th_osc_recv.detach();
 
     app->run();
