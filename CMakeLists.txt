@@ -78,7 +78,10 @@ endif()
 file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} STATIC ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} ${SDL2_LIBRARIES} cppzmq ${WIRINGPI_LIBRARIES} RPI-RGB)
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} cppzmq)
+if(WIRINGPI_LIBRARIES)
+    target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES} RPI-RGB)
+endif()
 
 ### Setup demo app ###
 add_executable(int2022_demo example/int2022_demo.cpp)
