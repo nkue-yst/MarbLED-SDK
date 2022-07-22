@@ -83,18 +83,32 @@ if(WIRINGPI_LIBRARIES)
     target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES} RPI-RGB)
 endif()
 
-### Setup demo app ###
-add_executable(int2022_demo example/int2022_demo.cpp)
-add_executable(int2022_demo_1 example/int2022_demo_1.cpp)
-add_executable(int2022_demo_5 example/int2022_demo_5.cpp)
-add_executable(example_MusicVisualizer example/music_visualizer.cpp)
-target_link_libraries(int2022_demo_1 ${PROJECT} TUIO)
-target_link_libraries(int2022_demo_5 ${PROJECT} TUIO)
-target_link_libraries(example_MusicVisualizer ${PROJECT} TUIO)
+### Setup demo app for int2022 ###
+option(TLL_DEMO_INT2022 "Build demo app for int2022" OFF)
+if(TLL_DEMO_INT2022)
+    add_executable(int2022_demo example/int2022_demo.cpp)
+    add_executable(int2022_demo_1 example/int2022_demo_1.cpp)
+    add_executable(int2022_demo_5 example/int2022_demo_5.cpp)
+    add_executable(example_MusicVisualizer example/music_visualizer.cpp)
+    target_link_libraries(int2022_demo_1 ${PROJECT} TUIO)
+    target_link_libraries(int2022_demo_5 ${PROJECT} TUIO)
+    target_link_libraries(example_MusicVisualizer ${PROJECT} TUIO)
+endif()
+
+### Setup demo app for cedec2022 ###
+option(TLL_DEMO_CEDEC2022 "Build demo app for cedec2022" ON)
+if(TLL_DEMO_CEDEC2022)
+    file(GLOB TLL_CEDEC2022_SRC ${CMAKE_SOURCE_DIR}/example/cedec2022/*)
+    add_executable(cedec2022_demo ${TLL_CEDEC2022_SRC})
+    target_link_libraries(cedec2022_demo ${PROJECT} TUIO)
+endif()
 
 ### Setup demo app using OSC ###
-add_executable(example_osc example/example_osc.cpp)
-target_link_libraries(example_osc ${PROJECT} TUIO)
+option(TLL_TEST_OSC "Build test app using osc" OFF)
+if(TLL_TEST_OSC)
+    add_executable(example_osc example/example_osc.cpp)
+    target_link_libraries(example_osc ${PROJECT} TUIO)
+endif()
 
 ### Copy engine component files ###
 add_custom_command(
