@@ -101,6 +101,8 @@ if(TLL_DEMO_CEDEC2022)
     file(GLOB TLL_CEDEC2022_SRC ${CMAKE_SOURCE_DIR}/example/cedec2022/*)
     add_executable(cedec2022_demo ${TLL_CEDEC2022_SRC})
     target_link_libraries(cedec2022_demo ${PROJECT} TUIO)
+
+    add_executable(AppGenerator ${CMAKE_SOURCE_DIR}/example/cedec2022/AppGenerator/AppGenerator.cpp)
 endif()
 
 ### Setup demo app using OSC ###

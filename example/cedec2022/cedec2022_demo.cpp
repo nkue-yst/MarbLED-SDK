@@ -6,11 +6,13 @@
  */
 
 #include "cedec2022_demo.hpp"
-#include "cedec2022_music_visualizer.hpp"
+#include "MusicVisualizer.gen.hpp"
 #include "send_osc.h"
 
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
+
+#define demo_main main
 
 CedecDemo::CedecDemo()
 {
@@ -32,13 +34,15 @@ void CedecDemo::run()
     init(64, 32, "HUB75", false);
     sendOscMessage("/tll/init");
 
-    this->running_app = new MusicVisualizer();
+    this->running_app = MusicVisualizer::load();
+    this->running_app->init();
 
     while (loop())
     {
         this->running_app->run();
     }
 
+    this->running_app->terminate();
     delete this->running_app;
 
     sendOscMessage("/tll/terminate");
@@ -53,7 +57,7 @@ void runOscReceivingThread(CedecDemo* app)
     osc_sock.Run();
 }
 
-int main()
+int demo_main()
 {
     CedecDemo* app = new CedecDemo();
 

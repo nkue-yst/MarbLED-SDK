@@ -62,18 +62,17 @@ protected:
     /* 受信したメッセージのアドレスによって処理振り分け */
     virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override
     {
+        if (!this->app_ref)
+            return;
+
         (void)remote_end_pt;
         try
         {
             //std::cout << "Received osc message" << std::endl;
             osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
             osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
-
-            if (strcmp(msg.AddressPattern(), "/tll/app/music_visualizer/beat_notify") == 0)
-            {
-                this->app_ref->running_app->beatNotified();
-                //this->app_ref->running_app->test();
-            }
+            
+            this->app_ref->running_app->procMessage(msg.AddressPattern());
         }
         catch (osc::Exception& e)
         {

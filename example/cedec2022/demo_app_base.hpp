@@ -1,23 +1,23 @@
 #pragma once
-#include <iostream>
 
-#define emptyFuncError std::cout << __FILE__ << "#" << __LINE__ << " " << __PRETTY_FUNCTION__ << "  --> 実装されていない関数です." << std::endl
+#define emptyFuncError __FILE__ << "#" << __LINE__ << " " << __PRETTY_FUNCTION__ << "  --> 実装されていない関数です."
 
 class AppBase
 {
 public:
     AppBase() {}
-    virtual ~AppBase() {}
+    virtual ~AppBase() {};
 
     /* Common */
+    template<class App>
+    static App* load() { return new App(); }
+
+    virtual void init() = 0;
     virtual void run() = 0;
+    virtual void terminate() = 0;
 
-    /* Music visualizer */
-    virtual void beatNotified() { emptyFuncError; }
-    virtual void receiveValue() { emptyFuncError; }
+    virtual void procMessage(const char* msg) = 0;
 
-    /* test */
-    virtual void test() { emptyFuncError; }
-
+protected:
     bool is_running = false;    // run()の終了判定
 };
