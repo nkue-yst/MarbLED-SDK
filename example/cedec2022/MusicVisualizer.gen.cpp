@@ -41,7 +41,16 @@ void MusicVisualizer::terminate()
 
 void MusicVisualizer::procMessage(const char* msg)
 {
-    std::cout << msg << std::endl;
+    //std::cout << msg << std::endl;
+
+    if (strcmp(msg, "/tll/app/music_visualizer/beat_notify") == 0)
+    {
+        this->beatNotified();
+    }
+    else
+    {
+        std::cout << "未対応のメッセージです." << std::endl;
+    }
 }
 
 void MusicVisualizer::beatNotified()
