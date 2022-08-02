@@ -18,6 +18,11 @@ public:
 
     virtual void procMessage(const char* msg) = 0;
 
+    /* Touch event */
+    virtual void onTouched() = 0;
+    virtual void onMoved() = 0;
+    virtual void onReleased() = 0;
+
 protected:
     bool is_running = false;    // run()の終了判定
 };

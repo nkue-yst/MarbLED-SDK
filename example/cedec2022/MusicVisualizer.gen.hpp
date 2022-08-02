@@ -35,6 +35,10 @@ public:
     void terminate() override;
     void procMessage(const char* msg) override;
 
+    void onTouched() override;
+    void onMoved() override;
+    void onReleased() override;
+
     void beatNotified();
     void receiveValue();
 

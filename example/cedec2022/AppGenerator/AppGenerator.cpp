@@ -56,6 +56,10 @@ int main(int argc, char** argv)
         << TAB << "void run() override;\n"
         << TAB << "void terminate() override;\n"
         << TAB << "void procMessage(const char* msg) override;\n"
+        << "\n"
+        << TAB << "void onTouched() override;\n"
+        << TAB << "void onMoved() override;\n"
+        << TAB << "void onReleased() override;\n"
         << "};\n";
 
     cpp_file
@@ -87,6 +91,18 @@ int main(int argc, char** argv)
         << "\n"
         << "void " << class_name << "::procMessage(const char* msg)\n"
         << "{\n"
+        << "\n"
+        << "}\n"
+        << "\n"
+        << "void " << class_name << "::onTouched()\n"
+        << "\n"
+        << "}\n"
+        << "\n"
+        << "void " << class_name << "::onMoved())\n"
+        << "\n"
+        << "}\n"
+        << "\n"
+        << "void " << class_name << "::onReleased()\n"
         << "\n"
         << "}\n";
 

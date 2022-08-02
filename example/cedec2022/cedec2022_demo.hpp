@@ -26,9 +26,18 @@ public:
     CedecDemo();
     ~CedecDemo();
 
-    void addTuioObject(TuioObject *tobj) override {}
-    void updateTuioObject(TuioObject *tobj) override {}
-    void removeTuioObject(TuioObject *tobj) override {}
+    void addTuioObject(TuioObject *tobj) override
+    {
+        this->running_app->onTouched();
+    }
+    void updateTuioObject(TuioObject *tobj) override
+    {
+        this->running_app->onMoved();
+    }
+    void removeTuioObject(TuioObject *tobj) override
+    {
+        this->running_app->onReleased();
+    }
 
     void addTuioCursor(TuioCursor *tcur) override {}
     void updateTuioCursor(TuioCursor *tcur) override {}

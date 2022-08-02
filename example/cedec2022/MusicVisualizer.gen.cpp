@@ -53,6 +53,21 @@ void MusicVisualizer::procMessage(const char* msg)
     }
 }
 
+void MusicVisualizer::onTouched()
+{
+
+}
+
+void MusicVisualizer::onMoved()
+{
+
+}
+
+void MusicVisualizer::onReleased()
+{
+    
+}
+
 void MusicVisualizer::beatNotified()
 {
     static auto expandCircle = [this](double offset)
