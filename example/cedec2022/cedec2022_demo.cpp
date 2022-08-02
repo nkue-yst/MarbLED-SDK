@@ -6,8 +6,10 @@
  */
 
 #include "cedec2022_demo.hpp"
-#include "MusicVisualizer.gen.hpp"
 #include "send_osc.h"
+
+#include "MusicVisualizer.gen.hpp"
+#include "VoiceRecognition.gen.hpp"
 
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
@@ -34,7 +36,9 @@ void CedecDemo::run()
     init(64, 32, "HUB75", false);
     sendOscMessage("/tll/init");
 
-    this->running_app = MusicVisualizer::load();
+    //this->running_app = MusicVisualizer::load();
+    this->running_app = VoiceRecognition::load();
+
     this->running_app->init();
 
     while (loop())

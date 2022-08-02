@@ -103,6 +103,12 @@ if(TLL_DEMO_CEDEC2022)
     target_link_libraries(cedec2022_demo ${PROJECT} TUIO)
 
     add_executable(AppGenerator ${CMAKE_SOURCE_DIR}/example/cedec2022/AppGenerator/AppGenerator.cpp)
+
+    # Copy resource files
+    add_custom_command(
+        TARGET ${PROJECT} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/example/video/bomb.mp4" $<TARGET_FILE_DIR:${PROJECT}>
+    )
 endif()
 
 ### Setup demo app using OSC ###

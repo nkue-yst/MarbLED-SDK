@@ -76,11 +76,7 @@ protected:
 
         (void)remote_end_pt;
         try
-        {
-            //std::cout << "Received osc message" << std::endl;
-            osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
-            osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
-            
+        {            
             this->app_ref->running_app->procMessage(msg);
         }
         catch (osc::Exception& e)
