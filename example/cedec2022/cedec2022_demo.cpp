@@ -10,6 +10,7 @@
 
 #include "MusicVisualizer.gen.hpp"
 #include "VoiceRecognition.gen.hpp"
+#include "Rain.gen.hpp"
 
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
@@ -36,7 +37,7 @@ void CedecDemo::run()
     init(64, 32, "HUB75", false);
     sendOscMessage("/tll/init");
 
-    this->running_app = MusicVisualizer::load();
+    this->running_app = Rain::load();
     this->running_app->init();
 
     while (loop())
@@ -64,6 +65,11 @@ void CedecDemo::switchApp(const char* app_name)
     else if (strcmp(app_name, "voice") == 0)
     {
         this->running_app = VoiceRecognition::load();
+        this->running_app->init();
+    }
+    else if (strcmp(app_name, "rain") == 0)
+    {
+        this->running_app = Rain::load();
         this->running_app->init();
     }
     else
