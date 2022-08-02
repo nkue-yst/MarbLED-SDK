@@ -1,4 +1,6 @@
 #pragma once
+#include <cstdint>
+#include "osc/OscReceivedElements.h"
 
 #define emptyFuncError __FILE__ << "#" << __LINE__ << " " << __PRETTY_FUNCTION__ << "  --> 実装されていない関数です."
 
@@ -16,11 +18,11 @@ public:
     virtual void run() = 0;
     virtual void terminate() = 0;
 
-    virtual void procMessage(const char* msg) = 0;
+    virtual void procMessage(const osc::ReceivedMessage& msg) = 0;
 
     /* Touch event */
-    virtual void onTouched() = 0;
-    virtual void onMoved() = 0;
+    virtual void onTouched(uint32_t x, uint32_t y) = 0;
+    virtual void onMoved(uint32_t x, uint32_t y) = 0;
     virtual void onReleased() = 0;
 
 protected:

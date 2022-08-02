@@ -39,13 +39,19 @@ void MusicVisualizer::terminate()
     sendOscMessage("/tll/app/music_visualizer/terminate");
 }
 
-void MusicVisualizer::procMessage(const char* msg)
+void MusicVisualizer::procMessage(const osc::ReceivedMessage& msg)
 {
-    //std::cout << msg << std::endl;
+    osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
 
-    if (strcmp(msg, "/tll/app/music_visualizer/beat_notify") == 0)
+    if (strcmp(msg.AddressPattern(), "/tll/app/music_visualizer/beat_notify") == 0)
     {
         this->beatNotified();
+    }
+    else if (strcmp(msg.AddressPattern(), "/tll/app/music_visualizer/value") == 0)
+    {
+        clear();
+        int32_t rad = (arg++)->AsInt32();
+        drawCircle(this->x, this->y, rad, Palette::color("White"));
     }
     else
     {
@@ -53,19 +59,19 @@ void MusicVisualizer::procMessage(const char* msg)
     }
 }
 
-void MusicVisualizer::onTouched()
+void MusicVisualizer::onTouched(uint32_t x, uint32_t y)
 {
 
 }
 
-void MusicVisualizer::onMoved()
+void MusicVisualizer::onMoved(uint32_t x, uint32_t y)
 {
 
 }
 
 void MusicVisualizer::onReleased()
 {
-    
+
 }
 
 void MusicVisualizer::beatNotified()
@@ -137,9 +143,4 @@ void MusicVisualizer::beatNotified()
 
     this->pre_pre_elapse = this->pre_elapse;
     this->pre_elapse = elapse;
-}
-
-void MusicVisualizer::receiveValue()
-{
-
 }

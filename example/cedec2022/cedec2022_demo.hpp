@@ -28,11 +28,11 @@ public:
 
     void addTuioObject(TuioObject *tobj) override
     {
-        this->running_app->onTouched();
+        this->running_app->onTouched((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
     }
     void updateTuioObject(TuioObject *tobj) override
     {
-        this->running_app->onMoved();
+        this->running_app->onMoved((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
     }
     void removeTuioObject(TuioObject *tobj) override
     {
@@ -81,7 +81,7 @@ protected:
             osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
             osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
             
-            this->app_ref->running_app->procMessage(msg.AddressPattern());
+            this->app_ref->running_app->procMessage(msg);
         }
         catch (osc::Exception& e)
         {

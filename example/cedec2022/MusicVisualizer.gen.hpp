@@ -33,14 +33,13 @@ public:
     void init() override;
     void run() override;
     void terminate() override;
-    void procMessage(const char* msg) override;
+    void procMessage(const osc::ReceivedMessage& msg) override;
 
-    void onTouched() override;
-    void onMoved() override;
+    void onTouched(uint32_t x, uint32_t y) override;
+    void onMoved(uint32_t x, uint32_t y) override;
     void onReleased() override;
 
     void beatNotified();
-    void receiveValue();
 
 private:
     std::chrono::system_clock::time_point pre_pre_tp;
