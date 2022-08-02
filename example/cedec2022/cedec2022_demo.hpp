@@ -51,6 +51,8 @@ public:
 
     virtual void run();
 
+    void switchApp(const char* app_name);
+
     class AppBase* running_app;
 
 private:
@@ -76,8 +78,15 @@ protected:
 
         (void)remote_end_pt;
         try
-        {            
-            this->app_ref->running_app->procMessage(msg);
+        {  
+            if (strcmp(msg.AddressPattern(), "/tll/switch") == 0)
+            {
+                this->app_ref->switchApp(msg.ArgumentsBegin()->AsString());
+            }
+            else
+            {
+                this->app_ref->running_app->procMessage(msg);
+            }
         }
         catch (osc::Exception& e)
         {

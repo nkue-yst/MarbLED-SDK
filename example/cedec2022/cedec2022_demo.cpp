@@ -36,9 +36,7 @@ void CedecDemo::run()
     init(64, 32, "HUB75", false);
     sendOscMessage("/tll/init");
 
-    //this->running_app = MusicVisualizer::load();
-    this->running_app = VoiceRecognition::load();
-
+    this->running_app = MusicVisualizer::load();
     this->running_app->init();
 
     while (loop())
@@ -51,6 +49,27 @@ void CedecDemo::run()
 
     sendOscMessage("/tll/terminate");
     quit();
+}
+
+void CedecDemo::switchApp(const char* app_name)
+{
+    this->running_app->terminate();
+    delete this->running_app;
+
+    if (strcmp(app_name, "music_visualizer") == 0)
+    {
+        this->running_app = MusicVisualizer::load();
+        this->running_app->init();
+    }
+    else if (strcmp(app_name, "voice") == 0)
+    {
+        this->running_app = VoiceRecognition::load();
+        this->running_app->init();
+    }
+    else
+    {
+        std::cout << "[ERROR]: Invalid app name" << std::endl;
+    }
 }
 
 void runOscReceivingThread(CedecDemo* app)

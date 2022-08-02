@@ -12,6 +12,7 @@ VoiceRecognition* VoiceRecognition::load()
 void VoiceRecognition::init()
 {
     sendOscMessage("/tll/app/voice/init");
+    std::cout << "Start up \"VoiceRecognition\"" << std::endl;
 }
 
 void VoiceRecognition::run()
@@ -28,6 +29,7 @@ void VoiceRecognition::run()
 void VoiceRecognition::terminate()
 {
     sendOscMessage("/tll/app/voice/terminate");
+    std::cout << "Terminate \"VoiceRecognition\"" << std::endl;
 }
 
 void VoiceRecognition::procMessage(const osc::ReceivedMessage& msg)

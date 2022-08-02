@@ -21,6 +21,7 @@ MusicVisualizer* MusicVisualizer::load()
 void MusicVisualizer::init()
 {
     sendOscMessage("/tll/app/music_visualizer/init");
+    std::cout << "Start up \"MusicVisualizer\"" << std::endl;
 }
 
 void MusicVisualizer::run()
@@ -37,6 +38,7 @@ void MusicVisualizer::run()
 void MusicVisualizer::terminate()
 {
     sendOscMessage("/tll/app/music_visualizer/terminate");
+    std::cout << "Terminate \"MusicVisualizer\"" << std::endl;
 }
 
 void MusicVisualizer::procMessage(const osc::ReceivedMessage& msg)
