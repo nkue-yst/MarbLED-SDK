@@ -77,10 +77,23 @@ endif()
 ### Create TouchLED-Library (main project) ###
 file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
-add_library(${PROJECT} STATIC ${TLL_SRC})
+add_library(${PROJECT} SHARED ${TLL_SRC})
 target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} cppzmq)
 if(WIRINGPI_LIBRARIES)
     target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES} RPI-RGB)
+endif()
+
+### Setup base application ###
+option(TLL_BASE_APP "Build base app" ON)
+if(TLL_BASE_APP)
+    add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
+    target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
+endif()
+
+### Setup building applications ###
+option(TLL_BUILD_APP "Build applications using TLL" ON)
+if(TLL_BUILD_APP)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/app)
 endif()
 
 ### Setup demo app for int2022 ###
@@ -96,13 +109,13 @@ if(TLL_DEMO_INT2022)
 endif()
 
 ### Setup demo app for cedec2022 ###
-option(TLL_DEMO_CEDEC2022 "Build demo app for cedec2022" ON)
+option(TLL_DEMO_CEDEC2022 "Build demo app for cedec2022" OFF)
 if(TLL_DEMO_CEDEC2022)
     file(GLOB TLL_CEDEC2022_SRC ${CMAKE_SOURCE_DIR}/example/cedec2022/*)
     add_executable(cedec2022_demo ${TLL_CEDEC2022_SRC})
     target_link_libraries(cedec2022_demo ${PROJECT} TUIO)
 
-    add_executable(AppGenerator ${CMAKE_SOURCE_DIR}/example/cedec2022/AppGenerator/AppGenerator.cpp)
+    add_executable(CedecAppGenerator ${CMAKE_SOURCE_DIR}/example/cedec2022/AppGenerator/AppGenerator.cpp)
 
     # Copy resource files
     add_custom_command(
