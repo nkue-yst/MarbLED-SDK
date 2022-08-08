@@ -1,4 +1,5 @@
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <string>
 
@@ -63,14 +64,16 @@ int main(int argc, char** argv)
         << "#include \"" << header_file_name << "\"\n"
         << "#include \"TLL.h\"\n"
         << "\n"
+        << "#include <iostream>\n"
+        << "\n"
         << class_name << "::" << class_name << "()\n"
         << "{\n"
-        << "\n"
+        << TAB << "std::cout << \"Create " << class_name << " instance.\" << std::endl;"
         << "}\n"
         << "\n"
         << class_name << "::~" << class_name << "()\n"
         << "{\n"
-        << "\n"
+        << TAB << "std::cout << \"Delete " << class_name << " instance.\" << std::endl;"
         << "}\n"
         << "\n"
         << "void " << class_name << "::init()\n"
@@ -106,5 +109,16 @@ int main(int argc, char** argv)
     header_file.close();
     cpp_file.close();
 
-    std::cout << "Create <" << header_file_name << ">, <" << cpp_file_name << ">" << std::endl;
+    if (std::filesystem::exists(std::filesystem::status("../app/CMakeLists.txt")))
+    {
+        std::ofstream cmake_file("../app/CMakeLists.txt", std::ios::app);
+        cmake_file << "add_library(" << class_name << " SHARED ${CMAKE_SOURCE_DIR}/app/" << cpp_file_name << ")\n";
+
+        std::cout << "Update \"../app/CMakeLists.txt\"" << std::endl;
+
+        std::filesystem::rename(header_file_name, std::string("../app/") + header_file_name);
+        std::filesystem::rename(cpp_file_name, std::string("../app/") + cpp_file_name);
+    }
+
+    std::cout << "Create \"" << header_file_name << "\", \"" << cpp_file_name << "\"" << std::endl;
 }
