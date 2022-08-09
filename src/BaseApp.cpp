@@ -102,8 +102,19 @@ int main(int argc, char** argv)
 {
     tll::BaseApp* base_app = new tll::BaseApp();
 
-    std::thread thread_osc(tll::runOscReceiveThread, base_app);
-    thread_osc.detach();
+    // モード管理フラグ
+    bool with_osc = true;
+
+    if (argc > 1)
+    {
+        if (strcmp(argv[1], "--without-osc") == 0) with_osc = false;
+    }
+
+    if (with_osc)
+    {
+        std::thread thread_osc(tll::runOscReceiveThread, base_app);
+        thread_osc.detach();
+    }
 
     base_app->run();
 
