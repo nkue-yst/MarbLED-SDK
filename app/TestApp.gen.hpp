@@ -8,6 +8,7 @@
 
 #include <cstdint>
 #include <memory>
+#include <iostream>
 
 class TestApp : public tll::AppInterface
 {

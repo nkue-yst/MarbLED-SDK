@@ -37,6 +37,24 @@ namespace tll
     {
         init(64, 32, "HUB75", false);
 
+        this->loadApps();
+
+        createApp* createAppFunc = (createApp*)(dlsym(this->dl_list.at(0), "create"));
+        std::unique_ptr<class AppInterface> app = createAppFunc();
+
+        while (loop())
+        {
+            if (this->running_app)
+                this->running_app->run();
+        }
+
+        quit();
+    }
+
+    uint32_t BaseApp::loadApps()
+    {
+        uint32_t app_num = 0;
+
         auto dirs = std::filesystem::directory_iterator(std::filesystem::path("./app"));
         for (auto& dir : dirs)
         {
@@ -46,28 +64,18 @@ namespace tll
             if (path.find(extention.c_str()) != std::string::npos)
             {
                 this->app_list[path] = dir.path().stem().string();
+                app_num++;
             }
         }
 
-        // 全てのアプリを一度読み込んで破棄する（テスト用）
-        std::for_each(this->app_list.begin(), this->app_list.end(), [](std::unordered_map<std::string, std::string>::value_type app)
+        // 全てのアプリファイルを読み込む
+        std::for_each(this->app_list.begin(), this->app_list.end(), [this](std::unordered_map<std::string, std::string>::value_type app)
         {
             void* app_handle = dlopen(app.first.c_str(), RTLD_LAZY);
-            auto createApp = (createAppFunc*)(dlsym(app_handle, "create"));
-
-            {
-                const auto& app_instance = createApp();
-            }
-
-            dlclose(app_handle);
+            this->dl_list.push_back(app_handle);
         });
 
-        while (loop())
-        {
-
-        }
-
-        quit();
+        return app_num;
     }
 
 }

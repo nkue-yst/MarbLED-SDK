@@ -7,7 +7,7 @@
 
 namespace tll
 {
-    typedef std::unique_ptr<class AppInterface> createAppFunc();
+    typedef std::unique_ptr<class AppInterface> createApp();
 
     /* アプリ実装用インターフェースクラス */
     class AppInterface

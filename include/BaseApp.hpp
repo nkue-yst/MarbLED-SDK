@@ -1,12 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <unistd.h>
-#include <thread>
-#include <chrono>
-#include <vector>
-#include <unordered_map>
-
 #include "TLL.h"
 #include "AppInterface.hpp"
 
@@ -17,6 +10,14 @@
 #include "osc/OscReceivedElements.h"
 #include "osc/OscPacketListener.h"
 #include "osc/OscOutboundPacketStream.h"
+
+#include <iostream>
+#include <unistd.h>
+#include <thread>
+#include <chrono>
+#include <vector>
+#include <unordered_map>
+#include <memory>
 
 namespace tll
 {
@@ -56,10 +57,15 @@ namespace tll
         virtual void run();
 
     private:
+        uint32_t loadApps();
+        void unloadApps();
+
         // 読み込んだ（アプリ名 - 管理に使う名前）のリスト
         std::unordered_map<std::string, std::string> app_list;
 
-        class AppInterface* running_app;
+        std::unique_ptr<class AppInterface> running_app;
+
+        std::vector<void*> dl_list;
 
         TUIO::TuioClient* tuio_client;
         TUIO::OscReceiver* osc_receiver;

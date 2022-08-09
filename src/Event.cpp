@@ -103,7 +103,7 @@ namespace tll
         OscReceiver receiver;
         UdpListeningReceiveSocket sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 9000), &receiver);
 
-        std::cout << "Start osc listen thread." << std::endl;
+        //std::cout << "Start osc listen thread." << std::endl;
         sock.Run();
     }
 
