@@ -40,8 +40,9 @@ namespace tll
 
         this->loadApps();
 
-        createApp* createAppFunc = (createApp*)(dlsym(this->dl_list.at(0), "create"));
+        createApp* createAppFunc = (createApp*)(dlsym(this->app_list.begin()->second, "create"));
         std::unique_ptr<class AppInterface> app = createAppFunc();
+        this->running_app = std::move(app);
 
         while (loop())
         {
@@ -50,6 +51,27 @@ namespace tll
         }
 
         quit();
+    }
+
+    bool BaseApp::switchApp(std::string app_name)
+    {
+        bool is_found = false;
+
+        this->running_app->terminate();
+
+        std::for_each(this->app_list.begin(), this->app_list.end(), [this, app_name, &is_found](std::unordered_map<std::string, void*>::value_type app)
+        {
+            if (app.first == app_name)
+            {
+                createApp* createAppFunc = (createApp*)(dlsym(this->app_list.find(app_name)->second, "create"));
+                std::unique_ptr<class AppInterface> app = createAppFunc();
+                this->running_app = std::move(app);
+
+                is_found = true;
+            }
+        });
+
+        return is_found;
     }
 
     uint32_t BaseApp::loadApps()
@@ -61,20 +83,15 @@ namespace tll
         {
             std::string path = dir.path().string();
 
-            // アプリファイルを検索する
+            // アプリファイルを検索し、ロードする
             if (path.find(extention.c_str()) != std::string::npos)
             {
-                this->app_list[path] = dir.path().stem().string();
+                std::string app_file_name = dir.path().stem().string();
+                std::string app_name = app_file_name.substr(3);
+                this->app_list[app_name] = dlopen(path.c_str(), RTLD_LAZY);
                 app_num++;
             }
         }
-
-        // 全てのアプリファイルを読み込む
-        std::for_each(this->app_list.begin(), this->app_list.end(), [this](std::unordered_map<std::string, std::string>::value_type app)
-        {
-            void* app_handle = dlopen(app.first.c_str(), RTLD_LAZY);
-            this->dl_list.push_back(app_handle);
-        });
 
         return app_num;
     }

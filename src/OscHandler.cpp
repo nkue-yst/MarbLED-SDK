@@ -15,7 +15,7 @@ namespace tll
         {
             if (strcmp(msg.AddressPattern(), "/tll/switch") == 0)
             {
-                
+                this->app_ref->switchApp(msg.ArgumentsBegin()->AsString());
             }
             else
             {

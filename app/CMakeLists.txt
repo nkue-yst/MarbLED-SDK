@@ -12,3 +12,4 @@ add_executable(AppGenerator ${CMAKE_SOURCE_DIR}/app/AppGenerator.cpp)
 ### Setup building apps （アプリ追加時はここに追記する） ###
 include_directories(${CMAKE_SOURCE_DIR}/app)
 add_library(TestApp SHARED ${CMAKE_SOURCE_DIR}/app/TestApp.gen.cpp)
+add_library(OscTestApp SHARED ${CMAKE_SOURCE_DIR}/app/OscTestApp.gen.cpp)

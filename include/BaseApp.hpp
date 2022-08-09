@@ -50,20 +50,18 @@ namespace tll
 
         void refresh(TUIO::TuioTime ftime) override {}
 
-        virtual void run();
+        void run();
+        bool switchApp(const std::string app_name);
 
         AppInterface* getRunningApp() { return this->running_app.get(); }
 
     private:
         uint32_t loadApps();
-        void unloadApps();
 
-        // 読み込んだ（アプリ名 - 管理に使う名前）のリスト
-        std::unordered_map<std::string, std::string> app_list;
+        // 読み込んだ（アプリ名 - DLL）のリスト
+        std::unordered_map<std::string, void*> app_list;
 
         std::unique_ptr<class AppInterface> running_app;
-
-        std::vector<void*> dl_list;
 
         TUIO::TuioClient* tuio_client;
         TUIO::OscReceiver* osc_receiver;
