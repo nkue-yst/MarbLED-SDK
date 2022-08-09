@@ -7,10 +7,6 @@
 #include <UdpReceiver.h>
 #include <TuioClient.h>
 
-#include "osc/OscReceivedElements.h"
-#include "osc/OscPacketListener.h"
-#include "osc/OscOutboundPacketStream.h"
-
 #include <iostream>
 #include <unistd.h>
 #include <thread>
@@ -55,6 +51,8 @@ namespace tll
         void refresh(TUIO::TuioTime ftime) override {}
 
         virtual void run();
+
+        AppInterface* getRunningApp() { return this->running_app.get(); }
 
     private:
         uint32_t loadApps();

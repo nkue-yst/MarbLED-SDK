@@ -1,5 +1,6 @@
 #include "BaseApp.hpp"
 #include "AppInterface.hpp"
+#include "OscHandler.hpp"
 
 #include <algorithm>
 #include <dlfcn.h>
@@ -83,6 +84,9 @@ namespace tll
 int main(int argc, char** argv)
 {
     tll::BaseApp* base_app = new tll::BaseApp();
+
+    std::thread thread_osc(tll::runOscReceiveThread, base_app);
+    thread_osc.detach();
 
     base_app->run();
 

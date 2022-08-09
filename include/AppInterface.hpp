@@ -25,6 +25,9 @@ namespace tll
         virtual void onMoved(uint32_t x, uint32_t y) = 0;
         virtual void onReleased() = 0;
 
+        /* OSC process */
+        virtual void procOscMessage(const osc::ReceivedMessage& msg) {}
+
     protected:
         bool is_running = false;
     };
