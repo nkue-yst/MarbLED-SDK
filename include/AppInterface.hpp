@@ -1,5 +1,7 @@
 #pragma once
 
+#include "OscHandler.hpp"
+
 #include <cstdint>
 #include <memory>
 

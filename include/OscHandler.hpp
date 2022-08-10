@@ -1,3 +1,5 @@
+#pragma once
+
 #include "ip/IpEndpointName.h"
 #include "ip/UdpSocket.h"
 
@@ -19,6 +21,8 @@ namespace tll
         OscHandler() {}
         OscHandler(class BaseApp* base_app) :app_ref(base_app) {}
         ~OscHandler() {}
+
+        static void sendMessage(const char* address);
 
     protected:
         virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override;

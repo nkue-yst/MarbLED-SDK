@@ -87,9 +87,10 @@ namespace tll
             // アプリファイルを検索し、ロードする
             if (path.find(extention.c_str()) != std::string::npos)
             {
-                std::string app_file_name = dir.path().stem().string();
-                std::string app_name = app_file_name.substr(3);
-                this->app_list[app_name] = dlopen(path.c_str(), RTLD_LAZY);
+                std::string app_file_name = dir.path().stem().string();        // 拡張子を削除
+                std::string app_name = app_file_name.substr(3);                // 先頭の"lib"を削除
+                this->app_list[app_name] = dlopen(path.c_str(), RTLD_LAZY);    // DLLを読み込む
+
                 app_num++;
             }
         }

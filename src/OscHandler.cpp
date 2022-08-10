@@ -28,6 +28,17 @@ namespace tll
         }
     }
 
+    void OscHandler::sendMessage(const char* address)
+    {
+        UdpTransmitSocket transmitSocket(IpEndpointName("127.0.0.1", 7000));
+
+        char buff[2048];
+        osc::OutboundPacketStream p(buff, 2048);
+
+        p << osc::BeginBundleImmediate << osc::BeginMessage(address) << osc::EndMessage << osc::EndBundle;
+        transmitSocket.Send(p.Data(), p.Size());
+    }
+
     void runOscReceiveThread(class BaseApp* base_app)
     {
         OscHandler osc_handler(base_app);
