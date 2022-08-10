@@ -12,7 +12,5 @@ add_executable(AppGenerator ${CMAKE_SOURCE_DIR}/app/AppGenerator.cpp)
 ### Setup building apps （アプリ追加時はここに追記する） ###
 include_directories(${CMAKE_SOURCE_DIR}/app)
 link_libraries(TLL)
-add_library(TestApp SHARED ${CMAKE_SOURCE_DIR}/app/TestApp.gen.cpp)
-add_library(OscTestApp SHARED ${CMAKE_SOURCE_DIR}/app/OscTestApp.gen.cpp)
 add_library(SimpleScan SHARED ${CMAKE_SOURCE_DIR}/app/SimpleScan.gen.cpp)
 add_library(MusicVisualizer SHARED ${CMAKE_SOURCE_DIR}/app/MusicVisualizer.gen.cpp)
