@@ -29,14 +29,18 @@ void MusicVisualizer::init()
 
 void MusicVisualizer::run()
 {
+    this->is_running = true;
+
     while (tll::loop())
     {
-
+        if (!this->is_running)
+            return;
     }
 }
 
 void MusicVisualizer::terminate()
 {
+    this->is_running = false;
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate");
 }
 

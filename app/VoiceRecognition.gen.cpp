@@ -24,14 +24,18 @@ void VoiceRecognition::init()
 
 void VoiceRecognition::run()
 {
+    this->is_running = true;
+
     while (tll::loop())
     {
-
+        if (!this->is_running)
+            return;
     }
 }
 
 void VoiceRecognition::terminate()
 {
+    this->is_running = false;
     tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/terminate");
 }
 

@@ -26,15 +26,20 @@ void Rain::init()
 
 void Rain::run()
 {
+    this->is_running = true;
+
     while (tll::loop())
     {
+        if (!this->is_running)
+            return;
+
         this->updateRipples();
     }
 }
 
 void Rain::terminate()
 {
-
+    this->is_running = false;
 }
 
 void Rain::onTouched(uint32_t x, uint32_t y)

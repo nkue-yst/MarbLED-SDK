@@ -9,6 +9,9 @@
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
 
+#include <chrono>
+#include <thread>
+
 namespace tll
 {
 
@@ -44,13 +47,17 @@ namespace tll
         createApp* createAppFunc = (createApp*)(dlsym(this->app_list.begin()->second, "create"));
         std::unique_ptr<class AppInterface> app = createAppFunc();
         this->running_app = std::move(app);
+        this->running_app->init();
 
         while (loop())
         {
             if (this->running_app)
+            {
                 this->running_app->run();
+            }
         }
 
+        this->running_app->terminate();
         quit();
     }
 
@@ -59,6 +66,7 @@ namespace tll
         bool is_found = false;
 
         this->running_app->terminate();
+        delete this->running_app.release();
 
         std::for_each(this->app_list.begin(), this->app_list.end(), [this, app_name, &is_found](std::unordered_map<std::string, void*>::value_type app)
         {
@@ -67,6 +75,8 @@ namespace tll
                 createApp* createAppFunc = (createApp*)(dlsym(this->app_list.find(app_name)->second, "create"));
                 std::unique_ptr<class AppInterface> app = createAppFunc();
                 this->running_app = std::move(app);
+
+                this->running_app->init();
 
                 is_found = true;
             }

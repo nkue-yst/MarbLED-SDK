@@ -26,15 +26,20 @@ void SimpleScan::init()
 
 void SimpleScan::run()
 {
+    this->is_running = true;
+
     while (tll::loop())
     {
+        if (!this->is_running)
+            return;
+
         drawNextPt();
     }
 }
 
 void SimpleScan::terminate()
 {
-
+    this->is_running = false;
 }
 
 void SimpleScan::onTouched(uint32_t x, uint32_t y)
