@@ -57,12 +57,12 @@ void SimpleScan::drawNextPt()
     static int x = 0;
     static int y = 0;
 
-    x = x % 64;
-    y = y % 32;
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(33));
+    std::this_thread::sleep_for(std::chrono::milliseconds(16));
     tll::clear();
     tll::drawPixel(x++, y, tll::Palette::color("White"));
+
+    x = x % 64;
+    y = y % 32;
 
     if (x == 0) ++y;
 }
