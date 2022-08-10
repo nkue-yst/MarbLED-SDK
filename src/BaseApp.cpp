@@ -40,6 +40,7 @@ namespace tll
 
         this->loadApps();
 
+        /* TestAppを起動する */
         createApp* createAppFunc = (createApp*)(dlsym(this->app_list.begin()->second, "create"));
         std::unique_ptr<class AppInterface> app = createAppFunc();
         this->running_app = std::move(app);
