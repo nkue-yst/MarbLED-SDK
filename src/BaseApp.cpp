@@ -79,6 +79,8 @@ namespace tll
     {
         uint32_t app_num = 0;
 
+        std::cout << "[Loaded applications]" << std::endl;
+
         auto dirs = std::filesystem::directory_iterator(std::filesystem::path("./app"));
         for (auto& dir : dirs)
         {
@@ -91,10 +93,13 @@ namespace tll
                 std::string app_name = app_file_name.substr(3);                // 先頭の"lib"を削除
                 this->app_list[app_name] = dlopen(path.c_str(), RTLD_LAZY);    // DLLを読み込む
 
-                app_num++;
+                std::cout << " - " << app_name << std::endl;
+
+                app_num++;    // 読み込んだアプリ数をカウント
             }
         }
-
+        std::cout << std::endl;
+        
         return app_num;
     }
 
