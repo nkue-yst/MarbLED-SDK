@@ -98,12 +98,12 @@ namespace tll
     void clear();
 
     /**
-     * @fn      tll::Image loadImage(const char* file)
+     * @fn      tll::Image* loadImage(const char* file)
      * @brief   Load image file
      * @param   file  Image file path
      * @return  Image class data
      */
-    tll::Image loadImage(const char* file);
+    tll::Image* loadImage(const char* file);
 
     /**
      * @fn      tll::Video loadVideo(const char* file)

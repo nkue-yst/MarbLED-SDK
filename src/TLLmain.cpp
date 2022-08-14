@@ -179,7 +179,7 @@ namespace tll
         endClock("tll::clear()");
     }
 
-    tll::Image loadImage(const char* file)
+    tll::Image* loadImage(const char* file)
     {
         startClock();
 
@@ -189,7 +189,7 @@ namespace tll
 
         endClock("tll::loadImage()");
 
-        return tll::Image(img);
+        return new tll::Image(img);
     }
 
     tll::Video loadVideo(const char* file)
