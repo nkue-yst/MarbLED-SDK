@@ -20,3 +20,4 @@ add_custom_command(TARGET VoiceRecognition POST_BUILD COMMAND ${CMAKE_COMMAND} -
 add_library(Timer SHARED ${CMAKE_SOURCE_DIR}/app/Timer.gen.cpp)
 file(GLOB TIMER_IMAGES ${CMAKE_SOURCE_DIR}/app/TimerImage/*.png)
 add_custom_command(TARGET Timer POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${TIMER_IMAGES} $<TARGET_FILE_DIR:Timer>)
+add_library(Theremin SHARED ${CMAKE_SOURCE_DIR}/app/Theremin.gen.cpp)

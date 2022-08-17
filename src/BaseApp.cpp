@@ -49,8 +49,6 @@ namespace tll
         this->running_app = std::move(app);
         this->running_app->init();
 
-        this->switchApp("Timer");
-
         while (loop())
         {
             if (this->running_app)

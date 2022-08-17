@@ -23,6 +23,7 @@ namespace tll
         ~OscHandler() {}
 
         static void sendMessage(const char* address);
+        static void sendMessageWithFloat(const char* address, float value);
 
     protected:
         virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override;
