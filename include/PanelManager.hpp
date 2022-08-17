@@ -8,6 +8,8 @@
 #ifndef PANEL_MANAGER_HPP
 #define PANEL_MANAGER_HPP
 
+#include "Color.hpp"
+
 #include <cstdint>
 #include <iostream>
 #include <stdexcept>
@@ -93,6 +95,14 @@ namespace tll
                 return;
 
             color_[y * width_ + x] = color;
+        }
+
+        void drawPixelWithColor(uint16_t x, uint16_t y, tll::Color c)
+        {
+            if (x >= this->width_ || y >= this->height_)
+                return;
+
+            color_[y * this->width_ + x] = tll::ColorPalette::getInstance()->getIDFromRGB(c.r_, c.g_, c.b_);
         }
 
         /**

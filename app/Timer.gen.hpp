@@ -41,6 +41,8 @@ private:
     uint32_t elapsed_time;
 
     std::chrono::system_clock::time_point pre_tp, now_tp;
+
+    tll::Color color;
 };
 
 /* Required to use in loading application file */

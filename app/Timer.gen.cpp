@@ -10,32 +10,33 @@ void Timer::drawArc(int percent)
 {
     tll::clear();
 
-    if (    100 >= percent && percent > 95) this->arc_img_list.at(0)->draw(16, 0);
-    else if (95 >= percent && percent > 90) this->arc_img_list.at(1)->draw(16, 0);
-    else if (90 >= percent && percent > 85) this->arc_img_list.at(2)->draw(16, 0);
-    else if (85 >= percent && percent > 80) this->arc_img_list.at(3)->draw(16, 0);
-    else if (80 >= percent && percent > 75) this->arc_img_list.at(4)->draw(16, 0);
-    else if (75 >= percent && percent > 70) this->arc_img_list.at(5)->draw(16, 0);
-    else if (70 >= percent && percent > 65) this->arc_img_list.at(6)->draw(16, 0);
-    else if (65 >= percent && percent > 60) this->arc_img_list.at(7)->draw(16, 0);
-    else if (60 >= percent && percent > 55) this->arc_img_list.at(8)->draw(16, 0);
-    else if (55 >= percent && percent > 50) this->arc_img_list.at(9)->draw(16, 0);
-    else if (50 >= percent && percent > 45) this->arc_img_list.at(10)->draw(16, 0);
-    else if (45 >= percent && percent > 40) this->arc_img_list.at(11)->draw(16, 0);
-    else if (40 >= percent && percent > 35) this->arc_img_list.at(12)->draw(16, 0);
-    else if (35 >= percent && percent > 30) this->arc_img_list.at(13)->draw(16, 0);
-    else if (30 >= percent && percent > 25) this->arc_img_list.at(14)->draw(16, 0);
-    else if (25 >= percent && percent > 20) this->arc_img_list.at(15)->draw(16, 0);
-    else if (20 >= percent && percent > 15) this->arc_img_list.at(16)->draw(16, 0);
-    else if (15 >= percent && percent > 10) this->arc_img_list.at(17)->draw(16, 0);
-    else if (10 >= percent && percent >  5) this->arc_img_list.at(18)->draw(16, 0);
-    else if ( 5 >= percent && percent >  0) this->arc_img_list.at(19)->draw(16, 0);
-    else                                    this->arc_img_list.at(20)->draw(16, 0);
+    if (    100 >= percent && percent > 95) this->arc_img_list.at(0)->draw(16, 0, this->color);
+    else if (95 >= percent && percent > 90) this->arc_img_list.at(1)->draw(16, 0, this->color);
+    else if (90 >= percent && percent > 85) this->arc_img_list.at(2)->draw(16, 0, this->color);
+    else if (85 >= percent && percent > 80) this->arc_img_list.at(3)->draw(16, 0, this->color);
+    else if (80 >= percent && percent > 75) this->arc_img_list.at(4)->draw(16, 0, this->color);
+    else if (75 >= percent && percent > 70) this->arc_img_list.at(5)->draw(16, 0, this->color);
+    else if (70 >= percent && percent > 65) this->arc_img_list.at(6)->draw(16, 0, this->color);
+    else if (65 >= percent && percent > 60) this->arc_img_list.at(7)->draw(16, 0, this->color);
+    else if (60 >= percent && percent > 55) this->arc_img_list.at(8)->draw(16, 0, this->color);
+    else if (55 >= percent && percent > 50) this->arc_img_list.at(9)->draw(16, 0, this->color);
+    else if (50 >= percent && percent > 45) this->arc_img_list.at(10)->draw(16, 0, this->color);
+    else if (45 >= percent && percent > 40) this->arc_img_list.at(11)->draw(16, 0, this->color);
+    else if (40 >= percent && percent > 35) this->arc_img_list.at(12)->draw(16, 0, this->color);
+    else if (35 >= percent && percent > 30) this->arc_img_list.at(13)->draw(16, 0, this->color);
+    else if (30 >= percent && percent > 25) this->arc_img_list.at(14)->draw(16, 0, this->color);
+    else if (25 >= percent && percent > 20) this->arc_img_list.at(15)->draw(16, 0, this->color);
+    else if (20 >= percent && percent > 15) this->arc_img_list.at(16)->draw(16, 0, this->color);
+    else if (15 >= percent && percent > 10) this->arc_img_list.at(17)->draw(16, 0, this->color);
+    else if (10 >= percent && percent >  5) this->arc_img_list.at(18)->draw(16, 0, this->color);
+    else if ( 5 >= percent && percent >  0) this->arc_img_list.at(19)->draw(16, 0, this->color);
+    else                                    this->arc_img_list.at(20)->draw(16, 0, this->color);
 }
 
 Timer::Timer()
     : set_time(0)
     , elapsed_time(0)
+    , color(tll::Color(255, 255, 255))
 {
     std::cout << "Create Timer instance." << std::endl;
 }
