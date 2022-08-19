@@ -88,7 +88,10 @@ endif()
 option(TLL_BASE_APP "Build base app" ON)
 if(TLL_BASE_APP)
     add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
-    target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO stdc++fs)
+    target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
+    if(WIRINGPI_LIBRARIES)
+        target_link_libraries(TLL_BaseApp stdc++fs)
+    endif()
 endif()
 
 ### Setup building applications ###

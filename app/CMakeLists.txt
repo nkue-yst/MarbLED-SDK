@@ -8,7 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ### Setup app class generator ###
 add_executable(AppGenerator ${CMAKE_SOURCE_DIR}/app/AppGenerator.cpp)
-target_link_libraries(AppGenerator stdc++fs)
+if(WIRINGPI_LIBRARIES)
+    target_link_libraries(AppGenerator stdc++fs)
+endif()
 
 ### Setup building apps （アプリ追加時はここに追記する） ###
 include_directories(${CMAKE_SOURCE_DIR}/app)
