@@ -135,15 +135,15 @@ namespace tll
             (void)remote_end_pt;
             try
             {
-                std::cout << "Received osc message" << std::endl;
+                //std::cout << "Received osc message" << std::endl;
                 osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
                 osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
 
-                if (strcmp(msg.AddressPattern(), "/touch") == 0)
+                if (strcmp(msg.AddressPattern(), "/touch/0/point") == 0 || strcmp(msg.AddressPattern(), "/touch/0/delete") == 0)
                 {
                     int32_t x = (arg++)->AsInt32();
                     int32_t y = (arg++)->AsInt32();
-                    std::cout << x << ", " << y << std::endl;
+                    //std::cout << x << ", " << y << std::endl;
 
                     if (x == -1 && y == -1)
                     {
