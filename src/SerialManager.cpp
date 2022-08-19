@@ -2,7 +2,7 @@
  * @file    SerialManager.cpp
  * @brief   Implementing a class to manage serial communication.
  * @author  Yoshito Nakaue
- * @date    2021/08/05
+ * @date    2022/08/18
  */
 
 #include "SerialManager.hpp"

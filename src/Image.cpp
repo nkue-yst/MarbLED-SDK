@@ -2,7 +2,7 @@
  * @file    Image.cpp
  * @brief   Image class
  * @author  Yoshito Nakaue
- * @date    2021/08/17
+ * @date    2022/08/18
  */
 
 #include "Image.hpp"
@@ -32,7 +32,7 @@ namespace tll
                 PanelManager::getInstance()->drawPixel(
                     x + X,
                     y + Y,
-                    ColorPalette::getInstance()->getIDFromRGB(
+                    Color(
                         img_data_.at<cv::Vec3b>(Y, X)[2],
                         img_data_.at<cv::Vec3b>(Y, X)[1],
                         img_data_.at<cv::Vec3b>(Y, X)[0]
@@ -57,7 +57,7 @@ namespace tll
                     PanelManager::getInstance()->drawPixel(
                         x + X,
                         y + Y,
-                        ColorPalette::getInstance()->getIDFromRGB(
+                        Color(
                             img_data_.at<cv::Vec3b>(Y, X)[2],
                             img_data_.at<cv::Vec3b>(Y, X)[1],
                             img_data_.at<cv::Vec3b>(Y, X)[0]
@@ -69,7 +69,7 @@ namespace tll
                     PanelManager::getInstance()->drawPixel(
                         x + X,
                         y + Y,
-                        ColorPalette::getInstance()->getIDFromRGB(
+                        Color(
                             color.r_,
                             color.g_,
                             color.b_

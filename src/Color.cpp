@@ -2,7 +2,7 @@
  * @file    Color.cpp
  * @brief   Color information class
  * @author  Yoshito Nakaue
- * @date    2021/09/28
+ * @date    2022/08/18
  */
 
 #include "Color.hpp"
@@ -14,56 +14,61 @@
 namespace tll
 {
 
-    ColorPalette* ColorPalette::pInstance_ = nullptr;
-
-    void ColorPalette::create()
+    namespace old
     {
-        if (!pInstance_)
+
+        ColorPalette* ColorPalette::pInstance_ = nullptr;
+
+        void ColorPalette::create()
         {
-            pInstance_ = new ColorPalette();
-
-            printLog("Create Color palette");
-        }
-    }
-
-    void ColorPalette::destroy()
-    {
-        delete pInstance_;
-        pInstance_ = nullptr;
-
-        printLog("Destroy Color palette");
-    }
-
-    void ColorPalette::addColor(Color color)
-    {
-        palette_data_.push_back(color);
-    }
-
-    uint8_t ColorPalette::getIDFromName(std::string color_name)
-    {
-        for (uint8_t i = 0; i < palette_data_.size(); i++)
-        {
-            if (!color_name.compare(palette_data_[i].color_name_))
+            if (!pInstance_)
             {
-                return i;
+                pInstance_ = new ColorPalette();
+
+                printLog("Create Color palette");
             }
         }
 
-        return 0;
-    }
-
-    Color ColorPalette::getColorFromID(uint8_t color_id)
-    {
-        Color color(0, 0, 0);
-        try {
-            color = palette_data_.at(color_id);
-        }
-        catch (std::out_of_range& e)
+        void ColorPalette::destroy()
         {
-            std::cerr << "[ERROR]: " << e.what() << std::endl;
+            delete pInstance_;
+            pInstance_ = nullptr;
+
+            printLog("Destroy Color palette");
         }
 
-        return color;
+        void ColorPalette::addColor(Color color)
+        {
+            palette_data_.push_back(color);
+        }
+
+        uint8_t ColorPalette::getIDFromName(std::string color_name)
+        {
+            for (uint8_t i = 0; i < palette_data_.size(); i++)
+            {
+                if (!color_name.compare(palette_data_[i].color_name_))
+                {
+                    return i;
+                }
+            }
+
+            return 0;
+        }
+
+        Color ColorPalette::getColorFromID(uint8_t color_id)
+        {
+            Color color(0, 0, 0);
+            try {
+                color = palette_data_.at(color_id);
+            }
+            catch (std::out_of_range& e)
+            {
+                std::cerr << "[ERROR]: " << e.what() << std::endl;
+            }
+
+            return color;
+        }
+
     }
 
     inline uint32_t calcDiff(Color c1, Color c2)
@@ -84,26 +89,31 @@ namespace tll
         return static_cast<uint32_t>(std::sqrt(dr * dr + dg * dg + db * db));
     }
 
-    uint8_t ColorPalette::getIDFromRGB(uint16_t r, uint16_t g, uint16_t b)
+    namespace old
     {
-        Color base_color = Color(r, g, b);
-        uint8_t target_ID = 0;
 
-        uint32_t min_diff;
-        min_diff = calcDiff(base_color, palette_data_[0]);
-
-        for (std::size_t i = 1; i < palette_data_.size(); i++)
+        uint8_t ColorPalette::getIDFromRGB(uint16_t r, uint16_t g, uint16_t b)
         {
-            uint32_t diff = calcDiff(base_color, palette_data_[i]);
+            Color base_color = Color(r, g, b);
+            uint8_t target_ID = 0;
 
-            if (diff < min_diff)
+            uint32_t min_diff;
+            min_diff = calcDiff(base_color, palette_data_[0]);
+
+            for (std::size_t i = 1; i < palette_data_.size(); i++)
             {
-                min_diff = diff;
-                target_ID = i;
+                uint32_t diff = calcDiff(base_color, palette_data_[i]);
+
+                if (diff < min_diff)
+                {
+                    min_diff = diff;
+                    target_ID = i;
+                }
             }
+
+            return target_ID;
         }
 
-        return target_ID;
     }
 
 }

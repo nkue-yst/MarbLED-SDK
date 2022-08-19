@@ -2,7 +2,7 @@
  * @file    PanelManager.cpp
  * @brief   パネル情報管理クラスの実装
  * @author  Yoshito Nakaue
- * @date    2021/08/30
+ * @date    2022/08/18
  */
 
 #include "PanelManager.hpp"
@@ -36,17 +36,17 @@ namespace tll
 
     void PanelManager::init(uint16_t width, uint16_t height)
     {
-        width_ = width;
-        height_ = height;
+        this->width_ = width;
+        this->height_ = height;
 
         // Initialize color info with 0 (Black)
-        for (int i = 0; i < width_ * height_; i++)
+        for (int i = 0; i < this->width_ * this->height_; i++)
         {
-            color_.push_back(0);
+            this->color_.push_back(Color());
         }
     }
 
-    void PanelManager::drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
+    void PanelManager::drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c)
     {
         for (int i = 0; i < h; i++)
         {
@@ -60,7 +60,7 @@ namespace tll
         }
     }
 
-    void PanelManager::drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+    void PanelManager::drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color c)
     {
         bool steep = std::abs(y2 - y1) > std::abs(x2 - x1);
         if (steep)
@@ -110,9 +110,9 @@ namespace tll
         }
     }
 
-    void PanelManager::drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
+    void PanelManager::drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color c)
     {
-        auto draw = [this](int32_t pos_x, int32_t pos_y, int32_t xC, int32_t yC, uint8_t c)
+        auto draw = [this](int32_t pos_x, int32_t pos_y, int32_t xC, int32_t yC, Color c)
         {
             this->drawPixel(xC + pos_x, yC + pos_y, c);
             this->drawPixel(xC + pos_x, yC - pos_y, c);
@@ -153,7 +153,7 @@ namespace tll
         {
             for (int x = 0; x < width_; x++)
             {
-                color_[y * width_ + x] = 0;
+                color_[y * width_ + x] = Color();
             }
         }
     }

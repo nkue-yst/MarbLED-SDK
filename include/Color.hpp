@@ -2,7 +2,7 @@
  * @file    Color.hpp
  * @brief   Color information class
  * @author  Yoshito Nakaue
- * @date    2021/09/28
+ * @date    2022/08/18
  */
 
 #ifndef COLOR_HPP
@@ -38,6 +38,14 @@ namespace tll
             b_ = b;
         }
 
+        Color()
+        {
+            color_name_ = "";
+            this->r_ = 0;
+            this->g_ = 0;
+            this->b_ = 0;
+        }
+
         std::string color_name_;
 
         uint16_t r_;
@@ -45,71 +53,75 @@ namespace tll
         uint16_t b_;
     };
 
-    /**
-     * @brief  ColorPalette
-     */
-    class ColorPalette
+    namespace old
     {
-    public:
+
         /**
-         * @fn      static ColorPalette* getInstance()
-         * @brief   Get instance for singleton.
-         * @return  Instance of color palette
+         * @brief  ColorPalette
          */
-        static ColorPalette* getInstance()
+        class ColorPalette
         {
-            return pInstance_;
-        }
+        public:
+            /**
+             * @fn      static ColorPalette* getInstance()
+             * @brief   Get instance for singleton.
+             * @return  Instance of color palette
+             */
+            static ColorPalette* getInstance()
+            {
+                return pInstance_;
+            }
 
-        /** 
-         * @fn     static void create()
-         * @brief  Create instance.
-         */
-        static void create();
+            /** 
+             * @fn     static void create()
+             * @brief  Create instance.
+             */
+            static void create();
 
-        /**
-         * @fn     static void destroy()
-         * @brief  Destroy instance.
-         */
-        static void destroy();
+            /**
+             * @fn     static void destroy()
+             * @brief  Destroy instance.
+             */
+            static void destroy();
 
-        /**
-         * @fn     void addColor(Color color)
-         * @brief  Add color data.
-         */
-        void addColor(Color color);
+            /**
+             * @fn     void addColor(Color color)
+             * @brief  Add color data.
+             */
+            void addColor(Color color);
 
-        /**
-         * @fn      uint8_t getID(std::string color_name)
-         * @brief   Get color ID from name.
-         * @param   color_name  Target color name
-         * @return  Target color's ID
-         */
-        uint8_t getIDFromName(std::string color_name);
+            /**
+             * @fn      uint8_t getID(std::string color_name)
+             * @brief   Get color ID from name.
+             * @param   color_name  Target color name
+             * @return  Target color's ID
+             */
+            uint8_t getIDFromName(std::string color_name);
 
-        /**
-         * @fn      Color getColor(uint8_t color_id)
-         * @brief   Get color data from ID
-         * @param   Target color ID
-         * @return  Target color data
-         */
-        Color getColorFromID(uint8_t color_id);
+            /**
+             * @fn      Color getColor(uint8_t color_id)
+             * @brief   Get color data from ID
+             * @param   Target color ID
+             * @return  Target color data
+             */
+            Color getColorFromID(uint8_t color_id);
 
-        /**
-         * 
-         */
-        uint8_t getIDFromRGB(uint16_t r, uint16_t g, uint16_t b);
+            /**
+             * 
+             */
+            uint8_t getIDFromRGB(uint16_t r, uint16_t g, uint16_t b);
 
-    protected:
-        ColorPalette() {}
+        protected:
+            ColorPalette() {}
 
-        /// Instance for singleton
-        static ColorPalette* pInstance_;
+            /// Instance for singleton
+            static ColorPalette* pInstance_;
 
-    private:
-        /// Color palette data
-        std::vector<Color> palette_data_;    
-    };
+        private:
+            /// Color palette data
+            std::vector<Color> palette_data_;    
+        };
+    }
 
 }
 
