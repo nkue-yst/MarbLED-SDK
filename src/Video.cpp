@@ -2,7 +2,7 @@
  * @file    Video.cpp
  * @brief   Video class
  * @author  Yoshito Nakaue
- * @date    2021/10/19
+ * @date    2022/08/22
  */
 
 #include "Video.hpp"
@@ -55,7 +55,7 @@ namespace tll
                     PanelManager::getInstance()->drawPixel(
                         x + pos_x,
                         y + pos_y,
-                        ColorPalette::getInstance()->getIDFromRGB(
+                        Color(
                             dst.at<cv::Vec3b>(y, x)[2],
                             dst.at<cv::Vec3b>(y, x)[1],
                             dst.at<cv::Vec3b>(y, x)[0]

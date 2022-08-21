@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2021/10/19
+ * @date    2022/08/22
  */
 
 #ifndef _TLL_H_
@@ -119,17 +119,6 @@ namespace tll
      * @return  Current time (String)
      */
     std::string timeToString();
-
-
-    /**
-     * @namespace  Palette
-     * @brief      Color palette
-     */
-    namespace Palette
-    {
-        uint8_t color(std::string color_name);
-    }
-
 
     /**
      * @brief  Struct of touched point

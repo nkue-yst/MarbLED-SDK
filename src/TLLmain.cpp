@@ -2,7 +2,7 @@
  * @file    TLLmain.cpp
  * @brief   公開APIの実装
  * @author  Yoshito Nakaue
- * @date    2021/10/19
+ * @date    2022/08/22
  */
 
 #include "TLL.h"
@@ -32,36 +32,6 @@ namespace tll
     {
         verbose = verbose_flag;
         startClock();
-
-        ColorPalette::create();
-
-        // Load color palette information from csv.
-        std::string str;
-        std::ifstream ifs("ColorPalette.csv");
-
-        while (getline(ifs, str))
-        {
-            std::string color_name = "";
-            std::string color_code = "";
-
-            std::istringstream stream(str);
-
-            std::string temp = "";
-            int w_cnt = 1;
-            while (getline(stream, temp, ','))
-            {
-                ((w_cnt % 2 != 0) ? color_name : color_code) = temp;
-                w_cnt++;
-            }
-
-            uint32_t rgb = (uint32_t)(strtol((const char*)&color_code[1], NULL, 16));
-            uint16_t r = (rgb >> 16) & 0xFF;
-            uint16_t g = (rgb >>  8) & 0xFF;
-            uint16_t b = (rgb >>  0) & 0xFF;
-
-            ColorPalette::getInstance()->addColor(Color(color_name, r, g, b));
-        }
-        printLog("Load color palette data");
 
         /* Initialize singleton classes */
         TextRenderer::create();
@@ -109,18 +79,17 @@ namespace tll
         SerialManager::getInstance()->destroy();
         PanelManager::getInstance()->destroy();
         TextRenderer::getInstance()->destroy();
-        ColorPalette::getInstance()->destroy();
 
         endClock("tll::quit()");
     }
 
-    void drawPixel(uint16_t x, uint16_t y, uint8_t color)
+    void drawPixel(uint16_t x, uint16_t y, Color color)
     {
         PanelManager::getInstance()->drawPixel(x, y, color);
         SerialManager::getInstance()->sendColorData();
     }
 
-    void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, uint8_t color)
+    void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, Color color)
     {
         for (int i = 0; i < x.size(); i++)
         {
@@ -129,41 +98,41 @@ namespace tll
         SerialManager::getInstance()->sendColorData();
     }
 
-    void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c)
+    void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color color)
     {
         startClock();
 
-        PanelManager::getInstance()->drawRect(x, y, w, h, c);
+        PanelManager::getInstance()->drawRect(x, y, w, h, color);
         SerialManager::getInstance()->sendColorData();
 
         endClock("tll::drawRect()");
     }
 
-    void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+    void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color color)
     {
         startClock();
 
-        PanelManager::getInstance()->drawLine(x1, y1, x2, y2, c);
+        PanelManager::getInstance()->drawLine(x1, y1, x2, y2, color);
         SerialManager::getInstance()->sendColorData();
 
         endClock("tll::drawLine()");
     }
 
-    void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c)
+    void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color color)
     {
         startClock();
 
-        PanelManager::getInstance()->drawCircle(x, y, rad, c);
+        PanelManager::getInstance()->drawCircle(x, y, rad, color);
         SerialManager::getInstance()->sendColorData();
 
         endClock("tll::drawCircle()");
     }
 
-    void print(std::string str, uint8_t c)
+    void print(std::string str, Color color)
     {
         startClock();
 
-        TextRenderer::getInstance()->drawText(str, c, 0, 0);
+        TextRenderer::getInstance()->drawText(str, color, 0, 0);
         SerialManager::getInstance()->sendColorData();
 
         endClock("tll::print()");
@@ -219,15 +188,6 @@ namespace tll
         std::string m = m_str.str();
 
         return h + ":" + m;
-    }
-
-
-    namespace Palette
-    {
-        uint8_t color(std::string color_name)
-        {
-            return ColorPalette::getInstance()->getIDFromName(color_name);
-        }
     }
 
     static double clock = 0.0;
