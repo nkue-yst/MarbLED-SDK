@@ -1,6 +1,0 @@
-<map id="rgb_matrix::internal::Framebuffer" name="rgb_matrix::internal::Framebuffer">
-<area shape="rect" id="node2" href="$structHardwareMapping.html" title="HardwareMapping" alt="" coords="246,5,373,32"/>
-<area shape="rect" id="node3" href="$classrgb__matrix_1_1internal_1_1RowAddressSetter.html" title="rgb_matrix::internal\l::RowAddressSetter" alt="" coords="239,57,379,98"/>
-<area shape="rect" id="node4" href="$classrgb__matrix_1_1internal_1_1PixelDesignatorMap.html" title="rgb_matrix::internal\l::PixelDesignatorMap" alt="" coords="236,122,383,163"/>
-<area shape="rect" id="node5" href="$structrgb__matrix_1_1internal_1_1PixelDesignator.html" title="rgb_matrix::internal\l::PixelDesignator" alt="" coords="5,122,139,163"/>
-</map>

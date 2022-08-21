@@ -1,6 +1,0 @@
-<map id="TUIO::TuioServer" name="TUIO::TuioServer">
-<area shape="rect" id="node2" href="$classTUIO_1_1TuioManager.html" title="TUIO::TuioManager" alt="" coords="56,103,193,130"/>
-<area shape="rect" id="node3" href="$classTUIO_1_1TuioDispatcher.html" title="TUIO::TuioDispatcher" alt="" coords="5,5,156,32"/>
-<area shape="rect" id="node4" href="$classTUIO_1_1TuioTime.html" title="TUIO::TuioTime" alt="" coords="188,5,304,32"/>
-<area shape="rect" id="node5" href="$classosc_1_1OutboundPacketStream.html" title="osc::OutboundPacketStream" alt="" coords="392,103,583,130"/>
-</map>

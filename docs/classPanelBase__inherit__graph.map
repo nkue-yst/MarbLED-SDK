@@ -1,6 +1,0 @@
-<map id="PanelBase" name="PanelBase">
-<area shape="rect" id="node2" href="$classHT16K33__Base.html" title="Base class of HT16K33. " alt="" coords="158,80,273,107"/>
-<area shape="rect" id="node3" href="$classHT16K33__16x32L.html" title="HT16K33_16x32L" alt="" coords="5,155,132,181"/>
-<area shape="rect" id="node4" href="$classHT16K33__24x16.html" title="24x16サイズのLEDパネルクラス " alt="" coords="156,155,275,181"/>
-<area shape="rect" id="node5" href="$classHT16K33__8x16.html" title="8x16サイズのLEDパネルクラス " alt="" coords="298,155,410,181"/>
-</map>
