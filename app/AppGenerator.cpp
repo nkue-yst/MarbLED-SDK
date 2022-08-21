@@ -16,9 +16,11 @@ int main(int argc, char** argv)
     std::string class_name = argv[1];
     std::string header_file_name(class_name + ".gen.hpp");
     std::string cpp_file_name(class_name + ".gen.cpp");
+    std::string runner_file_name("Run_" + class_name + ".cpp");
 
     std::ofstream header_file(header_file_name);
     std::ofstream cpp_file(cpp_file_name);
+    std::ofstream runner_file(runner_file_name);
 
     header_file
         << "/********************************************\n"
@@ -106,18 +108,34 @@ int main(int argc, char** argv)
         << "\n"
         << "}\n";
 
+    runner_file
+        << "#include \"AppRunner.hpp\"\n"
+        << "\n"
+        << "int main()\n"
+        << "{\n"
+        << TAB << "AppRunner runner;\n"
+        << TAB << "runner.runApp(\"" << class_name << "\");\n"
+        << "}\n";
+
     header_file.close();
     cpp_file.close();
+    runner_file.close();
 
     if (std::filesystem::exists(std::filesystem::status("../app/CMakeLists.txt")))
     {
         std::ofstream cmake_file("../app/CMakeLists.txt", std::ios::app);
         cmake_file << "add_library(" << class_name << " SHARED ${CMAKE_SOURCE_DIR}/app/" << cpp_file_name << ")\n";
+        cmake_file.close();
+
+        std::ofstream runner_cmake_file("../app/AppRunner/CMakeLists.txt", std::ios::app);
+        runner_cmake_file << "add_executable(Run_" << class_name << " " << runner_file_name << ")\n";
+        runner_cmake_file.close();
 
         std::cout << "Update \"../app/CMakeLists.txt\"" << std::endl;
 
         std::filesystem::rename(header_file_name, std::string("../app/") + header_file_name);
         std::filesystem::rename(cpp_file_name, std::string("../app/") + cpp_file_name);
+        std::filesystem::rename(runner_file_name, std::string("../app/AppRunner/") + runner_file_name);
     }
 
     std::cout << "Create \"" << header_file_name << "\", \"" << cpp_file_name << "\"" << std::endl;

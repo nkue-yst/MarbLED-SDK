@@ -12,6 +12,8 @@ if(WIRINGPI_LIBRARIES)
     target_link_libraries(AppGenerator stdc++fs)
 endif()
 
+add_subdirectory(AppRunner)
+
 ### Setup building apps （アプリ追加時はここに追記する） ###
 include_directories(${CMAKE_SOURCE_DIR}/app)
 link_libraries(TLL)
