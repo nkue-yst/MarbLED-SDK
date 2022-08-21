@@ -7,7 +7,7 @@ project(${PROJECT})
 enable_language(CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS " -fPIC")
+set(CMAKE_CXX_FLAGS " -fPIC -g")
 
 ### Setup TUIO ###
 file(GLOB TUIO_SRC thirdparty/TUIO11_CPP/TUIO/*.cpp thirdparty/TUIO11_CPP/TUIO/*.h)
@@ -89,6 +89,9 @@ option(TLL_BASE_APP "Build base app" ON)
 if(TLL_BASE_APP)
     add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
     target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
+    if(WIRINGPI_LIBRARIES)
+        target_link_libraries(TLL_BaseApp stdc++fs)
+    endif()
 endif()
 
 ### Setup building applications ###

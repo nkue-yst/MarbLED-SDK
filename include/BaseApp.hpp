@@ -27,17 +27,20 @@ namespace tll
 
         void addTuioObject(TUIO::TuioObject *tobj) override
         {
-            this->running_app->onTouched((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
+            if (this->running_app)
+                this->running_app->onTouched((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
         }
 
         void updateTuioObject(TUIO::TuioObject *tobj) override
         {
-            this->running_app->onMoved((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
+            if (this->running_app)
+                this->running_app->onMoved((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
         }
 
         void removeTuioObject(TUIO::TuioObject *tobj) override
         {
-            this->running_app->onReleased();
+            if (this->running_app)
+                this->running_app->onReleased();
         }
 
         void addTuioCursor(TUIO::TuioCursor *tcur) override {}

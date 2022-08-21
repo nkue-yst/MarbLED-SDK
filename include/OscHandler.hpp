@@ -22,8 +22,8 @@ namespace tll
         OscHandler(class BaseApp* base_app) :app_ref(base_app) {}
         ~OscHandler() {}
 
-        static void sendMessage(const char* address);
-        static void sendMessageWithFloat(const char* address, float value);
+        static void sendMessage(const char* address, const char* dst_ip = "127.0.0.1", int port = 7000);
+        static void sendMessageWithFloat(const char* address, float value, const char* dst_ip = "127.0.0.1", int port = 7000);
 
     protected:
         virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override;

@@ -52,8 +52,6 @@ void Theremin::run()
         {
             tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::color("Red"));
         }
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(33));
     }
 }
 

@@ -28,9 +28,9 @@ namespace tll
         }
     }
 
-    void OscHandler::sendMessage(const char* address)
+    void OscHandler::sendMessage(const char* address, const char* dst_ip, int port)
     {
-        UdpTransmitSocket transmitSocket(IpEndpointName("127.0.0.1", 7000));
+        UdpTransmitSocket transmitSocket(IpEndpointName(dst_ip, port));
 
         char buff[2048];
         osc::OutboundPacketStream p(buff, 2048);
@@ -39,9 +39,9 @@ namespace tll
         transmitSocket.Send(p.Data(), p.Size());
     }
 
-    void OscHandler::sendMessageWithFloat(const char* address, float value)
+    void OscHandler::sendMessageWithFloat(const char* address, float value, const char* dst_ip, int port)
     {
-        UdpTransmitSocket transmitSocket(IpEndpointName("127.0.0.1", 7000));
+        UdpTransmitSocket transmitSocket(IpEndpointName(dst_ip, port));
 
         char buff[2048];
         osc::OutboundPacketStream p(buff, 2048);

@@ -78,7 +78,7 @@ void Rain::updateRipples()
     {
         tll::drawCircle(ripple.x, ripple.y, ripple.r++, tll::Palette::color("Aqua"));
 
-        if (ripple.r >= 16)
+        if (ripple.r >= 32)
             this->ripples.erase(this->ripples.begin());
     }
 
