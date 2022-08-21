@@ -53,7 +53,7 @@ void MusicVisualizer::procMessage(const osc::ReceivedMessage& msg)
     {
         clear();
         int32_t rad = (arg++)->AsInt32();
-        drawCircle(this->x, this->y, rad, Palette::color("White"));
+        drawCircle(this->x, this->y, rad, Palette::White);
     }
     else
     {
@@ -82,40 +82,40 @@ void MusicVisualizer::beatNotified()
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(offset)));
         clear();
-        drawCircle(this->x, this->y, 6, Palette::color("White"));
-        drawCircle(this->x, this->y, 7, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 6, Palette::White);
+        drawCircle(this->x, this->y, 7, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 7, Palette::color("White"));
-        drawCircle(this->x, this->y, 8, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 7, Palette::White);
+        drawCircle(this->x, this->y, 8, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 8, Palette::color("White"));
-        drawCircle(this->x, this->y, 9, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 8, Palette::White);
+        drawCircle(this->x, this->y, 9, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 9, Palette::color("White"));
-        drawCircle(this->x, this->y, 10, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 9, Palette::White);
+        drawCircle(this->x, this->y, 10, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 10, Palette::color("White"));
-        drawCircle(this->x, this->y, 11, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 10, Palette::White);
+        drawCircle(this->x, this->y, 11, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 11, Palette::color("White"));
-        drawCircle(this->x, this->y, 12, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 11, Palette::White);
+        drawCircle(this->x, this->y, 12, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 12, Palette::color("White"));
-        drawCircle(this->x, this->y, 13, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 12, Palette::White);
+        drawCircle(this->x, this->y, 13, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 13, Palette::color("White"));
-        drawCircle(this->x, this->y, 14, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 13, Palette::White);
+        drawCircle(this->x, this->y, 14, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         clear();
-        drawCircle(this->x, this->y, 14, Palette::color("White"));
-        drawCircle(this->x, this->y, 15, Palette::color("Aqua"));
+        drawCircle(this->x, this->y, 14, Palette::White);
+        drawCircle(this->x, this->y, 15, Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
     };
 

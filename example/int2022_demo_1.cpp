@@ -2,7 +2,7 @@
  * @file    int2022_demo_1.cpp
  * @brief   ---
  * @author  Yoshito Nakaue
- * @date    2022/02/22
+ * @date    2022/08/22
  */
 
 #include <iostream>
@@ -83,7 +83,7 @@ private:
         clear();
         for (auto& ripple : this->ripples)
         {
-            drawCircle(ripple.x, ripple.y, ripple.r, Palette::color("Aqua"));
+            drawCircle(ripple.x, ripple.y, ripple.r, Palette::Aqua);
             ripple.r++;
             
             if (ripple.r >= 64)

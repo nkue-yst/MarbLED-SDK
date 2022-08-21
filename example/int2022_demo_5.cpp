@@ -2,7 +2,7 @@
  * @file    int2022_demo_1.cpp
  * @brief   ---
  * @author  Yoshito Nakaue
- * @date    2022/02/22
+ * @date    2022/08/22
  */
 
 #include <iostream>
@@ -58,7 +58,7 @@ public:
             if (time_pre != time_now)
             {
                 tll::clear();
-                tll::print(time_now, tll::Palette::color("White"));
+                tll::print(time_now, tll::Palette::White);
             }
         }
 

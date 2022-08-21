@@ -48,48 +48,48 @@ namespace tll
      */
     void quit();
 
-    void drawPixel(uint16_t x, uint16_t y, uint8_t color);
-    void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, uint8_t color);
+    void drawPixel(uint16_t x, uint16_t y, Color color);
+    void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, Color color);
 
     /**
      * @fn     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
      * @brief  Draw rectangle.
-     * @param  x  The x location of the rectangle's upper left corner
-     * @param  y  The y location of the rectangle's upper left corner
-     * @param  w  The width of the rectangle
-     * @param  h  The height of the rectangle
-     * @param  c  The color of the rectangle
+     * @param  x      The x location of the rectangle's upper left corner
+     * @param  y      The y location of the rectangle's upper left corner
+     * @param  w      The width of the rectangle
+     * @param  h      The height of the rectangle
+     * @param  color  The color of the rectangle
      */
-    void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+    void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color color);
 
     /**
      * @fn     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
      * @brief  Draw line
-     * @param  x1  The x location of the starting line
-     * @param  y1  The y location of the starting line
-     * @param  x2  The x location of the ending line
-     * @param  y2  The y location of the ending line
-     * @param  c   The color of the line
+     * @param  x1     The x location of the starting line
+     * @param  y1     The y location of the starting line
+     * @param  x2     The x location of the ending line
+     * @param  y2     The y location of the ending line
+     * @param  color  The color of the line
      */
-    void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c);
+    void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color color);
 
     /**
      * @fn     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint16_t c)
      * @brief  Draw circle
-     * @param  x    The x location of the center
-     * @param  y    The y location of the center
-     * @param  rad  The radian of the circle
-     * @param  c    The color of the circle
+     * @param  x      The x location of the center
+     * @param  y      The y location of the center
+     * @param  rad    The radian of the circle
+     * @param  color  The color of the circle
      */
-    void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c);
+    void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color color);
 
     /**
      * @fn     void print(const char* str)
      * @brief  Print text
      * @param  std::string str  String to print
-     * @param  c  Color to print string
+     * @param  color            Color to print string
      */
-    void print(std::string str, uint8_t c);
+    void print(std::string str, Color color);
 
     /**
      * @fn     void clear()

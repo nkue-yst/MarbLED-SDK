@@ -72,7 +72,7 @@ void MusicVisualizer::procOscMessage(const osc::ReceivedMessage& msg)
     {
         tll::clear();
         int32_t rad = (arg++)->AsInt32();
-        tll::drawCircle(this->x, this->y, rad, tll::Palette::color("White"));
+        tll::drawCircle(this->x, this->y, rad, tll::Palette::White);
     }
 }
 
@@ -82,40 +82,40 @@ void MusicVisualizer::beatNotified()
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(offset)));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 6, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 7, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 6, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 7, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 7, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 8, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 7, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 8, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 8, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 9, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 8, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 9, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y,  9, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 10, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y,  9, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 10, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 10, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 11, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 10, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 11, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 11, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 12, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 11, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 12, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 12, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 13, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 12, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 13, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 13, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 14, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 13, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 14, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
         tll::clear();
-        tll::drawCircle(this->x, this->y, 14, tll::Palette::color("White"));
-        tll::drawCircle(this->x, this->y, 15, tll::Palette::color("Aqua"));
+        tll::drawCircle(this->x, this->y, 14, tll::Palette::White);
+        tll::drawCircle(this->x, this->y, 15, tll::Palette::Aqua);
         std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
     };
 

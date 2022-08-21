@@ -42,15 +42,15 @@ void Theremin::run()
         tll::clear();
 
         // Volumeバーを表示
-        tll::drawRect(0, 29, 64, 3, tll::Palette::color("Aqua"));
+        tll::drawRect(0, 29, 64, 3, tll::Palette::Aqua);
 
         // Pitchバーを表示
-        tll::drawRect(0, 0, 3, 32, tll::Palette::color("Aqua"));
+        tll::drawRect(0, 0, 3, 32, tll::Palette::Aqua);
 
         // タッチされている場合タッチ点を表示
         if (this->is_touched)
         {
-            tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::color("Red"));
+            tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::Red);
         }
     }
 }

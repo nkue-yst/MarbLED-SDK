@@ -71,7 +71,7 @@ void Rain::updateRipples()
     clear();
     for (auto& ripple : this->ripples)
     {
-        drawCircle(ripple.x, ripple.y, ripple.r, Palette::color("Aqua"));
+        drawCircle(ripple.x, ripple.y, ripple.r, Palette::Aqua);
         ripple.r++;
         
         if (ripple.r >= 64)

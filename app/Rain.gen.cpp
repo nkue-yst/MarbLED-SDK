@@ -76,7 +76,7 @@ void Rain::updateRipples()
     // 半径が16以上となるまで大きくしながら波紋を描画
     for (auto& ripple : this->ripples)
     {
-        tll::drawCircle(ripple.x, ripple.y, ripple.r++, tll::Palette::color("Aqua"));
+        tll::drawCircle(ripple.x, ripple.y, ripple.r++, tll::Palette::Aqua);
 
         if (ripple.r >= 32)
             this->ripples.erase(this->ripples.begin());

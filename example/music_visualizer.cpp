@@ -2,7 +2,7 @@
  * @file    int2022_demo_1.cpp
  * @brief   ---
  * @author  Yoshito Nakaue
- * @date    2022/02/22
+ * @date    2022/08/22
  */
 
 #include <iostream>
@@ -76,40 +76,40 @@ public:
                 pre_time = current_time;
                 std::cout << "Beat: " << elapse << "ms" << std::endl;
                 clear();
-                drawCircle(this->x, this->y, 6, Palette::color("White"));
-                drawCircle(this->x, this->y, 7, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 6, Palette::White);
+                drawCircle(this->x, this->y, 7, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 7, Palette::color("White"));
-                drawCircle(this->x, this->y, 8, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 7, Palette::White);
+                drawCircle(this->x, this->y, 8, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 8, Palette::color("White"));
-                drawCircle(this->x, this->y, 9, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 8, Palette::White);
+                drawCircle(this->x, this->y, 9, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 9, Palette::color("White"));
-                drawCircle(this->x, this->y, 10, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 9, Palette::White);
+                drawCircle(this->x, this->y, 10, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 10, Palette::color("White"));
-                drawCircle(this->x, this->y, 11, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 10, Palette::White);
+                drawCircle(this->x, this->y, 11, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 11, Palette::color("White"));
-                drawCircle(this->x, this->y, 12, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 11, Palette::White);
+                drawCircle(this->x, this->y, 12, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 12, Palette::color("White"));
-                drawCircle(this->x, this->y, 13, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 12, Palette::White);
+                drawCircle(this->x, this->y, 13, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 13, Palette::color("White"));
-                drawCircle(this->x, this->y, 14, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 13, Palette::White);
+                drawCircle(this->x, this->y, 14, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 14, Palette::color("White"));
-                drawCircle(this->x, this->y, 15, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 14, Palette::White);
+                drawCircle(this->x, this->y, 15, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
 
                 is_beated = true;
@@ -117,40 +117,40 @@ public:
             else if (is_beated)
             {
                 clear();
-                drawCircle(this->x, this->y, 14, Palette::color("White"));
-                drawCircle(this->x, this->y, 15, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 14, Palette::White);
+                drawCircle(this->x, this->y, 15, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 13, Palette::color("White"));
-                drawCircle(this->x, this->y, 14, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 13, Palette::White);
+                drawCircle(this->x, this->y, 14, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 12, Palette::color("White"));
-                drawCircle(this->x, this->y, 13, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 12, Palette::White);
+                drawCircle(this->x, this->y, 13, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 11, Palette::color("White"));
-                drawCircle(this->x, this->y, 12, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 11, Palette::White);
+                drawCircle(this->x, this->y, 12, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 10, Palette::color("White"));
-                drawCircle(this->x, this->y, 11, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 10, Palette::White);
+                drawCircle(this->x, this->y, 11, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 9, Palette::color("White"));
-                drawCircle(this->x, this->y, 10, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 9, Palette::White);
+                drawCircle(this->x, this->y, 10, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 8, Palette::color("White"));
-                drawCircle(this->x, this->y, 9, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 8, Palette::White);
+                drawCircle(this->x, this->y, 9, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 7, Palette::color("White"));
-                drawCircle(this->x, this->y, 8, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 7, Palette::White);
+                drawCircle(this->x, this->y, 8, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
                 clear();
-                drawCircle(this->x, this->y, 6, Palette::color("White"));
-                drawCircle(this->x, this->y, 7, Palette::color("Aqua"));
+                drawCircle(this->x, this->y, 6, Palette::White);
+                drawCircle(this->x, this->y, 7, Palette::Aqua);
                 std::this_thread::sleep_for(std::chrono::milliseconds(DURATION));
 
                 is_beated = false;           

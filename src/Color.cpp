@@ -14,63 +14,6 @@
 namespace tll
 {
 
-    namespace old
-    {
-
-        ColorPalette* ColorPalette::pInstance_ = nullptr;
-
-        void ColorPalette::create()
-        {
-            if (!pInstance_)
-            {
-                pInstance_ = new ColorPalette();
-
-                printLog("Create Color palette");
-            }
-        }
-
-        void ColorPalette::destroy()
-        {
-            delete pInstance_;
-            pInstance_ = nullptr;
-
-            printLog("Destroy Color palette");
-        }
-
-        void ColorPalette::addColor(Color color)
-        {
-            palette_data_.push_back(color);
-        }
-
-        uint8_t ColorPalette::getIDFromName(std::string color_name)
-        {
-            for (uint8_t i = 0; i < palette_data_.size(); i++)
-            {
-                if (!color_name.compare(palette_data_[i].color_name_))
-                {
-                    return i;
-                }
-            }
-
-            return 0;
-        }
-
-        Color ColorPalette::getColorFromID(uint8_t color_id)
-        {
-            Color color(0, 0, 0);
-            try {
-                color = palette_data_.at(color_id);
-            }
-            catch (std::out_of_range& e)
-            {
-                std::cerr << "[ERROR]: " << e.what() << std::endl;
-            }
-
-            return color;
-        }
-
-    }
-
     inline uint32_t calcDiff(Color c1, Color c2)
     {
         uint16_t r1 = c1.r_;
@@ -87,33 +30,6 @@ namespace tll
         db = b2 - b1;
 
         return static_cast<uint32_t>(std::sqrt(dr * dr + dg * dg + db * db));
-    }
-
-    namespace old
-    {
-
-        uint8_t ColorPalette::getIDFromRGB(uint16_t r, uint16_t g, uint16_t b)
-        {
-            Color base_color = Color(r, g, b);
-            uint8_t target_ID = 0;
-
-            uint32_t min_diff;
-            min_diff = calcDiff(base_color, palette_data_[0]);
-
-            for (std::size_t i = 1; i < palette_data_.size(); i++)
-            {
-                uint32_t diff = calcDiff(base_color, palette_data_[i]);
-
-                if (diff < min_diff)
-                {
-                    min_diff = diff;
-                    target_ID = i;
-                }
-            }
-
-            return target_ID;
-        }
-
     }
 
 }
