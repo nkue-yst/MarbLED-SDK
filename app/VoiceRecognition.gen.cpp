@@ -19,13 +19,12 @@ VoiceRecognition::~VoiceRecognition()
 
 void VoiceRecognition::init()
 {
+    this->is_running = true;
     tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/init");
 }
 
 void VoiceRecognition::run()
 {
-    this->is_running = true;
-
     while (tll::loop())
     {
         if (!this->is_running)

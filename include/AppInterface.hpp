@@ -30,7 +30,6 @@ namespace tll
         /* OSC process */
         virtual void procOscMessage(const osc::ReceivedMessage& msg) {}
 
-    protected:
         bool is_running = false;
     };
 

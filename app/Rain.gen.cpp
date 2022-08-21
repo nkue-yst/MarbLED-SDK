@@ -21,13 +21,11 @@ Rain::~Rain()
 
 void Rain::init()
 {
-
+    this->is_running = true;
 }
 
 void Rain::run()
 {
-    this->is_running = true;
-
     while (tll::loop())
     {
         if (!this->is_running)

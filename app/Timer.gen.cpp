@@ -53,6 +53,8 @@ Timer::~Timer()
 
 void Timer::init()
 {
+    this->is_running = true;
+
     tll::clear();
 
     // 円弧画像の読み込み
@@ -85,8 +87,6 @@ void Timer::init()
 
 void Timer::run()
 {
-    this->is_running = true;
-
     while (tll::loop())
     {
         if (!this->is_running)

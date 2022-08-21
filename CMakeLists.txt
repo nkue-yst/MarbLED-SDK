@@ -7,7 +7,7 @@ project(${PROJECT})
 enable_language(CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS " -fPIC -g")
+set(CMAKE_CXX_FLAGS "-fPIC -g")
 
 ### Setup TUIO ###
 file(GLOB TUIO_SRC thirdparty/TUIO11_CPP/TUIO/*.cpp thirdparty/TUIO11_CPP/TUIO/*.h)
@@ -100,46 +100,7 @@ if(TLL_BUILD_APP)
     add_subdirectory(${CMAKE_SOURCE_DIR}/app)
 endif()
 
-### Setup demo app for int2022 ###
-option(TLL_DEMO_INT2022 "Build demo app for int2022" OFF)
-if(TLL_DEMO_INT2022)
-    add_executable(int2022_demo example/int2022_demo.cpp)
-    add_executable(int2022_demo_1 example/int2022_demo_1.cpp)
-    add_executable(int2022_demo_5 example/int2022_demo_5.cpp)
-    add_executable(example_MusicVisualizer example/music_visualizer.cpp)
-    target_link_libraries(int2022_demo_1 ${PROJECT} TUIO)
-    target_link_libraries(int2022_demo_5 ${PROJECT} TUIO)
-    target_link_libraries(example_MusicVisualizer ${PROJECT} TUIO)
-endif()
-
-### Setup demo app for cedec2022 ###
-option(TLL_DEMO_CEDEC2022 "Build demo app for cedec2022" OFF)
-if(TLL_DEMO_CEDEC2022)
-    file(GLOB TLL_CEDEC2022_SRC ${CMAKE_SOURCE_DIR}/example/cedec2022/*)
-    add_executable(cedec2022_demo ${TLL_CEDEC2022_SRC})
-    target_link_libraries(cedec2022_demo ${PROJECT} TUIO)
-
-    add_executable(CedecAppGenerator ${CMAKE_SOURCE_DIR}/example/cedec2022/AppGenerator/AppGenerator.cpp)
-
-    # Copy resource files
-    add_custom_command(
-        TARGET ${PROJECT} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/example/video/bomb.mp4" $<TARGET_FILE_DIR:${PROJECT}>
-    )
-endif()
-
-### Setup demo app using OSC ###
-option(TLL_TEST_OSC "Build test app using osc" OFF)
-if(TLL_TEST_OSC)
-    add_executable(example_osc example/example_osc.cpp)
-    target_link_libraries(example_osc ${PROJECT} TUIO)
-endif()
-
 ### Copy engine component files ###
-add_custom_command(
-    TARGET ${PROJECT} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/ColorPalette.csv" $<TARGET_FILE_DIR:${PROJECT}>
-)
 add_custom_command(
     TARGET ${PROJECT} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/NotoSansJP-Regular.otf" $<TARGET_FILE_DIR:${PROJECT}>

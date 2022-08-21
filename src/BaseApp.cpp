@@ -43,21 +43,17 @@ namespace tll
 
         this->loadApps();
 
-        /* 最初に読み込んだアプリを起動する */
-        createApp* createAppFunc = (createApp*)(dlsym(this->app_list.begin()->second, "create"));
-        std::unique_ptr<class AppInterface> app = createAppFunc();
-        this->running_app = std::move(app);
-        this->running_app->init();
-
         while (loop())
         {
             if (this->running_app)
             {
-                this->running_app->run();
+                if (this->running_app->is_running)
+                    this->running_app->run();
             }
         }
 
-        this->running_app->terminate();
+        if (this->running_app)
+            this->running_app->terminate();
         quit();
     }
 
@@ -65,8 +61,12 @@ namespace tll
     {
         bool is_found = false;
 
-        this->running_app->terminate();
-        delete this->running_app.release();
+        if (this->running_app)
+        {
+            this->running_app->terminate();
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            this->running_app.reset();
+        }
 
         std::for_each(this->app_list.begin(), this->app_list.end(), [this, app_name, &is_found](std::unordered_map<std::string, void*>::value_type app)
         {

@@ -27,13 +27,11 @@ Theremin::~Theremin()
 
 void Theremin::init()
 {
-
+    this->is_running = true;
 }
 
 void Theremin::run()
 {
-    this->is_running = true;
-
     while (tll::loop())
     {
         if (!this->is_running)

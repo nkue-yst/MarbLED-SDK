@@ -21,13 +21,11 @@ SimpleScan::~SimpleScan()
 
 void SimpleScan::init()
 {
-
+    this->is_running = true;
 }
 
 void SimpleScan::run()
 {
-    this->is_running = true;
-
     while (tll::loop())
     {
         if (!this->is_running)

@@ -24,13 +24,12 @@ MusicVisualizer::~MusicVisualizer()
 
 void MusicVisualizer::init()
 {
+    this->is_running = true;
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init");
 }
 
 void MusicVisualizer::run()
 {
-    this->is_running = true;
-
     while (tll::loop())
     {
         if (!this->is_running)
