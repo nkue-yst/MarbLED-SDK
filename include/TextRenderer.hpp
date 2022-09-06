@@ -2,11 +2,13 @@
  * @file    TextRenderer.hpp
  * @brief   TextRenderer class
  * @author  Yoshito Nakaue
- * @date    2021/10/18
+ * @date    2022/08/22
  */
 
 #ifndef TEXT_RENDERER_HPP
 #define TEXT_RENDERER_HPP
+
+#include "Color.hpp"
 
 #include <opencv2/freetype.hpp>
 
@@ -58,7 +60,7 @@ namespace tll
          * @fn     void drawText(std::string str, uint32_t x, uint32_t y)
          * @brief  Drawing text
          */
-        void drawText(std::string str, uint8_t c, uint32_t x, uint32_t y);
+        void drawText(std::string str, Color color, uint32_t x, uint32_t y);
 
     protected:
         TextRenderer()

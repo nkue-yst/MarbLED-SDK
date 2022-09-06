@@ -2,7 +2,7 @@
  * @file    Image.cpp
  * @brief   Image class
  * @author  Yoshito Nakaue
- * @date    2021/09/28
+ * @date    2022/08/18
  */
 
 #include "Image.hpp"
@@ -32,12 +32,50 @@ namespace tll
                 PanelManager::getInstance()->drawPixel(
                     x + X,
                     y + Y,
-                    ColorPalette::getInstance()->getIDFromRGB(
+                    Color(
                         img_data_.at<cv::Vec3b>(Y, X)[2],
                         img_data_.at<cv::Vec3b>(Y, X)[1],
                         img_data_.at<cv::Vec3b>(Y, X)[0]
                     )
                 );
+            }
+        }
+
+        SerialManager::getInstance()->sendColorData();
+    }
+
+    void Image::draw(uint32_t x, uint32_t y, tll::Color color)
+    {
+        for (int Y = 0; Y < img_data_.rows; Y++)
+        {
+            for (int X = 0; X < img_data_.cols; X++)
+            {
+                if (img_data_.at<cv::Vec3b>(Y, X)[2] == 0 &&
+                    img_data_.at<cv::Vec3b>(Y, X)[1] == 0 &&
+                    img_data_.at<cv::Vec3b>(Y, X)[0] == 0)
+                {
+                    PanelManager::getInstance()->drawPixel(
+                        x + X,
+                        y + Y,
+                        Color(
+                            img_data_.at<cv::Vec3b>(Y, X)[2],
+                            img_data_.at<cv::Vec3b>(Y, X)[1],
+                            img_data_.at<cv::Vec3b>(Y, X)[0]
+                        )
+                    );
+                }
+                else
+                {
+                    PanelManager::getInstance()->drawPixel(
+                        x + X,
+                        y + Y,
+                        Color(
+                            color.r_,
+                            color.g_,
+                            color.b_
+                        )
+                    );
+                }
             }
         }
 

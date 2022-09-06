@@ -1,6 +1,0 @@
-<map id="TUIO::TuioContainer" name="TUIO::TuioContainer">
-<area shape="rect" id="node3" href="$classTUIO_1_1TuioBlob.html" title="TUIO::TuioBlob" alt="" coords="5,155,119,181"/>
-<area shape="rect" id="node4" href="$classTUIO_1_1TuioCursor.html" title="TUIO::TuioCursor" alt="" coords="143,155,269,181"/>
-<area shape="rect" id="node5" href="$classTUIO_1_1TuioObject.html" title="TUIO::TuioObject" alt="" coords="294,155,419,181"/>
-<area shape="rect" id="node2" href="$classTUIO_1_1TuioPoint.html" title="TUIO::TuioPoint" alt="" coords="147,5,265,32"/>
-</map>

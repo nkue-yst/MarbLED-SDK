@@ -2,7 +2,7 @@
  * @file    SerialManager.cpp
  * @brief   Implementing a class to manage serial communication.
  * @author  Yoshito Nakaue
- * @date    2021/08/05
+ * @date    2022/08/22
  */
 
 #include "SerialManager.hpp"
@@ -42,7 +42,7 @@ namespace tll
                 {
                     for (uint16_t x = 0; x < PanelManager::getInstance()->getWidth(); x++)
                     {
-                        Color color = ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y));
+                        Color color = PanelManager::getInstance()->getColor(x, y);
                         std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + PanelManager::getInstance()->getWidth() * y), color.r_, color.g_, color.b_ };
 
                         zmq::message_t msg(color_vec);

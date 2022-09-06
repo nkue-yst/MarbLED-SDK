@@ -2,11 +2,13 @@
  * @file    PanelManager.hpp
  * @brief   パネル情報管理クラス
  * @author  Yoshito Nakaue
- * @date    2021/09/28
+ * @date    2022/08/18
  */
 
 #ifndef PANEL_MANAGER_HPP
 #define PANEL_MANAGER_HPP
+
+#include "Color.hpp"
 
 #include <cstdint>
 #include <iostream>
@@ -53,7 +55,7 @@ namespace tll
 
         /**
          * 
-        * @fn     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h)
+        * @fn     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, tll::Color c)
         * @brief  Draw rectangle.
         * @param  x  The x location of the rectangle's upper left corner
         * @param  y  The y location of the rectangle's upper left corner
@@ -61,10 +63,10 @@ namespace tll
         * @param  h  The height of the rectangl
         * @param  c  The color of the rectangle
         */
-        void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t c);
+        void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c);
 
         /**
-         * @fn     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
+         * @fn     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, tll::Color c)
          * @brief  Draw line
          * @param  x1  The x location of the starting line
          * @param  y1  The y location of the starting line
@@ -72,27 +74,35 @@ namespace tll
          * @param  y2  The y location of the ending line
          * @param  c   The color of the line
          */
-        void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c);
+        void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color c);
 
         /**
-         * @fn     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint16_t c)
+         * @fn     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, tll::Color c)
          * @brief  Draw circle
          * @param  x    The x location of the center
          * @param  y    The y location of the center
          * @param  rad  The radian of the circle
          * @param  c    The color of the circle
          */
-        void drawCircle(uint16_t x, uint16_t y, uint16_t rad, uint8_t c);
+        void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color c);
 
         /**
          * 
          */
-        void drawPixel(uint16_t x, uint16_t y, uint8_t color)
+        void drawPixel(uint16_t x, uint16_t y, Color c)
         {
-            if (x >= width_ || y >= height_)
+            if (x >= this->width_ || y >= this->height_)
                 return;
 
-            color_[y * width_ + x] = color;
+            this->color_[y * width_ + x] = c;
+        }
+
+        void drawPixelWithColor(uint16_t x, uint16_t y, Color c)
+        {
+            if (x >= this->width_ || y >= this->height_)
+                return;
+
+            this->color_[y * this->width_ + x] = c;
         }
 
         /**
@@ -123,15 +133,17 @@ namespace tll
         uint16_t getPixelsNum() { return width_ * height_; }
 
         /**
-         * @fn      uint8_t getColor(int x, int y)
+         * @fn      tll::Color getColor(int x, int y)
          * @brief   Get color of the specified coordinates.
          * @return  Color of the specified coordinates
          */
-        uint8_t getColor(int x, int y)
+        Color getColor(int x, int y)
         {
-            uint8_t color = 0;
-            try {
-                color = color_.at(y * width_ + x);
+            Color color;
+
+            try
+            {
+                color = this->color_.at(y * width_ + x);
             }
             catch (std::out_of_range& e)
             {
@@ -155,7 +167,7 @@ namespace tll
         uint16_t height_;
 
         /// Color infomation for each pixel
-        std::vector<uint8_t> color_;
+        std::vector<Color> color_;
     };
 
 }

@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classTUIO2_1_1TuioPoint.html" title="TUIO2::TuioPoint" alt="" coords="5,81,129,108"/>
-<area shape="rect" id="node2" href="$classTUIO2_1_1TuioComponent.html" title="TUIO2::TuioComponent" alt="" coords="177,81,339,108"/>
-<area shape="rect" id="node3" href="$classTUIO2_1_1TuioBounds.html" title="TUIO2::TuioBounds" alt="" coords="387,5,525,32"/>
-<area shape="rect" id="node4" href="$classTUIO2_1_1TuioPointer.html" title="TUIO2::TuioPointer" alt="" coords="389,56,523,83"/>
-<area shape="rect" id="node5" href="$classTUIO2_1_1TuioSymbol.html" title="TUIO2::TuioSymbol" alt="" coords="387,107,525,133"/>
-<area shape="rect" id="node6" href="$classTUIO2_1_1TuioToken.html" title="TUIO2::TuioToken" alt="" coords="391,157,521,184"/>
-</map>

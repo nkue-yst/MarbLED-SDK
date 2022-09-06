@@ -1,5 +1,0 @@
-<map id="control.TMDevice" name="control.TMDevice">
-<area shape="rect" id="node2" href="$classcontrol_1_1Decoder.html" title="control.Decoder" alt="" coords="5,80,120,107"/>
-<area shape="rect" id="node3" href="$classcontrol_1_1LEDDriver.html" title="control.LEDDriver" alt="" coords="145,80,271,107"/>
-<area shape="rect" id="node4" href="$classcontrol_1_1Multiplexer.html" title="control.Multiplexer" alt="" coords="296,80,424,107"/>
-</map>

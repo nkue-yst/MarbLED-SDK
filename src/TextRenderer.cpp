@@ -49,7 +49,7 @@ namespace tll
 
     }
 
-    void TextRenderer::drawText(std::string str, uint8_t c, uint32_t x, uint32_t y)
+    void TextRenderer::drawText(std::string str, Color color, uint32_t x, uint32_t y)
     {
         uint32_t width = PanelManager::getInstance()->getWidth();
         uint32_t height = PanelManager::getInstance()->getHeight();
@@ -76,13 +76,10 @@ namespace tll
                  && img.at<cv::Vec3b>(y, x)[1] != 0
                  && img.at<cv::Vec3b>(y, x)[0] != 0)
                 {
-                    PanelManager::getInstance()->drawPixel(x, y, c);
+                    PanelManager::getInstance()->drawPixel(x, y, color);
                 }
             }
         }
-
-        // cv::resize(img, img, cv::Size(), 50, 50);
-        // cv::imwrite("PrintedText.png", img);
     }
 
     void TextRenderer::loadFont(const char* font_file_path)

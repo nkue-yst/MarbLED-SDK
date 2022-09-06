@@ -2,7 +2,7 @@
  * @file    SerialManager.hpp
  * @brief   Class to manage serial communication.
  * @author  Yoshito Nakaue
- * @date    2021/07/27
+ * @date    2022/08/18
  */
 
 #ifndef SERIAL_MANAGER_HPP
