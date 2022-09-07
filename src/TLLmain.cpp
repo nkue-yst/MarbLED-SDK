@@ -6,23 +6,25 @@
  */
 
 #include "TLL.h"
+
+#include <chrono>
+#include <csignal>
+#include <ctime>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <thread>
+
+#include "tllEngine.hpp"
 #include "Color.hpp"
 #include "Common.hpp"
 #include "Event.hpp"
-#include "TextRenderer.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
+#include "TextRenderer.hpp"
 
 #include <opencv2/opencv.hpp>
-
-#include <ctime>
-#include <chrono>
-#include <csignal>
-#include <thread>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <iostream>
 
 namespace tll
 {
@@ -33,18 +35,8 @@ namespace tll
         verbose = verbose_flag;
         startClock();
 
-        /* Initialize singleton classes */
-        TextRenderer::create();
-        TextRenderer::getInstance()->init();
-
-        PanelManager::create();
-        PanelManager::getInstance()->init(width, height);
-
-        SerialManager::create();
-        SerialManager::getInstance()->init(LED_driver);
-
-        EventHandler::create();
-        EventHandler::getInstance()->init();
+        // エンジン，コンポーネントを初期化する
+        tllEngine::get()->init(width, height, LED_driver);
 
         std::cout << std::endl;
 
@@ -55,55 +47,48 @@ namespace tll
     {
         auto quitSignal = [](int flag) {
             std::cout << std::endl;
-            EventHandler::getInstance()->setQuitFlag(true);
+            TLL_ENGINE(EventHandler)->setQuitFlag(true);
         };
         signal(SIGINT, quitSignal);
 
-        EventHandler::getInstance()->updateState();
-        //std::cout << "Loop" << std::endl;
-        //std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        TLL_ENGINE(EventHandler)->updateState();
 
-        return !EventHandler::getInstance()->getQuitFlag();
+        return !TLL_ENGINE(EventHandler)->getQuitFlag();
     }
 
     void quit()
     {
         startClock();
 
-        PanelManager::getInstance()->clear();
-        SerialManager::getInstance()->sendColorData();
-        EventHandler::getInstance()->quit();
-        TextRenderer::getInstance()->quit();
+        TLL_ENGINE(PanelManager)->clear();
+        TLL_ENGINE(SerialManager)->sendColorData();
 
-        EventHandler::getInstance()->destroy();
-        SerialManager::getInstance()->destroy();
-        PanelManager::getInstance()->destroy();
-        TextRenderer::getInstance()->destroy();
+        tllEngine::get()->quit();
 
         endClock("tll::quit()");
     }
 
     void drawPixel(uint16_t x, uint16_t y, Color color)
     {
-        PanelManager::getInstance()->drawPixel(x, y, color);
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(PanelManager)->drawPixel(x, y, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, Color color)
     {
         for (int i = 0; i < x.size(); i++)
         {
-            PanelManager::getInstance()->drawPixel(x.at(i), y.at(i), color);
+            TLL_ENGINE(PanelManager)->drawPixel(x.at(i), y.at(i), color);
         }
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color color)
     {
         startClock();
 
-        PanelManager::getInstance()->drawRect(x, y, w, h, color);
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(PanelManager)->drawRect(x, y, w, h, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
 
         endClock("tll::drawRect()");
     }
@@ -112,8 +97,8 @@ namespace tll
     {
         startClock();
 
-        PanelManager::getInstance()->drawLine(x1, y1, x2, y2, color);
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(PanelManager)->drawLine(x1, y1, x2, y2, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
 
         endClock("tll::drawLine()");
     }
@@ -122,8 +107,8 @@ namespace tll
     {
         startClock();
 
-        PanelManager::getInstance()->drawCircle(x, y, rad, color);
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(PanelManager)->drawCircle(x, y, rad, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
 
         endClock("tll::drawCircle()");
     }
@@ -132,8 +117,8 @@ namespace tll
     {
         startClock();
 
-        TextRenderer::getInstance()->drawText(str, color, 0, 0);
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(TextRenderer)->drawText(str, color, 0, 0);
+        TLL_ENGINE(SerialManager)->sendColorData();
 
         endClock("tll::print()");
     }
@@ -142,8 +127,8 @@ namespace tll
     {
         startClock();
 
-        PanelManager::getInstance()->clear();
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(PanelManager)->clear();
+        TLL_ENGINE(SerialManager)->sendColorData();
 
         endClock("tll::clear()");
     }

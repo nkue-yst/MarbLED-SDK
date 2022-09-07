@@ -6,11 +6,13 @@
  */
 
 #include "Image.hpp"
+
+#include <iostream>
+
+#include "tllEngine.hpp"
 #include "Color.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
-
-#include <iostream>
 
 namespace tll
 {
@@ -29,7 +31,7 @@ namespace tll
         {
             for (int X = 0; X < img_data_.cols; X++)
             {
-                PanelManager::getInstance()->drawPixel(
+                TLL_ENGINE(PanelManager)->drawPixel(
                     x + X,
                     y + Y,
                     Color(
@@ -41,7 +43,7 @@ namespace tll
             }
         }
 
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void Image::draw(uint32_t x, uint32_t y, tll::Color color)
@@ -54,7 +56,7 @@ namespace tll
                     img_data_.at<cv::Vec3b>(Y, X)[1] == 0 &&
                     img_data_.at<cv::Vec3b>(Y, X)[0] == 0)
                 {
-                    PanelManager::getInstance()->drawPixel(
+                    TLL_ENGINE(PanelManager)->drawPixel(
                         x + X,
                         y + Y,
                         Color(
@@ -66,7 +68,7 @@ namespace tll
                 }
                 else
                 {
-                    PanelManager::getInstance()->drawPixel(
+                    TLL_ENGINE(PanelManager)->drawPixel(
                         x + X,
                         y + Y,
                         Color(
@@ -79,7 +81,7 @@ namespace tll
             }
         }
 
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void Image::resize(uint32_t height, uint32_t width)

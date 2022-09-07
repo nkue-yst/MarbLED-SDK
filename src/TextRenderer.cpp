@@ -6,53 +6,46 @@
  */
 
 #include "TextRenderer.hpp"
+
+#include <iostream>
+
+#include "tllEngine.hpp"
 #include "Common.hpp"
 #include "Image.hpp"
 #include "PanelManager.hpp"
 
 #include <opencv2/opencv.hpp>
 
-#include <iostream>
-
 namespace tll
 {
 
-    TextRenderer* TextRenderer::pInstance_ = nullptr;
-
-    void TextRenderer::create()
+    ITextRenderer* ITextRenderer::create()
     {
-        if (!pInstance_)
-        {
-            pInstance_ = new TextRenderer();
-
-            printLog("Create Text renderer");
-        }
+        return new TextRenderer();
     }
 
-    void TextRenderer::destroy()
+    TextRenderer::TextRenderer()
     {
-        delete pInstance_;
-        pInstance_ = nullptr;
+        this->font_size_ = 22;
+        printLog("Create Text renderer");
+    }
 
+    TextRenderer::~TextRenderer()
+    {
         printLog("Destroy Text renderer");
     }
 
     void TextRenderer::init()
     {
-        ft2_ = cv::freetype::createFreeType2();
+        this->ft2_ = cv::freetype::createFreeType2();
 
-        loadFont();
-    }
-
-    void TextRenderer::quit()
-    {
-
+        this->loadFont();
     }
 
     void TextRenderer::drawText(std::string str, Color color, uint32_t x, uint32_t y)
     {
-        uint32_t width = PanelManager::getInstance()->getWidth();
-        uint32_t height = PanelManager::getInstance()->getHeight();
+        uint32_t width  = TLL_ENGINE(PanelManager)->getWidth();
+        uint32_t height = TLL_ENGINE(PanelManager)->getHeight();
 
         cv::String text = str;
         uint32_t thickness  = -1;
@@ -76,7 +69,7 @@ namespace tll
                  && img.at<cv::Vec3b>(y, x)[1] != 0
                  && img.at<cv::Vec3b>(y, x)[0] != 0)
                 {
-                    PanelManager::getInstance()->drawPixel(x, y, color);
+                    TLL_ENGINE(PanelManager)->drawPixel(x, y, color);
                 }
             }
         }
@@ -84,7 +77,7 @@ namespace tll
 
     void TextRenderer::loadFont(const char* font_file_path)
     {
-        ft2_->loadFontData(font_file_path, 0);
+        this->ft2_->loadFontData(font_file_path, 0);
     }
 
 }

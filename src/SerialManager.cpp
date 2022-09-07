@@ -6,16 +6,18 @@
  */
 
 #include "SerialManager.hpp"
-#include "PanelManager.hpp"
-#include "Color.hpp"
-#include "Common.hpp"
-
-#include <zmq.hpp>
 
 #include <iostream>
 #include <chrono>
 #include <thread>
 #include <unistd.h>
+
+#include "tllEngine.hpp"
+#include "PanelManager.hpp"
+#include "Color.hpp"
+#include "Common.hpp"
+
+#include <zmq.hpp>
 
 #ifdef WITH_RASPI
 #include <wiringSerial.h>
@@ -35,15 +37,15 @@ namespace tll
 
             while (true)
             {
-                if (!SerialManager::getInstance()->send_ready)
+                if (!TLL_ENGINE(SerialManager)->send_ready)
                     continue;
 
-                for (uint16_t y = 0; y < PanelManager::getInstance()->getHeight(); y++)
+                for (uint16_t y = 0; y < TLL_ENGINE(PanelManager)->getHeight(); y++)
                 {
-                    for (uint16_t x = 0; x < PanelManager::getInstance()->getWidth(); x++)
+                    for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
                     {
-                        Color color = PanelManager::getInstance()->getColor(x, y);
-                        std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + PanelManager::getInstance()->getWidth() * y), color.r_, color.g_, color.b_ };
+                        Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
+                        std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + TLL_ENGINE(PanelManager)->getWidth() * y), color.r_, color.g_, color.b_ };
 
                         zmq::message_t msg(color_vec);
                         
@@ -51,7 +53,7 @@ namespace tll
                     }
                 }
 
-                SerialManager::getInstance()->send_ready = false;
+                TLL_ENGINE(SerialManager)->send_ready = false;
             }
         };
 
@@ -59,24 +61,28 @@ namespace tll
         th_send_data.detach();
     }
 
-    SerialManager* SerialManager::pInstance_ = nullptr;
-
-    void SerialManager::create()
+    ISerialManager* ISerialManager::create()
     {
-        if (!pInstance_)
-        {
-            pInstance_ = new SerialManager();
-
-            printLog("Create serial manager");
-        }
+        return new SerialManager();
     }
 
-    void SerialManager::destroy()
+    SerialManager::SerialManager()
     {
-        delete pInstance_;
-        pInstance_ = nullptr;
+        this->system_mode = 0;
 
-        printLog("Destroy serial manager");
+        printLog("Create Serial manager");
+    }
+
+    SerialManager::~SerialManager()
+    {
+        if (this->system_mode == 0)
+        {
+            #ifdef WITH_RASPI
+            serialClose(fd);
+            #endif
+        }
+
+        printLog("Destroy Serial manager");
     }
 
     void SerialManager::init(std::string LED_driver)
@@ -122,22 +128,12 @@ namespace tll
         threadSendColor();
     }
 
-    void SerialManager::quit()
-    {
-        if (this->system_mode == 0)
-        {
-            #ifdef WITH_RASPI
-            serialClose(fd);
-            #endif
-        }
-    }
-
     void SerialManager::sendColorData()
     {
         if (this->system_mode == 0)
         {
-            uint16_t width  = PanelManager::getInstance()->getWidth();
-            uint16_t height = PanelManager::getInstance()->getHeight();
+            uint16_t width  = TLL_ENGINE(PanelManager)->getWidth();
+            uint16_t height = TLL_ENGINE(PanelManager)->getHeight();
 
             // If led driver is HT16K33 and use ESP32
             if (this->led_driver_ == "HT16K33")
@@ -147,7 +143,7 @@ namespace tll
                     for (uint16_t x = 0; x < width; x++)
                     {
                         #ifdef WITH_RASPI
-                        serialPutchar(fd, PanelManager::getInstance()->getColor(x, y));
+                        serialPutchar(fd, TLL_ENGINE(PanelManager)->getColor(x, y));
                         #endif
                     }
                 }
@@ -160,7 +156,7 @@ namespace tll
                     for (uint16_t x = 0; x < width; x++)
                     {
                         #ifdef WITH_RASPI
-                        Color color = ColorPalette::getInstance()->getColorFromID(PanelManager::getInstance()->getColor(x, y));
+                        Color color = ColorPalette::getInstance()->getColorFromID(TLL_ENGINE(PanelManager)->getColor(x, y));
                         this->off_canvas_->SetPixel(x, y, color.r_, color.g_, color.b_);
                         #endif
                     }
@@ -172,7 +168,7 @@ namespace tll
             }
         }
 
-        SerialManager::getInstance()->send_ready = true;
+        TLL_ENGINE(SerialManager)->send_ready = true;
     }
 
 }

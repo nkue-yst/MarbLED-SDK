@@ -14,29 +14,24 @@
 namespace tll
 {
 
-    PanelManager* PanelManager::pInstance_ = nullptr;
-
-    void PanelManager::create()
+    IPanelManager* IPanelManager::create()
     {
-        if (!pInstance_)
-        {
-            pInstance_ = new PanelManager();
-
-            printLog("Create panel manager");
-        }
+        return new PanelManager();
     }
 
-    void PanelManager::destroy()
+    PanelManager::PanelManager()
     {
-        delete pInstance_;
-        pInstance_ = nullptr;
+        printLog("Create Panel manager");
+    }
 
-        printLog("Destroy panel manager");
+    PanelManager::~PanelManager()
+    {
+        printLog("Destroy Panel manager");
     }
 
     void PanelManager::init(uint16_t width, uint16_t height)
     {
-        this->width_ = width;
+        this->width_  = width;
         this->height_ = height;
 
         // Initialize color info with 0 (Black)
@@ -44,6 +39,14 @@ namespace tll
         {
             this->color_.push_back(Color());
         }
+    }
+
+    inline void PanelManager::drawPixel(uint16_t x, uint16_t y, Color c)
+    {
+        if (x >= this->width_ || y >= this->height_)
+            return;
+
+        this->color_[y * width_ + x] = c;
     }
 
     void PanelManager::drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c)
@@ -94,11 +97,11 @@ namespace tll
         {
             if (steep)
             {
-                PanelManager::getInstance()->drawPixel(y, x, c);
+                this->drawPixel(y, x, c);
             }
             else
             {
-                PanelManager::getInstance()->drawPixel(x, y, c);
+                this->drawPixel(x, y, c);
             }
 
             error = error - deltaY;

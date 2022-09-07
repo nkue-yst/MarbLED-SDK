@@ -6,15 +6,17 @@
  */
 
 #include "Video.hpp"
-#include "Color.hpp"
-#include "PanelManager.hpp"
-#include "SerialManager.hpp"
-#include "TLL.h"
 
 #include <thread>
 #include <chrono>
 #include <unistd.h>
 #include <iostream>
+
+#include "tllEngine.hpp"
+#include "Color.hpp"
+#include "PanelManager.hpp"
+#include "SerialManager.hpp"
+#include "TLL.h"
 
 namespace tll
 {
@@ -52,7 +54,7 @@ namespace tll
             {
                 for (int32_t x = 0; x < dst.cols; x++)
                 {
-                    PanelManager::getInstance()->drawPixel(
+                    TLL_ENGINE(PanelManager)->drawPixel(
                         x + pos_x,
                         y + pos_y,
                         Color(
@@ -64,7 +66,7 @@ namespace tll
                 }
             }
 
-            SerialManager::getInstance()->sendColorData();
+            TLL_ENGINE(SerialManager)->sendColorData();
             std::this_thread::sleep_for(std::chrono::milliseconds(16));
         }
 

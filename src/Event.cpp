@@ -6,10 +6,6 @@
  */
 
 #include "Event.hpp"
-#include "Common.hpp"
-#include "PanelManager.hpp"
-
-#include "TuioTime.h"
 
 #include <iostream>
 
@@ -18,25 +14,25 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#include "Common.hpp"
+#include "PanelManager.hpp"
+
+#include "TuioTime.h"
+
 namespace tll
 {
-    EventHandler* EventHandler::pInstance_ = nullptr;
-
-    void EventHandler::create()
+    IEventHandler* IEventHandler::create()
     {
-        if (!pInstance_)
-        {
-            pInstance_ = new EventHandler();
-
-            printLog("Create Event handler");
-        }
+        return new EventHandler();
     }
 
-    void EventHandler::destroy()
+    EventHandler::EventHandler()
     {
-        delete pInstance_;
-        pInstance_ = nullptr;
+        printLog("Create Event handler");
+    }
 
+    EventHandler::~EventHandler()
+    {
         printLog("Destroy Event handler");
     }
 
@@ -49,10 +45,6 @@ namespace tll
 
         std::thread osc_thread(threadListen);
         osc_thread.detach();
-    }
-
-    void EventHandler::quit()
-    {
     }
 
     int kbhit()
@@ -84,7 +76,6 @@ namespace tll
 
     void EventHandler::updateState()
     {
-
         // Initialize frame for TUIO
         this->server_->initFrame(TUIO::TuioTime::getSessionTime());
 
@@ -95,7 +86,50 @@ namespace tll
                 this->setQuitFlag(true);
             }
         }
+    }
 
+    void OscReceiver::ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt)
+    {
+        std::lock_guard<std::mutex> lock(this->osc_mutex_);
+
+        (void)remote_end_pt;
+        try
+        {
+            //std::cout << "Received osc message" << std::endl;
+            osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
+            osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
+
+            if (strcmp(msg.AddressPattern(), "/touch/0/point") == 0 || strcmp(msg.AddressPattern(), "/touch/0/delete") == 0)
+            {
+                int32_t x = (arg++)->AsInt32();
+                int32_t y = (arg++)->AsInt32();
+                //std::cout << x << ", " << y << std::endl;
+
+                if (x == -1 && y == -1)
+                {
+                    TLL_ENGINE(EventHandler)->server_->removeTuioObject(TLL_ENGINE(EventHandler)->tobj_list_.back());
+                    TLL_ENGINE(EventHandler)->server_->commitFrame();
+                    TLL_ENGINE(EventHandler)->tobj_list_.pop_back();
+                }
+                else if (TLL_ENGINE(EventHandler)->tobj_list_.empty())
+                {
+                    TLL_ENGINE(EventHandler)->server_->initFrame(TUIO::TuioTime::getSessionTime());
+                    TUIO::TuioObject* tobj = TLL_ENGINE(EventHandler)->server_->addTuioObject(0, x, y, 0);
+                    TLL_ENGINE(EventHandler)->tobj_list_.push_back(tobj);
+                    TLL_ENGINE(EventHandler)->server_->commitFrame();
+                }
+                else if (!TLL_ENGINE(EventHandler)->tobj_list_.empty())
+                {
+                    TLL_ENGINE(EventHandler)->server_->initFrame(TUIO::TuioTime::getSessionTime());
+                    TLL_ENGINE(EventHandler)->server_->updateTuioObject(TLL_ENGINE(EventHandler)->tobj_list_[0], x, y, 0);
+                    TLL_ENGINE(EventHandler)->server_->commitFrame();
+                }
+            }
+        }
+        catch (osc::Exception& e)
+        {
+            std::cout << "OSC error" << std::endl;
+        }
     }
 
     void threadListen()
@@ -103,7 +137,6 @@ namespace tll
         OscReceiver receiver;
         UdpListeningReceiveSocket sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 9000), &receiver);
 
-        //std::cout << "Start osc listen thread." << std::endl;
         sock.Run();
     }
 
