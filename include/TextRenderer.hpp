@@ -18,9 +18,7 @@
 namespace tll
 {
 
-    /**
-     * @brief  TextRenderer class
-     */
+    /* 文字列描画インターフェースクラス */
     class ITextRenderer
     {
     public:
@@ -46,11 +44,12 @@ namespace tll
         uint32_t font_size_;
     };
 
+    // 文字列描画クラス
     class TextRenderer : public ITextRenderer
     {
     public:
-        TextRenderer();
-        ~TextRenderer() override;
+        TextRenderer() noexcept;
+        ~TextRenderer() noexcept override;
 
         // テキストレンダラを初期化する
         void init() override;

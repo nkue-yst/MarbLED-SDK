@@ -18,9 +18,7 @@
 namespace tll
 {
 
-    /**
-     * @brief  LEDパネルの状態を管理するクラス
-     */
+    /* LEDパネルの状態管理インターフェースクラス */
     class IPanelManager
     {
     public:
@@ -47,14 +45,14 @@ namespace tll
         // 全ピクセルを黒で塗りつぶす
         virtual void clear() = 0;
 
-        uint16_t getWidth()  { return width_; }
-        uint16_t getHeight() { return height_; }
+        uint16_t getWidth()  noexcept { return width_;  }
+        uint16_t getHeight() noexcept { return height_; }
 
-        void setWidth(uint16_t width) { this->width_ = width; }
-        void setHeight(uint16_t height) { this->height_ = height; }
+        void setWidth(uint16_t width)   noexcept { this->width_ = width;   }
+        void setHeight(uint16_t height) noexcept { this->height_ = height; }
 
         // ピクセル数を取得する
-        uint16_t getPixelsNum() { return width_ * height_; }
+        uint16_t getPixelsNum() noexcept { return width_ * height_; }
 
         // 特定座標の現在の色を取得する
         Color getColor(int x, int y)
@@ -84,6 +82,7 @@ namespace tll
         uint16_t height_;
     };
 
+    /* LEDパネルの状態管理クラス */
     class PanelManager : public IPanelManager
     {
     public:
@@ -91,22 +90,22 @@ namespace tll
         ~PanelManager() override;
 
         // パネルサイズ・色を初期化する
-        void init(uint16_t width, uint16_t height) override;
+        void init(uint16_t width, uint16_t height) noexcept override;
 
         // 点を描画する
-        void drawPixel(uint16_t x, uint16_t y, Color c) override;
+        void drawPixel(uint16_t x, uint16_t y, Color c) noexcept override;
 
         // 矩形を描画する
-        void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c) override;
+        void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c) noexcept override;
 
         // 直線を描画する
-        void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color c) override;
+        void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color c) noexcept override;
 
         // 円を描画する
-        void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color c) override;
+        void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color c) noexcept override;
 
         // 全ピクセルを黒で塗りつぶす
-        void clear() override;
+        void clear() noexcept override;
     };
 
 }

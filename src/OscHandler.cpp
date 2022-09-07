@@ -1,32 +1,14 @@
+/**
+ * @file OscHandler.cpp
+ * @author Y.Nakaue
+ */
+
 #include "OscHandler.hpp"
+
 #include "BaseApp.hpp"
 
 namespace tll
 {
-
-    void OscHandler::ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt)
-    {
-        if (!this->app_ref)
-            return;
-
-        (void)remote_end_pt;
-
-        try
-        {
-            if (strcmp(msg.AddressPattern(), "/tll/switch") == 0)
-            {
-                this->app_ref->switchApp(msg.ArgumentsBegin()->AsString());
-            }
-            else
-            {
-                this->app_ref->getRunningApp()->procOscMessage(msg);
-            }
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << "[OSC ERROR]: " << e.what() << '\n';
-        }
-    }
 
     void OscHandler::sendMessage(const char* address, const char* dst_ip, int port)
     {
@@ -48,6 +30,28 @@ namespace tll
 
         p << osc::BeginBundleImmediate << osc::BeginMessage(address) << value << osc::EndMessage << osc::EndBundle;
         transmitSocket.Send(p.Data(), p.Size());
+    }
+    
+    void OscHandler::ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt)
+    {
+        if (!this->app_ref)
+            return;
+
+        try
+        {
+            if (strcmp(msg.AddressPattern(), "/tll/switch") == 0)
+            {
+                this->app_ref->switchApp(msg.ArgumentsBegin()->AsString());
+            }
+            else
+            {
+                this->app_ref->getRunningApp()->procOscMessage(msg);
+            }
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << "[OSC ERROR]: " << e.what() << '\n';
+        }
     }
 
     void runOscReceiveThread(class BaseApp* base_app)

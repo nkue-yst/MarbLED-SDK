@@ -16,17 +16,18 @@
 
 namespace tll
 {
-    Image::Image()
+    Image::Image() noexcept
     {
     }
 
-    Image::Image(cv::Mat img_data)
+    Image::Image(cv::Mat img_data) noexcept
     {
         img_data_ = img_data;
     }
 
     void Image::draw(uint32_t x, uint32_t y)
     {
+        // ピクセルごとに画像データの色を適用していく
         for (int Y = 0; Y < img_data_.rows; Y++)
         {
             for (int X = 0; X < img_data_.cols; X++)
@@ -52,6 +53,7 @@ namespace tll
         {
             for (int X = 0; X < img_data_.cols; X++)
             {
+                // 色の無いピクセルは黒を表示
                 if (img_data_.at<cv::Vec3b>(Y, X)[2] == 0 &&
                     img_data_.at<cv::Vec3b>(Y, X)[1] == 0 &&
                     img_data_.at<cv::Vec3b>(Y, X)[0] == 0)
@@ -59,14 +61,10 @@ namespace tll
                     TLL_ENGINE(PanelManager)->drawPixel(
                         x + X,
                         y + Y,
-                        Color(
-                            img_data_.at<cv::Vec3b>(Y, X)[2],
-                            img_data_.at<cv::Vec3b>(Y, X)[1],
-                            img_data_.at<cv::Vec3b>(Y, X)[0]
-                        )
+                        Color(0, 0, 0)
                     );
                 }
-                else
+                else    // 色の付いているピクセルは指定色で表示
                 {
                     TLL_ENGINE(PanelManager)->drawPixel(
                         x + X,

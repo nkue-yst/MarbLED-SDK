@@ -7,12 +7,11 @@
 
 #include "Event.hpp"
 
-#include <iostream>
-
 #include <cstdio>
+#include <fcntl.h>
+#include <iostream>
 #include <termios.h>
 #include <unistd.h>
-#include <fcntl.h>
 
 #include "Common.hpp"
 #include "PanelManager.hpp"
@@ -26,12 +25,12 @@ namespace tll
         return new EventHandler();
     }
 
-    EventHandler::EventHandler()
+    EventHandler::EventHandler() noexcept
     {
         printLog("Create Event handler");
     }
 
-    EventHandler::~EventHandler()
+    EventHandler::~EventHandler() noexcept
     {
         printLog("Destroy Event handler");
     }
@@ -95,8 +94,6 @@ namespace tll
         (void)remote_end_pt;
         try
         {
-            //std::cout << "Received osc message" << std::endl;
-            osc::ReceivedMessageArgumentStream args = msg.ArgumentStream();
             osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
 
             if (strcmp(msg.AddressPattern(), "/touch/0/point") == 0 || strcmp(msg.AddressPattern(), "/touch/0/delete") == 0)

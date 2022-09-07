@@ -13,9 +13,9 @@
 #include <unistd.h>
 
 #include "tllEngine.hpp"
-#include "PanelManager.hpp"
 #include "Color.hpp"
 #include "Common.hpp"
+#include "PanelManager.hpp"
 
 #include <zmq.hpp>
 
@@ -26,39 +26,42 @@
 namespace tll
 {
 
-    /* シミュレータ用の色情報送信処理 */
-    void threadSendColor()
+    namespace
     {
-        auto send_data = []()
+        void threadSendColor()
         {
-            zmq::context_t ctx;
-            zmq::socket_t sock(ctx, zmq::socket_type::push);
-            sock.connect("tcp://127.0.0.1:44100");
-
-            while (true)
+            auto send_data = []()
             {
-                if (!TLL_ENGINE(SerialManager)->send_ready)
-                    continue;
+                zmq::context_t ctx;
+                zmq::socket_t sock(ctx, zmq::socket_type::push);
+                sock.connect("tcp://127.0.0.1:44100");
 
-                for (uint16_t y = 0; y < TLL_ENGINE(PanelManager)->getHeight(); y++)
+                while (true)
                 {
-                    for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
+                    if (!TLL_ENGINE(SerialManager)->send_ready)
+                        continue;
+
+                    for (uint16_t y = 0; y < TLL_ENGINE(PanelManager)->getHeight(); y++)
                     {
-                        Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
-                        std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + TLL_ENGINE(PanelManager)->getWidth() * y), color.r_, color.g_, color.b_ };
+                        for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
+                        {
+                            Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
+                            std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + TLL_ENGINE(PanelManager)->getWidth() * y), color.r_, color.g_, color.b_ };
 
-                        zmq::message_t msg(color_vec);
-                        
-                        auto res = sock.send(msg, zmq::send_flags::none);
+                            zmq::message_t msg(color_vec);
+                            
+                            auto res = sock.send(msg, zmq::send_flags::none);
+                            (void)res;
+                        }
                     }
+
+                    TLL_ENGINE(SerialManager)->send_ready = false;
                 }
+            };
 
-                TLL_ENGINE(SerialManager)->send_ready = false;
-            }
-        };
-
-        std::thread th_send_data(send_data);
-        th_send_data.detach();
+            std::thread th_send_data(send_data);
+            th_send_data.detach();
+        }
     }
 
     ISerialManager* ISerialManager::create()
@@ -66,14 +69,14 @@ namespace tll
         return new SerialManager();
     }
 
-    SerialManager::SerialManager()
+    SerialManager::SerialManager() noexcept
     {
         this->system_mode = 0;
 
         printLog("Create Serial manager");
     }
 
-    SerialManager::~SerialManager()
+    SerialManager::~SerialManager() noexcept
     {
         if (this->system_mode == 0)
         {

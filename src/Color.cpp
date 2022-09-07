@@ -6,7 +6,6 @@
  */
 
 #include "Color.hpp"
-#include "Common.hpp"
 
 #include <iostream>
 #include <cmath>
@@ -14,7 +13,7 @@
 namespace tll
 {
 
-    inline uint32_t calcDiff(Color c1, Color c2)
+    inline uint32_t Color::calcDiff(Color c1, Color c2) noexcept
     {
         uint16_t r1 = c1.r_;
         uint16_t g1 = c1.g_;

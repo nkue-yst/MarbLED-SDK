@@ -30,9 +30,7 @@
 namespace tll
 {
 
-    /**
-     * @brief  Event handling class
-     */
+    /* タッチイベント管理インターフェースクラス */
     class IEventHandler
     {
     public:
@@ -73,11 +71,12 @@ namespace tll
         bool is_down_left_button = false;
     };
 
+    /* タッチイベント管理クラス */
     class EventHandler : public IEventHandler
     {
     public:
-        EventHandler();
-        ~EventHandler() override;
+        EventHandler() noexcept;
+        ~EventHandler() noexcept override;
 
         // イベントハンドラを初期化
         void init() override;
@@ -86,6 +85,7 @@ namespace tll
         void updateState() override;
     };
     
+    /* タッチイベント関連のOSCメッセージ受信クラス */
     class OscReceiver : public osc::OscPacketListener
     {
     public:
@@ -98,6 +98,7 @@ namespace tll
         std::mutex osc_mutex_;
     };
 
+    // タッチイベント関連のOSCメッセージをスレッドで受信し始める
     void threadListen();
 }
 

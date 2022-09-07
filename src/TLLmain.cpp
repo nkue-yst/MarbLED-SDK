@@ -28,22 +28,15 @@
 
 namespace tll
 {
-    bool verbose = false;
-
-    void init(uint16_t width, uint16_t height, std::string LED_driver, bool verbose_flag)
+    void init(uint16_t width, uint16_t height, std::string LED_driver)
     {
-        verbose = verbose_flag;
-        startClock();
-
         // エンジン，コンポーネントを初期化する
         tllEngine::get()->init(width, height, LED_driver);
 
         std::cout << std::endl;
-
-        endClock("tll::init()");
     }
 
-    bool loop()
+    bool loop() noexcept
     {
         auto quitSignal = [](int flag) {
             std::cout << std::endl;
@@ -58,14 +51,10 @@ namespace tll
 
     void quit()
     {
-        startClock();
-
         TLL_ENGINE(PanelManager)->clear();
         TLL_ENGINE(SerialManager)->sendColorData();
 
         tllEngine::get()->quit();
-
-        endClock("tll::quit()");
     }
 
     void drawPixel(uint16_t x, uint16_t y, Color color)
@@ -76,7 +65,7 @@ namespace tll
 
     void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, Color color)
     {
-        for (int i = 0; i < x.size(); i++)
+        for (size_t i = 0; i < x.size(); i++)
         {
             TLL_ENGINE(PanelManager)->drawPixel(x.at(i), y.at(i), color);
         }
@@ -85,77 +74,49 @@ namespace tll
 
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color color)
     {
-        startClock();
-
         TLL_ENGINE(PanelManager)->drawRect(x, y, w, h, color);
         TLL_ENGINE(SerialManager)->sendColorData();
-
-        endClock("tll::drawRect()");
     }
 
     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color color)
     {
-        startClock();
-
         TLL_ENGINE(PanelManager)->drawLine(x1, y1, x2, y2, color);
         TLL_ENGINE(SerialManager)->sendColorData();
-
-        endClock("tll::drawLine()");
     }
 
     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color color)
     {
-        startClock();
-
         TLL_ENGINE(PanelManager)->drawCircle(x, y, rad, color);
         TLL_ENGINE(SerialManager)->sendColorData();
-
-        endClock("tll::drawCircle()");
     }
 
     void print(std::string str, Color color)
     {
-        startClock();
-
         TLL_ENGINE(TextRenderer)->drawText(str, color, 0, 0);
         TLL_ENGINE(SerialManager)->sendColorData();
-
-        endClock("tll::print()");
     }
 
     void clear()
     {
-        startClock();
-
         TLL_ENGINE(PanelManager)->clear();
         TLL_ENGINE(SerialManager)->sendColorData();
-
-        endClock("tll::clear()");
     }
 
     tll::Image* loadImage(const char* file)
     {
-        startClock();
-
         cv::Mat img = cv::imread(file);
         if (img.empty())
             std::cout << file << " is not found." << std::endl;
-
-        endClock("tll::loadImage()");
 
         return new tll::Image(img);
     }
 
     tll::Video loadVideo(const char* file)
     {
-        startClock();
-
         cv::VideoCapture video;
         video.open(file);
         if (video.isOpened() == false)
             std::cerr << "[ERROR] Failed to load video file" << std::endl;
-
-        endClock("tll::loadVideo()");
 
         return tll::Video(video);
     }
@@ -166,36 +127,12 @@ namespace tll
         struct tm *pnow = std::localtime(&now);
 
         std::string h = std::to_string(pnow->tm_hour);
-        //std::string m = std::to_string(pnow->tm_min);
 
         std::ostringstream m_str;
         m_str << std::setfill('0') << std::setw(2) << pnow->tm_min;
         std::string m = m_str.str();
 
         return h + ":" + m;
-    }
-
-    static double clock = 0.0;
-
-    void startClock()
-    {
-        if (!verbose)
-            return;
-
-        struct::timespec current_time;
-        clock_gettime(CLOCK_MONOTONIC, &current_time);
-        clock = (current_time.tv_sec + current_time.tv_nsec * 1e-9) * 1000;
-    }
-
-    void endClock(std::string function_name)
-    {
-        if (!verbose)
-            return;
-
-        struct::timespec current_time;
-        clock_gettime(CLOCK_MONOTONIC, &current_time);
-
-        std::cout << "tll-Log: " << function_name << " - " << ((current_time.tv_sec + current_time.tv_nsec * 1e-9) * 1000) - clock << "[ms]" << std::endl;
     }
 
 }

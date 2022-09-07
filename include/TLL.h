@@ -5,16 +5,16 @@
  * @date    2022/08/22
  */
 
-#ifndef _TLL_H_
-#define _TLL_H_
-
-#include "Image.hpp"
-#include "Video.hpp"
+#ifndef __TLL_H__
+#define __TLL_H__
 
 #include <cstdint>
 #include <functional>
 #include <string>
 #include <vector>
+
+#include "Image.hpp"
+#include "Video.hpp"
 
 /**
  * @namespace  tll
@@ -34,13 +34,13 @@ namespace tll
      * @param  width  パネルの横幅
      * @param  height  パネルの高さ
      */
-    void init(uint16_t width, uint16_t height, std::string LED_driver = "HT16K33", bool verbose_flag = false);
+    void init(uint16_t width, uint16_t height, std::string LED_driver = "HT16K33");
 
     /**
      * @fn     bool loop()
      * @brief  Main loop on the framework
      */
-    bool loop();
+    bool loop() noexcept;
 
     /**
      * @fn  void quit()
@@ -119,32 +119,6 @@ namespace tll
      * @return  Current time (String)
      */
     std::string timeToString();
-
-    /**
-     * @brief  Struct of touched point
-     */
-    struct Point
-    {
-    public:
-        Point(uint32_t x = 0, uint32_t y = 0, uint32_t id = 0)
-        {
-            x_  = x;
-            y_  = y;
-            id_ = id;
-        }
-
-        /// Point ID
-        uint32_t id_;
-
-        /// x-coordinate
-        uint32_t x_;
-
-        /// y-coordinate
-        uint32_t y_;
-    };
-
-    void startClock();
-    void endClock(std::string function_name = "Some function");
 }
 
 #endif

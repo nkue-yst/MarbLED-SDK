@@ -17,9 +17,7 @@
 namespace tll
 {
 
-    /**
-     * @brief  Class to manage serial communication.
-     */
+    /* 通信関連インターフェースクラス */
     class ISerialManager
     {
     public:
@@ -56,11 +54,12 @@ namespace tll
         #endif
     };
 
+    /* 通信関連クラス */
     class SerialManager : public ISerialManager
     {
     public:
-        SerialManager();
-        ~SerialManager() override;
+        SerialManager() noexcept;
+        ~SerialManager() noexcept override;
 
         // 通信管理クラスを初期化
         void init(std::string LED_driver) override;

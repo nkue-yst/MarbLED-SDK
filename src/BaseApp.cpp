@@ -39,7 +39,7 @@ namespace tll
 
     void BaseApp::run()
     {
-        init(64, 32, "HUB75", false);
+        init(64, 32, "HUB75");
 
         this->loadApps();
 

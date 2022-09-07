@@ -24,13 +24,13 @@ namespace tll
         return new TextRenderer();
     }
 
-    TextRenderer::TextRenderer()
+    TextRenderer::TextRenderer() noexcept
     {
         this->font_size_ = 22;
         printLog("Create Text renderer");
     }
 
-    TextRenderer::~TextRenderer()
+    TextRenderer::~TextRenderer() noexcept
     {
         printLog("Destroy Text renderer");
     }
