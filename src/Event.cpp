@@ -22,20 +22,20 @@ namespace tll
 {
     IEventHandler* IEventHandler::create()
     {
-        return new EventHandler();
+        return new EventHandlerTuio();
     }
 
-    EventHandler::EventHandler() noexcept
+    EventHandlerTuio::EventHandlerTuio() noexcept
     {
-        printLog("Create Event handler");
+        printLog("Create Event handler with TUIO");
     }
 
-    EventHandler::~EventHandler() noexcept
+    EventHandlerTuio::~EventHandlerTuio() noexcept
     {
-        printLog("Destroy Event handler");
+        printLog("Destroy Event handler with TUIO");
     }
 
-    void EventHandler::init()
+    void EventHandlerTuio::init()
     {
         this->sender_ = new TUIO::UdpSender();
         this->server_ = new TUIO::TuioServer(this->sender_);
@@ -73,7 +73,7 @@ namespace tll
         return 0;
     }
 
-    void EventHandler::updateState()
+    void EventHandlerTuio::updateState()
     {
         // Initialize frame for TUIO
         this->server_->initFrame(TUIO::TuioTime::getSessionTime());
@@ -87,46 +87,80 @@ namespace tll
         }
     }
 
+    void EventHandlerTuio::addTouchedPoint(uint32_t id, int32_t x, int32_t y)
+    {
+        this->server_->initFrame(TUIO::TuioTime::getSessionTime());
+
+        if (this->tobj_list_[id] == nullptr)
+        {
+            TUIO::TuioObject* tobj = this->server_->addTuioObject(id, x, y, 0);
+            this->tobj_list_[id] = tobj;
+        }
+        else
+        {
+            this->updateTouchedPoint(id, x, y);
+        }
+
+        this->server_->commitFrame();
+    }
+
+    void EventHandlerTuio::updateTouchedPoint(uint32_t id, int32_t x, int32_t y)
+    {
+        this->server_->updateTuioObject(this->tobj_list_[id], x, y, 0);
+    }
+
+    void EventHandlerTuio::removeTouchedPoint(uint32_t id)
+    {
+        this->server_->removeTuioObject(this->tobj_list_[id]);
+        this->server_->commitFrame();
+
+        delete this->tobj_list_[id];
+        this->tobj_list_[id] = nullptr;
+    }
+
     void OscReceiver::ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt)
     {
         std::lock_guard<std::mutex> lock(this->osc_mutex_);
 
         (void)remote_end_pt;
+
         try
         {
             osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
+            std::vector<std::string> words = this->split(msg.AddressPattern());    // OSCメッセージを分割する
 
-            if (strcmp(msg.AddressPattern(), "/touch/0/point") == 0 || strcmp(msg.AddressPattern(), "/touch/0/delete") == 0)
+            if (words.at(0) == "touch" && words.at(2) == "point")    // タッチ点が追加・更新された場合
             {
                 int32_t x = (arg++)->AsInt32();
                 int32_t y = (arg++)->AsInt32();
-                //std::cout << x << ", " << y << std::endl;
 
-                if (x == -1 && y == -1)
-                {
-                    TLL_ENGINE(EventHandler)->server_->removeTuioObject(TLL_ENGINE(EventHandler)->tobj_list_.back());
-                    TLL_ENGINE(EventHandler)->server_->commitFrame();
-                    TLL_ENGINE(EventHandler)->tobj_list_.pop_back();
-                }
-                else if (TLL_ENGINE(EventHandler)->tobj_list_.empty())
-                {
-                    TLL_ENGINE(EventHandler)->server_->initFrame(TUIO::TuioTime::getSessionTime());
-                    TUIO::TuioObject* tobj = TLL_ENGINE(EventHandler)->server_->addTuioObject(0, x, y, 0);
-                    TLL_ENGINE(EventHandler)->tobj_list_.push_back(tobj);
-                    TLL_ENGINE(EventHandler)->server_->commitFrame();
-                }
-                else if (!TLL_ENGINE(EventHandler)->tobj_list_.empty())
-                {
-                    TLL_ENGINE(EventHandler)->server_->initFrame(TUIO::TuioTime::getSessionTime());
-                    TLL_ENGINE(EventHandler)->server_->updateTuioObject(TLL_ENGINE(EventHandler)->tobj_list_[0], x, y, 0);
-                    TLL_ENGINE(EventHandler)->server_->commitFrame();
-                }
+                TLL_ENGINE(EventHandler)->addTouchedPoint(std::atoi(words.at(1).c_str()), x, y);
+            }
+            else if (words.at(0) == "touch" && words.at(2) == "delete")    // タッチ点が削除された場合
+            {
+                TLL_ENGINE(EventHandler)->removeTouchedPoint(std::atoi(words.at(1).c_str()));
             }
         }
         catch (osc::Exception& e)
         {
             std::cout << "OSC error" << std::endl;
         }
+    }
+
+    std::vector<std::string> OscReceiver::split(const std::string msg)
+    {
+        std::vector<std::string> words;
+        size_t start;
+        size_t end = 0;
+
+        // スラッシュごとに分割
+        while ((start = msg.find_first_not_of('/', end)) != std::string::npos)
+        {
+            end = msg.find('/', start);
+            words.push_back(msg.substr(start, end - start));
+        }
+
+        return words;
     }
 
     void threadListen()
