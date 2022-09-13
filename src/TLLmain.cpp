@@ -6,171 +6,117 @@
  */
 
 #include "TLL.h"
+
+#include <chrono>
+#include <csignal>
+#include <ctime>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <thread>
+
+#include "tllEngine.hpp"
 #include "Color.hpp"
 #include "Common.hpp"
 #include "Event.hpp"
-#include "TextRenderer.hpp"
 #include "PanelManager.hpp"
 #include "SerialManager.hpp"
+#include "TextRenderer.hpp"
 
 #include <opencv2/opencv.hpp>
 
-#include <ctime>
-#include <chrono>
-#include <csignal>
-#include <thread>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <iostream>
-
 namespace tll
 {
-    bool verbose = false;
-
-    void init(uint16_t width, uint16_t height, std::string LED_driver, bool verbose_flag)
+    void init(uint16_t width, uint16_t height, std::string LED_driver)
     {
-        verbose = verbose_flag;
-        startClock();
-
-        /* Initialize singleton classes */
-        TextRenderer::create();
-        TextRenderer::getInstance()->init();
-
-        PanelManager::create();
-        PanelManager::getInstance()->init(width, height);
-
-        SerialManager::create();
-        SerialManager::getInstance()->init(LED_driver);
-
-        EventHandler::create();
-        EventHandler::getInstance()->init();
+        // エンジン，コンポーネントを初期化する
+        tllEngine::get()->init(width, height, LED_driver);
 
         std::cout << std::endl;
-
-        endClock("tll::init()");
     }
 
-    bool loop()
+    bool loop() noexcept
     {
         auto quitSignal = [](int flag) {
             std::cout << std::endl;
-            EventHandler::getInstance()->setQuitFlag(true);
+            TLL_ENGINE(EventHandler)->setQuitFlag(true);
         };
         signal(SIGINT, quitSignal);
 
-        EventHandler::getInstance()->updateState();
-        //std::cout << "Loop" << std::endl;
-        //std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        TLL_ENGINE(EventHandler)->updateState();
 
-        return !EventHandler::getInstance()->getQuitFlag();
+        return !TLL_ENGINE(EventHandler)->getQuitFlag();
     }
 
     void quit()
     {
-        startClock();
+        TLL_ENGINE(PanelManager)->clear();
+        TLL_ENGINE(SerialManager)->sendColorData();
 
-        PanelManager::getInstance()->clear();
-        SerialManager::getInstance()->sendColorData();
-        EventHandler::getInstance()->quit();
-        TextRenderer::getInstance()->quit();
-
-        EventHandler::getInstance()->destroy();
-        SerialManager::getInstance()->destroy();
-        PanelManager::getInstance()->destroy();
-        TextRenderer::getInstance()->destroy();
-
-        endClock("tll::quit()");
+        tllEngine::get()->quit();
     }
 
     void drawPixel(uint16_t x, uint16_t y, Color color)
     {
-        PanelManager::getInstance()->drawPixel(x, y, color);
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(PanelManager)->drawPixel(x, y, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, Color color)
     {
-        for (int i = 0; i < x.size(); i++)
+        for (size_t i = 0; i < x.size(); i++)
         {
-            PanelManager::getInstance()->drawPixel(x.at(i), y.at(i), color);
+            TLL_ENGINE(PanelManager)->drawPixel(x.at(i), y.at(i), color);
         }
-        SerialManager::getInstance()->sendColorData();
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color color)
     {
-        startClock();
-
-        PanelManager::getInstance()->drawRect(x, y, w, h, color);
-        SerialManager::getInstance()->sendColorData();
-
-        endClock("tll::drawRect()");
+        TLL_ENGINE(PanelManager)->drawRect(x, y, w, h, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color color)
     {
-        startClock();
-
-        PanelManager::getInstance()->drawLine(x1, y1, x2, y2, color);
-        SerialManager::getInstance()->sendColorData();
-
-        endClock("tll::drawLine()");
+        TLL_ENGINE(PanelManager)->drawLine(x1, y1, x2, y2, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color color)
     {
-        startClock();
-
-        PanelManager::getInstance()->drawCircle(x, y, rad, color);
-        SerialManager::getInstance()->sendColorData();
-
-        endClock("tll::drawCircle()");
+        TLL_ENGINE(PanelManager)->drawCircle(x, y, rad, color);
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void print(std::string str, Color color)
     {
-        startClock();
-
-        TextRenderer::getInstance()->drawText(str, color, 0, 0);
-        SerialManager::getInstance()->sendColorData();
-
-        endClock("tll::print()");
+        TLL_ENGINE(TextRenderer)->drawText(str, color, 0, 0);
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     void clear()
     {
-        startClock();
-
-        PanelManager::getInstance()->clear();
-        SerialManager::getInstance()->sendColorData();
-
-        endClock("tll::clear()");
+        TLL_ENGINE(PanelManager)->clear();
+        TLL_ENGINE(SerialManager)->sendColorData();
     }
 
     tll::Image* loadImage(const char* file)
     {
-        startClock();
-
         cv::Mat img = cv::imread(file);
         if (img.empty())
             std::cout << file << " is not found." << std::endl;
-
-        endClock("tll::loadImage()");
 
         return new tll::Image(img);
     }
 
     tll::Video loadVideo(const char* file)
     {
-        startClock();
-
         cv::VideoCapture video;
         video.open(file);
         if (video.isOpened() == false)
             std::cerr << "[ERROR] Failed to load video file" << std::endl;
-
-        endClock("tll::loadVideo()");
 
         return tll::Video(video);
     }
@@ -181,36 +127,12 @@ namespace tll
         struct tm *pnow = std::localtime(&now);
 
         std::string h = std::to_string(pnow->tm_hour);
-        //std::string m = std::to_string(pnow->tm_min);
 
         std::ostringstream m_str;
         m_str << std::setfill('0') << std::setw(2) << pnow->tm_min;
         std::string m = m_str.str();
 
         return h + ":" + m;
-    }
-
-    static double clock = 0.0;
-
-    void startClock()
-    {
-        if (!verbose)
-            return;
-
-        struct::timespec current_time;
-        clock_gettime(CLOCK_MONOTONIC, &current_time);
-        clock = (current_time.tv_sec + current_time.tv_nsec * 1e-9) * 1000;
-    }
-
-    void endClock(std::string function_name)
-    {
-        if (!verbose)
-            return;
-
-        struct::timespec current_time;
-        clock_gettime(CLOCK_MONOTONIC, &current_time);
-
-        std::cout << "tll-Log: " << function_name << " - " << ((current_time.tv_sec + current_time.tv_nsec * 1e-9) * 1000) - clock << "[ms]" << std::endl;
     }
 
 }

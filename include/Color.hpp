@@ -5,8 +5,8 @@
  * @date    2022/08/22
  */
 
-#ifndef COLOR_HPP
-#define COLOR_HPP
+#ifndef __COLOR_HPP__
+#define __COLOR_HPP__
 
 #include <cstdint>
 #include <string>
@@ -16,9 +16,7 @@
 namespace tll
 {
 
-    /**
-     * @brief  Color information
-     */
+    /* 色関連を扱う構造体 */
     struct Color
     {
     public:
@@ -34,16 +32,16 @@ namespace tll
             , b_(0)
         {}
 
+        // 2色のユークリッド距離を計算する
+        static uint32_t calcDiff(Color c1, Color c2) noexcept;
+
         uint16_t r_;
         uint16_t g_;
         uint16_t b_;
     };
 
 
-    /**
-     * @brief 名前付きの色を定義
-     * 
-     */
+    /* 名前付きの色を定義 */
     namespace Palette
     {
         constexpr tll::Color Aqua  {   0, 255, 255 };

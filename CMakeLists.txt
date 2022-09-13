@@ -5,9 +5,9 @@ project(${PROJECT})
 
 ### Setup C++ project ###
 enable_language(CXX)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "-fPIC -g")
+set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -O3")
 
 ### Setup TUIO ###
 file(GLOB TUIO_SRC thirdparty/TUIO11_CPP/TUIO/*.cpp thirdparty/TUIO11_CPP/TUIO/*.h)

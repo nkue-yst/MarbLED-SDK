@@ -6,37 +6,33 @@
  */
 
 #include "PanelManager.hpp"
-#include "Common.hpp"
 
 #include <iostream>
 #include <cstdlib>
 
+#include "Common.hpp"
+
 namespace tll
 {
 
-    PanelManager* PanelManager::pInstance_ = nullptr;
-
-    void PanelManager::create()
+    IPanelManager* IPanelManager::create()
     {
-        if (!pInstance_)
-        {
-            pInstance_ = new PanelManager();
-
-            printLog("Create panel manager");
-        }
+        return new PanelManager();
     }
 
-    void PanelManager::destroy()
+    PanelManager::PanelManager()
     {
-        delete pInstance_;
-        pInstance_ = nullptr;
-
-        printLog("Destroy panel manager");
+        printLog("Create Panel manager");
     }
 
-    void PanelManager::init(uint16_t width, uint16_t height)
+    PanelManager::~PanelManager()
     {
-        this->width_ = width;
+        printLog("Destroy Panel manager");
+    }
+
+    void PanelManager::init(uint16_t width, uint16_t height) noexcept
+    {
+        this->width_  = width;
         this->height_ = height;
 
         // Initialize color info with 0 (Black)
@@ -46,7 +42,15 @@ namespace tll
         }
     }
 
-    void PanelManager::drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c)
+    inline void PanelManager::drawPixel(uint16_t x, uint16_t y, Color c) noexcept
+    {
+        if (x >= this->width_ || y >= this->height_)
+            return;
+
+        this->color_[y * width_ + x] = c;
+    }
+
+    void PanelManager::drawRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, Color c) noexcept
     {
         for (int i = 0; i < h; i++)
         {
@@ -60,7 +64,7 @@ namespace tll
         }
     }
 
-    void PanelManager::drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color c)
+    void PanelManager::drawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, Color c) noexcept
     {
         bool steep = std::abs(y2 - y1) > std::abs(x2 - x1);
         if (steep)
@@ -81,24 +85,18 @@ namespace tll
         int32_t stepY;
         int32_t y = y1;
 
-        if (y1 < y2)
-        {
-            stepY = 1;
-        }
-        else
-        {
-            stepY = -1;
-        }
+        if (y1 < y2) stepY = 1;
+        else         stepY = -1;
 
         for (int32_t x = x1; x <= x2; x++)
         {
             if (steep)
             {
-                PanelManager::getInstance()->drawPixel(y, x, c);
+                this->drawPixel(y, x, c);
             }
             else
             {
-                PanelManager::getInstance()->drawPixel(x, y, c);
+                this->drawPixel(x, y, c);
             }
 
             error = error - deltaY;
@@ -110,7 +108,7 @@ namespace tll
         }
     }
 
-    void PanelManager::drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color c)
+    void PanelManager::drawCircle(uint16_t x, uint16_t y, uint16_t rad, Color c) noexcept
     {
         auto draw = [this](int32_t pos_x, int32_t pos_y, int32_t xC, int32_t yC, Color c)
         {
@@ -144,10 +142,9 @@ namespace tll
             }
             draw(drawX, drawY, x, y, c);
         }
-
     }
 
-    void PanelManager::clear()
+    void PanelManager::clear() noexcept
     {
         for (int y = 0; y < height_; y++)
         {

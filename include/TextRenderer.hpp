@@ -5,84 +5,61 @@
  * @date    2022/08/22
  */
 
-#ifndef TEXT_RENDERER_HPP
-#define TEXT_RENDERER_HPP
+#ifndef __TEXT_RENDERER_HPP__
+#define __TEXT_RENDERER_HPP__
 
 #include "Color.hpp"
-
-#include <opencv2/freetype.hpp>
 
 #include <cstdint>
 #include <string>
 
+#include <opencv2/freetype.hpp>
+
 namespace tll
 {
 
-    /**
-     * @brief  TextRenderer class
-     */
-    class TextRenderer
+    /* 文字列描画インターフェースクラス */
+    class ITextRenderer
     {
     public:
-        /**
-         * @fn      static TextRenderer* getInstance()
-         * @brief   Get instance of text renderer
-         * @return  Instance of text renderer
-         */
-        static TextRenderer* getInstance()
-        {
-            return pInstance_;
-        }
+        virtual ~ITextRenderer() = default;
 
-        /**
-         * 
-         */
-        static void create();
+        // インスタンスを作成
+        static ITextRenderer* create();
 
-        /**
-         * 
-         */
-        static void destroy();
+        // テキストレンダラを初期化する
+        virtual void init() = 0;
 
-        /**
-         * @fn     void init()
-         * @brief  Initialize text renderer class
-         */
-        void init();
-
-        /**
-         * @fn     void quit()
-         * @brief  Quit text renderer class
-         */
-        void quit();
-
-        /**
-         * @fn     void drawText(std::string str, uint32_t x, uint32_t y)
-         * @brief  Drawing text
-         */
-        void drawText(std::string str, Color color, uint32_t x, uint32_t y);
+        // 文字列を描画する
+        virtual void drawText(std::string str, Color color, uint32_t x, uint32_t y) = 0;
 
     protected:
-        TextRenderer()
-            : font_size_(22)
-        {
-        }
-
-        // Instance for singleton
-        static TextRenderer* pInstance_;
-
-    private:
-        /**
-         * @fn  void loadFont(const char* font_file_path)
-         */
-        void loadFont(const char* font_file_path = "NotoSansJP-Regular.otf");
-        //void loadFont(const char* font_file_path = "./font/4x4kanafont.ttf");
+        // フォントデータを読み込む
+        virtual void loadFont(const char* font_file_path = "NotoSansJP-Regular.otf") = 0;
 
         /// freetype object
         cv::Ptr<cv::freetype::FreeType2> ft2_;
 
         /// Font size
         uint32_t font_size_;
+    };
+
+    // 文字列描画クラス
+    class TextRenderer : public ITextRenderer
+    {
+    public:
+        TextRenderer() noexcept;
+        ~TextRenderer() noexcept override;
+
+        // テキストレンダラを初期化する
+        void init() override;
+
+        // 文字列を描画する
+        void drawText(std::string str, Color color, uint32_t x, uint32_t y) override;
+
+    private:
+        // フォントデータを読み込む
+        void loadFont(const char* font_file_path = "NotoSansJP-Regular.otf") override;
     };
 
 }

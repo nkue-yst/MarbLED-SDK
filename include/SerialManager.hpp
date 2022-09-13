@@ -5,75 +5,36 @@
  * @date    2022/08/18
  */
 
-#ifndef SERIAL_MANAGER_HPP
-#define SERIAL_MANAGER_HPP
+#ifndef __SERIAL_MANAGER_HPP__
+#define __SERIAL_MANAGER_HPP__
+
+#include <string>
 
 #ifdef WITH_RASPI
 #include "led-matrix.h"
 #endif
 
-#include <string>
-
 namespace tll
 {
 
-    /**
-     * @brief  Class to manage serial communication.
-     */
-    class SerialManager
+    /* 通信関連インターフェースクラス */
+    class ISerialManager
     {
     public:
-        /**
-         * @fn      static SerialManager* getInstance()
-         * @brief   SerialManagerクラスのインスタンスを取得
-         * @return  SerialManagerクラスのインスタンス
-         */
-        static SerialManager* getInstance()
-        {
-            return pInstance_;
-        }
+        virtual ~ISerialManager() = default;
 
-        /**
-         * @fn     static void create()
-         * @brief  インスタンスを作成
-         */
-        static void create();
+        // インスタンスを作成
+        static ISerialManager* create();
 
-        /**
-         * @fn     static void destroy()
-         * @brief  インスタンスを破棄
-         */
-        static void destroy();
+        // 通信管理クラスを初期化
+        virtual void init(std::string LED_driver) = 0;
 
-        /**
-         * @fn     void init()
-         * @brief  Open serial device.
-         */
-        void init(std::string LED_driver);
-
-        /**
-         * @fn     void quit()
-         * @brief  Close serial device.
-         */
-        void quit();
-
-        /**
-         * @fn     void sendColorData()
-         * @brief  Send color information for all pixels.
-         */
-        void sendColorData();
+        // 色情報を送信する
+        virtual void sendColorData() = 0;
 
         bool send_ready = true;
 
     protected:
-        SerialManager()
-        : system_mode(0)
-        {};
-
-        /// SerialManagerクラスインスタンス
-        static SerialManager* pInstance_;
-
-    private:
         /// System mode (0:LED and Simulation, 1:Only Simulation)
         int system_mode;
 
@@ -91,6 +52,20 @@ namespace tll
         /// Canvas for duble buffering
         class rgb_matrix::FrameCanvas* off_canvas_;
         #endif
+    };
+
+    /* 通信関連クラス */
+    class SerialManager : public ISerialManager
+    {
+    public:
+        SerialManager() noexcept;
+        ~SerialManager() noexcept override;
+
+        // 通信管理クラスを初期化
+        void init(std::string LED_driver) override;
+
+        // 色情報を送信する
+        void sendColorData() override;
     };
 
 }
