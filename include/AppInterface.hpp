@@ -1,14 +1,16 @@
 #pragma once
 
-#include "OscHandler.hpp"
-
 #include <cstdint>
 #include <memory>
+
+#include "OscHandler.hpp"
+#include "TouchInfo.hpp"
 
 #include "osc/OscReceivedElements.h"
 
 namespace tll
 {
+
     typedef std::unique_ptr<class AppInterface> createApp();
 
     /* アプリ実装用インターフェースクラス */
@@ -22,10 +24,10 @@ namespace tll
         virtual void run() = 0;
         virtual void terminate() = 0;
 
-        /* Touch event */
-        virtual void onTouched(uint32_t x, uint32_t y) = 0;
-        virtual void onMoved(uint32_t x, uint32_t y) = 0;
-        virtual void onReleased() = 0;
+        /* Single touch event */
+        virtual void onTouched(TouchInfo ti) = 0;
+        virtual void onMoved(TouchInfo ti) = 0;
+        virtual void onReleased(TouchInfo ti) = 0;
 
         /* OSC process */
         virtual void procOscMessage(const osc::ReceivedMessage& msg) {}

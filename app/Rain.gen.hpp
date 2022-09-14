@@ -12,8 +12,8 @@
 
 struct Ripple
 {
-    uint32_t x;
-    uint32_t y;
+    int32_t x;
+    int32_t y;
     uint32_t r;
 };
 
@@ -27,9 +27,9 @@ public:
     void run() override;
     void terminate() override;
 
-    void onTouched(uint32_t x, uint32_t y) override;
-    void onMoved(uint32_t x, uint32_t y) override;
-    void onReleased() override;
+    void onTouched(tll::TouchInfo ti) override;
+    void onMoved(tll::TouchInfo ti) override;
+    void onReleased(tll::TouchInfo ti) override;
 
 private:
     /* 波紋の大きさを更新する */

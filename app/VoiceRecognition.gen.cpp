@@ -38,17 +38,17 @@ void VoiceRecognition::terminate()
     tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/terminate");
 }
 
-void VoiceRecognition::onTouched(uint32_t x, uint32_t y)
+void VoiceRecognition::onTouched(tll::TouchInfo ti)
 {
 
 }
 
-void VoiceRecognition::onMoved(uint32_t x, uint32_t y)
+void VoiceRecognition::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void VoiceRecognition::onReleased()
+void VoiceRecognition::onReleased(tll::TouchInfo ti)
 {
 
 }
