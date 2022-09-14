@@ -27,35 +27,29 @@ Theremin::~Theremin()
 
 void Theremin::init()
 {
-    this->is_running = true;
+
 }
 
 void Theremin::run()
 {
-    while (tll::loop())
+    tll::clear();
+
+    // Volumeバーを表示
+    tll::drawRect(0, 29, 64, 3, tll::Palette::Aqua);
+
+    // Pitchバーを表示
+    tll::drawRect(0, 0, 3, 32, tll::Palette::Aqua);
+
+    // タッチされている場合タッチ点を表示
+    if (this->is_touched)
     {
-        if (!this->is_running)
-            return;
-
-        tll::clear();
-
-        // Volumeバーを表示
-        tll::drawRect(0, 29, 64, 3, tll::Palette::Aqua);
-
-        // Pitchバーを表示
-        tll::drawRect(0, 0, 3, 32, tll::Palette::Aqua);
-
-        // タッチされている場合タッチ点を表示
-        if (this->is_touched)
-        {
-            tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::Red);
-        }
+        tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::Red);
     }
 }
 
 void Theremin::terminate()
 {
-    this->is_running = false;
+
 }
 
 void Theremin::onTouched(tll::TouchInfo ti)

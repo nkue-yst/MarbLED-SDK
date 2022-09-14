@@ -1,26 +1,29 @@
 #include "BaseApp.hpp"
-#include "AppInterface.hpp"
-#include "OscHandler.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <dlfcn.h>
 #include <filesystem>
+#include <thread>
+
+#include "AppInterface.hpp"
+#include "OscHandler.hpp"
 
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
 
-#include <chrono>
-#include <thread>
-
 namespace tll
 {
 
-    static const std::string extention =
-        #ifdef __APPLE__
-        ".dylib";
-        #elif __linux__
-        ".so";
-        #endif
+    namespace
+    {
+        const std::string extention =
+            #ifdef __APPLE__
+            ".dylib";
+            #elif __linux__
+            ".so";
+            #endif
+    }
 
     BaseApp::BaseApp()
     {
@@ -47,8 +50,7 @@ namespace tll
         {
             if (this->running_app)
             {
-                if (this->running_app->is_running)
-                    this->running_app->run();
+                this->running_app->run();
             }
         }
 

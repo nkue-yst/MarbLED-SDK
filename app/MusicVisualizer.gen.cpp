@@ -24,22 +24,16 @@ MusicVisualizer::~MusicVisualizer()
 
 void MusicVisualizer::init()
 {
-    this->is_running = true;
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init");
 }
 
 void MusicVisualizer::run()
 {
-    while (tll::loop())
-    {
-        if (!this->is_running)
-            return;
-    }
+
 }
 
 void MusicVisualizer::terminate()
 {
-    this->is_running = false;
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate");
 }
 

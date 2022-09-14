@@ -21,23 +21,17 @@ SimpleScan::~SimpleScan()
 
 void SimpleScan::init()
 {
-    this->is_running = true;
+
 }
 
 void SimpleScan::run()
 {
-    while (tll::loop())
-    {
-        if (!this->is_running)
-            return;
-
-        drawNextPt();
-    }
+    drawNextPt();
 }
 
 void SimpleScan::terminate()
 {
-    this->is_running = false;
+
 }
 
 void SimpleScan::onTouched(tll::TouchInfo ti)

@@ -21,23 +21,17 @@ Rain::~Rain()
 
 void Rain::init()
 {
-    this->is_running = true;
+
 }
 
 void Rain::run()
 {
-    while (tll::loop())
-    {
-        if (!this->is_running)
-            return;
-
-        this->updateRipples();
-    }
+    this->updateRipples();
 }
 
 void Rain::terminate()
 {
-    this->is_running = false;
+
 }
 
 void Rain::onTouched(tll::TouchInfo ti)
