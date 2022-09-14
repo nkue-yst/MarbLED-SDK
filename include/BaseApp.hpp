@@ -28,19 +28,43 @@ namespace tll
         void addTuioObject(TUIO::TuioObject *tobj) override
         {
             if (this->running_app)
-                this->running_app->onTouched((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
+            {
+                this->running_app->onTouched(
+                    TouchInfo{
+                        static_cast<uint32_t>(tobj->getSymbolID()),
+                        static_cast<int32_t>(tobj->getX()),
+                        static_cast<int32_t>(tobj->getY())
+                    }
+                );
+            }
         }
 
         void updateTuioObject(TUIO::TuioObject *tobj) override
         {
             if (this->running_app)
-                this->running_app->onMoved((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
+            {
+                this->running_app->onMoved(
+                    TouchInfo{
+                        static_cast<uint32_t>(tobj->getSymbolID()),
+                        static_cast<int32_t>(tobj->getX()),
+                        static_cast<int32_t>(tobj->getY())
+                    }
+                );
+            }
         }
 
         void removeTuioObject(TUIO::TuioObject *tobj) override
         {
             if (this->running_app)
-                this->running_app->onReleased();
+            {
+                this->running_app->onReleased(
+                    TouchInfo{
+                        static_cast<uint32_t>(tobj->getSymbolID()),
+                        static_cast<int32_t>(tobj->getX()),
+                        static_cast<int32_t>(tobj->getY())
+                    }
+                );
+            }
         }
 
         void addTuioCursor(TUIO::TuioCursor *tcur) override {}

@@ -40,17 +40,17 @@ void SimpleScan::terminate()
     this->is_running = false;
 }
 
-void SimpleScan::onTouched(uint32_t x, uint32_t y)
+void SimpleScan::onTouched(tll::TouchInfo ti)
 {
 
 }
 
-void SimpleScan::onMoved(uint32_t x, uint32_t y)
+void SimpleScan::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void SimpleScan::onReleased()
+void SimpleScan::onReleased(tll::TouchInfo ti)
 {
 
 }

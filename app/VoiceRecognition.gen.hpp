@@ -19,9 +19,9 @@ public:
     void run() override;
     void terminate() override;
 
-    void onTouched(uint32_t x, uint32_t y) override;
-    void onMoved(uint32_t x, uint32_t y) override;
-    void onReleased() override;
+    void onTouched(tll::TouchInfo ti) override;
+    void onMoved(tll::TouchInfo ti) override;
+    void onReleased(tll::TouchInfo ti) override;
 
     void procOscMessage(const osc::ReceivedMessage& msg) override;
 };

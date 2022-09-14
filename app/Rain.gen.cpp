@@ -40,7 +40,7 @@ void Rain::terminate()
     this->is_running = false;
 }
 
-void Rain::onTouched(uint32_t x, uint32_t y)
+void Rain::onTouched(tll::TouchInfo ti)
 {
     // 既に波紋が2つ以上ある場合は1つ目を削除
     if (this->ripples.size() >= 4)
@@ -50,19 +50,19 @@ void Rain::onTouched(uint32_t x, uint32_t y)
     }
 
     /* 2つの円による波紋を作成 */
-    struct Ripple r1 = {x, y, 1};
-    struct Ripple r2 = {x, y, 0};
+    struct Ripple r1 = {ti.x, ti.y, 1};
+    struct Ripple r2 = {ti.x, ti.y, 0};
 
     this->ripples.push_back(r1);
     this->ripples.push_back(r2);
 }
 
-void Rain::onMoved(uint32_t x, uint32_t y)
+void Rain::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void Rain::onReleased()
+void Rain::onReleased(tll::TouchInfo ti)
 {
 
 }

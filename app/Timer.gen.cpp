@@ -134,17 +134,17 @@ void Timer::terminate()
     this->is_running = false;
 }
 
-void Timer::onTouched(uint32_t x, uint32_t y)
+void Timer::onTouched(tll::TouchInfo ti)
 {
 
 }
 
-void Timer::onMoved(uint32_t x, uint32_t y)
+void Timer::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void Timer::onReleased()
+void Timer::onReleased(tll::TouchInfo ti)
 {
 
 }
