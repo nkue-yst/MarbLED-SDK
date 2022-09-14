@@ -78,6 +78,7 @@ namespace tll
                 std::unique_ptr<class AppInterface> app = createAppFunc();
                 this->running_app = std::move(app);
 
+                clear();
                 this->running_app->init();
 
                 is_found = true;
