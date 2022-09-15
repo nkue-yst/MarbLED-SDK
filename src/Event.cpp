@@ -114,7 +114,6 @@ namespace tll
         this->server_->removeTuioObject(this->tobj_list_[id]);
         this->server_->commitFrame();
 
-        delete this->tobj_list_[id];
         this->tobj_list_[id] = nullptr;
     }
 
