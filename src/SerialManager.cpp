@@ -146,7 +146,7 @@ namespace tll
                     for (uint16_t x = 0; x < width; x++)
                     {
                         #ifdef WITH_RASPI
-                        serialPutchar(fd, TLL_ENGINE(PanelManager)->getColor(x, y));
+                        //serialPutchar(fd, TLL_ENGINE(PanelManager)->getColor(x, y));
                         #endif
                     }
                 }
@@ -159,7 +159,7 @@ namespace tll
                     for (uint16_t x = 0; x < width; x++)
                     {
                         #ifdef WITH_RASPI
-                        Color color = ColorPalette::getInstance()->getColorFromID(TLL_ENGINE(PanelManager)->getColor(x, y));
+                        Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
                         this->off_canvas_->SetPixel(x, y, color.r_, color.g_, color.b_);
                         #endif
                     }
