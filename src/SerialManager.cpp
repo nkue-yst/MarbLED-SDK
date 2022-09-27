@@ -55,6 +55,10 @@ namespace tll
                         }
                     }
 
+                    #ifndef WITH_RASPI
+                    std::this_thread::sleep_for(std::chrono::milliseconds(33));
+                    #endif
+
                     TLL_ENGINE(SerialManager)->send_ready = false;
                 }
             };
