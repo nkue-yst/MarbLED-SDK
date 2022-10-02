@@ -7,7 +7,7 @@ project(${PROJECT})
 enable_language(CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "-fPIC -g -Wall -O3")
+set(CMAKE_CXX_FLAGS "-fPIC -g -O3")
 
 ### Setup TUIO ###
 file(GLOB TUIO_SRC thirdparty/TUIO11_CPP/TUIO/*.cpp thirdparty/TUIO11_CPP/TUIO/*.h)
@@ -50,16 +50,6 @@ add_library(oscpack
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-### Setup ZeroMQ ###
-option(WITH_TLS OFF)
-option(WITH_LIBSODIUM OFF)
-option(BUILD_TESTS OFF)
-option(CPPZMQ_BUILD_TESTS OFF)
-add_subdirectory(thirdparty/libzmq)
-add_subdirectory(thirdparty/cppzmq)
-include_directories(thirdparty/libzmq/include)
-include_directories(thirdparty/cppzmq)
-
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 if(WIRINGPI_LIBRARIES)
@@ -79,7 +69,7 @@ endif()
 file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} SHARED ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} oscpack cppzmq TUIO)
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} oscpack TUIO)
 if(WIRINGPI_LIBRARIES)
     target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES} RPI-RGB)
 endif()

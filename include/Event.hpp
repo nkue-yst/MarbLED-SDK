@@ -64,14 +64,6 @@ namespace tll
     private:
         /// Quit flag
         bool quit_flag_ = false;
-
-        /// Previous state of mouse right button (for test)
-        [[maybe_unused]]
-        bool is_down_right_button = false;
-
-        /// Previous state of mouse left button (for test)
-        [[maybe_unused]]
-        bool is_down_left_button = false;
     };
 
     /* タッチイベント管理クラス（TUIO使用） */

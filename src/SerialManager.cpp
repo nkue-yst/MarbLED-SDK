@@ -12,16 +12,20 @@
 #include <thread>
 #include <unistd.h>
 
+#include <sys/socket.h>
+#include <sys/un.h>
+
 #include "tllEngine.hpp"
 #include "Color.hpp"
 #include "Common.hpp"
+#include "Event.hpp"
 #include "PanelManager.hpp"
-
-#include <zmq.hpp>
 
 #ifdef WITH_RASPI
 #include <wiringSerial.h>
 #endif
+
+#define UNIX_SOCKET_PATH "/tmp/tll/unix_socket"
 
 namespace tll
 {
@@ -30,13 +34,25 @@ namespace tll
     {
         void threadSendColor()
         {
-            auto send_data = []()
+            auto send_data = []() -> void
             {
-                zmq::context_t ctx;
-                zmq::socket_t sock(ctx, zmq::socket_type::push);
-                sock.connect("tcp://127.0.0.1:44100");
+                /* 接続先の設定 */
+                struct sockaddr_un dest_addr;
+                std::memset(&dest_addr, 0, sizeof(struct sockaddr_un));
+                
+                dest_addr.sun_family = AF_UNIX;
+                std::strcpy(dest_addr.sun_path, UNIX_SOCKET_PATH);
+                int32_t sock = socket(AF_UNIX, SOCK_STREAM, 0);
 
-                while (true)
+                /* データ送信先が受信待ち状態になるまで接続を試みる */
+                printLog("Start waiting for simulator to connect");
+                while (connect(sock, (struct sockaddr*)&dest_addr, sizeof(struct sockaddr_un)) == -1)
+                {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                }
+                printLog("Simulator is connected");
+
+                while (!TLL_ENGINE(EventHandler)->getQuitFlag())
                 {
                     if (!TLL_ENGINE(SerialManager)->send_ready)
                         continue;
@@ -46,12 +62,13 @@ namespace tll
                         for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
                         {
                             Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
-                            std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + TLL_ENGINE(PanelManager)->getWidth() * y), color.r_, color.g_, color.b_ };
+                            uint16_t index = x + TLL_ENGINE(PanelManager)->getWidth() * y;
+                            char index_str[128] = {0};
+                            std::snprintf(index_str, 128, "%d", index);
+                            uint8_t color_vec[3] = { color.r_, color.g_, color.b_ };
 
-                            zmq::message_t msg(color_vec);
-                            
-                            auto res = sock.send(msg, zmq::send_flags::none);
-                            (void)res;
+                            send(sock, index_str, sizeof(index_str), 0);
+                            send(sock, color_vec, sizeof(color_vec), 0);
                         }
                     }
 
@@ -61,6 +78,8 @@ namespace tll
 
                     TLL_ENGINE(SerialManager)->send_ready = false;
                 }
+
+                close(sock);
             };
 
             std::thread th_send_data(send_data);
