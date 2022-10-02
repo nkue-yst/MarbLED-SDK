@@ -61,13 +61,15 @@ namespace tll
                     {
                         for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
                         {
-                            Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
+                            /* ピクセルIDの送信 */
                             uint16_t index = x + TLL_ENGINE(PanelManager)->getWidth() * y;
-                            char index_str[128] = {0};
-                            std::snprintf(index_str, 128, "%d", index);
-                            uint8_t color_vec[3] = { color.r_, color.g_, color.b_ };
-
+                            int8_t index_str[32] = {0};
+                            std::snprintf((char*)index_str, sizeof(index_str), "%d", index);
                             send(sock, index_str, sizeof(index_str), 0);
+
+                            /* 色情報の送信 */
+                            Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
+                            uint8_t color_vec[3] = { color.r_, color.g_, color.b_ };
                             send(sock, color_vec, sizeof(color_vec), 0);
                         }
                     }
