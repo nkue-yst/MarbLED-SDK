@@ -11,6 +11,7 @@
 #include <chrono>
 #include <thread>
 #include <unistd.h>
+#include <vector>
 
 #include <sys/socket.h>
 #include <sys/un.h>
@@ -57,22 +58,20 @@ namespace tll
                     if (!TLL_ENGINE(SerialManager)->send_ready)
                         continue;
 
+                    std::vector<uint8_t> color_vec;    // 送信用配列
+                    color_vec.reserve(TLL_ENGINE(PanelManager)->getWidth() * TLL_ENGINE(PanelManager)->getHeight() * 3);
+
                     for (uint16_t y = 0; y < TLL_ENGINE(PanelManager)->getHeight(); y++)
                     {
                         for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
                         {
-                            /* ピクセルIDの送信 */
-                            uint16_t index = x + TLL_ENGINE(PanelManager)->getWidth() * y;
-                            int8_t index_str[32] = {0};
-                            std::snprintf((char*)index_str, sizeof(index_str), "%d", index);
-                            send(sock, index_str, sizeof(index_str), 0);
-
-                            /* 色情報の送信 */
-                            Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
-                            uint8_t color_vec[3] = { color.r_, color.g_, color.b_ };
-                            send(sock, color_vec, sizeof(color_vec), 0);
+                            Color c = TLL_ENGINE(PanelManager)->getColor(x, y);
+                            color_vec.push_back(c.b_);
+                            color_vec.push_back(c.g_);
+                            color_vec.push_back(c.r_);
                         }
                     }
+                    send(sock, color_vec.data(), TLL_ENGINE(PanelManager)->getWidth() * TLL_ENGINE(PanelManager)->getHeight() * 3, 0);
 
                     #ifndef WITH_RASPI
                     std::this_thread::sleep_for(std::chrono::milliseconds(33));
