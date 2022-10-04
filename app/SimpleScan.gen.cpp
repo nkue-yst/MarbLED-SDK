@@ -9,6 +9,8 @@
 #include <iostream>
 #include <thread>
 
+tll::Color c(255, 0, 0);
+
 SimpleScan::SimpleScan()
 {
     std::cout << "Create SimpleScan instance." << std::endl;
@@ -26,7 +28,38 @@ void SimpleScan::init()
 
 void SimpleScan::run()
 {
-    drawNextPt();
+    tll::clear();
+
+    tll::drawRect(0, 0, 64, 32, c);
+    
+    if (c.r_ == 255 && c.g_ < 255 && c.b_ == 0)
+    {
+        c.g_++;
+    }
+    else if (c.r_ > 0 && c.g_ == 255 && c.b_ == 0)
+    {
+        c.r_--;
+    }
+    else if (c.r_ == 0 && c.g_ == 255 && c.b_ < 255)
+    {
+        c.b_++;
+    }
+    else if (c.r_ == 0 && c.g_ > 0 && c.b_ == 255)
+    {
+        c.g_--;
+    }
+    else if (c.r_ < 255 && c.g_ == 0 && c.b_ == 255)
+    {
+        c.r_++;
+    }
+    else if (c.r_ == 255 && c.g_ == 0 && c.b_ > 0)
+    {
+        c.b_--;
+    }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(16));
+
+    //drawNextPt();
 }
 
 void SimpleScan::terminate()
