@@ -28,3 +28,4 @@ add_custom_command(TARGET Timer POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${TI
 add_library(Theremin SHARED ${CMAKE_SOURCE_DIR}/app/Theremin.gen.cpp)
 add_library(MultiTouchLine SHARED ${CMAKE_SOURCE_DIR}/app/MultiTouchLine.gen.cpp)
 add_library(Pong SHARED ${CMAKE_SOURCE_DIR}/app/Pong.gen.cpp)
+add_library(CockroachShooting SHARED ${CMAKE_SOURCE_DIR}/app/CockroachShooting.gen.cpp)
