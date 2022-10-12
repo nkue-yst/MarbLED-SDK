@@ -135,4 +135,9 @@ namespace tll
         return h + ":" + m;
     }
 
+    uint32_t getTouchedNum()
+    {
+        return TLL_ENGINE(EventHandler)->getTouchedNum();
+    }
+
 }

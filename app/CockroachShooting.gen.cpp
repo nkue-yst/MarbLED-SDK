@@ -21,12 +21,20 @@ Cockroach::Cockroach(uint16_t x, uint16_t y, uint16_t vx, uint16_t vy)
 void Cockroach::move()
 {
     this->x += this->vx;
+    if (this->x < 0 || 63 < this->x)
+        this->vx *= -1;
+
     this->y += this->vy;
+    if (this->y < 0 || 31 < this->y)
+        this->vy *= -1;
 }
 
 void Cockroach::draw()
 {
-    tll::drawRect(this->x - 2, this->y - 2, 4, 3, tll::Color(128, 0, 0));
+    uint16_t w = (this->vx > 0 ? 4 : 3);
+    uint16_t h = (this->vy > 0 ? 4 : 3);
+
+    tll::drawRect(this->x - 2, this->y - 2, w, h, tll::Color(128, 0, 0));
 }
 
 CockroachShooting::CockroachShooting()
@@ -55,10 +63,25 @@ void CockroachShooting::run()
         this->cockroach->move();
 
     tll::clear();
-    tll::drawRect(0, 0, 64, 32, tll::Palette::White);
+    tll::drawRect( 0,  0, 64, 32, tll::Palette::White);
+    tll::drawLine( 0,  0, 63,  0, tll::Palette::Red);
+    tll::drawLine( 0,  0,  0, 31, tll::Palette::Red);
+    tll::drawLine(63,  0, 63, 31, tll::Palette::Red);
+    tll::drawLine( 0, 31, 63, 31, tll::Palette::Red);
 
     if (this->cockroach)
         this->cockroach->draw();
+
+    // 3点タッチされている場合、円の中心を描画
+    if (tll::getTouchedNum() == 3)
+    {
+        //this->drawReticle(5, 5, 10, 5, 10, 10);
+        this->drawReticle(
+            this->points[0].x, this->points[0].y,
+            this->points[1].x, this->points[1].y,
+            this->points[2].x, this->points[2].y
+        );
+    }
 
     std::this_thread::sleep_for(std::chrono::milliseconds(33));
 }
@@ -70,15 +93,63 @@ void CockroachShooting::terminate()
 
 void CockroachShooting::onTouched(tll::TouchInfo ti)
 {
-    this->cockroach->vx = 1;
+    static bool begin = false;
+
+    if (!begin)
+    {
+        this->cockroach->vx = 2;
+        this->cockroach->vy = 1;
+        begin = true;
+    }
+
+    if (0 <= ti.id && ti.id < 3)
+    {
+        this->points[ti.id] = ti;
+    }
 }
 
 void CockroachShooting::onMoved(tll::TouchInfo ti)
 {
-
+    if (0 <= ti.id && ti.id < 3)
+    {
+        this->points[ti.id] = ti;
+    }
 }
 
 void CockroachShooting::onReleased(tll::TouchInfo ti)
 {
+    if (0 <= ti.id && ti.id < 3)
+    {
+        this->points[ti.id] = ti;
+    }
+}
 
+void CockroachShooting::drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, uint32_t x3, uint32_t y3)
+{
+    int32_t cx, cy, a, b, c, d;
+
+    a = x2 - x1;
+    b = y2 - y1;
+    c = x3 - x1;
+    d = y3 - y1;
+
+    if ((a && d) || (b && c))
+    {
+        cx = x1 + (d * (a * a + b * b) - b * (c * c + d * d)) / (a * d - b * c) / 2;
+        
+        if (b)
+        {
+            cy = (a * (x1 + x2 - cx - cx) + b * (y1 + y2)) / b / 2;
+        }
+        else
+        {
+            cy = (c * (x1 + x3 - cx - cx) + d * (y1 + y3)) / d / 2;
+        }
+
+        tll::drawPixel(cx    , cy    , tll::Color(0, 255, 0));
+        tll::drawPixel(cx + 1, cy + 1, tll::Color(0, 255, 0));
+        tll::drawPixel(cx - 1, cy + 1, tll::Color(0, 255, 0));
+        tll::drawPixel(cx - 1, cy - 1, tll::Color(0, 255, 0));
+        tll::drawPixel(cx + 1, cy - 1, tll::Color(0, 255, 0));
+    }
 }

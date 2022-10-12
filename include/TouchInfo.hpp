@@ -12,6 +12,11 @@ namespace tll
         uint32_t id;
         int32_t x;
         int32_t y;
+
+        bool operator==(const TouchInfo& rhs) const
+        {
+            return this->id == rhs.id;
+        }
     };
 
 }

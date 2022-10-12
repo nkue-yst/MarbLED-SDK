@@ -114,7 +114,12 @@ namespace tll
         this->server_->removeTuioObject(this->tobj_list_[id]);
         this->server_->commitFrame();
 
-        this->tobj_list_[id] = nullptr;
+        this->tobj_list_.erase(id);
+    }
+
+    uint32_t EventHandlerTuio::getTouchedNum()
+    {
+        return this->tobj_list_.size();
     }
 
     void OscReceiver::ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt)

@@ -45,6 +45,7 @@ namespace tll
         init(64, 32, "HUB75");
 
         this->loadApps();
+        this->switchApp("CockroachShooting");  // For test
 
         while (loop())
         {

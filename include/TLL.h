@@ -122,6 +122,12 @@ namespace tll
      * @return  Current time (String)
      */
     std::string timeToString();
+
+    /**
+     * @brief 
+     * 
+     */
+    uint32_t getTouchedNum();
 }
 
 #endif

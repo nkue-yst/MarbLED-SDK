@@ -55,6 +55,9 @@ namespace tll
         // タッチ点が削除された際の処理
         virtual void removeTouchedPoint(uint32_t id) = 0;
 
+        // タッチ点の数を返す
+        virtual uint32_t getTouchedNum() = 0;
+
         // 終了フラグの状態を取得
         bool getQuitFlag() { return quit_flag_; }
 
@@ -87,6 +90,9 @@ namespace tll
 
         // タッチ点が削除された際の処理
         void removeTouchedPoint(uint32_t id) override;
+
+        // タッチ点の数を返す
+        uint32_t getTouchedNum() override;
 
     private:
         // OscSender
