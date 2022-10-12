@@ -56,7 +56,10 @@ namespace tll
                 while (!TLL_ENGINE(EventHandler)->getQuitFlag())
                 {
                     if (!TLL_ENGINE(SerialManager)->send_ready)
+                    {
+                        std::this_thread::sleep_for(std::chrono::milliseconds(16));
                         continue;
+                    }
 
                     std::vector<uint8_t> color_vec;    // 送信用配列
                     color_vec.reserve(TLL_ENGINE(PanelManager)->getWidth() * TLL_ENGINE(PanelManager)->getHeight() * 3);
