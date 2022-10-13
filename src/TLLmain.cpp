@@ -54,7 +54,7 @@ namespace tll
     void quit()
     {
         TLL_ENGINE(PanelManager)->clear();
-        //TLL_ENGINE(SerialManager)->sendColorData();
+        TLL_ENGINE(SerialManager)->sendColorData();
 
         tllEngine::get()->quit();
     }

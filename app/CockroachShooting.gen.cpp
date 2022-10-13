@@ -34,7 +34,7 @@ void Cockroach::draw()
     uint16_t w = (this->vx > 0 ? 4 : 3);
     uint16_t h = (this->vy > 0 ? 4 : 3);
 
-    tll::drawRect(this->x - 2, this->y - 2, w, h, tll::Color(128, 0, 0));
+    tll::drawRect(this->x - 2, this->y - 2, w, h, tll::Color(255, 0, 0));
 }
 
 CockroachShooting::CockroachShooting()
@@ -63,7 +63,6 @@ void CockroachShooting::run()
         this->cockroach->move();
 
     tll::clear();
-    tll::drawRect( 0,  0, 64, 32, tll::Palette::White);
     tll::drawLine( 0,  0, 63,  0, tll::Palette::Red);
     tll::drawLine( 0,  0,  0, 31, tll::Palette::Red);
     tll::drawLine(63,  0, 63, 31, tll::Palette::Red);
