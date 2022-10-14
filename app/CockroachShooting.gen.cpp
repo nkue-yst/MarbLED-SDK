@@ -11,7 +11,7 @@
 #include <vector>
 
 #define COCKROACH_COLOR tll::Color(200, 0, 0)
-#define RETICLE_COLOR tll::Color(50, 255, 50)
+#define RETICLE_COLOR tll::Color(100, 255, 100)
 
 Cockroach::Cockroach(uint16_t x, uint16_t y, uint16_t vx, uint16_t vy)
     : x(x)
@@ -56,43 +56,45 @@ CockroachShooting::CockroachShooting()
 
 CockroachShooting::~CockroachShooting()
 {
-    delete this->cockroach;
-    this->cockroach = nullptr;
+    for (auto cockroach : this->cockroach)
+    {
+        delete cockroach;
+        cockroach = nullptr;
+    }
 
     std::cout << "Delete CockroachShooting instance." << std::endl;
 }
 
 void CockroachShooting::init()
 {
-    this->cockroach = new Cockroach(14, 13, 0, 0);
+    this->cockroach.push_back(new Cockroach(18, 13, 0, 0));
+    this->cockroach.push_back(new Cockroach(49, 20, 0, 0));
 }
 
 void CockroachShooting::run()
 {
-    static uint64_t frame = 0;
-
-    if (this->cockroach)
-        this->cockroach->move();
+    for (auto cockroach : this->cockroach)
+    {
+        cockroach->move();
+    }
 
     tll::clear();
-    tll::drawLine( 0,  0, 63,  0, tll::Palette::Red);
-    tll::drawLine( 0,  0,  0, 31, tll::Palette::Red);
-    tll::drawLine(63,  0, 63, 31, tll::Palette::Red);
-    tll::drawLine( 0, 31, 63, 31, tll::Palette::Red);
 
-    if (this->cockroach)
-        this->cockroach->draw();
+    for (auto cockroach : this->cockroach)
+    {
+        cockroach->draw();
+    }
 
     // 3点タッチされている場合、円の中心を描画
-    if (tll::getTouchedNum() == 3)
-    {
-        this->drawReticle(5, 5, 30, 5, 30, 25);
+    //if (tll::getTouchedNum() == 3)
+    //{
+        this->drawReticle(10, 5, 40, 5, 40, 25);
         /*this->drawReticle(
             this->points[0].x, this->points[0].y,
             this->points[1].x, this->points[1].y,
             this->points[2].x, this->points[2].y
         );*/
-    }
+    //}
 
     std::this_thread::sleep_for(std::chrono::milliseconds(33));
 }
@@ -104,15 +106,6 @@ void CockroachShooting::terminate()
 
 void CockroachShooting::onTouched(tll::TouchInfo ti)
 {
-    static bool begin = true;
-
-    if (!begin)
-    {
-        this->cockroach->vx = 2;
-        this->cockroach->vy = 1;
-        begin = true;
-    }
-
     if (0 <= ti.id && ti.id < 3)
     {
         this->points[ti.id] = ti;
@@ -157,11 +150,15 @@ void CockroachShooting::drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint3
             cy = (c * (x1 + x3 - cx - cx) + d * (y1 + y3)) / d / 2;
         }
 
-        tll::drawRect(cx - 1, cy - 1, 3, 3, RETICLE_COLOR);
+
         tll::drawPixel(cx, cy, tll::Color(0, 0, 0));
-        tll::drawPixel(cx + 2, cy + 2, RETICLE_COLOR);
-        tll::drawPixel(cx - 2, cy + 2, RETICLE_COLOR);
-        tll::drawPixel(cx - 2, cy - 2, RETICLE_COLOR);
-        tll::drawPixel(cx + 2, cy - 2, RETICLE_COLOR);
+        tll::drawCircle(cx, cy, 4, RETICLE_COLOR);
+        /*tll::drawLine(x1, y1, x2, y2, RETICLE_COLOR);
+        tll::drawLine(x2, y2, x3, y3, RETICLE_COLOR);
+        tll::drawLine(x3, y3, x1, y1, RETICLE_COLOR);*/
+        tll::drawLine( 0,  0, cx - 2, cy - 2, RETICLE_COLOR);
+        tll::drawLine(63,  0, cx + 2, cy - 2, RETICLE_COLOR);
+        tll::drawLine( 0, 31, cx - 2, cy + 2, RETICLE_COLOR);
+        tll::drawLine(63, 31, cx + 2, cy + 2, RETICLE_COLOR);
     }
 }

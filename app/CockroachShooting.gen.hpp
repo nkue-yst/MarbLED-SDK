@@ -38,7 +38,7 @@ public:
 
     void drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, uint32_t x3, uint32_t y3);
 
-    Cockroach* cockroach;
+    std::vector<Cockroach*> cockroach;
 
     tll::TouchInfo points[3];
 };
