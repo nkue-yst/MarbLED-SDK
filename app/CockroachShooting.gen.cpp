@@ -11,7 +11,7 @@
 #include <vector>
 
 #define COCKROACH_COLOR tll::Color(200, 0, 0)
-#define RETICLE_COLOR tll::Color(100, 255, 100)
+#define RETICLE_COLOR tll::Color(128, 255, 128)
 
 Cockroach::Cockroach(uint16_t x, uint16_t y, uint16_t vx, uint16_t vy)
     : x(x)
@@ -50,6 +50,8 @@ void Cockroach::draw()
 }
 
 CockroachShooting::CockroachShooting()
+    : game_state(GameState::TITLE)
+    , level(0)
 {
     std::cout << "Create CockroachShooting instance." << std::endl;
 }
@@ -62,40 +64,59 @@ CockroachShooting::~CockroachShooting()
         cockroach = nullptr;
     }
 
+    delete this->button_start;
+
     std::cout << "Delete CockroachShooting instance." << std::endl;
 }
 
 void CockroachShooting::init()
 {
+    this->button_start = tll::loadImage("Button_Start.jpg");
+    this->button_start->resize(32, 64);
+
     this->cockroach.push_back(new Cockroach(18, 13, 0, 0));
     this->cockroach.push_back(new Cockroach(49, 20, 0, 0));
 }
 
 void CockroachShooting::run()
 {
-    for (auto cockroach : this->cockroach)
-    {
-        cockroach->move();
-    }
-
     tll::clear();
 
-    for (auto cockroach : this->cockroach)
+    switch (this->game_state)
     {
-        cockroach->draw();
+    // タイトル画面
+    case TITLE:
+        button_start->draw(0, 0, (tll::getTouchedNum() == 0 ? tll::Palette::Red : tll::Color(128, 0, 0)));
+        break;
+
+    // ゲームプレイ中
+    case IN_GAME:
+        for (auto cockroach : this->cockroach)
+            cockroach->move();
+
+        for (auto cockroach : this->cockroach)
+            cockroach->draw();
+
+        // 3点タッチされている場合、円の中心を描画
+        if (tll::getTouchedNum() == 3)
+        //if (tll::getTouchedNum() == 0)
+        {
+            //this->drawReticle(0, 0, 0, 31, 63, 31);
+            this->drawReticle(
+                this->points[0].x, this->points[0].y,
+                this->points[1].x, this->points[1].y,
+                this->points[2].x, this->points[2].y
+            );
+        }
+        break;
+        
+    case FINISHED:
+        break;
+
+    default:
+        break;
     }
-
-    // 3点タッチされている場合、円の中心を描画
-    //if (tll::getTouchedNum() == 3)
-    //{
-        this->drawReticle(10, 5, 40, 5, 40, 25);
-        /*this->drawReticle(
-            this->points[0].x, this->points[0].y,
-            this->points[1].x, this->points[1].y,
-            this->points[2].x, this->points[2].y
-        );*/
-    //}
-
+    
     std::this_thread::sleep_for(std::chrono::milliseconds(33));
 }
 
@@ -122,6 +143,9 @@ void CockroachShooting::onMoved(tll::TouchInfo ti)
 
 void CockroachShooting::onReleased(tll::TouchInfo ti)
 {
+    if (this->game_state == TITLE)
+        this->game_state = IN_GAME;
+
     if (0 <= ti.id && ti.id < 3)
     {
         this->points[ti.id] = ti;
@@ -130,35 +154,57 @@ void CockroachShooting::onReleased(tll::TouchInfo ti)
 
 void CockroachShooting::drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, uint32_t x3, uint32_t y3)
 {
-    int32_t cx, cy, a, b, c, d;
+    bool stat = false;
 
-    a = x2 - x1;
-    b = y2 - y1;
-    c = x3 - x1;
-    d = y3 - y1;
+    int32_t cx = 0;
+    int32_t cy = 0;
 
-    if ((a && d) || (b && c))
+    int32_t a1 = 0;
+    int32_t a2 = 0;
+    int32_t b1 = 0;
+    int32_t b2 = 0;
+
+    int32_t cx1 = (x2 - x1) * 0.5 + x1;
+    int32_t cx2 = (x3 - x2) * 0.5 + x2;
+
+    int32_t cy1 = (y2 - y1) * 0.5 + y1;
+    int32_t cy2 = (y3 - y2) * 0.5 + y2;
+
+    if (y1 != y2)
     {
-        cx = x1 + (d * (a * a + b * b) - b * (c * c + d * d)) / (a * d - b * c) / 2;
-        
-        if (b)
-        {
-            cy = (a * (x1 + x2 - cx - cx) + b * (y1 + y2)) / b / 2;
-        }
-        else
-        {
-            cy = (c * (x1 + x3 - cx - cx) + d * (y1 + y3)) / d / 2;
-        }
-
-
-        tll::drawPixel(cx, cy, tll::Color(0, 0, 0));
-        tll::drawCircle(cx, cy, 4, RETICLE_COLOR);
-        /*tll::drawLine(x1, y1, x2, y2, RETICLE_COLOR);
-        tll::drawLine(x2, y2, x3, y3, RETICLE_COLOR);
-        tll::drawLine(x3, y3, x1, y1, RETICLE_COLOR);*/
-        tll::drawLine( 0,  0, cx - 2, cy - 2, RETICLE_COLOR);
-        tll::drawLine(63,  0, cx + 2, cy - 2, RETICLE_COLOR);
-        tll::drawLine( 0, 31, cx - 2, cy + 2, RETICLE_COLOR);
-        tll::drawLine(63, 31, cx + 2, cy + 2, RETICLE_COLOR);
+        a1 = (x2 - x1) / (y1 - y2);
+        b1 = cy1 - a1 * cx1;
     }
+    else
+    {
+        cx = cx1;
+        stat = true;
+    }
+
+    if (y2 != y3)
+    {
+        a2 = (x3 - x2) / (y2 - y3);
+        b2 = cy2 - a2 * cx2;
+    }
+    else
+    {
+        cx = cx2;
+        a2 = a1;
+        b2 = b1;
+        stat = true;
+    }
+
+    if (!stat)
+    {
+        cx = (b2 - b1) / (a1 - a2);
+    }
+
+    cy = a2 * cx + b2;
+
+    tll::drawCircle(cx, cy, 4, RETICLE_COLOR);
+
+    tll::drawLine( 0,  0, cx - 2, cy - 2, RETICLE_COLOR);
+    tll::drawLine(63,  0, cx + 2, cy - 2, RETICLE_COLOR);
+    tll::drawLine( 0, 31, cx - 2, cy + 2, RETICLE_COLOR);
+    tll::drawLine(63, 31, cx + 2, cy + 2, RETICLE_COLOR);
 }

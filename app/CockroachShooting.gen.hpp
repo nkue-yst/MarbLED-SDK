@@ -10,6 +10,13 @@
 #include <cstdint>
 #include <memory>
 
+enum GameState
+{
+    TITLE,
+    IN_GAME,
+    FINISHED,
+};
+
 class Cockroach
 {
 public:
@@ -41,6 +48,13 @@ public:
     std::vector<Cockroach*> cockroach;
 
     tll::TouchInfo points[3];
+
+    /* Game state variables */
+    GameState game_state;
+    int32_t level;
+
+    /* Button components */
+    tll::Image* button_start;
 };
 
 /* Required to use in loading application file */
