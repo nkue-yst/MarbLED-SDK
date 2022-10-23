@@ -17,6 +17,7 @@
 #define SHOOT_THRESHOLD 15.f  // 攻撃が当たる距離
 #define CHARGE_VALUE 2        // 1フレームあたりのチャージ量（n/100）
 #define FRAME_DELAY 33        // 1フレームあたりのディレイ（ms）（フレームレート設定）
+#define RESULT_DURATION 5.f   // 結果画面の表示時間（sec）
 
 #define COCKROACH_COLOR tll::Color(200, 0, 0)
 #define RETICLE_COLOR tll::Color(128, 255, 128)
@@ -173,7 +174,7 @@ void CockroachShooting::run()
         
     case FINISHED:
         this->now = std::chrono::system_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(now - this->start).count() > 5.0)
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - this->start).count() > RESULT_DURATION)
         {
             this->game_state = TITLE;
             break;
