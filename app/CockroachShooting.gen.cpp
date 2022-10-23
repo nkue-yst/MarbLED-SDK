@@ -4,16 +4,26 @@
 
 #include "CockroachShooting.gen.hpp"
 
-#include <chrono>
 #include <cstdlib>
+#include <cmath>
 #include <thread>
 #include <iostream>
+#include <random>
 #include <vector>
+
+#define PLAYING_TIME 20.f     // プレイ時間（sec）
+#define MAX_G_SPEED 2         // Gの最高速度（pixel/frame）
+#define NUMBER_OF_G 3         // Gの同時出現数
+#define SHOOT_THRESHOLD 15.f  // 攻撃が当たる距離
+#define CHARGE_VALUE 2        // 1フレームあたりのチャージ量（n/100）
+#define FRAME_DELAY 33        // 1フレームあたりのディレイ（ms）（フレームレート設定）
 
 #define COCKROACH_COLOR tll::Color(200, 0, 0)
 #define RETICLE_COLOR tll::Color(128, 255, 128)
 
-Cockroach::Cockroach(uint16_t x, uint16_t y, uint16_t vx, uint16_t vy)
+static std::random_device rnd;
+
+Cockroach::Cockroach(int16_t x, int16_t y, int16_t vx, int16_t vy)
     : x(x)
     , y(y)
     , vx(vx)
@@ -24,13 +34,27 @@ Cockroach::Cockroach(uint16_t x, uint16_t y, uint16_t vx, uint16_t vy)
 
 void Cockroach::move()
 {
+    // 横方向への移動
     this->x += this->vx;
-    if (this->x < 0 || 63 < this->x)
-        this->vx *= -1;
+   
+    if (this->x < 0) this->x = 0;
+    if (this->x > 61) this->x = 61;
 
+    if (this->x <= 0 || 61 <= this->x)
+    {
+        this->vx = -((this->vx > 0) - (this->vx < 0)) * (rnd() % MAX_G_SPEED + 1);
+    }
+
+    // 縦方向への移動
     this->y += this->vy;
-    if (this->y < 0 || 31 < this->y)
-        this->vy *= -1;
+
+    if (this->y < 0) this->y = 0;
+    if (this->y > 31) this->y = 31;
+
+    if (this->y <= 0 || 31 <= this->y)
+    {
+        this->vy = -((this->vy > 0) - (this->vy < 0)) * (rnd() % MAX_G_SPEED + 1);
+    }
 }
 
 void Cockroach::draw()
@@ -50,8 +74,11 @@ void Cockroach::draw()
 }
 
 CockroachShooting::CockroachShooting()
-    : game_state(GameState::TITLE)
+    : score(50)
+    , game_state(GameState::TITLE)
     , level(0)
+    , charge(100)
+    , playing_shoot_anim(false)
 {
     std::cout << "Create CockroachShooting instance." << std::endl;
 }
@@ -73,9 +100,6 @@ void CockroachShooting::init()
 {
     this->button_start = tll::loadImage("Button_Start.jpg");
     this->button_start->resize(32, 64);
-
-    this->cockroach.push_back(new Cockroach(18, 13, 0, 0));
-    this->cockroach.push_back(new Cockroach(49, 20, 0, 0));
 }
 
 void CockroachShooting::run()
@@ -86,20 +110,47 @@ void CockroachShooting::run()
     {
     // タイトル画面
     case TITLE:
-        button_start->draw(0, 0, (tll::getTouchedNum() == 0 ? tll::Palette::Red : tll::Color(128, 0, 0)));
+        // タイトル画面表示
+        button_start->draw(0, 0, (tll::getTouchedNum() == 0 ? tll::Palette::Red : tll::Color(200, 0, 0)));
         break;
 
     // ゲームプレイ中
     case IN_GAME:
+        // プレイ時間を記録
+        this->now = std::chrono::system_clock::now();
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - this->start).count() > PLAYING_TIME)
+        {
+            this->game_state = FINISHED;
+            this->start = std::chrono::system_clock::now();
+            break;
+        }
+
+        // G のスポーン処理
+        if (this->cockroach.size() < NUMBER_OF_G)
+        {
+            auto sign = []()
+            {
+                return rnd() / RAND_MAX * 2 - 1;
+            };
+
+            this->cockroach.push_back(new Cockroach(rnd() % 31, rnd() % 63, (rnd() % MAX_G_SPEED + 1) * sign(), (rnd() % MAX_G_SPEED + 1) * sign()));
+        }
+
+        // G の位置を更新
         for (auto cockroach : this->cockroach)
             cockroach->move();
 
+        // G の描画
         for (auto cockroach : this->cockroach)
             cockroach->draw();
 
+        // チャージ状態の更新
+        if (this->charge < 100) this->charge += CHARGE_VALUE;
+        tll::drawRect(61, 32 - (float)this->charge / 100 * 32, 3, 32, tll::Palette::Aqua);
+
         // 3点タッチされている場合、円の中心を描画
         if (tll::getTouchedNum() == 3)
-        //if (tll::getTouchedNum() == 0)
+        if (tll::getTouchedNum() == 1)
         {
             //this->drawReticle(0, 0, 0, 31, 63, 31);
             this->drawReticle(
@@ -107,17 +158,35 @@ void CockroachShooting::run()
                 this->points[1].x, this->points[1].y,
                 this->points[2].x, this->points[2].y
             );
+
+            if (this->charge >= 100)    // 射撃可能な場合射撃
+            {
+                this->shoot();
+            }
         }
+
+        // アニメーションの再生処理呼び出し
+        if (this->playing_shoot_anim)
+            this->playShootAnim();
+
         break;
         
     case FINISHED:
+        this->now = std::chrono::system_clock::now();
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - this->start).count() > 5.0)
+        {
+            this->game_state = TITLE;
+            break;
+        }
+
+        tll::print(std::to_string(this->score), tll::Palette::White);
         break;
 
     default:
         break;
     }
     
-    std::this_thread::sleep_for(std::chrono::milliseconds(33));
+    std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY));
 }
 
 void CockroachShooting::terminate()
@@ -143,8 +212,18 @@ void CockroachShooting::onMoved(tll::TouchInfo ti)
 
 void CockroachShooting::onReleased(tll::TouchInfo ti)
 {
+    // ゲーム開始
     if (this->game_state == TITLE)
+    {
+        this->start = std::chrono::system_clock::now();
         this->game_state = IN_GAME;
+
+        // ゲームを初期化
+        this->score = 0;
+        this->level = 1;
+        this->charge = 100;
+        this->cockroach.clear();
+    }
 
     if (0 <= ti.id && ti.id < 3)
     {
@@ -204,7 +283,65 @@ void CockroachShooting::drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint3
     tll::drawCircle(cx, cy, 4, RETICLE_COLOR);
 
     tll::drawLine( 0,  0, cx - 2, cy - 2, RETICLE_COLOR);
-    tll::drawLine(63,  0, cx + 2, cy - 2, RETICLE_COLOR);
+    tll::drawLine(60,  0, cx + 2, cy - 2, RETICLE_COLOR);
     tll::drawLine( 0, 31, cx - 2, cy + 2, RETICLE_COLOR);
-    tll::drawLine(63, 31, cx + 2, cy + 2, RETICLE_COLOR);
+    tll::drawLine(60, 31, cx + 2, cy + 2, RETICLE_COLOR);
+
+    // 射撃アニメーション開始時の座標を記録したい
+    if (!this->playing_shoot_anim)
+    {
+        this->cx = cx;
+        this->cy = cy;
+    }
+}
+
+void CockroachShooting::shoot()
+{
+    this->charge = 0;
+    this->playing_shoot_anim = true;
+}
+
+void CockroachShooting::playShootAnim()
+{
+    static uint32_t count = 0;
+    
+    tll::drawCircle(this->cx, this->cy, 46 - count, tll::Color(128, 255, 255));
+    tll::drawCircle(this->cx, this->cy, 45 - count, tll::Color(128, 255, 255));
+
+    count += 5;
+    if (count == 45)
+    {
+        if (this->checkSuccess())
+        {
+            score += 10;
+        }
+        else
+        {
+        }
+
+        count = 0;
+        this->playing_shoot_anim = false;
+    }
+}
+
+bool CockroachShooting::checkSuccess()
+{
+    // G との距離が一定範囲内か調べる
+    for (auto iter = this->cockroach.begin(); iter != this->cockroach.end(); iter++)
+    {
+        int16_t dx = (*iter)->x - this->cx;
+        int16_t dy = (*iter)->y - this->cy;
+
+        double distance = std::sqrt(dx * dx + dy * dy);
+
+        //std::cout << distance << std::endl;
+
+        if (distance < SHOOT_THRESHOLD)
+        {
+            this->cockroach.erase(iter);
+            return true;
+        }
+    }
+
+    return false;
 }

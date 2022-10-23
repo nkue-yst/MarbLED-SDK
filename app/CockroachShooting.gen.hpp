@@ -7,6 +7,7 @@
 #include "AppInterface.hpp"
 #include "TLL.h"
 
+#include <chrono>
 #include <cstdint>
 #include <memory>
 
@@ -20,13 +21,13 @@ enum GameState
 class Cockroach
 {
 public:
-    Cockroach(uint16_t x, uint16_t y, uint16_t vx, uint16_t vy);
+    Cockroach(int16_t x, int16_t y, int16_t vx, int16_t vy);
 
     void move();
     void draw();
 
-    uint16_t x, vx;
-    uint16_t y, vy;
+    int16_t x, y;
+    int16_t vx, vy;
 };
 
 class CockroachShooting : public tll::AppInterface
@@ -45,16 +46,28 @@ public:
 
     void drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, uint32_t x3, uint32_t y3);
 
+    void shoot();
+    void playShootAnim();
+    bool checkSuccess();
+
     std::vector<Cockroach*> cockroach;
 
     tll::TouchInfo points[3];
 
+    uint16_t cx, cy;
+
     /* Game state variables */
+    uint32_t score;
     GameState game_state;
     int32_t level;
+    int32_t charge;
+    std::chrono::system_clock::time_point start, now;
 
     /* Button components */
     tll::Image* button_start;
+
+    /* Animation flags */
+    bool playing_shoot_anim;
 };
 
 /* Required to use in loading application file */
