@@ -13,6 +13,13 @@
 #include "ip/IpEndpointName.h"
 
 #include "SDL.h"
+#include "SDL_mixer.h"
+
+namespace
+{
+    bool with_osc = true;
+    bool with_sound = true;
+}
 
 namespace tll
 {
@@ -46,10 +53,19 @@ namespace tll
     {
         init(64, 32, "HUB75");
 
-        if (SDL_Init(SDL_INIT_AUDIO) < 0)
+        if (with_sound)
         {
-            std::cout << "Failed to init audio system: " << SDL_GetError() << std::endl;
-            quit();
+            if (SDL_Init(SDL_INIT_AUDIO) < 0)
+            {
+                std::cout << "Failed to init audio system: " << SDL_GetError() << std::endl;
+                return;
+            }
+
+            if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+            {
+                std::cout << "Failed to open audio device: " << SDL_GetError() << std::endl;
+                return;
+            }
         }
 
         this->loadApps();
@@ -133,12 +149,10 @@ int main(int argc, char** argv)
 {
     tll::BaseApp* base_app = new tll::BaseApp();
 
-    // モード管理フラグ
-    bool with_osc = true;
-
     if (argc > 1)
     {
         if (strcmp(argv[1], "--without-osc") == 0) with_osc = false;
+        if (strcmp(argv[1], "--without-sound") == 0) with_sound = false;
     }
 
     if (with_osc)

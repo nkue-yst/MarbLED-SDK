@@ -57,6 +57,12 @@ set(SDL2_DIR ${CMAKE_BINARY_DIR}/thirdparty/SDL)
 find_package(SDL2 REQUIRED)
 include_directories(${CMAKE_SOURCE_DIR}/thirdparty/SDL/include)
 
+### Setup SDL2-Mixer ###
+add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/SDL_mixer)
+set(SDL2_mixer_DIR ${CMAKE_BINARY_DIR}/thirdparty/SDL_mixer)
+find_package(SDL2_mixer REQUIRED)
+include_directories(${CMAKE_SOURCE_DIR}/thirdparty/SDL_mixer/include)
+
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 if(WIRINGPI_LIBRARIES)
@@ -85,7 +91,7 @@ option(TLL_BASE_APP "Build base app" ON)
 if(TLL_BASE_APP)
     add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
     target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
-    target_link_libraries(TLL_BaseApp ${SDL2_STATIC_LIBRARIES})
+    target_link_libraries(TLL_BaseApp ${SDL2_STATIC_LIBRARIES} SDL2_mixer)
     if(WIRINGPI_LIBRARIES)
         target_link_libraries(TLL_BaseApp stdc++fs)
     endif()
