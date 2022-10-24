@@ -12,6 +12,8 @@
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
 
+#include "SDL.h"
+
 namespace tll
 {
 
@@ -44,6 +46,12 @@ namespace tll
     {
         init(64, 32, "HUB75");
 
+        if (SDL_Init(SDL_INIT_AUDIO) < 0)
+        {
+            std::cout << "Failed to init audio system" << std::endl;
+            quit();
+        }
+
         this->loadApps();
         this->switchApp("CockroachShooting");
 
@@ -58,6 +66,8 @@ namespace tll
         if (this->running_app)
             this->running_app->terminate();
         quit();
+
+        SDL_Quit();
     }
 
     bool BaseApp::switchApp(std::string app_name)

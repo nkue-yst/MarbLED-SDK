@@ -50,6 +50,12 @@ add_library(oscpack
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+### Setup SDL2 ###
+set(SDL2_DIR ${CMAKE_SOURCE_DIR}/thirdparty/SDL)
+add_subdirectory(${SDL2_DIR})
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 if(WIRINGPI_LIBRARIES)
@@ -62,7 +68,6 @@ if(WIRINGPI_LIBRARIES)
     file(GLOB RPI-RGB_SRC ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.cc ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.c ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.h)
     include_directories(${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/include)
     add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
-    #target_link_libraries(${PROJECT} RPI-RGB ${WIRINGPI_LIBRARIES} "-pthread")
 endif()
 
 ### Create TouchLED-Library (main project) ###
@@ -79,6 +84,7 @@ option(TLL_BASE_APP "Build base app" ON)
 if(TLL_BASE_APP)
     add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
     target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
+    target_link_libraries(TLL_BaseApp ${SDL2_LIBRARIES})
     if(WIRINGPI_LIBRARIES)
         target_link_libraries(TLL_BaseApp stdc++fs)
     endif()

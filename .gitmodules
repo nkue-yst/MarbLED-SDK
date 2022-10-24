@@ -18,3 +18,10 @@
 [submodule "thirdparty/cppzmq"]
 	path = thirdparty/cppzmq
 	url = git@github.com:zeromq/cppzmq.git
+[submodule "thirdparty/SDL"]
+	path = thirdparty/SDL
+	url = git@github.com:libsdl-org/SDL.git
+	branch = release-2.24.1
+[submodule "thirdparty/SDL_mixer"]
+	path = thirdparty/SDL_mixer
+	url = git@github.com:libsdl-org/SDL_mixer.git
