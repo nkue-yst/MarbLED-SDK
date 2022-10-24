@@ -51,10 +51,11 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 ### Setup SDL2 ###
-set(SDL2_DIR ${CMAKE_SOURCE_DIR}/thirdparty/SDL)
-add_subdirectory(${SDL2_DIR})
+set(BUILD_SHARED_LIBS OFF)
+add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/SDL)
+set(SDL2_DIR ${CMAKE_BINARY_DIR}/thirdparty/SDL)
 find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/thirdparty/SDL/include)
 
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
@@ -84,7 +85,7 @@ option(TLL_BASE_APP "Build base app" ON)
 if(TLL_BASE_APP)
     add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
     target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
-    target_link_libraries(TLL_BaseApp ${SDL2_LIBRARIES})
+    target_link_libraries(TLL_BaseApp ${SDL2_STATIC_LIBRARIES})
     if(WIRINGPI_LIBRARIES)
         target_link_libraries(TLL_BaseApp stdc++fs)
     endif()

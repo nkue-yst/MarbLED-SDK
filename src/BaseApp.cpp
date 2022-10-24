@@ -48,7 +48,7 @@ namespace tll
 
         if (SDL_Init(SDL_INIT_AUDIO) < 0)
         {
-            std::cout << "Failed to init audio system" << std::endl;
+            std::cout << "Failed to init audio system: " << SDL_GetError() << std::endl;
             quit();
         }
 
