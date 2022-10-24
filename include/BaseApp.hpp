@@ -17,6 +17,7 @@
 
 namespace tll
 {
+    static bool with_sound = true;
 
     /* アプリを動作させるためのアプリクラス */
     class BaseApp : public TUIO::TuioListener
@@ -93,5 +94,8 @@ namespace tll
         TUIO::TuioClient* tuio_client;
         TUIO::OscReceiver* osc_receiver;
     };
+
+    /* サウンド再生処理 */
+    void playSound(const char* file);
 
 }

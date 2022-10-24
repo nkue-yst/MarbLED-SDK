@@ -18,7 +18,6 @@
 namespace
 {
     bool with_osc = true;
-    bool with_sound = true;
 }
 
 namespace tll
@@ -143,17 +142,31 @@ namespace tll
         return app_num;
     }
 
+    void playSound(const char* file)
+    {
+        Mix_Chunk* wave = nullptr;
+        wave = Mix_LoadWAV(file);
+
+        if (with_sound)
+        {
+            if (Mix_PlayChannel(-1, wave, 0) == -1)
+            {
+                std::cout << "Failed to play wav" << std::endl;
+            }
+        }
+    }
+
 }
 
 int main(int argc, char** argv)
 {
-    tll::BaseApp* base_app = new tll::BaseApp();
-
     if (argc > 1)
     {
         if (strcmp(argv[1], "--without-osc") == 0) with_osc = false;
-        if (strcmp(argv[1], "--without-sound") == 0) with_sound = false;
+        if (strcmp(argv[1], "--without-sound") == 0) tll::with_sound = false;
     }
+
+    tll::BaseApp* base_app = new tll::BaseApp();
 
     if (with_osc)
     {

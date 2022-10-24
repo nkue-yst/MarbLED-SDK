@@ -11,6 +11,8 @@
 #include <random>
 #include <vector>
 
+#include "BaseApp.hpp"
+
 #define PLAYING_TIME 20.f     // プレイ時間（sec）
 #define MAX_G_SPEED 2         // Gの最高速度（pixel/frame）
 #define NUMBER_OF_G 3         // Gの同時出現数
@@ -218,6 +220,8 @@ void CockroachShooting::onReleased(tll::TouchInfo ti)
     {
         this->start = std::chrono::system_clock::now();
         this->game_state = IN_GAME;
+
+        tll::playSound("start.wav");
 
         // ゲームを初期化
         this->score = 0;

@@ -101,6 +101,7 @@ endif()
 option(TLL_BUILD_APP "Build applications using TLL" ON)
 if(TLL_BUILD_APP)
     add_subdirectory(${CMAKE_SOURCE_DIR}/app)
+    target_link_libraries(TLL_BaseApp ${SDL2_STATIC_LIBRARIES} SDL2_mixer)
 endif()
 
 ### Copy engine component files ###
