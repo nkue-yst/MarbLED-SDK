@@ -12,6 +12,8 @@
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
 
+#define SOUND_PLAYER_PI_IP "192.168.0.222"
+
 namespace
 {
     bool with_osc = true;
@@ -122,8 +124,9 @@ namespace tll
         return app_num;
     }
 
-    void playSound(const char* file)
+    void playSound(std::string file)
     {
+        tll::OscHandler::sendMessageWithString("/SoundPlayer/se/play/", file, "192.168.0.222", 44100);
     }
 
 }

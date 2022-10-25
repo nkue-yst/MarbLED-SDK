@@ -32,6 +32,9 @@ namespace tll
         // float型の引数付きでOSCメッセージを送信する
         static void sendMessageWithFloat(const char* address, float value, const char* dst_ip = "127.0.0.1", int port = 7000);
 
+        // string型の引数付きでOSCメッセージを送信する
+        static void sendMessageWithString(const char* address, std::string value, const char* dst_ip = "127.0.0.1", int port = 7000);
+
     protected:
         // 受信したOSCメッセージを解析する
         virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override;

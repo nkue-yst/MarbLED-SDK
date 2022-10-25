@@ -94,6 +94,6 @@ namespace tll
     };
 
     /* サウンド再生処理 */
-    void playSound(const char* file);
+    void playSound(std::string file);
 
 }

@@ -31,6 +31,17 @@ namespace tll
         p << osc::BeginBundleImmediate << osc::BeginMessage(address) << value << osc::EndMessage << osc::EndBundle;
         transmitSocket.Send(p.Data(), p.Size());
     }
+
+    void OscHandler::sendMessageWithString(const char* address, std::string value, const char* dst_ip, int port)
+    {
+        UdpTransmitSocket transmitSocket(IpEndpointName(dst_ip, port));
+
+        char buff[2048];
+        osc::OutboundPacketStream p(buff, 2048);
+
+        p << osc::BeginBundleImmediate << osc::BeginMessage(address) << value.c_str() << osc::EndMessage << osc::EndBundle;
+        transmitSocket.Send(p.Data(), p.Size());
+    }
     
     void OscHandler::ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt)
     {
