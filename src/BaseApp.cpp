@@ -126,7 +126,7 @@ namespace tll
 
     void playSound(std::string file)
     {
-        tll::OscHandler::sendMessageWithString("/SoundPlayer/se/play/", file, "192.168.0.222", 44100);
+        tll::OscHandler::sendMessageWithString("/PiSoundPlayer/se/play/", file, "192.168.0.222", 44100);
     }
 
 }
