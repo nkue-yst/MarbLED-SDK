@@ -103,6 +103,8 @@ void CockroachShooting::init()
 {
     this->button_start = tll::loadImage("Button_Start.jpg");
     this->button_start->resize(32, 64);
+
+    tll::playSound("start.wav");
 }
 
 void CockroachShooting::run()
