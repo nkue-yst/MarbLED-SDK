@@ -12,9 +12,6 @@
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
 
-#include "SDL.h"
-#include "SDL_mixer.h"
-
 namespace
 {
     bool with_osc = true;
@@ -52,21 +49,6 @@ namespace tll
     {
         init(64, 32, "HUB75");
 
-        if (with_sound)
-        {
-            if (SDL_Init(SDL_INIT_AUDIO) < 0)
-            {
-                std::cout << "Failed to init audio system: " << SDL_GetError() << std::endl;
-                return;
-            }
-
-            if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
-            {
-                std::cout << "Failed to open audio device: " << SDL_GetError() << std::endl;
-                return;
-            }
-        }
-
         this->loadApps();
         this->switchApp("CockroachShooting");
 
@@ -81,8 +63,6 @@ namespace tll
         if (this->running_app)
             this->running_app->terminate();
         quit();
-
-        SDL_Quit();
     }
 
     bool BaseApp::switchApp(std::string app_name)
@@ -144,16 +124,6 @@ namespace tll
 
     void playSound(const char* file)
     {
-        Mix_Chunk* wave = nullptr;
-        wave = Mix_LoadWAV(file);
-
-        if (with_sound)
-        {
-            if (Mix_PlayChannel(-1, wave, 0) == -1)
-            {
-                std::cout << "Failed to play wav" << std::endl;
-            }
-        }
     }
 
 }
@@ -163,7 +133,6 @@ int main(int argc, char** argv)
     if (argc > 1)
     {
         if (strcmp(argv[1], "--without-osc") == 0) with_osc = false;
-        if (strcmp(argv[1], "--without-sound") == 0) tll::with_sound = false;
     }
 
     tll::BaseApp* base_app = new tll::BaseApp();

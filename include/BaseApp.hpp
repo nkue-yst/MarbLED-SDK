@@ -17,8 +17,6 @@
 
 namespace tll
 {
-    static bool with_sound = true;
-
     /* アプリを動作させるためのアプリクラス */
     class BaseApp : public TUIO::TuioListener
     {
