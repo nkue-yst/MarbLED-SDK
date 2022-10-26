@@ -112,6 +112,7 @@ void CockroachShooting::init()
     this->button_start->resize(32, 64);
 
     PiSoundPlayer::playSound("start.wav");
+    PiSoundPlayer::playBGM("bgm.wav");
 }
 
 void CockroachShooting::run()
@@ -133,6 +134,7 @@ void CockroachShooting::run()
         if (std::chrono::duration_cast<std::chrono::seconds>(now - this->start).count() > PLAYING_TIME)
         {
             this->game_state = FINISHED;
+            PiSoundPlayer::playSound("end.wav");
             this->start = std::chrono::system_clock::now();
             break;
         }
@@ -157,7 +159,15 @@ void CockroachShooting::run()
             cockroach->draw();
 
         // チャージ状態の更新
-        if (this->charge < 100) this->charge += CHARGE_VALUE;
+        if (this->charge < 100)
+        {
+            this->charge += CHARGE_VALUE;
+
+            if (this->charge >= 100)
+            {
+                PiSoundPlayer::playSound("charge.wav");
+            }
+        }
         tll::drawRect(61, 32 - (float)this->charge / 100 * 32, 3, 32, tll::Palette::Aqua);
 
         // 3点タッチされている場合、円の中心を描画
@@ -259,19 +269,17 @@ void CockroachShooting::drawReticle(int32_t x1, int32_t y1, int32_t x2, int32_t 
 
     if ((a && d) || (b && c))
     {
-	cx = x1 + (d * (a * a + b * b) - b * (c * c + d * d)) / (a * d - b * c) / 2;
-	
-	if (b)
-	{
-	    cy = (a * (x1 + x2 - cx - cx) + b * (y1 + y2)) / b / 2;
-	}
-	else
-	{
-	    cy = (c * (x1 + x3 - cx - cx) + d * (y1 + y3)) / d / 2;
-	}
+        cx = x1 + (d * (a * a + b * b) - b * (c * c + d * d)) / (a * d - b * c) / 2;
+        
+        if (b)
+        {
+            cy = (a * (x1 + x2 - cx - cx) + b * (y1 + y2)) / b / 2;
+        }
+        else if (d)
+        {
+            cy = (c * (x1 + x3 - cx - cx) + d * (y1 + y3)) / d / 2;
+        }
     }
-
-    //td::cout << "cx: " << cx << ", cy: " << cy << std::endl;
 
     tll::drawCircle(cx, cy, 4, RETICLE_COLOR);
 
@@ -292,6 +300,8 @@ void CockroachShooting::shoot()
 {
     this->charge = 0;
     this->playing_shoot_anim = true;
+
+    PiSoundPlayer::playSound("shoot.wav");
 }
 
 void CockroachShooting::playShootAnim()
@@ -336,6 +346,7 @@ bool CockroachShooting::checkSuccess()
 
         if (distance < SHOOT_THRESHOLD)
         {
+            PiSoundPlayer::playSound("success.wav");
             this->cockroach.erase(iter);
             return true;
         }
