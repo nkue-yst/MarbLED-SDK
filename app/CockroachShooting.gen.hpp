@@ -44,7 +44,7 @@ public:
     void onMoved(tll::TouchInfo ti) override;
     void onReleased(tll::TouchInfo ti) override;
 
-    void drawReticle(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, uint32_t x3, uint32_t y3);
+    void drawReticle(int32_t x1, int32_t y1, int32_t x2, int32_t y2, int32_t x3, int32_t y3);
 
     void shoot();
     void playShootAnim();
