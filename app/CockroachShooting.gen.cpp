@@ -13,9 +13,9 @@
 
 #include "BaseApp.hpp"
 
-#define PLAYING_TIME 20.f     // プレイ時間（sec）
+#define PLAYING_TIME 60.f     // プレイ時間（sec）
 #define MAX_G_SPEED 2         // Gの最高速度（pixel/frame）
-#define MAX_LEVEL 4           // 最大レベル
+#define MAX_LEVEL 5           // 最大レベル
 #define NUMBER_OF_G 3         // Gの同時出現数
 #define SHOOT_THRESHOLD 15.f  // 攻撃が当たる距離
 #define CHARGE_VALUE 2        // 1フレームあたりのチャージ量（n/100）
@@ -38,10 +38,11 @@ Cockroach::Cockroach(int16_t x, int16_t y, int16_t vx, int16_t vy)
 
 void Cockroach::move(int32_t level)
 {
-    static uint64_t frame = 0;
-
-    if (frame++ % (MAX_LEVEL % level) == 0)
+    if (this->frame++ % (MAX_LEVEL - level + 1) != 0)
         return;
+
+    if (this->frame == UINT64_MAX)
+        this->frame = 0;
 
     // 横方向への移動
     this->x += this->vx;
@@ -49,7 +50,7 @@ void Cockroach::move(int32_t level)
     if (this->x < 0) this->x = 0;
     if (this->x > 61) this->x = 61;
 
-    if (this->x <= 0 || 61 <= this->x)
+    if (this->x == 0 || 61 == this->x)
     {
         this->vx = -((this->vx > 0) - (this->vx < 0)) * (rnd() % MAX_G_SPEED + 1);
     }
@@ -60,9 +61,9 @@ void Cockroach::move(int32_t level)
     if (this->y < 0) this->y = 0;
     if (this->y > 31) this->y = 31;
 
-    if (this->y <= 0 || 31 <= this->y)
+    if (this->y == 0 || 31 == this->y)
     {
-        this->vy = -((this->vy > 0) - (this->vy < 0)) * (rnd() % (MAX_G_SPEED + 1));
+        this->vy = -((this->vy > 0) - (this->vy < 0)) * (rnd() % MAX_G_SPEED + 1);
     }
 }
 
@@ -270,7 +271,7 @@ void CockroachShooting::drawReticle(int32_t x1, int32_t y1, int32_t x2, int32_t 
 	}
     }
 
-    std::cout << "cx: " << cx << ", cy: " << cy << std::endl;
+    //td::cout << "cx: " << cx << ", cy: " << cy << std::endl;
 
     tll::drawCircle(cx, cy, 4, RETICLE_COLOR);
 
@@ -306,6 +307,11 @@ void CockroachShooting::playShootAnim()
         if (this->checkSuccess())
         {
             score += 10;
+
+            if ((score % 30 == 0) && (this->level < MAX_LEVEL))
+            {
+                level++;
+            }
         }
         else
         {

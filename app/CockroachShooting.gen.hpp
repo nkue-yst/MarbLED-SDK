@@ -28,6 +28,8 @@ public:
 
     int16_t x, y;
     int16_t vx, vy;
+
+    uint64_t frame = 0;
 };
 
 class CockroachShooting : public tll::AppInterface
