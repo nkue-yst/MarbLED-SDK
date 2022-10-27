@@ -104,7 +104,7 @@ void CockroachShooting::init()
     this->button_start = tll::loadImage("Button_Start.jpg");
     this->button_start->resize(32, 64);
 
-    tll::playSound("start.wav");
+    PiSoundPlayer::playSound("start.wav");
 }
 
 void CockroachShooting::run()
@@ -223,7 +223,7 @@ void CockroachShooting::onReleased(tll::TouchInfo ti)
         this->start = std::chrono::system_clock::now();
         this->game_state = IN_GAME;
 
-        tll::playSound("start.wav");
+        PiSoundPlayer::playSound("start.wav");
 
         // ゲームを初期化
         this->score = 0;

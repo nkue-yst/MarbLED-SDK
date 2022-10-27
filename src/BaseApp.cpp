@@ -124,12 +124,51 @@ namespace tll
         return app_num;
     }
 
+}
+
+namespace PiSoundPlayer
+{
+    // 効果音再生
     void playSound(std::string file)
     {
         tll::OscHandler::sendMessageWithString("/PiSoundPlayer/se/play", file, SOUND_PLAYER_PI_IP, 44100);
-        //tll::OscHandler::sendMessageWithString("/PiSoundPlayer/se/play", file, "127.0.0.1", 44100);
     }
 
+    // 効果音の音量設定
+    void setSoundVolume(int32_t new_volume)
+    {
+        tll::OscHandler::sendMessageWithInt32("/PiSoundPlayer/se/volume", new_volume, SOUND_PLAYER_PI_IP, 44100);
+    }
+
+    // BGM再生
+    void playBGM(std::string file)
+    {
+        tll::OscHandler::sendMessageWithString("/PiSoundPlayer/bgm/play", file, SOUND_PLAYER_PI_IP, 44100);
+    }
+
+    // BGM一時停止
+    void pauseBGM()
+    {
+        tll::OscHandler::sendMessage("/PiSoundPlayer/bgm/pause", SOUND_PLAYER_PI_IP, 44100);
+    }
+
+    // BGM再開
+    void resumeBGM()
+    {
+        tll::OscHandler::sendMessage("/PiSoundPlayer/bgm/resume", SOUND_PLAYER_PI_IP, 44100);
+    }
+
+    // BGM停止
+    void stopBGM()
+    {
+        tll::OscHandler::sendMessage("/PiSoundPlayer/bgm/stop", SOUND_PLAYER_PI_IP, 44100);
+    }
+
+    // BGMの音量設定
+    void setBgmVolume(int32_t new_volume)
+    {
+        tll::OscHandler::sendMessageWithInt32("/PiSoundPlayer/bgm/volume", new_volume, SOUND_PLAYER_PI_IP, 44100);
+    }
 }
 
 int main(int argc, char** argv)

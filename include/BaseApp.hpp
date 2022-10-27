@@ -93,7 +93,28 @@ namespace tll
         TUIO::OscReceiver* osc_receiver;
     };
 
-    /* サウンド再生処理 */
+}
+
+namespace PiSoundPlayer
+{
+    // 効果音再生
     void playSound(std::string file);
 
+    // 効果音の音量設定
+    void setSoundVolume(int32_t new_volume);
+
+    // BGM再生
+    void playBGM(std::string file);
+
+    // BGM一時停止
+    void pauseBGM();
+
+    // BGM再開
+    void resumeBGM();
+
+    // BGM停止
+    void stopBGM();
+
+    // BGMの音量設定
+    void setBgmVolume(int32_t new_volume);
 }
