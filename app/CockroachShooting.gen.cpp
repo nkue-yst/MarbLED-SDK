@@ -15,6 +15,7 @@
 
 #define PLAYING_TIME 20.f     // プレイ時間（sec）
 #define MAX_G_SPEED 2         // Gの最高速度（pixel/frame）
+#define MAX_LEVEL 4           // 最大レベル
 #define NUMBER_OF_G 3         // Gの同時出現数
 #define SHOOT_THRESHOLD 15.f  // 攻撃が当たる距離
 #define CHARGE_VALUE 2        // 1フレームあたりのチャージ量（n/100）
@@ -35,11 +36,16 @@ Cockroach::Cockroach(int16_t x, int16_t y, int16_t vx, int16_t vy)
 
 }
 
-void Cockroach::move()
+void Cockroach::move(int32_t level)
 {
+    static uint64_t frame = 0;
+
+    if (frame++ % (MAX_LEVEL % level) == 0)
+        return;
+
     // 横方向への移動
     this->x += this->vx;
-   
+
     if (this->x < 0) this->x = 0;
     if (this->x > 61) this->x = 61;
 
@@ -56,7 +62,7 @@ void Cockroach::move()
 
     if (this->y <= 0 || 31 <= this->y)
     {
-        this->vy = -((this->vy > 0) - (this->vy < 0)) * (rnd() % MAX_G_SPEED + 1);
+        this->vy = -((this->vy > 0) - (this->vy < 0)) * (rnd() % (MAX_G_SPEED + 1));
     }
 }
 
@@ -116,7 +122,7 @@ void CockroachShooting::run()
     // タイトル画面
     case TITLE:
         // タイトル画面表示
-        button_start->draw(0, 0, (tll::getTouchedNum() == 0 ? tll::Color(0, 128, 255) : tll::Color(0, 128, 128)));
+        button_start->draw(0, 0, (tll::getTouchedNum() == 0 ? tll::Color(0, 200, 255) : tll::Color(0, 128, 128)));
         break;
 
     // ゲームプレイ中
@@ -143,7 +149,7 @@ void CockroachShooting::run()
 
         // G の位置を更新
         for (auto cockroach : this->cockroach)
-            cockroach->move();
+            cockroach->move(this->level);
 
         // G の描画
         for (auto cockroach : this->cockroach)

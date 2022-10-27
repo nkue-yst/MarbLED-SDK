@@ -23,7 +23,7 @@ class Cockroach
 public:
     Cockroach(int16_t x, int16_t y, int16_t vx, int16_t vy);
 
-    void move();
+    void move(int32_t level);
     void draw();
 
     int16_t x, y;
