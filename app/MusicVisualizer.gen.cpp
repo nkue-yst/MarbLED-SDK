@@ -24,37 +24,34 @@ MusicVisualizer::~MusicVisualizer()
 
 void MusicVisualizer::init()
 {
-    this->is_running = true;
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init");
 }
 
 void MusicVisualizer::run()
 {
-    while (tll::loop())
-    {
-        if (!this->is_running)
-            return;
-    }
+
 }
 
 void MusicVisualizer::terminate()
 {
-    this->is_running = false;
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate");
 }
 
-void MusicVisualizer::onTouched(uint32_t x, uint32_t y)
+void MusicVisualizer::onTouched(tll::TouchInfo ti)
 {
-    this->x = x;
-    this->y = y;
+    if (ti.id == 0)
+    {
+        this->x = ti.x;
+        this->y = ti.y;
+    }
 }
 
-void MusicVisualizer::onMoved(uint32_t x, uint32_t y)
+void MusicVisualizer::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void MusicVisualizer::onReleased()
+void MusicVisualizer::onReleased(tll::TouchInfo ti)
 {
 
 }

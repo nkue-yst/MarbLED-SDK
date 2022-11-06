@@ -9,6 +9,8 @@
 #include <iostream>
 #include <thread>
 
+tll::Color c(255, 0, 0);
+
 SimpleScan::SimpleScan()
 {
     std::cout << "Create SimpleScan instance." << std::endl;
@@ -21,36 +23,61 @@ SimpleScan::~SimpleScan()
 
 void SimpleScan::init()
 {
-    this->is_running = true;
+
 }
 
 void SimpleScan::run()
 {
-    while (tll::loop())
-    {
-        if (!this->is_running)
-            return;
+    tll::clear();
 
-        drawNextPt();
+    tll::drawRect(0, 0, 64, 32, c);
+    
+    if (c.r_ == 255 && c.g_ < 255 && c.b_ == 0)
+    {
+        c.g_++;
     }
+    else if (c.r_ > 0 && c.g_ == 255 && c.b_ == 0)
+    {
+        c.r_--;
+    }
+    else if (c.r_ == 0 && c.g_ == 255 && c.b_ < 255)
+    {
+        c.b_++;
+    }
+    else if (c.r_ == 0 && c.g_ > 0 && c.b_ == 255)
+    {
+        c.g_--;
+    }
+    else if (c.r_ < 255 && c.g_ == 0 && c.b_ == 255)
+    {
+        c.r_++;
+    }
+    else if (c.r_ == 255 && c.g_ == 0 && c.b_ > 0)
+    {
+        c.b_--;
+    }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(16));
+
+    //drawNextPt();
 }
 
 void SimpleScan::terminate()
 {
-    this->is_running = false;
+
 }
 
-void SimpleScan::onTouched(uint32_t x, uint32_t y)
+void SimpleScan::onTouched(tll::TouchInfo ti)
 {
 
 }
 
-void SimpleScan::onMoved(uint32_t x, uint32_t y)
+void SimpleScan::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void SimpleScan::onReleased()
+void SimpleScan::onReleased(tll::TouchInfo ti)
 {
 
 }

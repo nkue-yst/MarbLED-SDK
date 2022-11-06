@@ -8,12 +8,21 @@
 
 #include <cstdint>
 #include <memory>
+#include <utility>
 
-class VoiceRecognition : public tll::AppInterface
+struct Point
 {
 public:
-    VoiceRecognition();
-    ~VoiceRecognition();
+    int32_t x;
+    int32_t y;
+    bool touched = false;
+};
+
+class MultiTouchLine : public tll::AppInterface
+{
+public:
+    MultiTouchLine();
+    ~MultiTouchLine();
 
     void init() override;
     void run() override;
@@ -23,7 +32,14 @@ public:
     void onMoved(tll::TouchInfo ti) override;
     void onReleased(tll::TouchInfo ti) override;
 
-    void procOscMessage(const osc::ReceivedMessage& msg) override;
+private:
+    void updatePoint(tll::TouchInfo ti, bool touched);
+
+    void connectTwoPoints();
+    void disconnectTwoPoints();
+
+    bool multi_touched;
+    std::pair<Point, Point> points;
 };
 
 /* Required to use in loading application file */
@@ -31,6 +47,6 @@ extern "C"
 {
     std::unique_ptr<tll::AppInterface> create()
     {
-        return std::unique_ptr<tll::AppInterface>(new VoiceRecognition);
+        return std::unique_ptr<tll::AppInterface>(new MultiTouchLine);
     }
 }

@@ -53,8 +53,6 @@ Timer::~Timer()
 
 void Timer::init()
 {
-    this->is_running = true;
-
     tll::clear();
 
     // 円弧画像の読み込み
@@ -87,64 +85,58 @@ void Timer::init()
 
 void Timer::run()
 {
-    while (tll::loop())
+    // タイマーがセットされていなければ何もしない
+    if (this->set_time == 0)
+        return;
+
+    this->now_tp = std::chrono::system_clock::now();
+
+    // 1秒以上経過していれば記録
+    if (std::chrono::duration_cast<std::chrono::milliseconds>(this->now_tp - this->pre_tp).count() >= 1000)
     {
-        if (!this->is_running)
-            return;
-        
-        // タイマーがセットされていなければ何もしない
-        if (this->set_time == 0)
-            continue;
+        this->elapsed_time++;
 
-        this->now_tp = std::chrono::system_clock::now();
+        // タイムポイントの更新
+        this->pre_tp = this->now_tp;
+    }
+    else
+    {
+        return;
+    }
 
-        // 1秒以上経過していれば記録
-        if (std::chrono::duration_cast<std::chrono::milliseconds>(this->now_tp - this->pre_tp).count() >= 1000)
-        {
-            this->elapsed_time++;
+    // 設定時間と経過時間が一致した場合（設定時間が経過した際）
+    if (elapsed_time == this->set_time)
+    {
+        this->drawArc(0);
 
-            // タイムポイントの更新
-            this->pre_tp = this->now_tp;
-        }
-        else
-        {
-            continue;
-        }
+        tll::OscHandler::sendMessage("/tll/app/Timer/end_notify");
 
-        // 設定時間と経過時間が一致した場合（設定時間が経過した際）
-        if (elapsed_time == this->set_time)
-        {
-            this->drawArc(0);
-
-            tll::OscHandler::sendMessage("/tll/app/Timer/end_notify");
-
-            this->elapsed_time = 0;
-            this->set_time     = 0;
-        }
-        else    // 経過時間から設定時間のうち何%残っているかを計算し描画更新
-        {
-            float percent = (float)this->elapsed_time / this->set_time * 100;
-            this->drawArc(100 - (int)percent);
-        }
+        this->elapsed_time = 0;
+        this->set_time     = 0;
+    }
+    else    // 経過時間から設定時間のうち何%残っているかを計算し描画更新
+    {
+        float percent = (float)this->elapsed_time / this->set_time * 100;
+        this->drawArc(100 - (int)percent);
     }
 }
 
 void Timer::terminate()
 {
-    this->is_running = false;
+
 }
 
-void Timer::onTouched(uint32_t x, uint32_t y)
+void Timer::onTouched(tll::TouchInfo ti)
 {
 
 }
 
-void Timer::onMoved(uint32_t x, uint32_t y)
+void Timer::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void Timer::onReleased()
+void Timer::onReleased(tll::TouchInfo ti)
 {
 
 }

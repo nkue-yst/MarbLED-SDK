@@ -20,7 +20,7 @@ namespace tll
     struct Color
     {
     public:
-        constexpr Color(uint16_t r, uint16_t g, uint16_t b) noexcept
+        constexpr Color(uint8_t r, uint8_t g, uint8_t b) noexcept
             : r_(r)
             , g_(g)
             , b_(b)
@@ -35,9 +35,9 @@ namespace tll
         // 2色のユークリッド距離を計算する
         static uint32_t calcDiff(Color c1, Color c2) noexcept;
 
-        uint16_t r_;
-        uint16_t g_;
-        uint16_t b_;
+        uint8_t r_;
+        uint8_t g_;
+        uint8_t b_;
     };
 
 

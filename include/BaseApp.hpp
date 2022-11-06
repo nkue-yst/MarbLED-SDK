@@ -17,7 +17,6 @@
 
 namespace tll
 {
-
     /* アプリを動作させるためのアプリクラス */
     class BaseApp : public TUIO::TuioListener
     {
@@ -28,19 +27,43 @@ namespace tll
         void addTuioObject(TUIO::TuioObject *tobj) override
         {
             if (this->running_app)
-                this->running_app->onTouched((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
+            {
+                this->running_app->onTouched(
+                    TouchInfo{
+                        static_cast<uint32_t>(tobj->getSymbolID()),
+                        static_cast<int32_t>(tobj->getX()),
+                        static_cast<int32_t>(tobj->getY())
+                    }
+                );
+            }
         }
 
         void updateTuioObject(TUIO::TuioObject *tobj) override
         {
             if (this->running_app)
-                this->running_app->onMoved((uint32_t)tobj->getX(), (uint32_t)tobj->getY());
+            {
+                this->running_app->onMoved(
+                    TouchInfo{
+                        static_cast<uint32_t>(tobj->getSymbolID()),
+                        static_cast<int32_t>(tobj->getX()),
+                        static_cast<int32_t>(tobj->getY())
+                    }
+                );
+            }
         }
 
         void removeTuioObject(TUIO::TuioObject *tobj) override
         {
             if (this->running_app)
-                this->running_app->onReleased();
+            {
+                this->running_app->onReleased(
+                    TouchInfo{
+                        static_cast<uint32_t>(tobj->getSymbolID()),
+                        static_cast<int32_t>(tobj->getX()),
+                        static_cast<int32_t>(tobj->getY())
+                    }
+                );
+            }
         }
 
         void addTuioCursor(TUIO::TuioCursor *tcur) override {}
@@ -70,4 +93,28 @@ namespace tll
         TUIO::OscReceiver* osc_receiver;
     };
 
+}
+
+namespace PiSoundPlayer
+{
+    // 効果音再生
+    void playSound(std::string file);
+
+    // 効果音の音量設定
+    void setSoundVolume(int32_t new_volume);
+
+    // BGM再生
+    void playBGM(std::string file);
+
+    // BGM一時停止
+    void pauseBGM();
+
+    // BGM再開
+    void resumeBGM();
+
+    // BGM停止
+    void stopBGM();
+
+    // BGMの音量設定
+    void setBgmVolume(int32_t new_volume);
 }

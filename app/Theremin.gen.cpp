@@ -27,67 +27,72 @@ Theremin::~Theremin()
 
 void Theremin::init()
 {
-    this->is_running = true;
+
 }
 
 void Theremin::run()
 {
-    while (tll::loop())
+    tll::clear();
+
+    // Volumeバーを表示
+    tll::drawRect(0, 29, 64, 3, tll::Palette::Aqua);
+
+    // Pitchバーを表示
+    tll::drawRect(0, 0, 3, 32, tll::Palette::Aqua);
+
+    // タッチされている場合タッチ点を表示
+    if (this->is_touched)
     {
-        if (!this->is_running)
-            return;
-
-        tll::clear();
-
-        // Volumeバーを表示
-        tll::drawRect(0, 29, 64, 3, tll::Palette::Aqua);
-
-        // Pitchバーを表示
-        tll::drawRect(0, 0, 3, 32, tll::Palette::Aqua);
-
-        // タッチされている場合タッチ点を表示
-        if (this->is_touched)
-        {
-            tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::Red);
-        }
+        tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::Red);
     }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(33));
 }
 
 void Theremin::terminate()
 {
-    this->is_running = false;
+
 }
 
-void Theremin::onTouched(uint32_t x, uint32_t y)
+void Theremin::onTouched(tll::TouchInfo ti)
 {
-    this->x = x;
-    this->y = y;
-    this->is_touched = true;
+    if (ti.id == 0)
+    {
+        this->x = ti.x;
+        this->y = ti.y;
+        this->is_touched = true;
 
-    // タッチ座標によって音高をOSCメッセージにより送信
-    float pitch = ((float)HEIGHT - this->y) / HEIGHT;
-    tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch);
+        // タッチ座標によって音高をOSCメッセージにより送信
+        float pitch = ((float)HEIGHT - this->y) / HEIGHT;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch);
 
-    // タッチ座標によって音量をOSCメッセージにより送信
-    float volume = ((float)WIDTH - this->x) / WIDTH;
-    tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume);
+        // タッチ座標によって音量をOSCメッセージにより送信
+        float volume = ((float)WIDTH - this->x) / WIDTH;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume);
+    }
 }
 
-void Theremin::onMoved(uint32_t x, uint32_t y)
+void Theremin::onMoved(tll::TouchInfo ti)
 {
-    this->x = x;
-    this->y = y;
+    if (ti.id == 0)
+    {
+        this->x = ti.x;
+        this->y = ti.y;
 
-    // タッチ座標によって音高をOSCメッセージにより送信
-    float pitch = ((float)HEIGHT - this->y) / HEIGHT;
-    tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch);
+        // タッチ座標によって音高をOSCメッセージにより送信
+        float pitch = ((float)HEIGHT - this->y) / HEIGHT;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch);
 
-    // タッチ座標によって音量をOSCメッセージにより送信
-    float volume = ((float)WIDTH - this->x) / WIDTH;
-    tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume);
+        // タッチ座標によって音量をOSCメッセージにより送信
+        float volume = ((float)WIDTH - this->x) / WIDTH;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume);
+    }
 }
 
-void Theremin::onReleased()
+void Theremin::onReleased(tll::TouchInfo ti)
 {
-    this->is_touched = false;
+    if (ti.id == 0)
+    {
+        this->is_touched = false;
+    }
 }

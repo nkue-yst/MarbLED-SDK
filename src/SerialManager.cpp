@@ -11,17 +11,22 @@
 #include <chrono>
 #include <thread>
 #include <unistd.h>
+#include <vector>
+
+#include <sys/socket.h>
+#include <sys/un.h>
 
 #include "tllEngine.hpp"
 #include "Color.hpp"
 #include "Common.hpp"
+#include "Event.hpp"
 #include "PanelManager.hpp"
-
-#include <zmq.hpp>
 
 #ifdef WITH_RASPI
 #include <wiringSerial.h>
 #endif
+
+#define UNIX_SOCKET_PATH "/tmp/tll/unix_socket"
 
 namespace tll
 {
@@ -30,33 +35,55 @@ namespace tll
     {
         void threadSendColor()
         {
-            auto send_data = []()
+            auto send_data = []() -> void
             {
-                zmq::context_t ctx;
-                zmq::socket_t sock(ctx, zmq::socket_type::push);
-                sock.connect("tcp://127.0.0.1:44100");
+                /* 接続先の設定 */
+                struct sockaddr_un dest_addr;
+                std::memset(&dest_addr, 0, sizeof(struct sockaddr_un));
+                
+                dest_addr.sun_family = AF_UNIX;
+                std::strcpy(dest_addr.sun_path, UNIX_SOCKET_PATH);
+                int32_t sock = socket(AF_UNIX, SOCK_STREAM, 0);
 
-                while (true)
+                /* データ送信先が受信待ち状態になるまで接続を試みる */
+                printLog("Start waiting for simulator to connect");
+                while (connect(sock, (struct sockaddr*)&dest_addr, sizeof(struct sockaddr_un)) == -1)
+                {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                }
+                printLog("Simulator is connected");
+
+                while (!TLL_ENGINE(EventHandler)->getQuitFlag())
                 {
                     if (!TLL_ENGINE(SerialManager)->send_ready)
+                    {
+                        std::this_thread::sleep_for(std::chrono::milliseconds(16));
                         continue;
+                    }
+
+                    std::vector<uint8_t> color_vec;    // 送信用配列
+                    color_vec.reserve(TLL_ENGINE(PanelManager)->getWidth() * TLL_ENGINE(PanelManager)->getHeight() * 3);
 
                     for (uint16_t y = 0; y < TLL_ENGINE(PanelManager)->getHeight(); y++)
                     {
                         for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
                         {
-                            Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
-                            std::vector<uint16_t> color_vec = { static_cast<uint16_t>(x + TLL_ENGINE(PanelManager)->getWidth() * y), color.r_, color.g_, color.b_ };
-
-                            zmq::message_t msg(color_vec);
-                            
-                            auto res = sock.send(msg, zmq::send_flags::none);
-                            (void)res;
+                            Color c = TLL_ENGINE(PanelManager)->getColor(x, y);
+                            color_vec.push_back(c.b_);
+                            color_vec.push_back(c.g_);
+                            color_vec.push_back(c.r_);
                         }
                     }
+                    send(sock, color_vec.data(), TLL_ENGINE(PanelManager)->getWidth() * TLL_ENGINE(PanelManager)->getHeight() * 3, 0);
+
+                    #ifndef WITH_RASPI
+                    std::this_thread::sleep_for(std::chrono::milliseconds(33));
+                    #endif
 
                     TLL_ENGINE(SerialManager)->send_ready = false;
                 }
+
+                close(sock);
             };
 
             std::thread th_send_data(send_data);
@@ -146,7 +173,7 @@ namespace tll
                     for (uint16_t x = 0; x < width; x++)
                     {
                         #ifdef WITH_RASPI
-                        serialPutchar(fd, TLL_ENGINE(PanelManager)->getColor(x, y));
+                        //serialPutchar(fd, TLL_ENGINE(PanelManager)->getColor(x, y));
                         #endif
                     }
                 }
@@ -159,7 +186,7 @@ namespace tll
                     for (uint16_t x = 0; x < width; x++)
                     {
                         #ifdef WITH_RASPI
-                        Color color = ColorPalette::getInstance()->getColorFromID(TLL_ENGINE(PanelManager)->getColor(x, y));
+                        Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
                         this->off_canvas_->SetPixel(x, y, color.r_, color.g_, color.b_);
                         #endif
                     }

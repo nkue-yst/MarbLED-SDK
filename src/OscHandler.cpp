@@ -21,6 +21,17 @@ namespace tll
         transmitSocket.Send(p.Data(), p.Size());
     }
 
+    void OscHandler::sendMessageWithInt32(const char* address, int32_t value, const char* dst_ip, int port)
+    {
+        UdpTransmitSocket transmitSocket(IpEndpointName(dst_ip, port));
+
+        char buff[2048];
+        osc::OutboundPacketStream p(buff, 2048);
+
+        p << osc::BeginBundleImmediate << osc::BeginMessage(address) << value << osc::EndMessage << osc::EndBundle;
+        transmitSocket.Send(p.Data(), p.Size());
+    }
+
     void OscHandler::sendMessageWithFloat(const char* address, float value, const char* dst_ip, int port)
     {
         UdpTransmitSocket transmitSocket(IpEndpointName(dst_ip, port));
@@ -29,6 +40,17 @@ namespace tll
         osc::OutboundPacketStream p(buff, 2048);
 
         p << osc::BeginBundleImmediate << osc::BeginMessage(address) << value << osc::EndMessage << osc::EndBundle;
+        transmitSocket.Send(p.Data(), p.Size());
+    }
+
+    void OscHandler::sendMessageWithString(const char* address, std::string value, const char* dst_ip, int port)
+    {
+        UdpTransmitSocket transmitSocket(IpEndpointName(dst_ip, port));
+
+        char buff[2048];
+        osc::OutboundPacketStream p(buff, 2048);
+
+        p << osc::BeginBundleImmediate << osc::BeginMessage(address) << value.c_str() << osc::EndMessage << osc::EndBundle;
         transmitSocket.Send(p.Data(), p.Size());
     }
     

@@ -22,6 +22,9 @@
  */
 namespace tll
 {
+    [[maybe_unused]]
+    static const char* version = "1.2.0";
+
     /// Monochrome LED is lit.
     constexpr int ON = 1;
 
@@ -119,6 +122,12 @@ namespace tll
      * @return  Current time (String)
      */
     std::string timeToString();
+
+    /**
+     * @brief 
+     * 
+     */
+    uint32_t getTouchedNum();
 }
 
 #endif

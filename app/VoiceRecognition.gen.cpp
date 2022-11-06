@@ -19,36 +19,30 @@ VoiceRecognition::~VoiceRecognition()
 
 void VoiceRecognition::init()
 {
-    this->is_running = true;
     tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/init");
 }
 
 void VoiceRecognition::run()
 {
-    while (tll::loop())
-    {
-        if (!this->is_running)
-            return;
-    }
+
 }
 
 void VoiceRecognition::terminate()
 {
-    this->is_running = false;
     tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/terminate");
 }
 
-void VoiceRecognition::onTouched(uint32_t x, uint32_t y)
+void VoiceRecognition::onTouched(tll::TouchInfo ti)
 {
 
 }
 
-void VoiceRecognition::onMoved(uint32_t x, uint32_t y)
+void VoiceRecognition::onMoved(tll::TouchInfo ti)
 {
 
 }
 
-void VoiceRecognition::onReleased()
+void VoiceRecognition::onReleased(tll::TouchInfo ti)
 {
 
 }
