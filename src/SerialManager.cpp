@@ -13,20 +13,17 @@
 #include <unistd.h>
 #include <vector>
 
-#include <sys/socket.h>
-#include <sys/un.h>
-
 #include "tllEngine.hpp"
 #include "Color.hpp"
 #include "Common.hpp"
 #include "Event.hpp"
 #include "PanelManager.hpp"
 
+#include <zmq.hpp>
+
 #ifdef WITH_RASPI
 #include <wiringSerial.h>
 #endif
-
-#define UNIX_SOCKET_PATH "/tmp/tll/unix_socket"
 
 namespace tll
 {
@@ -37,22 +34,13 @@ namespace tll
         {
             auto send_data = []() -> void
             {
-                /* 接続先の設定 */
-                struct sockaddr_un dest_addr;
-                std::memset(&dest_addr, 0, sizeof(struct sockaddr_un));
-                
-                dest_addr.sun_family = AF_UNIX;
-                std::strcpy(dest_addr.sun_path, UNIX_SOCKET_PATH);
-                int32_t sock = socket(AF_UNIX, SOCK_STREAM, 0);
+                /* 送信ソケットの作成 */
+                zmq::context_t ctx;
+                zmq::socket_t pub(ctx, zmq::socket_type::pub);
+                pub.bind("tcp://*:44100");
 
-                /* データ送信先が受信待ち状態になるまで接続を試みる */
-                printLog("Start waiting for simulator to connect");
-                while (connect(sock, (struct sockaddr*)&dest_addr, sizeof(struct sockaddr_un)) == -1)
-                {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-                }
-                printLog("Simulator is connected");
-
+                /* 色情報の送信を開始 */
+                printLog("Start sending color data");
                 while (!TLL_ENGINE(EventHandler)->getQuitFlag())
                 {
                     if (!TLL_ENGINE(SerialManager)->send_ready)
@@ -74,7 +62,12 @@ namespace tll
                             color_vec.push_back(c.r_);
                         }
                     }
-                    send(sock, color_vec.data(), TLL_ENGINE(PanelManager)->getWidth() * TLL_ENGINE(PanelManager)->getHeight() * 3, 0);
+
+                    zmq::message_t topic("color");
+                    auto res = pub.send(topic, zmq::send_flags::sndmore);
+
+                    zmq::message_t msg(color_vec);
+                    res = pub.send(msg, zmq::send_flags::none);
 
                     #ifndef WITH_RASPI
                     std::this_thread::sleep_for(std::chrono::milliseconds(33));
@@ -83,7 +76,7 @@ namespace tll
                     TLL_ENGINE(SerialManager)->send_ready = false;
                 }
 
-                close(sock);
+                pub.close();
             };
 
             std::thread th_send_data(send_data);

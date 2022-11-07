@@ -50,6 +50,16 @@ add_library(oscpack
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+### Setup ZeroMQ ###
+option(WITH_TLS OFF)
+option(WITH_LIBSODIUM OFF)
+option(BUILD_TESTS OFF)
+option(CPPZMQ_BUILD_TESTS OFF)
+add_subdirectory(thirdparty/libzmq)
+add_subdirectory(thirdparty/cppzmq)
+include_directories(thirdparty/libzmq/include)
+include_directories(thirdparty/cppzmq)
+
 ### Setup wiringPi ###
 find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
 if(WIRINGPI_LIBRARIES)
@@ -68,7 +78,7 @@ endif()
 file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} SHARED ${TLL_SRC})
-target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} oscpack TUIO)
+target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} cppzmq oscpack TUIO)
 if(WIRINGPI_LIBRARIES)
     target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES} RPI-RGB)
 endif()
