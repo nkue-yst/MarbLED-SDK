@@ -21,10 +21,6 @@
 
 #include <zmq.hpp>
 
-#ifdef WITH_RASPI
-#include <wiringSerial.h>
-#endif
-
 namespace tll
 {
 
@@ -68,10 +64,6 @@ namespace tll
 
                     zmq::message_t msg(color_vec);
                     res = pub.send(msg, zmq::send_flags::none);
-
-                    #ifndef WITH_RASPI
-                    std::this_thread::sleep_for(std::chrono::milliseconds(33));
-                    #endif
 
                     TLL_ENGINE(SerialManager)->send_ready = false;
                 }
@@ -126,27 +118,6 @@ namespace tll
             this->system_mode = 1;    
             #endif
         }
-        else if (LED_driver == "HUB75")
-        {
-            #ifdef WITH_RASPI
-            rgb_matrix::RGBMatrix::Options options;
-            rgb_matrix::RuntimeOptions runtime_options;
-            options.hardware_mapping = "adafruit-hat";
-            options.rows = 32;
-            options.cols = 64;
-            //options.chain_length = 2;
-            options.brightness = 100;
-            //options.limit_refresh_rate_hz = 30;
-
-	        runtime_options.gpio_slowdown = 4;
-
-            this->matrix_ = rgb_matrix::CreateMatrixFromOptions(options, runtime_options);
-            this->off_canvas_ = this->matrix_->CreateFrameCanvas();
-            #else
-            //std::cout << "Start with simulation mode." << std::endl;
-            this->system_mode = 1;
-            #endif
-        }
 
         threadSendColor();
     }
@@ -170,24 +141,6 @@ namespace tll
                         #endif
                     }
                 }
-            }
-            // If led driver is HUB75, only use raspberry pi
-            else if (this->led_driver_ == "HUB75")
-            {
-                for (uint16_t y = 0; y < height; y++)
-                {
-                    for (uint16_t x = 0; x < width; x++)
-                    {
-                        #ifdef WITH_RASPI
-                        Color color = TLL_ENGINE(PanelManager)->getColor(x, y);
-                        this->off_canvas_->SetPixel(x, y, color.r_, color.g_, color.b_);
-                        #endif
-                    }
-                }
-
-                #ifdef WITH_RASPI
-                this->matrix_->SwapOnVSync(this->off_canvas_);
-                #endif
             }
         }
 

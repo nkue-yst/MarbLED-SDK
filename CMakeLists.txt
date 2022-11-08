@@ -60,28 +60,11 @@ add_subdirectory(thirdparty/cppzmq)
 include_directories(thirdparty/libzmq/include)
 include_directories(thirdparty/cppzmq)
 
-### Setup wiringPi ###
-find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
-if(WIRINGPI_LIBRARIES)
-    #target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES})
-    add_definitions(-DWITH_RASPI)
-endif()
-
-### Setup rpi-rgb-led-matrix (Only on RaspberryPi) ###
-if(WIRINGPI_LIBRARIES)
-    file(GLOB RPI-RGB_SRC ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.cc ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.c ${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/lib/*.h)
-    include_directories(${CMAKE_SOURCE_DIR}/thirdparty/rpi-rgb-led-matrix/include)
-    add_library(RPI-RGB STATIC ${RPI-RGB_SRC})
-endif()
-
 ### Create TouchLED-Library (main project) ###
 file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
 include_directories(include)
 add_library(${PROJECT} SHARED ${TLL_SRC})
 target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} cppzmq oscpack TUIO)
-if(WIRINGPI_LIBRARIES)
-    target_link_libraries(${PROJECT} ${WIRINGPI_LIBRARIES} RPI-RGB)
-endif()
 
 ### Setup base application ###
 option(TLL_BASE_APP "Build base app" ON)
