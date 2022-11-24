@@ -53,9 +53,9 @@ namespace tll
                         for (uint16_t x = 0; x < TLL_ENGINE(PanelManager)->getWidth(); x++)
                         {
                             Color c = TLL_ENGINE(PanelManager)->getColor(x, y);
-                            color_vec.push_back(c.b_);
-                            color_vec.push_back(c.g_);
                             color_vec.push_back(c.r_);
+                            color_vec.push_back(c.g_);
+                            color_vec.push_back(c.b_);
                         }
                     }
 
