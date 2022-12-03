@@ -10,10 +10,6 @@
 
 #include <string>
 
-#ifdef WITH_RASPI
-#include "led-matrix.h"
-#endif
-
 namespace tll
 {
 
@@ -40,18 +36,6 @@ namespace tll
 
         /// LED driver name
         std::string led_driver_;
-
-        #ifdef WITH_RASPI
-        /// File descriptor
-        int fd;
-
-        /* For HUB75 panel */
-        /// Default canvas
-        class rgb_matrix::RGBMatrix* matrix_;
-
-        /// Canvas for duble buffering
-        class rgb_matrix::FrameCanvas* off_canvas_;
-        #endif
     };
 
     /* 通信関連クラス */
