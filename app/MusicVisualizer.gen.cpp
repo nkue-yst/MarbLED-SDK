@@ -24,7 +24,7 @@ MusicVisualizer::~MusicVisualizer()
 
 void MusicVisualizer::init()
 {
-    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init");
+    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init", "192.168.0.100", 3333);
     tll::clear();
 }
 
@@ -35,7 +35,7 @@ void MusicVisualizer::run()
 
 void MusicVisualizer::terminate()
 {
-    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate");
+    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate", "192.168.0.100", 3333);
 }
 
 void MusicVisualizer::onTouched(tll::TouchInfo ti)
