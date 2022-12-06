@@ -25,6 +25,7 @@ MusicVisualizer::~MusicVisualizer()
 void MusicVisualizer::init()
 {
     tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init");
+    tll::clear();
 }
 
 void MusicVisualizer::run()

@@ -33,11 +33,16 @@ namespace tll
     }
 
     BaseApp::BaseApp()
+        : is_home_(true)
     {
         this->osc_receiver = new TUIO::UdpReceiver();
         this->tuio_client  = new TUIO::TuioClient(this->osc_receiver);
         this->tuio_client->addTuioListener(this);
         this->tuio_client->connect();
+
+        // ホーム画面用画像ファイルの読み込み
+        this->home_img_ = tll::loadImage("HomeIcons.png");
+        this->home_img_->resize(32, 64);
     }
 
     BaseApp::~BaseApp()
@@ -52,10 +57,15 @@ namespace tll
         init(64, 32, "HUB75");
 
         this->loadApps();
-        this->switchApp("CockroachShooting");
 
         while (loop())
         {
+            if (this->is_home_)
+            {
+                this->home_img_->draw(0, 0);
+                continue;
+            }
+
             if (this->running_app)
             {
                 this->running_app->run();

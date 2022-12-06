@@ -75,6 +75,11 @@ if(TLL_BASE_APP)
     if(WIRINGPI_LIBRARIES)
         target_link_libraries(TLL_BaseApp stdc++fs)
     endif()
+
+    add_custom_command(
+    TARGET ${PROJECT} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/example/image/HomeIcons.png" $<TARGET_FILE_DIR:${PROJECT}>
+)
 endif()
 
 ### Setup building applications ###

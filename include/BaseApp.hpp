@@ -26,6 +26,33 @@ namespace tll
 
         void addTuioObject(TUIO::TuioObject *tobj) override
         {
+            if (this->is_home_)
+            {
+                int32_t x = static_cast<int32_t>(tobj->getX());
+                int32_t y = static_cast<int32_t>(tobj->getY());
+
+                if (9 <= y && y <= 20)
+                {
+                    if (3 <= x && x <= 15)
+                    {
+                        this->switchApp("CockroachShooting");
+                        this->is_home_ = false;
+                    }
+                    else if (25 <= x && x <= 38)
+                    {
+                        this->switchApp("Theremin");
+                        this->is_home_ = false;
+                    }
+                    else if (47 <= x && x <= 60)
+                    {
+                        this->switchApp("MusicVisualizer");
+                        this->is_home_ = false;
+                    }
+                }
+
+                return;
+            }
+
             if (this->running_app)
             {
                 this->running_app->onTouched(
@@ -91,6 +118,9 @@ namespace tll
 
         TUIO::TuioClient* tuio_client;
         TUIO::OscReceiver* osc_receiver;
+
+        bool is_home_;            // ホーム画面の表示判定用
+        tll::Image* home_img_;    // ホーム画面用画像データ
     };
 
 }
