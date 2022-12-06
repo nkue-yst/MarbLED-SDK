@@ -14,6 +14,7 @@
 #include <unistd.h>
 
 #include "Common.hpp"
+#include "OscHandler.hpp"
 #include "PanelManager.hpp"
 
 #include "TuioTime.h"
@@ -46,7 +47,7 @@ namespace tll
         osc_thread.detach();
     }
 
-    int kbhit()
+    int EventHandlerTuio::kbhit()
     {
         struct termios oldt, newt;
         int ch;
@@ -78,11 +79,38 @@ namespace tll
         // Initialize frame for TUIO
         this->server_->initFrame(TUIO::TuioTime::getSessionTime());
 
-        if (kbhit())
+        if (this->kbhit())
         {
-            if (getchar() == 27)
+            int ch = getchar();
+
+            if (ch == 27)
             {
                 this->setQuitFlag(true);
+            }
+            /* キー入力による即時アプリ切り替え処理 */
+            else if (ch == '1')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "home", "127.0.0.1", 44101);
+            }
+            else if (ch == '2')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "SimpleScan", "127.0.0.1", 44101);
+            }
+            else if (ch == '3')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "Rain", "127.0.0.1", 44101);
+            }
+            else if (ch == 'q')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "CockroachShooting", "127.0.0.1", 44101);
+            }
+            else if (ch == 'w')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "Theremin", "127.0.0.1", 44101);
+            }
+            else if (ch == 'e')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "MusicVisualizer", "127.0.0.1", 44101);
             }
         }
     }

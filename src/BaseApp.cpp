@@ -6,6 +6,12 @@
 #include <filesystem>
 #include <thread>
 
+#include <cstdio>
+#include <fcntl.h>
+#include <iostream>
+#include <termios.h>
+#include <unistd.h>
+
 #include "AppInterface.hpp"
 #include "OscHandler.hpp"
 
@@ -60,12 +66,14 @@ namespace tll
 
         while (loop())
         {
+            // ホーム画面の表示
             if (this->is_home_)
             {
                 this->home_img_->draw(0, 0);
                 continue;
             }
 
+            // 起動中アプリケーションの表示など
             if (this->running_app)
             {
                 this->running_app->run();
@@ -88,6 +96,12 @@ namespace tll
             this->running_app.reset();
         }
 
+        if (app_name == "home")
+        {
+            this->is_home_ = true;
+            is_found = true;
+        }
+
         std::for_each(this->app_list.begin(), this->app_list.end(), [this, app_name, &is_found](std::unordered_map<std::string, void*>::value_type app)
         {
             if (app.first == app_name)
@@ -98,6 +112,8 @@ namespace tll
 
                 clear();
                 this->running_app->init();
+
+                this->is_home_ = false;
 
                 is_found = true;
             }

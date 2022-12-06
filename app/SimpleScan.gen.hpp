@@ -22,9 +22,6 @@ public:
     void onTouched(tll::TouchInfo ti) override;
     void onMoved(tll::TouchInfo ti) override;
     void onReleased(tll::TouchInfo ti) override;
-
-private:
-    void drawNextPt();
 };
 
 /* Required to use in loading application file */

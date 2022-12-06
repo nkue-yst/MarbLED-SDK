@@ -58,8 +58,6 @@ void SimpleScan::run()
     }
 
     std::this_thread::sleep_for(std::chrono::milliseconds(16));
-
-    //drawNextPt();
 }
 
 void SimpleScan::terminate()
@@ -80,19 +78,4 @@ void SimpleScan::onMoved(tll::TouchInfo ti)
 void SimpleScan::onReleased(tll::TouchInfo ti)
 {
 
-}
-
-void SimpleScan::drawNextPt()
-{
-    static int x = 0;
-    static int y = 0;
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(16));
-    tll::clear();
-    tll::drawPixel(x++, y, tll::Palette::White);
-
-    x = x % 64;
-    y = y % 32;
-
-    if (x == 0) ++y;
 }

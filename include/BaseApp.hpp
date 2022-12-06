@@ -36,17 +36,14 @@ namespace tll
                     if (3 <= x && x <= 15)
                     {
                         this->switchApp("CockroachShooting");
-                        this->is_home_ = false;
                     }
                     else if (25 <= x && x <= 38)
                     {
                         this->switchApp("Theremin");
-                        this->is_home_ = false;
                     }
                     else if (47 <= x && x <= 60)
                     {
                         this->switchApp("MusicVisualizer");
-                        this->is_home_ = false;
                     }
                 }
 
