@@ -18,8 +18,6 @@
 #include "ip/UdpSocket.h"
 #include "ip/IpEndpointName.h"
 
-#define SOUND_PLAYER_PI_IP "192.168.0.222"
-
 namespace
 {
     bool with_osc = true;
@@ -47,8 +45,7 @@ namespace tll
         this->tuio_client->connect();
 
         // ホーム画面用画像ファイルの読み込み
-        this->home_img_ = tll::loadImage("HomeIcons.png");
-        this->home_img_->resize(32, 64);
+        this->icon_img = tll::loadImage("IconBase.png");
     }
 
     BaseApp::~BaseApp()
@@ -69,7 +66,9 @@ namespace tll
             // ホーム画面の表示
             if (this->is_home_)
             {
-                this->home_img_->draw(0, 0);
+                this->icon_img->draw( 3, 8, (!this->icon_pressed[0] ? tll::Color(255,   0,   0) : tll::Color(100,   0,   0)));
+                this->icon_img->draw(24, 8, (!this->icon_pressed[1] ? tll::Color(  0, 255,   0) : tll::Color(  0, 100,   0)));
+                this->icon_img->draw(45, 8, (!this->icon_pressed[2] ? tll::Color(  0, 128, 255) : tll::Color(  0,   0, 100)));
                 continue;
             }
 
@@ -100,6 +99,8 @@ namespace tll
         {
             this->is_home_ = true;
             is_found = true;
+
+            clear();
         }
 
         std::for_each(this->app_list.begin(), this->app_list.end(), [this, app_name, &is_found](std::unordered_map<std::string, void*>::value_type app)
@@ -150,51 +151,6 @@ namespace tll
         return app_num;
     }
 
-}
-
-namespace PiSoundPlayer
-{
-    // 効果音再生
-    void playSound(std::string file)
-    {
-        tll::OscHandler::sendMessageWithString("/PiSoundPlayer/se/play", file, SOUND_PLAYER_PI_IP, 44100);
-    }
-
-    // 効果音の音量設定
-    void setSoundVolume(int32_t new_volume)
-    {
-        tll::OscHandler::sendMessageWithInt32("/PiSoundPlayer/se/volume", new_volume, SOUND_PLAYER_PI_IP, 44100);
-    }
-
-    // BGM再生
-    void playBGM(std::string file)
-    {
-        tll::OscHandler::sendMessageWithString("/PiSoundPlayer/bgm/play", file, SOUND_PLAYER_PI_IP, 44100);
-    }
-
-    // BGM一時停止
-    void pauseBGM()
-    {
-        tll::OscHandler::sendMessage("/PiSoundPlayer/bgm/pause", SOUND_PLAYER_PI_IP, 44100);
-    }
-
-    // BGM再開
-    void resumeBGM()
-    {
-        tll::OscHandler::sendMessage("/PiSoundPlayer/bgm/resume", SOUND_PLAYER_PI_IP, 44100);
-    }
-
-    // BGM停止
-    void stopBGM()
-    {
-        tll::OscHandler::sendMessage("/PiSoundPlayer/bgm/stop", SOUND_PLAYER_PI_IP, 44100);
-    }
-
-    // BGMの音量設定
-    void setBgmVolume(int32_t new_volume)
-    {
-        tll::OscHandler::sendMessageWithInt32("/PiSoundPlayer/bgm/volume", new_volume, SOUND_PLAYER_PI_IP, 44100);
-    }
 }
 
 int main(int argc, char** argv)

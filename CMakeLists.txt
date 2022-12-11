@@ -78,7 +78,7 @@ if(TLL_BASE_APP)
 
     add_custom_command(
     TARGET ${PROJECT} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/example/image/HomeIcons.png" $<TARGET_FILE_DIR:${PROJECT}>
+    COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/example/image/IconBase.png" $<TARGET_FILE_DIR:${PROJECT}>
 )
 endif()
 
