@@ -167,7 +167,7 @@ void CockroachShooting::run()
             if (this->charge >= 100)
             {
                 //PiSoundPlayer::playSound("charge.wav");
-                tll::OscHandler::sendMessage("/tll/app/G-Shooter/end", "192.168.0.100", 3333);
+                tll::OscHandler::sendMessage("/tll/app/G-Shooter/charge", "192.168.0.100", 3333);
             }
         }
         tll::drawRect(61, 32 - (float)this->charge / 100 * 32, 3, 32, tll::Palette::Aqua);
@@ -215,7 +215,7 @@ void CockroachShooting::run()
 
 void CockroachShooting::terminate()
 {
-
+    tll::OscHandler::sendMessage("/tll/app/G-Shooter/terminate", "192.168.0.100", 3333);
 }
 
 void CockroachShooting::onTouched(tll::TouchInfo ti)
