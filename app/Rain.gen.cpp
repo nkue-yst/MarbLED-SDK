@@ -73,6 +73,4 @@ void Rain::updateRipples()
         if (ripple.r >= 32)
             this->ripples.erase(this->ripples.begin());
     }
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(16));
 }

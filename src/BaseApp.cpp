@@ -63,12 +63,55 @@ namespace tll
 
         while (loop())
         {
+            std::this_thread::sleep_for(std::chrono::milliseconds(16));
+
             // ホーム画面の表示
             if (this->is_home_)
             {
+                clear();
                 this->icon_img->draw( 3, 8, (!this->icon_pressed[0] ? tll::Color(255,   0,   0) : tll::Color(100,   0,   0)));
                 this->icon_img->draw(24, 8, (!this->icon_pressed[1] ? tll::Color(  0, 255,   0) : tll::Color(  0, 100,   0)));
                 this->icon_img->draw(45, 8, (!this->icon_pressed[2] ? tll::Color(  0, 128, 255) : tll::Color(  0,   0, 100)));
+
+                // 開始時アニメーション処理
+                static uint32_t count = 0;
+                if (this->is_playing_anim != -1)
+                {
+                    count++;
+
+                    if (this->is_playing_anim == 0)
+                    {
+                        drawCircle(11, 16, count * 2, tll::Color(255, 0, 0));
+                        drawCircle(11, 16, count * 2 + 1, tll::Color(255, 0, 0));
+                        if (count >= 45)
+                        {
+                            this->switchApp("CockroachShooting");
+                        }
+                    }
+                    else if (this->is_playing_anim == 1)
+                    {
+                        drawCircle(32, 16, count * 2, tll::Color(0, 255, 0));
+                        drawCircle(32, 16, count * 2 + 1, tll::Color(0, 255, 0));
+                        if (count >= 45)
+                            this->switchApp("Theremin");
+                    }
+                    else if (this->is_playing_anim == 2)
+                    {
+                        drawCircle(53, 16, count * 2, tll::Color(0, 128, 255));
+                        drawCircle(53, 16, count * 2 + 1, tll::Color(0, 128, 255));
+                        if (count >= 45)
+                            this->switchApp("MusicVisualizer");
+                    }
+
+                    if (count >= 45)
+                    {
+                        this->is_playing_anim = -1;
+                        for (int i = 0; i < 3; i++)
+                            this->icon_pressed[i] = false;
+                        count = 0;
+                    }
+                }
+
                 continue;
             }
 

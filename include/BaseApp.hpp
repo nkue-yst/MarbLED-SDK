@@ -98,7 +98,7 @@ namespace tll
                 {
                     if (3 <= x && x <= 17)
                     {
-                        this->switchApp("CockroachShooting");
+                        this->is_playing_anim = 0;
                     }
                     else
                     {
@@ -107,7 +107,7 @@ namespace tll
 
                     if (24 <= x && x <= 38)
                     {
-                        this->switchApp("Theremin");
+                        this->is_playing_anim = 1;
                     }
                     else
                     {
@@ -116,7 +116,7 @@ namespace tll
 
                     if (45 <= x && x <= 59)
                     {
-                        this->switchApp("MusicVisualizer");
+                        this->is_playing_anim = 2;
                     }
                     else
                     {
@@ -171,9 +171,12 @@ namespace tll
         TUIO::OscReceiver* osc_receiver;
 
         bool is_home_;            // ホーム画面の表示判定用
-        tll::Image* icon_img;    // ホーム画面用画像データ
+        tll::Image* icon_img;     // ホーム画面用画像データ
 
         bool icon_pressed[3] = { false, false, false };
+
+        // アニメーション用フラグ
+        int8_t is_playing_anim = -1;
     };
 
 }
