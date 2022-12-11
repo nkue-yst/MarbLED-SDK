@@ -76,10 +76,7 @@ if(TLL_BASE_APP)
         target_link_libraries(TLL_BaseApp stdc++fs)
     endif()
 
-    add_custom_command(
-    TARGET ${PROJECT} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/example/image/IconBase.png" $<TARGET_FILE_DIR:${PROJECT}>
-)
+    file(COPY ${CMAKE_SOURCE_DIR}/example/image DESTINATION ${CMAKE_BINARY_DIR})
 endif()
 
 ### Setup building applications ###

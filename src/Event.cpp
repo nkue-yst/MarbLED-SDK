@@ -100,6 +100,10 @@ namespace tll
             {
                 OscHandler::sendMessageWithString("/tll/switch", "Rain", "127.0.0.1", 44101);
             }
+            else if (ch == '4')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "ImageViewer", "127.0.0.1", 44101);
+            }
             else if (ch == 'q')
             {
                 OscHandler::sendMessageWithString("/tll/switch", "CockroachShooting", "127.0.0.1", 44101);

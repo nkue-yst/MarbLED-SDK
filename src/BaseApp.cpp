@@ -45,7 +45,7 @@ namespace tll
         this->tuio_client->connect();
 
         // ホーム画面用画像ファイルの読み込み
-        this->icon_img = tll::loadImage("IconBase.png");
+        this->icon_img = tll::loadImage("image/IconBase.png");
     }
 
     BaseApp::~BaseApp()
