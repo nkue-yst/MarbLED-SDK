@@ -175,6 +175,9 @@ namespace tll
 
         bool icon_pressed[3] = { false, false, false };
 
+        bool back_to_home_flag = false;
+        std::chrono::system_clock::time_point back_to_home_tp;
+
         // アニメーション用フラグ
         int8_t is_playing_anim = -1;
     };

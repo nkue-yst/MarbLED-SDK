@@ -63,6 +63,8 @@ namespace tll
 
         while (loop())
         {
+            static uint32_t count = 0;    // アニメーション用カウンタ
+
             std::this_thread::sleep_for(std::chrono::milliseconds(16));
 
             // ホーム画面の表示
@@ -74,7 +76,6 @@ namespace tll
                 this->icon_img->draw(45, 8, (!this->icon_pressed[2] ? tll::Color(  0, 128, 255) : tll::Color(  0,   0, 100)));
 
                 // 開始時アニメーション処理
-                static uint32_t count = 0;
                 if (this->is_playing_anim != -1)
                 {
                     count++;
@@ -118,6 +119,29 @@ namespace tll
             // 起動中アプリケーションの表示など
             if (this->running_app)
             {
+                // 5点タッチ
+                if (getTouchedNum() == 5)
+                {
+                    if (!this->back_to_home_flag)
+                    {
+                        this->back_to_home_flag = true;
+                        this->back_to_home_tp = std::chrono::system_clock::now();
+                        continue;
+                    }
+
+                    std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+                    double elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - this->back_to_home_tp).count();
+                    
+                    if (elapsed >= 3.f)
+                    {
+                        OscHandler::sendMessageWithString("/tll/switch", "home", "127.0.0.1", 44101);
+                    }
+                }
+                else if (this->back_to_home_flag)
+                {
+                    this->back_to_home_flag = false;
+                }
+
                 this->running_app->run();
             }
         }
