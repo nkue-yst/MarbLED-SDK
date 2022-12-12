@@ -37,6 +37,8 @@ private:
 
     uint16_t x = 32;
     uint16_t y = 16;
+
+    int32_t rad = 0;
 };
 
 /* Required to use in loading application file */

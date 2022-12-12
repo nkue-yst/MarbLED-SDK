@@ -30,7 +30,8 @@ void MusicVisualizer::init()
 
 void MusicVisualizer::run()
 {
-
+    tll::clear();
+    tll::drawCircle(this->x, this->y, rad, tll::Palette::White);
 }
 
 void MusicVisualizer::terminate()
@@ -49,7 +50,11 @@ void MusicVisualizer::onTouched(tll::TouchInfo ti)
 
 void MusicVisualizer::onMoved(tll::TouchInfo ti)
 {
-
+    if (ti.id == 0)
+    {
+        this->x = ti.x;
+        this->y = ti.y;
+    }
 }
 
 void MusicVisualizer::onReleased(tll::TouchInfo ti)
@@ -67,9 +72,7 @@ void MusicVisualizer::procOscMessage(const osc::ReceivedMessage& msg)
     }
     else if (strcmp(msg.AddressPattern(), "/tll/app/MusicVisualizer/value") == 0)
     {
-        tll::clear();
-        int32_t rad = (arg++)->AsInt32();
-        tll::drawCircle(this->x, this->y, rad, tll::Palette::White);
+        this->rad = (arg++)->AsInt32();
     }
 }
 

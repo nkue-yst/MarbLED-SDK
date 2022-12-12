@@ -28,8 +28,6 @@ void SimpleScan::init()
 
 void SimpleScan::run()
 {
-    tll::clear();
-
     tll::drawRect(0, 0, 64, 32, c);
     
     if (c.r_ == 255 && c.g_ < 255 && c.b_ == 0)
@@ -56,8 +54,6 @@ void SimpleScan::run()
     {
         c.b_--;
     }
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(16));
 }
 
 void SimpleScan::terminate()

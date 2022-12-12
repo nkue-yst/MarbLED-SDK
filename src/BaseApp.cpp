@@ -46,10 +46,13 @@ namespace tll
 
         // ホーム画面用画像ファイルの読み込み
         this->icon_img = tll::loadImage("image/IconBase.png");
+
+        tll::OscHandler::sendMessage("/tll/init", "192.168.0.100", 3333);
     }
 
     BaseApp::~BaseApp()
     {
+        tll::OscHandler::sendMessage("/tll/terminate", "192.168.0.100", 3333);
         this->tuio_client->disconnect();
         delete this->tuio_client;
         delete this->osc_receiver;
@@ -65,7 +68,7 @@ namespace tll
         {
             static uint32_t count = 0;    // アニメーション用カウンタ
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(16));
+            std::this_thread::sleep_for(std::chrono::milliseconds(33));
 
             // ホーム画面の表示
             if (this->is_home_)

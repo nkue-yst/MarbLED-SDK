@@ -209,8 +209,6 @@ void CockroachShooting::run()
     default:
         break;
     }
-    
-    std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY));
 }
 
 void CockroachShooting::terminate()
