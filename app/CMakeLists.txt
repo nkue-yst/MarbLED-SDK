@@ -32,3 +32,5 @@ add_library(CockroachShooting SHARED ${CMAKE_SOURCE_DIR}/app/CockroachShooting.g
 add_custom_command(TARGET CockroachShooting POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/example/image/Button_Start.jpg" $<TARGET_FILE_DIR:${PROJECT}>)
 add_custom_command(TARGET CockroachShooting POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/example/sound/start.wav" $<TARGET_FILE_DIR:${PROJECT}>)
 add_library(ImageViewer SHARED ${CMAKE_SOURCE_DIR}/app/ImageViewer.gen.cpp)
+add_library(TouchPoints SHARED ${CMAKE_SOURCE_DIR}/app/TouchPoints.gen.cpp)
+

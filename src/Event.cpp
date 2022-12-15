@@ -94,7 +94,7 @@ namespace tll
             }
             else if (ch == '2')
             {
-                OscHandler::sendMessageWithString("/tll/switch", "SimpleScan", "127.0.0.1", 44101);
+                OscHandler::sendMessageWithString("/tll/switch", "TouchPoints", "127.0.0.1", 44101);
             }
             else if (ch == '3')
             {
@@ -103,6 +103,10 @@ namespace tll
             else if (ch == '4')
             {
                 OscHandler::sendMessageWithString("/tll/switch", "ImageViewer", "127.0.0.1", 44101);
+            }
+            else if (ch == '5')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "MultiTouchLine", "127.0.0.1", 44101);
             }
             else if (ch == 'q')
             {
