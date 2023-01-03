@@ -24,17 +24,19 @@ MusicVisualizer::~MusicVisualizer()
 
 void MusicVisualizer::init()
 {
-    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init");
+    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/init", "192.168.0.100", 3333);
+    tll::clear();
 }
 
 void MusicVisualizer::run()
 {
-
+    tll::clear();
+    tll::drawCircle(this->x, this->y, rad, tll::Palette::White);
 }
 
 void MusicVisualizer::terminate()
 {
-    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate");
+    tll::OscHandler::sendMessage("/tll/app/MusicVisualizer/terminate", "192.168.0.100", 3333);
 }
 
 void MusicVisualizer::onTouched(tll::TouchInfo ti)
@@ -48,7 +50,11 @@ void MusicVisualizer::onTouched(tll::TouchInfo ti)
 
 void MusicVisualizer::onMoved(tll::TouchInfo ti)
 {
-
+    if (ti.id == 0)
+    {
+        this->x = ti.x;
+        this->y = ti.y;
+    }
 }
 
 void MusicVisualizer::onReleased(tll::TouchInfo ti)
@@ -66,9 +72,7 @@ void MusicVisualizer::procOscMessage(const osc::ReceivedMessage& msg)
     }
     else if (strcmp(msg.AddressPattern(), "/tll/app/MusicVisualizer/value") == 0)
     {
-        tll::clear();
-        int32_t rad = (arg++)->AsInt32();
-        tll::drawCircle(this->x, this->y, rad, tll::Palette::White);
+        this->rad = (arg++)->AsInt32();
     }
 }
 

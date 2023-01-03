@@ -19,7 +19,7 @@ VoiceRecognition::~VoiceRecognition()
 
 void VoiceRecognition::init()
 {
-    tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/init");
+    tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/init", "192.168.0.100", 3333);
 }
 
 void VoiceRecognition::run()
@@ -29,7 +29,7 @@ void VoiceRecognition::run()
 
 void VoiceRecognition::terminate()
 {
-    tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/terminate");
+    tll::OscHandler::sendMessage("/tll/app/VoiceRecognition/terminate", "192.168.0.100", 3333);
 }
 
 void VoiceRecognition::onTouched(tll::TouchInfo ti)

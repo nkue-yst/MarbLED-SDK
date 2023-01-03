@@ -111,8 +111,8 @@ void CockroachShooting::init()
     this->button_start = tll::loadImage("Button_Start.jpg");
     this->button_start->resize(32, 64);
 
-    PiSoundPlayer::playSound("start.wav");
-    PiSoundPlayer::playBGM("bgm.wav");
+    //PiSoundPlayer::playSound("start.wav");
+    tll::OscHandler::sendMessage("/tll/app/G-Shooter/init", "192.168.0.100", 3333);
 }
 
 void CockroachShooting::run()
@@ -134,7 +134,8 @@ void CockroachShooting::run()
         if (std::chrono::duration_cast<std::chrono::seconds>(now - this->start).count() > PLAYING_TIME)
         {
             this->game_state = FINISHED;
-            PiSoundPlayer::playSound("end.wav");
+            //PiSoundPlayer::playSound("end.wav");
+            tll::OscHandler::sendMessage("/tll/app/G-Shooter/end", "192.168.0.100", 3333);
             this->start = std::chrono::system_clock::now();
             break;
         }
@@ -165,7 +166,8 @@ void CockroachShooting::run()
 
             if (this->charge >= 100)
             {
-                PiSoundPlayer::playSound("charge.wav");
+                //PiSoundPlayer::playSound("charge.wav");
+                tll::OscHandler::sendMessage("/tll/app/G-Shooter/charge", "192.168.0.100", 3333);
             }
         }
         tll::drawRect(61, 32 - (float)this->charge / 100 * 32, 3, 32, tll::Palette::Aqua);
@@ -207,13 +209,11 @@ void CockroachShooting::run()
     default:
         break;
     }
-    
-    std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY));
 }
 
 void CockroachShooting::terminate()
 {
-
+    tll::OscHandler::sendMessage("/tll/app/G-Shooter/terminate", "192.168.0.100", 3333);
 }
 
 void CockroachShooting::onTouched(tll::TouchInfo ti)
@@ -240,7 +240,8 @@ void CockroachShooting::onReleased(tll::TouchInfo ti)
         this->start = std::chrono::system_clock::now();
         this->game_state = IN_GAME;
 
-        PiSoundPlayer::playSound("start.wav");
+        //PiSoundPlayer::playSound("start.wav");
+        tll::OscHandler::sendMessage("/tll/app/G-Shooter/start", "192.168.0.100", 3333);
 
         // ゲームを初期化
         this->score = 0;
@@ -301,7 +302,8 @@ void CockroachShooting::shoot()
     this->charge = 0;
     this->playing_shoot_anim = true;
 
-    PiSoundPlayer::playSound("shoot.wav");
+    //PiSoundPlayer::playSound("shoot.wav");
+    tll::OscHandler::sendMessage("/tll/app/G-Shooter/shoot", "192.168.0.100", 3333);
 }
 
 void CockroachShooting::playShootAnim()
@@ -346,7 +348,8 @@ bool CockroachShooting::checkSuccess()
 
         if (distance < SHOOT_THRESHOLD)
         {
-            PiSoundPlayer::playSound("success.wav");
+            //PiSoundPlayer::playSound("success.wav");
+            tll::OscHandler::sendMessage("/tll/app/G-Shooter/hit", "192.168.0.100", 3333);
             this->cockroach.erase(iter);
             return true;
         }

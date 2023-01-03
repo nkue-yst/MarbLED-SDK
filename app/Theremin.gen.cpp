@@ -27,7 +27,10 @@ Theremin::~Theremin()
 
 void Theremin::init()
 {
+    tll::OscHandler::sendMessage("/tll/app/Theremin/init", "192.168.0.100", 3333);
 
+    tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", 0, "192.168.0.100", 3333);
+    tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", 0, "192.168.0.100", 3333);
 }
 
 void Theremin::run()
@@ -45,13 +48,11 @@ void Theremin::run()
     {
         tll::drawRect(this->x - 2, this->y - 2, 5, 5, tll::Palette::Red);
     }
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(33));
 }
 
 void Theremin::terminate()
 {
-
+    tll::OscHandler::sendMessage("/tll/app/Theremin/terminate", "192.168.0.100", 3333);
 }
 
 void Theremin::onTouched(tll::TouchInfo ti)
@@ -64,11 +65,11 @@ void Theremin::onTouched(tll::TouchInfo ti)
 
         // タッチ座標によって音高をOSCメッセージにより送信
         float pitch = ((float)HEIGHT - this->y) / HEIGHT;
-        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch);
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch, "192.168.0.100", 3333);
 
         // タッチ座標によって音量をOSCメッセージにより送信
-        float volume = ((float)WIDTH - this->x) / WIDTH;
-        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume);
+        float volume = (float)this->x / WIDTH;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume, "192.168.0.100", 3333);
     }
 }
 
@@ -81,11 +82,11 @@ void Theremin::onMoved(tll::TouchInfo ti)
 
         // タッチ座標によって音高をOSCメッセージにより送信
         float pitch = ((float)HEIGHT - this->y) / HEIGHT;
-        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch);
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", pitch, "192.168.0.100", 3333);
 
         // タッチ座標によって音量をOSCメッセージにより送信
-        float volume = ((float)WIDTH - this->x) / WIDTH;
-        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume);
+        float volume = (float)this->x / WIDTH;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", volume, "192.168.0.100", 3333);
     }
 }
 
@@ -94,5 +95,7 @@ void Theremin::onReleased(tll::TouchInfo ti)
     if (ti.id == 0)
     {
         this->is_touched = false;
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/volume", 0, "192.168.0.100", 3333);
+        tll::OscHandler::sendMessageWithFloat("/tll/app/Theremin/pitch", 0, "192.168.0.100", 3333);
     }
 }

@@ -109,7 +109,7 @@ void Timer::run()
     {
         this->drawArc(0);
 
-        tll::OscHandler::sendMessage("/tll/app/Timer/end_notify");
+        tll::OscHandler::sendMessage("/tll/app/Timer/end_notify", "192.168.0.100", 3333);
 
         this->elapsed_time = 0;
         this->set_time     = 0;
