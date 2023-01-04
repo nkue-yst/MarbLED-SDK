@@ -95,6 +95,9 @@ namespace tll
         uint32_t getTouchedNum() override;
 
     private:
+        // キーボード入力処理
+        int kbhit();
+
         // OscSender
         TUIO::OscSender* sender_;
 

@@ -75,6 +75,8 @@ if(TLL_BASE_APP)
     if(WIRINGPI_LIBRARIES)
         target_link_libraries(TLL_BaseApp stdc++fs)
     endif()
+
+    file(COPY ${CMAKE_SOURCE_DIR}/example/image DESTINATION ${CMAKE_BINARY_DIR})
 endif()
 
 ### Setup building applications ###
