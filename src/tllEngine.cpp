@@ -16,30 +16,6 @@
 namespace tll
 {
 
-    tllEngine::tllEngine()
-    {
-        printLog("Create Engine instance");
-    }
-
-    tllEngine::~tllEngine()
-    {
-        printLog("Destroy Engine instance");
-    }
-
-    void tllEngine::init(uint16_t width, uint16_t height, std::string LED_driver)
-    {
-        TLL_ENGINE(PanelManager)->init(width, height);
-        TLL_ENGINE(SerialManager)->init(LED_driver);
-        TLL_ENGINE(TextRenderer)->init();
-        TLL_ENGINE(EventHandler)->init();
-
-    }
-
-    void tllEngine::run()
-    {
-
-    }
-
     namespace component
     {
         template<size_t N, class T>
@@ -60,9 +36,34 @@ namespace tll
         }
     }
 
-    void tllEngine::quit()
+    tllEngine::tllEngine()
+    {
+        printLog("Create Engine instance");
+    }
+
+    tllEngine::~tllEngine()
     {
         component::releaseAll(this->components_);
+
+        printLog("Destroy Engine instance");
+    }
+
+    void tllEngine::init(uint16_t width, uint16_t height, std::string LED_driver)
+    {
+        TLL_ENGINE(PanelManager)->init(width, height);
+        TLL_ENGINE(SerialManager)->init(LED_driver);
+        TLL_ENGINE(TextRenderer)->init();
+        TLL_ENGINE(EventHandler)->init();
+    }
+
+    void tllEngine::run()
+    {
+
+    }
+
+    void tllEngine::quit()
+    {
+
     }
 
 }
