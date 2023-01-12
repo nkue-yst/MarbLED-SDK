@@ -57,6 +57,8 @@ namespace tll
             tllComponent<ISerialManager>,
             tllComponent<ITextRenderer>
         > components_;
+
+        bool initialized_;
     };
 
 }

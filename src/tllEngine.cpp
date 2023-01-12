@@ -37,6 +37,7 @@ namespace tll
     }
 
     tllEngine::tllEngine()
+        : initialized_(false)
     {
         printLog("Create Engine instance");
     }
@@ -50,10 +51,15 @@ namespace tll
 
     void tllEngine::init(uint16_t width, uint16_t height, std::string LED_driver)
     {
+        if (this->initialized_)
+            return;
+
         TLL_ENGINE(PanelManager)->init(width, height);
         TLL_ENGINE(SerialManager)->init(LED_driver);
         TLL_ENGINE(TextRenderer)->init();
         TLL_ENGINE(EventHandler)->init();
+
+        this->initialized_ = true;
     }
 
     void tllEngine::run()
