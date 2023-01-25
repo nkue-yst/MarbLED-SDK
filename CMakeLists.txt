@@ -16,7 +16,7 @@ include_directories(thirdparty/TUIO11_CPP/TUIO)
 target_link_libraries(TUIO oscpack)
 
 ### Setup oscpack ###
-set(OSCPACK_DIR ${CMAKE_SOURCE_DIR}/thirdparty/oscpack)
+set(OSCPACK_DIR ${CMAKE_SOURCE_DIR}/thirdparty/TUIO11_CPP/oscpack)
 include_directories(${OSCPACK_DIR})
 if(WIN32)
     set(IpSystemTypePath ip/win32)
