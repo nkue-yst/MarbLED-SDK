@@ -34,3 +34,5 @@ add_custom_command(TARGET CockroachShooting POST_BUILD COMMAND ${CMAKE_COMMAND} 
 add_library(ImageViewer SHARED ${CMAKE_SOURCE_DIR}/app/ImageViewer.gen.cpp)
 add_library(TouchPoints SHARED ${CMAKE_SOURCE_DIR}/app/TouchPoints.gen.cpp)
 
+add_library(ToggleSwitch SHARED ${CMAKE_SOURCE_DIR}/app/ToggleSwitch.gen.cpp)
+add_library(SimpleSwitch SHARED ${CMAKE_SOURCE_DIR}/app/SimpleSwitch.gen.cpp)
