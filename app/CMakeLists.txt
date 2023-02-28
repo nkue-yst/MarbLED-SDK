@@ -36,3 +36,6 @@ add_library(TouchPoints SHARED ${CMAKE_SOURCE_DIR}/app/TouchPoints.gen.cpp)
 
 add_library(ToggleSwitch SHARED ${CMAKE_SOURCE_DIR}/app/ToggleSwitch.gen.cpp)
 add_library(SimpleSwitch SHARED ${CMAKE_SOURCE_DIR}/app/SimpleSwitch.gen.cpp)
+add_library(ADIR01P_Light SHARED ${CMAKE_SOURCE_DIR}/app/ADIR01P_Light.gen.cpp)
+add_library(ADIR01P_Television SHARED ${CMAKE_SOURCE_DIR}/app/ADIR01P_Television.gen.cpp)
+add_library(ADIR01P_AirConditioner SHARED ${CMAKE_SOURCE_DIR}/app/ADIR01P_AirConditioner.gen.cpp)

@@ -31,7 +31,7 @@ namespace tll
         virtual void init() = 0;
 
         // 文字列を描画する
-        virtual void drawText(std::string str, Color color, uint32_t x, uint32_t y) = 0;
+        virtual void drawText(std::string str, Color color, uint32_t x, uint32_t y, uint16_t size) = 0;
 
     protected:
         // フォントデータを読み込む
@@ -55,7 +55,7 @@ namespace tll
         void init() override;
 
         // 文字列を描画する
-        void drawText(std::string str, Color color, uint32_t x, uint32_t y) override;
+        void drawText(std::string str, Color color, uint32_t x, uint32_t y, uint16_t size) override;
 
     private:
         // フォントデータを読み込む

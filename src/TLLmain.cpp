@@ -92,9 +92,9 @@ namespace tll
         //TLL_ENGINE(SerialManager)->sendColorData();
     }
 
-    void print(std::string str, Color color)
+    void print(std::string str, uint16_t x, uint16_t y, uint16_t size, Color color)
     {
-        TLL_ENGINE(TextRenderer)->drawText(str, color, 0, 0);
+        TLL_ENGINE(TextRenderer)->drawText(str, color, x, y, size);
         //TLL_ENGINE(SerialManager)->sendColorData();
     }
 
