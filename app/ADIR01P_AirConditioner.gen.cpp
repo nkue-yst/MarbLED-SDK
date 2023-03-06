@@ -58,8 +58,8 @@ void ADIR01P_AirConditioner::run()
     else
         tll::drawRect(45, 4, 12, 12, tll::Color(0, 128, 0));
 
-    tll::drawRect(47, 9, 8, 2, tll::Color(255, 255, 255));
-    tll::drawRect(50, 6, 2, 8, tll::Color(255, 255, 255));
+    tll::drawRect(47, 9, 8, 2, tll::Color(0, 0, 0));
+    tll::drawRect(50, 6, 2, 8, tll::Color(0, 0, 0));
 
     // Temperature down button
     if (!this->pressed_[2])
@@ -67,7 +67,7 @@ void ADIR01P_AirConditioner::run()
     else
         tll::drawRect(45, 17, 12, 12, tll::Color(0, 128, 0));
 
-    tll::drawRect(47, 22, 8, 2, tll::Color(255, 255, 255));
+    tll::drawRect(47, 22, 8, 2, tll::Color(0, 0, 0));
 }
 
 void ADIR01P_AirConditioner::terminate()

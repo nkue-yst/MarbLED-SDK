@@ -40,20 +40,20 @@ void ADIR01P_Television::run()
 
     // Volume up button
     if (!this->is_touched_[1])
-        tll::drawRect(6, 4, 12, 12, tll::Color(50, 50, 200));
+        tll::drawRect(6, 4, 12, 12, tll::Color(0, 255, 255));
     else
-        tll::drawRect(6, 4, 12, 12, tll::Color(0, 0, 128));
+        tll::drawRect(6, 4, 12, 12, tll::Color(0, 128, 128));
 
-    tll::drawRect( 8, 9, 8, 2, tll::Color(255, 255, 255));
-    tll::drawRect(11, 6, 2, 8, tll::Color(255, 255, 255));
+    tll::drawRect( 8, 9, 8, 2, tll::Color(0, 0, 0));
+    tll::drawRect(11, 6, 2, 8, tll::Color(0, 0, 0));
 
     // Volume down button
     if (!this->is_touched_[2])
-        tll::drawRect(6, 17, 12, 12, tll::Color(50, 50, 200));
+        tll::drawRect(6, 17, 12, 12, tll::Color(0, 255, 255));
     else
-        tll::drawRect(6, 17, 12, 12, tll::Color(0, 0, 128));
+        tll::drawRect(6, 17, 12, 12, tll::Color(0, 128, 128));
 
-    tll::drawRect(8, 22, 8, 2, tll::Color(255, 255, 255));
+    tll::drawRect(8, 22, 8, 2, tll::Color(0, 0, 0));
 
     // Channel up button
     if (!this->is_touched_[3])
@@ -61,10 +61,10 @@ void ADIR01P_Television::run()
     else
         tll::drawRect(45, 4, 12, 12, tll::Color(0, 128, 0));
 
-    tll::drawLine(47, 10, 50,  7, tll::Color(255, 255, 255));
-    tll::drawLine(47, 11, 50,  8, tll::Color(255, 255, 255));
-    tll::drawLine(51,  7, 54, 10, tll::Color(255, 255, 255));
-    tll::drawLine(51,  8, 54, 11, tll::Color(255, 255, 255));
+    tll::drawLine(47, 10, 50,  7, tll::Color(0, 0, 0));
+    tll::drawLine(47, 11, 50,  8, tll::Color(0, 0, 0));
+    tll::drawLine(51,  7, 54, 10, tll::Color(0, 0, 0));
+    tll::drawLine(51,  8, 54, 11, tll::Color(0, 0, 0));
 
     // Channel down button
     if (!this->is_touched_[4])
@@ -72,10 +72,10 @@ void ADIR01P_Television::run()
     else
         tll::drawRect(45, 17, 12, 12, tll::Color(0, 128, 0));
 
-    tll::drawLine(47, 22, 50, 25, tll::Color(255, 255, 255));
-    tll::drawLine(47, 23, 50, 26, tll::Color(255, 255, 255));
-    tll::drawLine(51, 25, 54, 22, tll::Color(255, 255, 255));
-    tll::drawLine(51, 26, 54, 23, tll::Color(255, 255, 255));
+    tll::drawLine(47, 22, 50, 25, tll::Color(0, 0, 0));
+    tll::drawLine(47, 23, 50, 26, tll::Color(0, 0, 0));
+    tll::drawLine(51, 25, 54, 22, tll::Color(0, 0, 0));
+    tll::drawLine(51, 26, 54, 23, tll::Color(0, 0, 0));
 }
 
 void ADIR01P_Television::terminate()
