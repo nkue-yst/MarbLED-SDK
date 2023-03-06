@@ -11,7 +11,7 @@
 
 ADIR01P_AirConditioner::ADIR01P_AirConditioner()
     : temperature_(20.f)
-    , power_on_(true)
+    , power_on_(false)
 {
     std::cout << "Create ADIR01P_AirConditioner instance." << std::endl;
 
