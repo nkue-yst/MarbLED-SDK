@@ -1,6 +1,11 @@
 # 人工大理石透過型LEDタッチディスプレイのためのソフトウェアライブラリ＆ランタイム
 ![poster](https://user-images.githubusercontent.com/39930174/223172410-72b69af8-baf7-4b31-95a5-40dde126c700.png)
 
+# 対応環境
+- Linux(Ubuntu, RaspberryPi OS)
+- WSL(Ubuntu)
+- WSL2(Ubuntu)
+
 # ビルド
 以下の手順によって`app`ディレクトリ下アプリケーションプログラム、アプリケーションを実行・切り替えるためのランタイムをビルドすることができます。
 ```
