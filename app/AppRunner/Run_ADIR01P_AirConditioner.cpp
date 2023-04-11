@@ -3,5 +3,5 @@
 int main()
 {
     AppRunner runner;
-    runner.runApp("VoiceRecognition");
+    runner.runApp("ADIR01P_AirConditioner");
 }

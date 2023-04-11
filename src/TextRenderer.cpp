@@ -42,10 +42,12 @@ namespace tll
         this->loadFont();
     }
 
-    void TextRenderer::drawText(std::string str, Color color, uint32_t x, uint32_t y)
+    void TextRenderer::drawText(std::string str, Color color, uint32_t x, uint32_t y, uint16_t size)
     {
         uint32_t width  = TLL_ENGINE(PanelManager)->getWidth();
         uint32_t height = TLL_ENGINE(PanelManager)->getHeight();
+
+        this->font_size_ = size;
 
         cv::String text = str;
         uint32_t thickness  = -1;
@@ -61,15 +63,15 @@ namespace tll
 
         ft2_->putText(img, text, text_org, font_size_, cv::Scalar::all(255), thickness, line_style, true);
 
-        for (int32_t y = 0; y < img.rows; y++)
+        for (int32_t Y = 0; Y < img.rows; Y++)
         {
-            for (int32_t x = 0; x < img.cols; x++)
+            for (int32_t X = 0; X < img.cols; X++)
             {
-                if (img.at<cv::Vec3b>(y, x)[2] != 0
-                 && img.at<cv::Vec3b>(y, x)[1] != 0
-                 && img.at<cv::Vec3b>(y, x)[0] != 0)
+                if (img.at<cv::Vec3b>(Y, X)[2] != 0
+                 && img.at<cv::Vec3b>(Y, X)[1] != 0
+                 && img.at<cv::Vec3b>(Y, X)[0] != 0)
                 {
-                    TLL_ENGINE(PanelManager)->drawPixel(x, y, color);
+                    TLL_ENGINE(PanelManager)->drawPixel(x + X, y + Y, color);
                 }
             }
         }

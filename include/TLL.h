@@ -92,7 +92,7 @@ namespace tll
      * @param  std::string str  String to print
      * @param  color            Color to print string
      */
-    void print(std::string str, Color color);
+    void print(std::string str, uint16_t x, uint16_t y, uint16_t size, Color color);
 
     /**
      * @fn     void clear()

@@ -203,7 +203,7 @@ void CockroachShooting::run()
             break;
         }
 
-        tll::print(std::to_string(this->score), tll::Palette::White);
+        tll::print(std::to_string(this->score), 0, 0, 22, tll::Palette::White);
         break;
 
     default:

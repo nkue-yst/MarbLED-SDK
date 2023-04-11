@@ -9,11 +9,11 @@
 #include <cstdint>
 #include <memory>
 
-class VoiceRecognition : public tll::AppInterface
+class ADIR01P_AirConditioner : public tll::AppInterface
 {
 public:
-    VoiceRecognition();
-    ~VoiceRecognition();
+    ADIR01P_AirConditioner();
+    ~ADIR01P_AirConditioner();
 
     void init() override;
     void run() override;
@@ -23,7 +23,11 @@ public:
     void onMoved(tll::TouchInfo ti) override;
     void onReleased(tll::TouchInfo ti) override;
 
-    void procOscMessage(const osc::ReceivedMessage& msg) override;
+    float temperature_;
+
+    bool power_on_;
+
+    bool pressed_[3];
 };
 
 /* Required to use in loading application file */
@@ -31,6 +35,6 @@ extern "C"
 {
     std::unique_ptr<tll::AppInterface> create()
     {
-        return std::unique_ptr<tll::AppInterface>(new VoiceRecognition);
+        return std::unique_ptr<tll::AppInterface>(new ADIR01P_AirConditioner);
     }
 }
