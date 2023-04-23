@@ -73,12 +73,12 @@ void ADIR01P_Light::onReleased(tll::TouchInfo ti)
     {
         if (this->light_on_)
         {
-            std::system("bto_advanced_USBIR_cmd -d `cat command_light_off.txt`");
+            tll::OscHandler::sendMessage("/tll/app/light/off", "192.168.0.101", 3333);
             this->light_on_ = false;
         }
         else
         {
-            std::system("bto_advanced_USBIR_cmd -d `cat command_light_on.txt`");
+            tll::OscHandler::sendMessage("/tll/app/light/on", "192.168.0.101", 3333);
             this->light_on_ = true;
         }
 
