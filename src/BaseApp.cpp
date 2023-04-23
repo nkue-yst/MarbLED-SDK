@@ -105,7 +105,7 @@ namespace tll
                         drawCircle(53, 16, count * 2, tll::Color(0, 128, 255));
                         drawCircle(53, 16, count * 2 + 1, tll::Color(0, 128, 255));
                         if (count >= 45)
-                            this->switchApp("MusicVisualizer");
+                            this->switchApp("ADIR01P_Light");
                     }
 
                     if (count >= 45)

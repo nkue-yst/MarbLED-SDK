@@ -102,23 +102,23 @@ namespace tll
             }
             else if (ch == '4')
             {
-                OscHandler::sendMessageWithString("/tll/switch", "ImageViewer", "127.0.0.1", 44101);
+                OscHandler::sendMessageWithString("/tll/switch", "MultiTouchLine", "127.0.0.1", 44101);
             }
             else if (ch == '5')
             {
-                OscHandler::sendMessageWithString("/tll/switch", "MultiTouchLine", "127.0.0.1", 44101);
-            }
-            else if (ch == 'q')
-            {
                 OscHandler::sendMessageWithString("/tll/switch", "CockroachShooting", "127.0.0.1", 44101);
             }
-            else if (ch == 'w')
+            else if (ch == '6')
             {
                 OscHandler::sendMessageWithString("/tll/switch", "Theremin", "127.0.0.1", 44101);
             }
-            else if (ch == 'e')
+            else if (ch == '7')
             {
                 OscHandler::sendMessageWithString("/tll/switch", "MusicVisualizer", "127.0.0.1", 44101);
+            }
+            else if (ch == '8')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "ADIR01P_Light", "127.0.0.1", 44101);
             }
         }
     }
