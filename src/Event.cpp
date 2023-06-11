@@ -153,6 +153,36 @@ namespace tll
         this->tobj_list_.erase(id);
     }
 
+    void EventHandlerTuio::addTouchedBlob(uint32_t id, int32_t x, int32_t y, int32_t w, int32_t h)
+    {
+        this->server_->initFrame(TUIO::TuioTime::getSessionTime());
+
+        if (this->tblob_list_[id] == nullptr)
+        {
+            TUIO::TuioBlob* tblob = this->server_->addTuioBlob(x, y, 0, w, h, w * h);
+            this->tblob_list_[id] = tblob;
+        }
+        else
+        {
+            this->updateTouchedBlob(id, x, y, w, h);
+        }
+
+        this->server_->commitFrame();
+    }
+
+    void EventHandlerTuio::updateTouchedBlob(uint32_t id, int32_t x, int32_t y, int32_t w, int32_t h)
+    {
+        this->server_->updateTuioBlob(this->tblob_list_[id], x, y, 0, w, h, w * h);
+    }
+
+    void EventHandlerTuio::removeTouchedBlob(uint32_t id)
+    {
+        this->server_->removeTuioBlob(this->tblob_list_[id]);
+        this->server_->commitFrame();
+
+        this->tblob_list_.erase(id);
+    }
+
     uint32_t EventHandlerTuio::getTouchedNum()
     {
         return this->tobj_list_.size();
@@ -169,6 +199,9 @@ namespace tll
             osc::ReceivedMessage::const_iterator arg = msg.ArgumentsBegin();
             std::vector<std::string> words = this->split(msg.AddressPattern());    // OSCメッセージを分割する
 
+            /****************
+             * タッチ点処理 *
+             ****************/
             if (words.at(0) == "touch" && words.at(2) == "point")    // タッチ点が追加・更新された場合
             {
                 int32_t x = (arg++)->AsInt32();
@@ -179,6 +212,22 @@ namespace tll
             else if (words.at(0) == "touch" && words.at(2) == "delete")    // タッチ点が削除された場合
             {
                 TLL_ENGINE(EventHandler)->removeTouchedPoint(std::atoi(words.at(1).c_str()));
+            }
+            /******************
+             * タッチ領域処理 *
+             ******************/
+            else if (words.at(0) == "blob" && words.at(2) == "bbox1")    // タッチ領域が追加・更新された場合
+            {
+                int32_t x = (arg++)->AsInt32();
+                int32_t y = (arg++)->AsInt32();
+                int32_t w = (arg++)->AsInt32();
+                int32_t h = (arg++)->AsInt32();
+
+                TLL_ENGINE(EventHandler)->addTouchedBlob(std::atoi(words.at(1).c_str()), x, y, w, h);
+            }
+            else if (words.at(0) == "blob" && words.at(2) == "delete")    // タッチ領域が削除された場合
+            {
+                TLL_ENGINE(EventHandler)->removeTouchedBlob(std::atoi(words.at(1).c_str()));
             }
         }
         catch (osc::Exception& e)

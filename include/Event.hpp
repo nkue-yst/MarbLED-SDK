@@ -55,6 +55,15 @@ namespace tll
         // タッチ点が削除された際の処理
         virtual void removeTouchedPoint(uint32_t id) = 0;
 
+        // タッチ領域が追加された際の処理
+        virtual void addTouchedBlob(uint32_t id, int32_t x, int32_t y, int32_t w, int32_t h) = 0;
+
+        // タッチ領域が移動した際の処理
+        virtual void updateTouchedBlob(uint32_t id, int32_t x, int32_t y, int32_t w, int32_t h) = 0;
+
+        // タッチ領域が削除された際の処理
+        virtual void removeTouchedBlob(uint32_t id) = 0;
+
         // タッチ点の数を返す
         virtual uint32_t getTouchedNum() = 0;
 
@@ -91,6 +100,15 @@ namespace tll
         // タッチ点が削除された際の処理
         void removeTouchedPoint(uint32_t id) override;
 
+        // タッチ領域が追加された際の処理
+        void addTouchedBlob(uint32_t id, int32_t x, int32_t y, int32_t w, int32_t h) override;
+
+        // タッチ領域が移動した際の処理
+        void updateTouchedBlob(uint32_t id, int32_t x, int32_t y, int32_t w, int32_t h) override;
+
+        // タッチ領域が削除された際の処理
+        void removeTouchedBlob(uint32_t id) override;
+
         // タッチ点の数を返す
         uint32_t getTouchedNum() override;
 
@@ -106,6 +124,9 @@ namespace tll
 
         // Tuio Object（タッチ点）のリスト
         std::map<uint32_t, TUIO::TuioObject*> tobj_list_;
+
+        // Tuio Blob（認識した領域）のリスト
+        std::map<uint32_t, TUIO::TuioBlob*> tblob_list_;
     };
     
     /* タッチイベント関連のOSCメッセージ受信クラス */

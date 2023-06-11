@@ -135,7 +135,8 @@ namespace tll
             if (this->running_app)
             {
                 this->running_app->onReleased(
-                    TouchInfo{
+                    TouchInfo
+                    {
                         static_cast<uint32_t>(tobj->getSymbolID()),
                         static_cast<int32_t>(tobj->getX()),
                         static_cast<int32_t>(tobj->getY())
@@ -148,9 +149,47 @@ namespace tll
         void updateTuioCursor(TUIO::TuioCursor *tcur) override {}
         void removeTuioCursor(TUIO::TuioCursor *tcur) override {}
         
-        void addTuioBlob(TUIO::TuioBlob *tblb) override {}
-        void updateTuioBlob(TUIO::TuioBlob *tblb) override {}
-        void removeTuioBlob(TUIO::TuioBlob *tblb) override {}
+        void addTuioBlob(TUIO::TuioBlob *tblb) override
+        {
+            this->running_app->addBlob(
+                BlobInfo
+                {
+                    static_cast<uint32_t>(tblb->getBlobID()),
+                    static_cast<int32_t>(tblb->getX()),
+                    static_cast<int32_t>(tblb->getY()),
+                    static_cast<int32_t>(tblb->getWidth()),
+                    static_cast<int32_t>(tblb->getHeight())
+                }
+            );
+        }
+
+        void updateTuioBlob(TUIO::TuioBlob *tblb) override
+        {
+            this->running_app->moveBlob(
+                BlobInfo
+                {
+                    static_cast<uint32_t>(tblb->getBlobID()),
+                    static_cast<int32_t>(tblb->getX()),
+                    static_cast<int32_t>(tblb->getY()),
+                    static_cast<int32_t>(tblb->getWidth()),
+                    static_cast<int32_t>(tblb->getHeight())
+                }
+            );
+        }
+
+        void removeTuioBlob(TUIO::TuioBlob *tblb) override
+        {
+            this->running_app->removeBlob(
+                BlobInfo
+                {
+                    static_cast<uint32_t>(tblb->getBlobID()),
+                    static_cast<int32_t>(tblb->getX()),
+                    static_cast<int32_t>(tblb->getY()),
+                    static_cast<int32_t>(tblb->getWidth()),
+                    static_cast<int32_t>(tblb->getHeight())
+                }
+            );
+        }
 
         void refresh(TUIO::TuioTime ftime) override {}
 

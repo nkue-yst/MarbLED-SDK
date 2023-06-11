@@ -24,10 +24,15 @@ namespace tll
         virtual void run() = 0;
         virtual void terminate() = 0;
 
-        /* Single touch event */
+        /* Touch event */
         virtual void onTouched(TouchInfo ti) = 0;
         virtual void onMoved(TouchInfo ti) = 0;
         virtual void onReleased(TouchInfo ti) = 0;
+
+        /* Blob event */
+        virtual void addBlob(BlobInfo bi) {}
+        virtual void moveBlob(tll::BlobInfo bi) {}
+        virtual void removeBlob(tll::BlobInfo bi) {}
 
         /* OSC process */
         virtual void procOscMessage(const osc::ReceivedMessage& msg) {}
