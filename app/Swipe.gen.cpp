@@ -74,7 +74,7 @@ void Swipe::onReleased(tll::TouchInfo ti)
     int32_t dist = std::sqrt(dx * dx + dy * dy);
 
     uint32_t elapsed = this->ticks - this->start_time;
-    double velocity = dist / elapsed;
+    double velocity = dist / (elapsed + 1);
 
     if (dist >= SWIPE_DISTANCE_THRESHOLD && velocity >= SWIPE_VELOCITY_THRESHOLD)
     {
