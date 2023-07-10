@@ -38,7 +38,7 @@ void MarbleTower::run()
 
 void MarbleTower::terminate()
 {
-
+    tll::clear();
 }
 
 void MarbleTower::onTouched(tll::TouchInfo ti)
@@ -75,6 +75,7 @@ void MarbleTower::onMoved(tll::TouchInfo ti)
 void MarbleTower::onReleased(tll::TouchInfo ti)
 {
     tll::OscHandler::sendMessage("/tll/app/tower/stroke/end", DEST_IP, DEST_PORT);
+    tll::OscHandler::sendMessage("/tll/app/tower/stroke/start", DEST_IP, DEST_PORT);
 
     tll::clear();
 }

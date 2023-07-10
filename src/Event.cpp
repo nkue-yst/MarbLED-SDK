@@ -120,6 +120,14 @@ namespace tll
             {
                 OscHandler::sendMessageWithString("/tll/switch", "ADIR01P_Light", "127.0.0.1", 44101);
             }
+            else if (ch == 'q')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "MarbleTower", "127.0.0.1", 44101);
+            }
+            else if (ch == 'w')
+            {
+                OscHandler::sendMessageWithString("/tll/switch", "CockroachShooting", "127.0.0.1", 44101);
+            }
         }
     }
 
