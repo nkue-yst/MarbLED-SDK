@@ -2,7 +2,7 @@
  * @file    TLL.h
  * @brief   API公開用ヘッダファイル
  * @author  Yoshito Nakaue
- * @date    2022/08/22
+ * @date    2022/08/02
  */
 
 #ifndef __TLL_H__
@@ -30,26 +30,6 @@ namespace tll
 
     /// Monochrome LED is unlit.
     constexpr int OFF = 0;
-
-    /**
-     * @fn  void init(uint16_t width, uint16_t height)
-     * @brief  システム全体の初期化
-     * @param  width  パネルの横幅
-     * @param  height  パネルの高さ
-     */
-    void init(uint16_t width, uint16_t height, std::string LED_driver = "HT16K33");
-
-    /**
-     * @fn     bool loop()
-     * @brief  Main loop on the framework
-     */
-    bool loop() noexcept;
-
-    /**
-     * @fn  void quit()
-     * @brief  システム全体を終了
-     */
-    void quit();
 
     void drawPixel(uint16_t x, uint16_t y, Color color);
     void drawPixels(std::vector<uint16_t> x, std::vector<uint16_t> y, Color color);
