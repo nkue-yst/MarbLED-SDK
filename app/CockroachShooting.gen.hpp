@@ -65,9 +65,6 @@ public:
     int32_t charge;
     std::chrono::system_clock::time_point start, now;
 
-    /* Button components */
-    tll::Image* button_start;
-
     /* Animation flags */
     bool playing_shoot_anim;
 };

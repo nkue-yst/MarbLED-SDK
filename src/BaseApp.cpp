@@ -63,8 +63,10 @@ namespace tll
         init(64, 32, "HUB75");
 
         this->loadApps();
-        this->switchApp("ADIR01P_AirConditioner");
-
+        
+        //this->switchApp("CockroachShooting");
+        this->switchApp("MarbleTower");
+        
         while (loop())
         {
             static uint32_t count = 0;    // アニメーション用カウンタ
@@ -105,7 +107,7 @@ namespace tll
                         drawCircle(53, 16, count * 2, tll::Color(0, 128, 255));
                         drawCircle(53, 16, count * 2 + 1, tll::Color(0, 128, 255));
                         if (count >= 45)
-                            this->switchApp("MusicVisualizer");
+                            this->switchApp("ADIR01P_Light");
                     }
 
                     if (count >= 45)

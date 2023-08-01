@@ -101,16 +101,11 @@ CockroachShooting::~CockroachShooting()
         cockroach = nullptr;
     }
 
-    delete this->button_start;
-
     std::cout << "Delete CockroachShooting instance." << std::endl;
 }
 
 void CockroachShooting::init()
 {
-    this->button_start = tll::loadImage("Button_Start.jpg");
-    this->button_start->resize(32, 64);
-
     //PiSoundPlayer::playSound("start.wav");
     tll::OscHandler::sendMessage("/tll/app/G-Shooter/init", "192.168.0.100", 3333);
 }
@@ -124,7 +119,7 @@ void CockroachShooting::run()
     // タイトル画面
     case TITLE:
         // タイトル画面表示
-        button_start->draw(0, 0, (tll::getTouchedNum() == 0 ? tll::Color(0, 200, 255) : tll::Color(0, 128, 128)));
+        tll::print("Start", 0, 0, 22, tll::Palette::Aqua);
         break;
 
     // ゲームプレイ中

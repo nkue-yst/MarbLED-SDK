@@ -19,6 +19,21 @@ namespace tll
         }
     };
 
+    struct BlobInfo
+    {
+    public:
+        uint32_t id;
+        int32_t x;
+        int32_t y;
+        int32_t w;
+        int32_t h;
+
+        bool operator=(const BlobInfo& rhs) const
+        {
+            return this->id == rhs.id;
+        }
+    };
+
 }
 
 #endif
