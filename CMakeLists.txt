@@ -67,18 +67,6 @@ include_directories(include)
 add_library(${PROJECT} SHARED ${TLL_SRC})
 target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} cppzmq oscpack TUIO)
 
-### Setup base application ###
-option(TLL_BASE_APP "Build base app" ON)
-if(TLL_BASE_APP)
-    add_executable(TLL_BaseApp ${CMAKE_SOURCE_DIR}/src/BaseApp.cpp)
-    target_link_libraries(TLL_BaseApp ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
-    if(WIRINGPI_LIBRARIES)
-        target_link_libraries(TLL_BaseApp stdc++fs)
-    endif()
-
-    file(COPY ${CMAKE_SOURCE_DIR}/example/image DESTINATION ${CMAKE_BINARY_DIR})
-endif()
-
 ### Setup building applications ###
 option(TLL_BUILD_APP "Build applications using TLL" ON)
 if(TLL_BUILD_APP)
