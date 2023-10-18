@@ -11,8 +11,6 @@
 #include <random>
 #include <vector>
 
-#include "BaseApp.hpp"
-
 #define PLAYING_TIME 60.f     // プレイ時間（sec）
 #define MAX_G_SPEED 2         // Gの最高速度（pixel/frame）
 #define MAX_LEVEL 5           // 最大レベル

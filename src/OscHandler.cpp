@@ -76,9 +76,9 @@ namespace tll
         }
     }
 
-    void runOscReceiveThread(class BaseApp* base_app)
+    void runOscReceiveThread(class AppManager* app_manager)
     {
-        OscHandler osc_handler(base_app);
+        OscHandler osc_handler(app_manager);
         UdpListeningReceiveSocket osc_sock(IpEndpointName(IpEndpointName::ANY_ADDRESS, 44101), &osc_handler);
         osc_sock.Run();
     }

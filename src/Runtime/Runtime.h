@@ -26,21 +26,6 @@ namespace tll
 
         void addTuioObject(TUIO::TuioObject *tobj) override
         {
-            if (this->is_home_)
-            {
-                int32_t x = static_cast<int32_t>(tobj->getX());
-                int32_t y = static_cast<int32_t>(tobj->getY());
-
-                if (8 <= y && y <= 22)
-                {
-                    this->icon_pressed[0] = ( 3 <= x && x <= 17);
-                    this->icon_pressed[1] = (24 <= x && x <= 38);
-                    this->icon_pressed[2] = (45 <= x && x <= 59);
-                }
-
-                return;
-            }
-
             if (this->running_app)
             {
                 this->running_app->onTouched(
@@ -55,26 +40,6 @@ namespace tll
 
         void updateTuioObject(TUIO::TuioObject *tobj) override
         {
-            if (this->is_home_)
-            {
-                int32_t x = static_cast<int32_t>(tobj->getX());
-                int32_t y = static_cast<int32_t>(tobj->getY());
-
-                if (8 <= y && y <= 22)
-                {
-                    this->icon_pressed[0] = ( 3 <= x && x <= 17);
-                    this->icon_pressed[1] = (24 <= x && x <= 38);
-                    this->icon_pressed[2] = (45 <= x && x <= 59);
-                }
-                else
-                {
-                    for (int i = 0; i < 3; i++)
-                        this->icon_pressed[i] = false;
-                }
-
-                return;
-            }
-
             if (this->running_app)
             {
                 this->running_app->onMoved(
@@ -89,49 +54,6 @@ namespace tll
 
         void removeTuioObject(TUIO::TuioObject *tobj) override
         {
-            if (this->is_home_)
-            {
-                int32_t x = static_cast<int32_t>(tobj->getX());
-                int32_t y = static_cast<int32_t>(tobj->getY());
-
-                if (8 <= y && y <= 22)
-                {
-                    if (3 <= x && x <= 17)
-                    {
-                        this->is_playing_anim = 0;
-                    }
-                    else
-                    {
-                        this->icon_pressed[0] = false;
-                    }
-
-                    if (24 <= x && x <= 38)
-                    {
-                        this->is_playing_anim = 1;
-                    }
-                    else
-                    {
-                        this->icon_pressed[1] = false;
-                    }
-
-                    if (45 <= x && x <= 59)
-                    {
-                        this->is_playing_anim = 2;
-                    }
-                    else
-                    {
-                        this->icon_pressed[2] = false;
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < 3; i++)
-                        this->icon_pressed[i] = false;
-                }
-
-                return;
-            }
-
             if (this->running_app)
             {
                 this->running_app->onReleased(
@@ -208,41 +130,47 @@ namespace tll
 
         TUIO::TuioClient* tuio_client;
         TUIO::OscReceiver* osc_receiver;
-
-        bool is_home_;            // ホーム画面の表示判定用
-        tll::Image* icon_img;     // ホーム画面用画像データ
-
-        bool icon_pressed[3] = { false, false, false };
-
-        bool back_to_home_flag = false;
-        std::chrono::system_clock::time_point back_to_home_tp;
-
-        // アニメーション用フラグ
-        int8_t is_playing_anim = -1;
     };
 
 }
 
-namespace PiSoundPlayer
+
+#ifndef __MARBLED_RUNTIME__
+#define __MARBLED_RUNTIME__
+
+#include <cstdint>
+#include <functional>
+#include <string>
+#include <vector>
+
+#include "Image.hpp"
+#include "Video.hpp"
+
+/**
+ * @namespace  tll
+ * @brief  TouchLED-Libraryの名前空間
+ */
+namespace tll
 {
-    // 効果音再生
-    void playSound(std::string file);
+    /**
+     * @fn  void init(uint16_t width, uint16_t height)
+     * @brief  システム全体の初期化
+     * @param  width  パネルの横幅
+     * @param  height  パネルの高さ
+     */
+    void init(uint16_t width, uint16_t height, std::string LED_driver = "HT16K33");
 
-    // 効果音の音量設定
-    void setSoundVolume(int32_t new_volume);
+    /**
+     * @fn     bool loop()
+     * @brief  Main loop on the framework
+     */
+    bool loop() noexcept;
 
-    // BGM再生
-    void playBGM(std::string file);
-
-    // BGM一時停止
-    void pauseBGM();
-
-    // BGM再開
-    void resumeBGM();
-
-    // BGM停止
-    void stopBGM();
-
-    // BGMの音量設定
-    void setBgmVolume(int32_t new_volume);
+    /**
+     * @fn  void quit()
+     * @brief  システム全体を終了
+     */
+    void quit();
 }
+
+#endif

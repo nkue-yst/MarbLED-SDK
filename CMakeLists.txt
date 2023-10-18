@@ -73,6 +73,13 @@ if(TLL_BUILD_APP)
     add_subdirectory(${CMAKE_SOURCE_DIR}/app)
 endif()
 
+### Setup building runtime test ###
+option(MARBLED_BUILD_RUNTIME_TEST "Build mini runtime for app test" OFF)
+if (MARBLED_BUILD_RUNTIME_TEST)
+    add_executable(MarbLED_Runtime ${CMAKE_SOURCE_DIR}/src/Runtime/Runtime.cpp)
+    target_link_libraries(MarbLED_Runtime ${CMAKE_DL_LIBS} ${PROJECT} TUIO stdc++fs)
+endif()
+
 ### Copy engine component files ###
 add_custom_command(
     TARGET ${PROJECT} POST_BUILD

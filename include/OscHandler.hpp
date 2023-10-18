@@ -23,7 +23,7 @@ namespace tll
     {
     public:
         OscHandler() noexcept {}
-        OscHandler(class BaseApp* base_app) noexcept :app_ref(base_app) {}
+        OscHandler(class AppManager* base_app) noexcept :app_ref(base_app) {}
         ~OscHandler() noexcept {}
 
         // OSCメッセージを送信する
@@ -42,11 +42,11 @@ namespace tll
         // 受信したOSCメッセージを解析する
         virtual void ProcessMessage(const osc::ReceivedMessage& msg, const IpEndpointName& remote_end_pt) override;
 
-        class BaseApp* app_ref;
+        class AppManager* app_ref;
     };
 
     // OSCメッセージ受信スレッドの起動
-    void runOscReceiveThread(class BaseApp* base_app);
+    void runOscReceiveThread(class AppManager* app_manager);
 }
 
 #endif
