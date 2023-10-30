@@ -5,7 +5,7 @@
 
 #include "OscHandler.hpp"
 
-#include "BaseApp.hpp"
+#include "Runtime.h"
 
 namespace tll
 {

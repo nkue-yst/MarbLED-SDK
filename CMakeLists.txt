@@ -62,8 +62,8 @@ include_directories(thirdparty/libzmq/include)
 include_directories(thirdparty/cppzmq)
 
 ### Create TouchLED-Library (main project) ###
-file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp)
-include_directories(include)
+file(GLOB TLL_SRC ${CMAKE_SOURCE_DIR}/src/*.cpp ${CMAKE_SOURCE_DIR}/src/Runtime/Runtime.cpp)
+include_directories(include ${CMAKE_SOURCE_DIR}/src/Runtime)
 add_library(${PROJECT} SHARED ${TLL_SRC})
 target_link_libraries(${PROJECT} ${OpenCV_LIBRARIES} cppzmq oscpack TUIO)
 
@@ -76,8 +76,9 @@ endif()
 ### Setup building runtime test ###
 option(MARBLED_BUILD_RUNTIME_TEST "Build mini runtime for app test" OFF)
 if (MARBLED_BUILD_RUNTIME_TEST)
+    include_directories(${CMAKE_SOURCE_DIR}/src/Runtime)
     add_executable(MarbLED_Runtime ${CMAKE_SOURCE_DIR}/src/Runtime/Runtime.cpp)
-    target_link_libraries(MarbLED_Runtime ${CMAKE_DL_LIBS} ${PROJECT} TUIO stdc++fs)
+    target_link_libraries(MarbLED_Runtime ${CMAKE_DL_LIBS} ${PROJECT} TUIO)
 endif()
 
 ### Copy engine component files ###
