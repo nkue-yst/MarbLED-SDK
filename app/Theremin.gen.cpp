@@ -38,7 +38,7 @@ void Theremin::run()
     tll::clear();
 
     // Volumeバーを表示
-    tll::drawRect(0, HEIGHT - 3, WIDTH, 3, tll::Palette::Aqua);
+    tll::drawRect(0, HEIGHT - 2, WIDTH + 1, 3, tll::Palette::Aqua);
 
     // Pitchバーを表示
     tll::drawRect(0, 0, 3, HEIGHT, tll::Palette::Aqua);
