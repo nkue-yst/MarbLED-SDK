@@ -1,12 +1,12 @@
 [submodule "thirdparty/TUIO11_CPP"]
 	path = thirdparty/TUIO11_CPP
 	url = https://github.com/mkalten/TUIO11_CPP.git
-[submodule "thirdparty/oscpack"]
-	path = thirdparty/oscpack
-	url = https://github.com/RossBencina/oscpack.git
 [submodule "thirdparty/libzmq"]
 	path = thirdparty/libzmq
 	url = https://github.com/zeromq/libzmq.git
 [submodule "thirdparty/cppzmq"]
 	path = thirdparty/cppzmq
 	url = https://github.com/zeromq/cppzmq.git
+[submodule "thirdparty/oscpack"]
+	path = thirdparty/oscpack
+	url = https://github.com/mkalten/oscpack.git
