@@ -9,8 +9,8 @@
 #include <iostream>
 #include <thread>
 
-#define WIDTH  (64 - 1)
-#define HEIGHT (32 - 1)
+#define WIDTH  (18 * 3 - 1)
+#define HEIGHT (18 * 1 - 1)
 
 Theremin::Theremin()
     : is_touched(false)
@@ -38,10 +38,10 @@ void Theremin::run()
     tll::clear();
 
     // Volumeバーを表示
-    tll::drawRect(0, 29, 64, 3, tll::Palette::Aqua);
+    tll::drawRect(0, HEIGHT - 2, WIDTH + 1, 3, tll::Palette::Aqua);
 
     // Pitchバーを表示
-    tll::drawRect(0, 0, 3, 32, tll::Palette::Aqua);
+    tll::drawRect(0, 0, 3, HEIGHT, tll::Palette::Aqua);
 
     // タッチされている場合タッチ点を表示
     if (this->is_touched)

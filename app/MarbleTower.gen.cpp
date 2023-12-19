@@ -46,8 +46,8 @@ void MarbleTower::onTouched(tll::TouchInfo ti)
     if (ti.id != 0)
         return;
 
-    tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/x", ti.x, DEST_IP, DEST_PORT);
-    tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/y", ti.y, DEST_IP, DEST_PORT);
+    //tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/x", ti.x, DEST_IP, DEST_PORT);
+    //tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/y", ti.y, DEST_IP, DEST_PORT);
 
     tll::drawRect(ti.x - 1, ti.y - 1, 2, 2, tll::Color(255, 255, 255));
 
@@ -63,8 +63,8 @@ void MarbleTower::onMoved(tll::TouchInfo ti)
     if (sqrt(pow(ti.x - this->current_x, 2) + pow(ti.y - this->current_y, 2)) < STROKE_THRESHOLD)
         return;
 
-    tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/x", ti.x, DEST_IP, DEST_PORT);
-    tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/y", ti.y, DEST_IP, DEST_PORT);
+    //tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/x", ti.x, DEST_IP, DEST_PORT);
+    //tll::OscHandler::sendMessageWithInt32("/tll/app/tower/stroke/y", ti.y, DEST_IP, DEST_PORT);
 
     tll::drawRect(ti.x - 2, ti.y - 2, 4, 4, tll::Color(255, 255, 255));
 
@@ -74,8 +74,8 @@ void MarbleTower::onMoved(tll::TouchInfo ti)
 
 void MarbleTower::onReleased(tll::TouchInfo ti)
 {
-    tll::OscHandler::sendMessage("/tll/app/tower/stroke/end", DEST_IP, DEST_PORT);
-    tll::OscHandler::sendMessage("/tll/app/tower/stroke/start", DEST_IP, DEST_PORT);
+    //tll::OscHandler::sendMessage("/tll/app/tower/stroke/end", DEST_IP, DEST_PORT);
+    //tll::OscHandler::sendMessage("/tll/app/tower/stroke/start", DEST_IP, DEST_PORT);
 
     tll::clear();
 }
