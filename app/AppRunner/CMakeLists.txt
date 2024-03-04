@@ -23,3 +23,4 @@ link_libraries(oscpack)
 #add_executable(Run_Swipe Run_Swipe.cpp)
 
 add_executable(Run_MarbleTower Run_MarbleTower.cpp)
+add_executable(Run_Scan Run_Scan.cpp)
